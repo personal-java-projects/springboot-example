@@ -1,0 +1,25 @@
+2021-12-26 20:38:19.803 [main] INFO  com.example.SpringbootExampleApplication - Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 10392 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2021-12-26 20:38:19.804 [main] INFO  com.example.SpringbootExampleApplication - No active profile set, falling back to default profiles: default
+2021-12-26 20:38:20.567 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2021-12-26 20:38:20.573 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2021-12-26 20:38:20.573 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-26 20:38:20.574 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-26 20:38:20.618 [main] INFO  o.a.c.c.C.[.[localhost].[/springboot-service] - Initializing Spring embedded WebApplicationContext
+2021-12-26 20:38:20.618 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 791 ms
+2021-12-26 20:38:20.969 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2021-12-26 20:38:20.981 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-26 20:38:20.987 [main] INFO  com.example.SpringbootExampleApplication - Started SpringbootExampleApplication in 1.478 seconds (JVM running for 1.713)
+2021-12-26 20:38:33.698 [main] INFO  com.example.SpringbootExampleApplication - Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 24740 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2021-12-26 20:38:33.700 [main] INFO  com.example.SpringbootExampleApplication - No active profile set, falling back to default profiles: default
+2021-12-26 20:38:34.495 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8888 (http)
+2021-12-26 20:38:34.500 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2021-12-26 20:38:34.501 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-26 20:38:34.501 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-26 20:38:34.544 [main] INFO  o.a.c.c.C.[.[localhost].[/springboot-service] - Initializing Spring embedded WebApplicationContext
+2021-12-26 20:38:34.544 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 820 ms
+2021-12-26 20:38:34.871 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2021-12-26 20:38:34.881 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-26 20:38:34.887 [main] INFO  com.example.SpringbootExampleApplication - Started SpringbootExampleApplication in 1.477 seconds (JVM running for 1.711)
+2021-12-26 20:39:09.969 [http-nio-8888-exec-2] INFO  o.a.c.c.C.[.[localhost].[/springboot-service] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-26 20:39:09.970 [http-nio-8888-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-26 20:39:09.970 [http-nio-8888-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms

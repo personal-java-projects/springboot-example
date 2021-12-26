@@ -1,0 +1,15 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /springboot-service
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.35.44.70:3306/example?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
+    username: root
+    password: root
+mybatis:
+  config-location: classpath:sqlMapConfig.xml
+  mapper-locations: classpath:mappers/*.xml
+logging:
+  config: classpath:logback-spring.xml
