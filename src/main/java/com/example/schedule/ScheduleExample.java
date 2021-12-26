@@ -1,12 +1,17 @@
 package com.example.schedule;
 
+import com.alibaba.fastjson.JSON;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import com.example.util.HttpClientComponent;
+
+import com.example.util.SaveAndExportFile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -54,25 +59,36 @@ public class ScheduleExample {
     @Autowired
     private UserService userService;
 
-//    @Scheduled(cron = "0/10 * * * * ?")  //每10秒执行一次
-//    public void excTask(){
-//        System.out.println("定时任务执行，执行时间是："+new Date());
-//        List<User> users = userService.getUsers();
-//        System.out.println("查询数据库user表的全部值是:"+users);
-//
-//        Map<String, Object> map = new HashMap<>();
-//
-//        map.put("X-Shopify-Access-Token", "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");
-//
-//        HttpClientComponent.doGet("https://amelie-home-shop.myshopify.com/admin/api/2021-10/customers.json", "UTF-8", map);
-//
-////        JSONObject jsonObject = new JSONObject();
-////        jsonObject.put("commentId", "13026194071");
-////        HttpClientComponent.doPost("http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=13026194071", jsonObject);
-//    }
+    @Scheduled(cron = "0/10 * * * * ?")  //每10秒执行一次
+    @Async
+    public void excTask() throws IOException {
+        System.out.println("定时任务执行，执行时间是："+new Date());
+        List<User> users = userService.getUsers();
+        System.out.println("查询数据库user表的全部值是:"+users);
+
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("X-Shopify-Access-Token", "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");
+
+        String responseBody = HttpClientComponent.doGet("https://amelie-home-shop.myshopify.com/admin/api/2021-10/customers.json", "UTF-8", map);
+
+        System.out.println("responseBody: " + responseBody);
+
+        String location = "/";
+        String filename = "io_json_" + new Date().getTime();
+        String extension = ".json";
+
+        SaveAndExportFile.saveFile(location, filename, extension, responseBody.toString());
+
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("commentId", "13026194071");
+//        HttpClientComponent.doPost("http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=13026194071", jsonObject);
+    }
+
 
     @Scheduled(cron = "0 0 22 ? * SUN")  //每周日晚上22点执行
-    public void excTask(){
+    @Async
+    public void excTask1(){
         System.out.println("定时任务执行，执行时间是："+new Date());
         List<User> users = userService.getUsers();
         System.out.println("查询数据库user表的全部值是:"+users);

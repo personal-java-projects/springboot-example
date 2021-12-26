@@ -11,5 +11,10 @@ spring:
 mybatis:
   config-location: classpath:sqlMapConfig.xml
   mapper-locations: classpath:mappers/*.xml
+#logging:
 logging:
-  config: classpath:logback-spring.xml
+  level:
+    com.example: DEBUG
+  file:
+    path:  ./log/
+#  config: classpath:logback-spring.xml.bak

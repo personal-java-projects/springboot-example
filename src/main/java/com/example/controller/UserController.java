@@ -1,16 +1,16 @@
 package com.example.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.pojo.Role;
 import com.example.pojo.User;
 import com.example.service.UserService;
-import com.example.util.Md5;
-import com.example.util.ResponseResult;
-import com.example.util.ResultCodeEnum;
-import com.example.util.TokenUtil;
+import com.example.util.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.*;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,8 +23,21 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/index")
-    public ResponseResult index(){
+    public ResponseResult index() throws IOException {
 //         ResponseEntity.ok("fucke");
+
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("name", "zhangsan");
+        map.put("age", 12);
+
+        String location = "./";
+        String filename = "io_json_" + new Date().getTime();
+        String extension = ".json";
+
+        File file = SaveAndExportFile.saveFile(location, filename, extension, JSON.toJSONString(map));
+
+        System.out.println("file: " + file);
 
         return new ResponseResult().ok().data(123);
     }
