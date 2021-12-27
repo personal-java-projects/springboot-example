@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /springboot-service
 spring:
+  application:
+    name: springfox-swagger
   jackson:
     # 统一转换日期格式
     date-format: yyyy-MM-dd HH:mm:ss
@@ -39,6 +41,9 @@ minio:
   # 密码
   secretKey: admin123456
   # ===== 自定义swagger配置 ===== #
-springfox:
-  documentation:
-    enabled: true
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
