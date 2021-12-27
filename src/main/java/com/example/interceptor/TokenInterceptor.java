@@ -31,6 +31,8 @@ public class TokenInterceptor implements HandlerInterceptor {
             throw new UnAuthorizationException(ResultCodeEnum.TOkEN_EXPIRED.getCode(), ResultCodeEnum.LOGIN_EXPIRED.getMessage());
         }
 
+        System.out.println("token成功");
+
         response.setHeader("access-token", token);
         return true;
     }

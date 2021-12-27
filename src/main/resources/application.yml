@@ -38,3 +38,7 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
+  # ===== 自定义swagger配置 ===== #
+springfox:
+  documentation:
+    enabled: true
