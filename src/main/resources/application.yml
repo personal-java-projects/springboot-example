@@ -3,6 +3,19 @@ server:
   servlet:
     context-path: /springboot-service
 spring:
+  jackson:
+    # 统一转换日期格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB #将之前的6M改成了100M
+      max-request-size: 100MB #将之前的6M改成了100M
+  mvc:
+    pathmatch:
+      # Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher。
+      matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://101.35.44.70:3306/example?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
@@ -18,3 +31,10 @@ logging:
   file:
     path:  ./log/
 #  config: classpath:logback-spring.xml.bak
+minio:
+  # 地址 应该使用api的端口，即使用--address指定的端口
+  endpoint: http://101.35.44.70:9000
+  # 账号
+  accessKey: admin
+  # 密码
+  secretKey: admin123456

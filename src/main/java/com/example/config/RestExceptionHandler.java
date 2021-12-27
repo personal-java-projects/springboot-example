@@ -25,7 +25,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResponseResult handleException(Exception e){
-        return ResponseResult.error().code(ResultCodeEnum.INTERNAL_SERVER_ERROR.getCode()).message(ResultCodeEnum.INTERNAL_SERVER_ERROR.getMessage() + ":" + e.getMessage());
+        return ResponseResult.error().code(ResultCodeEnum.INTERNAL_SERVER_ERROR.getCode()).message(ResultCodeEnum.INTERNAL_SERVER_ERROR.getMessage() + e.getMessage());
     }
 
     /**
