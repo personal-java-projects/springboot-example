@@ -1,13 +1,20 @@
 package com.example.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "User类")
 public class User {
     // 用户id
+    @ApiModelProperty(value = "用户id", example = "1")
     private int id;
 
     // 用户姓名
+    @ApiModelProperty(value = "用户名", example = "user")
     private String username;
 
     // 用户密码
+    @ApiModelProperty(value = "用户密码", example = "123456789")
     private String password;
 
     // 用户角色

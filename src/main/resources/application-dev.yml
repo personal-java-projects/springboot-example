@@ -3,8 +3,6 @@ server:
   servlet:
     context-path: /springboot-service
 spring:
-  profiles:
-    active: @activatedProperties@ # 这里引用的是pom.xml中配置的key，@activatedProperties@ 中内如必须与 profile=>properties=> activatedProperties节点一致
   jackson:
     # 统一转换日期格式
     date-format: yyyy-MM-dd HH:mm:ss
@@ -16,7 +14,7 @@ spring:
       max-request-size: 100MB #将之前的6M改成了100M
   mvc:
     pathmatch:
-      # Springfox3使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher。
+      # Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher。
       matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -40,19 +38,3 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
-knife4j:
-  enable: false
-  production: true
-  basic:
-    enable: true
-    username: admin
-    password: admin
-  setting:
-    language: zh-CN
-    enableSwaggerModels: true
-    swaggerModelName: 实体类列表
-    enableDocumentManage: true
-    enableReloadCacheParameter: true
-    enableVersion: true
-  documents:
-    locations: classpath:markdowns/*

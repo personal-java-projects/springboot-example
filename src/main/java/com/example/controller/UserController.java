@@ -5,9 +5,12 @@ import com.example.pojo.Role;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import com.example.util.*;
+import io.swagger.annotations.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.io.*;
 import java.util.Date;
@@ -17,6 +20,7 @@ import java.util.Map;
 @Log4j2
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户模块")
 public class UserController {
 
     @Autowired
@@ -47,6 +51,7 @@ public class UserController {
      * @return
      */
     // 前端请求默认是application/json格式，所以这里需要写@RequestBody，用来接收json格式的传参
+    @ApiOperation("用户注册")
     @RequestMapping(value = "/userRegister", method = RequestMethod.POST)
     @ResponseBody
     public ResponseResult userRegister(@RequestBody Map<String, Object> userInfo) {
@@ -66,9 +71,14 @@ public class UserController {
      * @param user
      * @return
      */
+    @ApiOperation(value = "用户登录", consumes ="application/json", response = ResponseResult.class)
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "username", value = "用户名", dataType = "string", paramType = "body", required = true),
+        @ApiImplicitParam(name = "password", value = "密码", dataType = "string", paramType = "body", required = true)
+    })
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult userLogin(@RequestBody User user) {
+    public ResponseResult userLogin(@ApiIgnore @RequestBody User user) {
         int userId = 0;
         String username = "";
         int identity = 0;
@@ -109,6 +119,8 @@ public class UserController {
         return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("用户不存在");
     }
 
+    @ApiOperation("删除用户")
+    @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "Long", dataTypeClass = Long.class)
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ResponseResult deleteUser(@PathVariable("id") int id) {
@@ -133,6 +145,7 @@ public class UserController {
      * 重置密码
      * @return
      */
+    @ApiOperation("重置密码")
     @RequestMapping(value = "/resetPassword", method = RequestMethod.PATCH)
     @ResponseBody
     public ResponseResult resetPassword(@RequestBody Map<String, Object> userInfo) {
