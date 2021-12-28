@@ -37,7 +37,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/swagger**/**")
                 .excludePathPatterns("/webjars/**")
                 .excludePathPatterns("/v3/**")
-                .excludePathPatterns("/doc.html");
+                .excludePathPatterns("/doc.html")
+                .excludePathPatterns("/favicon.ico");
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }

@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.io.*;
 import java.util.Date;
@@ -70,20 +71,14 @@ public class UserController {
      * @param user
      * @return
      */
-    @ApiOperation("用户登录")
+    @ApiOperation(value = "用户登录", consumes ="application/json", response = ResponseResult.class)
     @ApiImplicitParams({
-        @ApiImplicitParam(name = "username", value = "用户名", dataType = "string", paramType = "query"),
-        @ApiImplicitParam(name = "password", value = "密码", dataType = "string", paramType = "query")
-    })
-    @ApiResponses({
-            @ApiResponse(code=200,message = "调用成功", response = User.class, examples = @Example({
-                    @ExampleProperty(mediaType = MediaType.APPLICATION_JSON_VALUE, value = "{\"code\":200,\"success\":true,\"msg\":登录成功,\"data\":{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZGVudGl0eSI6MSwiaXNzIjoiYXV0aDAiLCJpZCI6NDAsImV4cCI6MTY0MDY2OTMzMCwidXNlcm5hbWUiOiJ1c2VyIn0.M21FEaCENa1FIAkc1hdDGJlOM5UaQ4Jx2i984EnTjcs\"}}")
-            })),
-            @ApiResponse(code=400,message = "请求出错" )
+        @ApiImplicitParam(name = "username", value = "用户名", dataType = "string", paramType = "body", required = true),
+        @ApiImplicitParam(name = "password", value = "密码", dataType = "string", paramType = "body", required = true)
     })
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult userLogin(@RequestBody User user) {
+    public ResponseResult userLogin(@ApiIgnore @RequestBody User user) {
         int userId = 0;
         String username = "";
         int identity = 0;

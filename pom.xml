@@ -38,17 +38,11 @@
 			<version>2.2.0</version>
 		</dependency>
 
-		<!-- 引入Swagger3依赖 -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-boot-starter</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<!-- 引入swagger-bootstrap-ui包 /doc.html-->
 		<dependency>
 			<groupId>com.github.xiaoymin</groupId>
-			<artifactId>swagger-bootstrap-ui</artifactId>
-			<version>1.9.6</version>
+			<artifactId>knife4j-spring-boot-starter</artifactId>
+			<!--在引用时请在maven中央仓库搜索3.X最新版本号-->
+			<version>3.0.3</version>
 		</dependency>
 
 		<dependency>
