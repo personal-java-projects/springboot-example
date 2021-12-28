@@ -326,3 +326,17 @@ com.example.exception.UnAuthorizationException: token缺失
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
 	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
 
+2021-12-28 00:26:00.953  INFO 32928 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 32928 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2021-12-28 00:26:00.954 DEBUG 32928 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 00:26:00.954  INFO 32928 --- [main] c.example.SpringbootExampleApplication   : No active profile set, falling back to default profiles: default
+2021-12-28 00:26:01.894  INFO 32928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 00:26:01.900  INFO 32928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 00:26:01.900  INFO 32928 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 00:26:01.957  INFO 32928 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 00:26:01.957  INFO 32928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 979 ms
+2021-12-28 00:26:02.695  INFO 32928 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 00:26:02.847  INFO 32928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 00:26:03.073  INFO 32928 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.36 seconds (JVM running for 2.63)
+2021-12-28 00:26:13.473  INFO 32928 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 00:26:13.473  INFO 32928 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 00:26:13.474  INFO 32928 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
