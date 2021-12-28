@@ -3,8 +3,6 @@ server:
   servlet:
     context-path: /springboot-service
 spring:
-  profiles:
-    active: @activatedProperties@ # 这里引用的是pom.xml中配置的key，@activatedProperties@ 中内如必须与 profile=>properties=> activatedProperties节点一致
   application:
     name: springfox-swagger
   jackson:

@@ -5,6 +5,7 @@ import com.example.pojo.Role;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import com.example.util.*;
+import io.swagger.annotations.Api;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.Map;
 @Log4j2
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户模块")
 public class UserController {
 
     @Autowired

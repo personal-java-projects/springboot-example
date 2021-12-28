@@ -367,3 +367,361 @@ com.example.exception.UnAuthorizationException: token缺失
 2021-12-27 18:19:21.027  INFO 12688 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 =======
 >>>>>>> 02ba36ec4eab7161186ad8d6469088b507005524
+2021-12-28 09:16:47.030  INFO 30380 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 30380 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 09:16:47.032 DEBUG 30380 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 09:16:47.032  INFO 30380 --- [main] c.example.SpringbootExampleApplication   : No active profile set, falling back to default profiles: default
+2021-12-28 09:16:48.372  INFO 30380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 09:16:48.380  INFO 30380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 09:16:48.380  INFO 30380 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 09:16:48.382  WARN 30380 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 09:16:48.382  INFO 30380 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 09:16:48.382  INFO 30380 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 09:16:48.382  INFO 30380 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 09:16:48.384  INFO 30380 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 09:16:48.453  INFO 30380 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 09:16:48.453  INFO 30380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1377 ms
+2021-12-28 09:16:49.530  INFO 30380 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 09:16:49.764  INFO 30380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 09:16:50.095  INFO 30380 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.402 seconds (JVM running for 3.714)
+2021-12-28 09:17:30.480  INFO 30380 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 09:17:30.480  INFO 30380 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 09:17:30.481  INFO 30380 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 09:25:58.507  INFO 30380 --- [http-nio-8888-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-28 09:25:58.772  INFO 30380 --- [http-nio-8888-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-28 09:25:58.778 DEBUG 30380 --- [http-nio-8888-exec-7] c.e.m.UserMapper.selectUserByUsername    : ==>  Preparing: select * from ex_user where username=?
+2021-12-28 09:25:58.796 DEBUG 30380 --- [http-nio-8888-exec-7] c.e.m.UserMapper.selectUserByUsername    : ==> Parameters: user(String)
+2021-12-28 09:25:58.830 DEBUG 30380 --- [http-nio-8888-exec-7] c.e.m.UserMapper.selectUserByUsername    : <==      Total: 1
+2021-12-28 09:25:58.834 DEBUG 30380 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2021-12-28 09:25:58.834 DEBUG 30380 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 40(Integer)
+2021-12-28 09:25:58.845 DEBUG 30380 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2021-12-28 09:36:56.673  INFO 1556 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 1556 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 09:36:56.674 DEBUG 1556 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 09:36:56.675  INFO 1556 --- [main] c.example.SpringbootExampleApplication   : No active profile set, falling back to default profiles: default
+2021-12-28 09:36:58.069  INFO 1556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 09:36:58.078  INFO 1556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 09:36:58.078  INFO 1556 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 09:36:58.079  WARN 1556 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 09:36:58.079  INFO 1556 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 09:36:58.080  INFO 1556 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 09:36:58.080  INFO 1556 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 09:36:58.082  INFO 1556 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 09:36:58.151  INFO 1556 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 09:36:58.151  INFO 1556 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1434 ms
+2021-12-28 09:36:59.226  INFO 1556 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 09:36:59.455  INFO 1556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 09:36:59.789  INFO 1556 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.444 seconds (JVM running for 3.774)
+2021-12-28 09:39:41.080  INFO 29736 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 29736 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 09:39:41.082 DEBUG 29736 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 09:39:41.082  INFO 29736 --- [main] c.example.SpringbootExampleApplication   : No active profile set, falling back to default profiles: default
+2021-12-28 09:39:42.434  INFO 29736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 09:39:42.442  INFO 29736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 09:39:42.443  INFO 29736 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 09:39:42.444  WARN 29736 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 09:39:42.444  INFO 29736 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 09:39:42.444  INFO 29736 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 09:39:42.445  INFO 29736 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 09:39:42.447  INFO 29736 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 09:39:42.513  INFO 29736 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 09:39:42.513  INFO 29736 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1388 ms
+2021-12-28 09:39:43.566  INFO 29736 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 09:39:43.802  INFO 29736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 09:39:44.144  INFO 29736 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.379 seconds (JVM running for 3.695)
+2021-12-28 09:39:50.979  INFO 29736 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 09:39:50.979  INFO 29736 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 09:39:50.980  INFO 29736 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 09:41:16.395  INFO 29736 --- [http-nio-8888-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-28 09:41:16.624  INFO 29736 --- [http-nio-8888-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-28 09:41:16.631 DEBUG 29736 --- [http-nio-8888-exec-8] c.e.m.UserMapper.selectUserByUsername    : ==>  Preparing: select * from ex_user where username=?
+2021-12-28 09:41:16.649 DEBUG 29736 --- [http-nio-8888-exec-8] c.e.m.UserMapper.selectUserByUsername    : ==> Parameters: user(String)
+2021-12-28 09:41:16.673 DEBUG 29736 --- [http-nio-8888-exec-8] c.e.m.UserMapper.selectUserByUsername    : <==      Total: 1
+2021-12-28 09:41:16.677 DEBUG 29736 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2021-12-28 09:41:16.677 DEBUG 29736 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 40(Integer)
+2021-12-28 09:41:16.688 DEBUG 29736 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2021-12-28 10:09:00.035  INFO 20204 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 20204 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:09:00.036 DEBUG 20204 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:09:00.037  INFO 20204 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: prod
+2021-12-28 10:09:01.465  INFO 20204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:09:01.473  INFO 20204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:09:01.473  INFO 20204 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:09:01.475  WARN 20204 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:09:01.475  INFO 20204 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:09:01.475  INFO 20204 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:09:01.475  INFO 20204 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:09:01.478  INFO 20204 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:09:01.545  INFO 20204 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:09:01.546  INFO 20204 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1467 ms
+2021-12-28 10:09:02.678  INFO 20204 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:09:02.920  INFO 20204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:09:03.269  INFO 20204 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.561 seconds (JVM running for 3.865)
+2021-12-28 10:09:17.535  INFO 20204 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:09:17.535  INFO 20204 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:09:17.536  INFO 20204 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:20:52.026  INFO 26124 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 26124 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:20:52.028 DEBUG 26124 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:20:52.028  INFO 26124 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: prod
+2021-12-28 10:20:53.488  INFO 26124 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:20:53.497  INFO 26124 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:20:53.498  INFO 26124 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:20:53.499  WARN 26124 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:20:53.499  INFO 26124 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:20:53.500  INFO 26124 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:20:53.500  INFO 26124 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:20:53.502  INFO 26124 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:20:53.572  INFO 26124 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:20:53.572  INFO 26124 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1498 ms
+2021-12-28 10:20:54.701  INFO 26124 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:20:54.929  WARN 26124 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8888 is already in use
+2021-12-28 10:20:54.934  INFO 26124 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-12-28 10:20:54.947  INFO 26124 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-28 10:20:54.959 ERROR 26124 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8888 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8888 or configure this application to listen on another port.
+
+2021-12-28 10:21:29.707  INFO 23036 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 23036 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:21:29.708 DEBUG 23036 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:21:29.709  INFO 23036 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: prod
+2021-12-28 10:21:31.109  INFO 23036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:21:31.117  INFO 23036 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:21:31.118  INFO 23036 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:21:31.119  WARN 23036 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:21:31.119  INFO 23036 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:21:31.119  INFO 23036 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:21:31.119  INFO 23036 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:21:31.122  INFO 23036 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:21:31.190  INFO 23036 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:21:31.190  INFO 23036 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1439 ms
+2021-12-28 10:21:32.316  INFO 23036 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:21:32.548  INFO 23036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:21:32.880  INFO 23036 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.49 seconds (JVM running for 3.801)
+2021-12-28 10:21:45.215  INFO 23036 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:21:45.215  INFO 23036 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:21:45.216  INFO 23036 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:28:08.966  INFO 24108 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 24108 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:28:08.968 DEBUG 24108 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:28:08.968  INFO 24108 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: prod
+2021-12-28 10:28:10.393  INFO 24108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:28:10.402  INFO 24108 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:28:10.403  INFO 24108 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:28:10.404  WARN 24108 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:28:10.404  INFO 24108 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:28:10.404  INFO 24108 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:28:10.404  INFO 24108 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:28:10.407  INFO 24108 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:28:10.473  INFO 24108 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:28:10.473  INFO 24108 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1462 ms
+2021-12-28 10:28:11.601  INFO 24108 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:28:11.831  INFO 24108 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:28:11.843  INFO 24108 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.2 seconds (JVM running for 3.515)
+2021-12-28 10:28:33.844  INFO 24108 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:28:33.844  INFO 24108 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:28:33.845  INFO 24108 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:29:35.948  INFO 25192 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 25192 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:29:35.949 DEBUG 25192 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:29:35.950  INFO 25192 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:29:37.429  INFO 25192 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:29:37.437  INFO 25192 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:29:37.437  INFO 25192 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:29:37.438  WARN 25192 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:29:37.439  INFO 25192 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:29:37.439  INFO 25192 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:29:37.439  INFO 25192 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:29:37.441  INFO 25192 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:29:37.516  INFO 25192 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:29:37.516  INFO 25192 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1523 ms
+2021-12-28 10:29:38.724  INFO 25192 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:29:38.981  INFO 25192 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:29:39.332  INFO 25192 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.71 seconds (JVM running for 4.02)
+2021-12-28 10:30:12.687  INFO 25192 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:30:12.687  INFO 25192 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:30:12.689  INFO 25192 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:31:55.985  INFO 4296 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 4296 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:31:55.987 DEBUG 4296 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:31:55.987  INFO 4296 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:31:57.430  INFO 4296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:31:57.438  INFO 4296 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:31:57.439  INFO 4296 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:31:57.440  WARN 4296 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:31:57.440  INFO 4296 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:31:57.440  INFO 4296 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:31:57.440  INFO 4296 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:31:57.443  INFO 4296 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:31:57.509  INFO 4296 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:31:57.510  INFO 4296 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1480 ms
+2021-12-28 10:31:58.655  INFO 4296 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:31:58.899  INFO 4296 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:31:59.238  INFO 4296 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.579 seconds (JVM running for 3.897)
+2021-12-28 10:32:06.086  INFO 4296 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:32:06.087  INFO 4296 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:32:06.088  INFO 4296 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:40:56.535  INFO 18848 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 18848 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:40:56.536 DEBUG 18848 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:40:56.536  INFO 18848 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:40:57.995  INFO 18848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:40:58.004  INFO 18848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:40:58.004  INFO 18848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:40:58.005  WARN 18848 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:40:58.005  INFO 18848 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:40:58.005  INFO 18848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:40:58.006  INFO 18848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:40:58.008  INFO 18848 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:40:58.075  INFO 18848 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:40:58.075  INFO 18848 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1496 ms
+2021-12-28 10:40:59.218  INFO 18848 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:40:59.456  INFO 18848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:40:59.798  INFO 18848 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.593 seconds (JVM running for 3.9)
+2021-12-28 10:41:52.007  INFO 18848 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:41:52.007  INFO 18848 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:41:52.008  INFO 18848 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:44:56.529  INFO 25000 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 25000 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:44:56.531 DEBUG 25000 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:44:56.531  INFO 25000 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:44:57.955  INFO 25000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:44:57.963  INFO 25000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:44:57.963  INFO 25000 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:44:57.965  WARN 25000 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:44:57.966  INFO 25000 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:44:57.966  INFO 25000 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:44:57.966  INFO 25000 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:44:57.968  INFO 25000 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:44:58.033  INFO 25000 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:44:58.033  INFO 25000 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1459 ms
+2021-12-28 10:44:59.140  INFO 25000 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:44:59.369  INFO 25000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:44:59.422  INFO 25000 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.226 seconds (JVM running for 3.553)
+2021-12-28 10:45:08.736  INFO 25000 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:45:08.736  INFO 25000 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:45:08.737  INFO 25000 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:45:32.106  INFO 6740 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 6740 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:45:32.109 DEBUG 6740 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:45:32.109  INFO 6740 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:45:33.944  INFO 6740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:45:33.955  INFO 6740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:45:33.955  INFO 6740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:45:33.957  WARN 6740 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:45:33.958  INFO 6740 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:45:33.959  INFO 6740 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:45:33.959  INFO 6740 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:45:33.961  INFO 6740 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:45:34.033  INFO 6740 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:45:34.034  INFO 6740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1851 ms
+2021-12-28 10:45:35.259  INFO 6740 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:45:35.491  INFO 6740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:45:35.708  INFO 6740 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 4.077 seconds (JVM running for 4.404)
+2021-12-28 10:45:40.287  INFO 6740 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:45:40.288  INFO 6740 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:45:40.289  INFO 6740 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:51:01.195  INFO 6060 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 6060 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:51:01.197 DEBUG 6060 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:51:01.198  INFO 6060 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:51:02.601  INFO 6060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:51:02.609  INFO 6060 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:51:02.609  INFO 6060 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:51:02.611  WARN 6060 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:51:02.611  INFO 6060 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:51:02.611  INFO 6060 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:51:02.611  INFO 6060 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:51:02.614  INFO 6060 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:51:02.683  INFO 6060 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:51:02.683  INFO 6060 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1441 ms
+2021-12-28 10:51:03.825  INFO 6060 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:51:04.062  INFO 6060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:51:04.292  INFO 6060 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.436 seconds (JVM running for 3.75)
+2021-12-28 10:51:11.994  INFO 6060 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:51:11.994  INFO 6060 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:51:11.995  INFO 6060 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-28 10:52:42.995 ERROR 6060 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/springboot-service] threw exception [Request processing failed; nested exception is UnAuthorizationException{code=406, message='token缺失'}] with root cause
+
+com.example.exception.UnAuthorizationException: token缺失
+	at com.example.interceptor.TokenInterceptor.preHandle(TokenInterceptor.java:27) ~[classes/:na]
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1062) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_261]
+
+2021-12-28 10:57:06.808  INFO 14868 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 14868 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:57:06.810 DEBUG 14868 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:57:06.810  INFO 14868 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:57:08.255  INFO 14868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:57:08.264  INFO 14868 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:57:08.264  INFO 14868 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:57:08.265  WARN 14868 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:57:08.266  INFO 14868 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:57:08.266  INFO 14868 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:57:08.266  INFO 14868 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:57:08.268  INFO 14868 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:57:08.335  INFO 14868 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:57:08.335  INFO 14868 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1479 ms
+2021-12-28 10:57:09.456  INFO 14868 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:57:09.689  INFO 14868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:57:09.906  INFO 14868 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.426 seconds (JVM running for 3.75)
+2021-12-28 10:58:03.449  INFO 14868 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:58:03.449  INFO 14868 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:58:03.451  INFO 14868 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-12-28 10:59:48.512  INFO 30708 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 30708 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-28 10:59:48.513 DEBUG 30708 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-28 10:59:48.514  INFO 30708 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: test
+2021-12-28 10:59:49.925  INFO 30708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-28 10:59:49.934  INFO 30708 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-28 10:59:49.934  INFO 30708 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-28 10:59:49.935  WARN 30708 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-28 10:59:49.935  INFO 30708 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-28 10:59:49.935  INFO 30708 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-28 10:59:49.936  INFO 30708 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-28 10:59:49.938  INFO 30708 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-28 10:59:50.008  INFO 30708 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-28 10:59:50.008  INFO 30708 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1452 ms
+2021-12-28 10:59:51.121  INFO 30708 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-28 10:59:51.352  INFO 30708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-28 10:59:51.563  INFO 30708 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.379 seconds (JVM running for 3.697)
+2021-12-28 10:59:56.124  INFO 30708 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-28 10:59:56.124  INFO 30708 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-28 10:59:56.125  INFO 30708 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

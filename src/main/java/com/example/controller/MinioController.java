@@ -79,6 +79,12 @@ public class MinioController {
         return ResponseResult.ok().data(resultMap);
     }
 
+    /**
+     * consumes： 指定处理请求的提交内容类型（Content-Type），例如application/json, text/html, multipart/form-data;
+     * produces: 指定返回的内容类型，仅当request请求头中的(Accept)类型中包含该指定类型才返回；
+     * @param file
+     * @return
+     */
     @ApiOperation(value = "文件上传")
     @PostMapping(value = "/upload", consumes = { "multipart/form-data" })
     @ResponseBody

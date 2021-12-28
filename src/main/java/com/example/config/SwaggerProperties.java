@@ -1,11 +1,13 @@
 package com.example.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("swagger")
 public class SwaggerProperties {
+
     /**
      * 是否开启swagger，生产环境一般关闭，所以这里定义一个变量
      */
