@@ -26,12 +26,18 @@ public class WebConfig implements WebMvcConfigurer {
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 
+    /**
+     *
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new TokenInterceptor()).addPathPatterns("/**").excludePathPatterns("/user/userLogin").excludePathPatterns("/user/userRegister")
-                // 不拦截swagger相关路径
-                .excludePathPatterns("/swagger**/**").excludePathPatterns("/webjars/**").excludePathPatterns("/v3/**").excludePathPatterns("doc.html");
-
+                // 通用拦截器排除swagger设置，所有拦截器都会自动加swagger相关的资源排除信息
+                .excludePathPatterns("/swagger**/**")
+                .excludePathPatterns("/webjars/**")
+                .excludePathPatterns("/v3/**")
+                .excludePathPatterns("/doc.html");
         WebMvcConfigurer.super.addInterceptors(registry);
     }
 }

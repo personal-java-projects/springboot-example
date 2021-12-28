@@ -1,10 +1,16 @@
 package com.example.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel("Role类")
 public class Role {
     // 角色ID
+    @ApiModelProperty("角色id")
     private int id;
 
     // 角色名称
+    @ApiModelProperty("角色名称")
     private String roleName;
 
     public int getId() {

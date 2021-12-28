@@ -1,17 +1,24 @@
 package com.example.util;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
+@ApiModel(value = "通用API接口返回")
 public class ResponseResult implements Serializable {
+    @ApiModelProperty(value = "通用成功状态", required = true)
     private Boolean success;
 
+    @ApiModelProperty(value = "通用返回状态码", required = true)
     private Integer code;
 
+    @ApiModelProperty(value = "通用返回信息", required = true)
     private String msg;
 
+    @ApiModelProperty(value = "通用返回数据", required = true)
     private Object data;
 
     public ResponseResult(){}
