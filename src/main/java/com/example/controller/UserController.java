@@ -47,15 +47,21 @@ public class UserController {
     }
     /**
      * 用户注册
-     * @param userInfo
+     * @param user
      * @return
      */
     // 前端请求默认是application/json格式，所以这里需要写@RequestBody，用来接收json格式的传参
-    @ApiOperation("用户注册")
+    @ApiOperation(value = "用户注册", consumes = "application/json")
     @RequestMapping(value = "/userRegister", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult userRegister(@RequestBody Map<String, Object> userInfo) {
+    public ResponseResult userRegister(@RequestBody User user) {
+        Map<String, Object> userInfo = new HashMap<>();
+        userInfo.put("username", user.getUsername());
+        userInfo.put("password", user.getPassword());
+        userInfo.put("identity", user.getRole().getId());
+
         System.out.println("userInfo: " + userInfo);
+
 
         int userId = userService.userRegister(userInfo);
 
@@ -72,16 +78,13 @@ public class UserController {
      * @return
      */
     @ApiOperation(value = "用户登录", consumes ="application/json", response = ResponseResult.class)
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "username", value = "用户名", dataType = "string", paramType = "body", required = true),
-        @ApiImplicitParam(name = "password", value = "密码", dataType = "string", paramType = "body", required = true)
-    })
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult userLogin(@ApiIgnore @RequestBody User user) {
+    public ResponseResult userLogin(@RequestBody User user) {
         int userId = 0;
         String username = "";
         int identity = 0;
+
         Map<String, Object> result = new HashMap<>();
         Map<String, Object> userMap = new HashMap<>();
 

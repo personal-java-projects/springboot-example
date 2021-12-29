@@ -1,10 +1,12 @@
 package com.example.mapper;
 
 import com.example.pojo.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface UserMapper {
     // 插入用户
     public int insertUser(User user);
