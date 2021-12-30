@@ -132,3 +132,14 @@
 2021-12-29 21:56:35.689  INFO 26584 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-12-29 21:56:35.689  INFO 26584 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-12-29 21:56:35.690  INFO 26584 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-12-29 21:56:56.002  INFO 24536 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 24536 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2021-12-29 21:56:56.004 DEBUG 24536 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-29 21:56:56.004  INFO 24536 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2021-12-29 21:56:56.944  INFO 24536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-29 21:56:56.950  INFO 24536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-29 21:56:56.950  INFO 24536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-29 21:56:57.009  INFO 24536 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-29 21:56:57.009  INFO 24536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 980 ms
+2021-12-29 21:56:57.758  INFO 24536 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-29 21:56:57.913  INFO 24536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-29 21:56:58.067  INFO 24536 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.309 seconds (JVM running for 2.582)
