@@ -73,4 +73,3 @@ public class SwaggerProperties {
         this.tryHost = tryHost;
     }
 }
-

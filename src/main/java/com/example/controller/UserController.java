@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.io.*;
 import java.util.Date;
@@ -46,15 +47,21 @@ public class UserController {
     }
     /**
      * 用户注册
-     * @param userInfo
+     * @param user
      * @return
      */
     // 前端请求默认是application/json格式，所以这里需要写@RequestBody，用来接收json格式的传参
-    @ApiOperation("用户注册")
+    @ApiOperation(value = "用户注册", consumes = "application/json")
     @RequestMapping(value = "/userRegister", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult userRegister(@RequestBody Map<String, Object> userInfo) {
+    public ResponseResult userRegister(@RequestBody User user) {
+        Map<String, Object> userInfo = new HashMap<>();
+        userInfo.put("username", user.getUsername());
+        userInfo.put("password", user.getPassword());
+        userInfo.put("identity", user.getRole().getId());
+
         System.out.println("userInfo: " + userInfo);
+
 
         int userId = userService.userRegister(userInfo);
 
@@ -70,23 +77,14 @@ public class UserController {
      * @param user
      * @return
      */
-    @ApiOperation("用户登录")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "username", value = "用户名", dataType = "string", paramType = "query"),
-        @ApiImplicitParam(name = "password", value = "密码", dataType = "string", paramType = "query")
-    })
-    @ApiResponses({
-            @ApiResponse(code=200,message = "调用成功", response = User.class, examples = @Example({
-                    @ExampleProperty(mediaType = MediaType.APPLICATION_JSON_VALUE, value = "{\"code\":200,\"success\":true,\"msg\":登录成功,\"data\":{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZGVudGl0eSI6MSwiaXNzIjoiYXV0aDAiLCJpZCI6NDAsImV4cCI6MTY0MDY2OTMzMCwidXNlcm5hbWUiOiJ1c2VyIn0.M21FEaCENa1FIAkc1hdDGJlOM5UaQ4Jx2i984EnTjcs\"}}")
-            })),
-            @ApiResponse(code=400,message = "请求出错" )
-    })
+    @ApiOperation(value = "用户登录", consumes ="application/json", response = ResponseResult.class)
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     @ResponseBody
     public ResponseResult userLogin(@RequestBody User user) {
         int userId = 0;
         String username = "";
         int identity = 0;
+
         Map<String, Object> result = new HashMap<>();
         Map<String, Object> userMap = new HashMap<>();
 
@@ -125,10 +123,9 @@ public class UserController {
     }
 
     @ApiOperation("删除用户")
-    @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "Long", dataTypeClass = Long.class)
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseResult deleteUser(@PathVariable("id") int id) {
+    public ResponseResult deleteUser(@ApiParam(value = "用户id", required = true) @PathVariable("id") int id) {
         System.out.println("删除用户：" + id);
         User user = userService.getUserById(id);
 
@@ -153,12 +150,8 @@ public class UserController {
     @ApiOperation("重置密码")
     @RequestMapping(value = "/resetPassword", method = RequestMethod.PATCH)
     @ResponseBody
-    public ResponseResult resetPassword(@RequestBody Map<String, Object> userInfo) {
-        // 封装User数据
-        User user = new User();
-        String username = (String) userInfo.get("username");
-        String newPassword = (String) userInfo.get("newPassword");
-        user.setUsername(username);
+    public ResponseResult resetPassword(@RequestBody User user) {
+        String newPassword = user.getPassword();
 
         // 判断用户是否存在
         User currentUser = userService.getUser(user);
