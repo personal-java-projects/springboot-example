@@ -3404,3 +3404,53 @@ com.example.exception.UnAuthorizationException: token缺失
 2021-12-28 16:01:12.186  INFO 22672 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021-12-28 16:01:12.186  INFO 22672 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-12-28 16:01:12.187  INFO 22672 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-30 11:21:41.034  INFO 30392 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_261 on A-MB-000380 with PID 30392 (started by 2948 in D:\programs\springboot-example)
+2021-12-30 11:21:41.036 DEBUG 30392 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-30 11:21:41.036  INFO 30392 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: dev
+2021-12-30 11:21:45.583  INFO 30392 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-30 11:21:46.995  WARN 30392 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:21:46.999  WARN 30392 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:21:47.038  INFO 30392 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 6.449 seconds (JVM running for 7.638)
+2021-12-30 11:21:53.878  INFO 30092 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 30092 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-30 11:21:53.880 DEBUG 30092 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-30 11:21:53.881  INFO 30092 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2021-12-30 11:21:55.498  INFO 30092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-30 11:21:55.507  INFO 30092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-30 11:21:55.507  INFO 30092 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-30 11:21:55.509  WARN 30092 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-30 11:21:55.509  INFO 30092 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-30 11:21:55.509  INFO 30092 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-30 11:21:55.509  INFO 30092 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-30 11:21:55.511  INFO 30092 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-30 11:21:55.585  INFO 30092 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-30 11:21:55.585  INFO 30092 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1659 ms
+2021-12-30 11:21:56.884  INFO 30092 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-30 11:21:57.194  INFO 30092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-30 11:21:57.418  WARN 30092 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:21:57.420  WARN 30092 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:21:57.444  INFO 30092 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.894 seconds (JVM running for 4.26)
+2021-12-30 11:22:23.845  INFO 28632 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_261 on A-MB-000380 with PID 28632 (started by 2948 in D:\programs\springboot-example)
+2021-12-30 11:22:23.846 DEBUG 28632 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-30 11:22:23.847  INFO 28632 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: dev
+2021-12-30 11:22:28.336  INFO 28632 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-30 11:22:29.670  WARN 28632 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:22:29.673  WARN 28632 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:22:29.712  INFO 28632 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 6.223 seconds (JVM running for 7.299)
+2021-12-30 11:22:35.507  INFO 31704 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 31704 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2021-12-30 11:22:35.509 DEBUG 31704 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2021-12-30 11:22:35.509  INFO 31704 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2021-12-30 11:22:36.938  INFO 31704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2021-12-30 11:22:36.946  INFO 31704 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-30 11:22:36.946  INFO 31704 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2021-12-30 11:22:36.948  WARN 31704 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-30 11:22:36.948  INFO 31704 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2021-12-30 11:22:36.948  INFO 31704 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2021-12-30 11:22:36.948  INFO 31704 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-30 11:22:36.950  INFO 31704 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2021-12-30 11:22:37.018  INFO 31704 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2021-12-30 11:22:37.018  INFO 31704 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1465 ms
+2021-12-30 11:22:38.142  INFO 31704 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2021-12-30 11:22:38.379  INFO 31704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2021-12-30 11:22:38.586  WARN 31704 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:22:38.587  WARN 31704 --- [main] d.s.r.o.OperationImplicitParameterReader : Unable to interpret the implicit parameter configuration with dataType: string, dataTypeClass: class java.lang.Void
+2021-12-30 11:22:38.607  INFO 31704 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.433 seconds (JVM running for 3.735)
