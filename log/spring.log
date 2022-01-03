@@ -5518,3 +5518,1099 @@ com.example.exception.UnAuthorizationException: token缺失
 2021-12-30 11:42:21.953  INFO 25764 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-12-30 11:42:21.954  INFO 25764 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 >>>>>>> 209ce88141763976673900a120b264d067de33f1
+2022-01-03 16:50:15.360  INFO 14744 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 14744 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 16:50:15.361 DEBUG 14744 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 16:50:15.362  INFO 14744 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 16:50:16.291  INFO 14744 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 16:50:16.298  INFO 14744 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 16:50:16.298  INFO 14744 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 16:50:16.356  INFO 14744 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 16:50:16.356  INFO 14744 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 969 ms
+2022-01-03 16:50:17.103  INFO 14744 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 16:50:17.254  INFO 14744 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 16:50:17.411  INFO 14744 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.303 seconds (JVM running for 2.574)
+2022-01-03 16:50:43.113  INFO 14744 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 16:50:43.114  INFO 14744 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 16:50:43.115  INFO 14744 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 17:16:05.750  INFO 3508 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 3508 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:16:05.752 DEBUG 3508 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:16:05.752  INFO 3508 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:16:06.683  INFO 3508 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:16:06.689  INFO 3508 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:16:06.689  INFO 3508 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:16:06.743  INFO 3508 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:16:06.743  INFO 3508 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 966 ms
+2022-01-03 17:16:07.267  WARN 3508 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userLoginToPo'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.example.voToPo.UserLoginToPo' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-01-03 17:16:07.269  INFO 3508 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-01-03 17:16:07.278  INFO 3508 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-01-03 17:16:07.293 ERROR 3508 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userLoginToPo in com.example.controller.UserController required a bean of type 'com.example.voToPo.UserLoginToPo' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.example.voToPo.UserLoginToPo' in your configuration.
+
+2022-01-03 17:22:01.620  INFO 15736 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 15736 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:22:01.621 DEBUG 15736 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:22:01.622  INFO 15736 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:22:02.570  INFO 15736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:22:02.576  INFO 15736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:22:02.576  INFO 15736 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:22:02.632  INFO 15736 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:22:02.632  INFO 15736 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 984 ms
+2022-01-03 17:22:03.367  INFO 15736 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:22:03.518  INFO 15736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:22:03.672  INFO 15736 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.301 seconds (JVM running for 2.569)
+2022-01-03 17:22:16.609  INFO 15736 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 17:22:16.609  INFO 15736 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 17:22:16.610  INFO 15736 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 17:34:15.067  INFO 536 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 536 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:34:15.068 DEBUG 536 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:34:15.069  INFO 536 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:34:16.033  INFO 536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:34:16.040  INFO 536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:34:16.040  INFO 536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:34:16.096  INFO 536 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:34:16.096  INFO 536 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1002 ms
+2022-01-03 17:34:16.836  INFO 536 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:34:16.991  INFO 536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:34:17.144  INFO 536 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.327 seconds (JVM running for 2.592)
+2022-01-03 17:34:23.474  INFO 536 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 17:34:23.474  INFO 536 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 17:34:23.475  INFO 536 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 17:35:11.746  INFO 7016 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 7016 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:35:11.747 DEBUG 7016 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:35:11.747  INFO 7016 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:35:12.675  INFO 7016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:35:12.681  INFO 7016 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:35:12.681  INFO 7016 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:35:12.736  INFO 7016 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:35:12.737  INFO 7016 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 965 ms
+2022-01-03 17:35:13.469  INFO 7016 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:35:13.620  INFO 7016 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:35:13.777  INFO 7016 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.276 seconds (JVM running for 2.541)
+2022-01-03 17:35:20.345  INFO 7016 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 17:35:20.345  INFO 7016 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 17:35:20.346  INFO 7016 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 17:37:44.902  INFO 14824 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 14824 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:37:44.904 DEBUG 14824 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:37:44.904  INFO 14824 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:37:45.885  INFO 14824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:37:45.891  INFO 14824 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:37:45.891  INFO 14824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:37:45.947  INFO 14824 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:37:45.947  INFO 14824 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1017 ms
+2022-01-03 17:37:46.739  INFO 14824 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:37:46.902  INFO 14824 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:37:47.062  INFO 14824 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.418 seconds (JVM running for 2.694)
+2022-01-03 17:38:21.124  INFO 13464 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 13464 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:38:21.125 DEBUG 13464 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:38:21.125  INFO 13464 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:38:22.058  INFO 13464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:38:22.064  INFO 13464 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:38:22.065  INFO 13464 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:38:22.121  INFO 13464 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:38:22.122  INFO 13464 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 971 ms
+2022-01-03 17:38:22.850  INFO 13464 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:38:22.999  INFO 13464 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:38:23.152  INFO 13464 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.272 seconds (JVM running for 2.542)
+2022-01-03 17:38:30.302  INFO 13464 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 17:38:30.302  INFO 13464 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 17:38:30.303  INFO 13464 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 17:44:26.879  INFO 16672 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 16672 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:44:26.881 DEBUG 16672 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:44:26.881  INFO 16672 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:44:27.814  INFO 16672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:44:27.818  INFO 16672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:44:27.819  INFO 16672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:44:27.876  INFO 16672 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:44:27.876  INFO 16672 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 969 ms
+2022-01-03 17:44:28.617  INFO 16672 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:44:28.765  INFO 16672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:44:28.919  INFO 16672 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.285 seconds (JVM running for 2.55)
+2022-01-03 17:44:33.776  INFO 16672 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 17:44:33.776  INFO 16672 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 17:44:33.777  INFO 16672 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 17:55:03.464  INFO 13128 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 13128 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:55:03.465 DEBUG 13128 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:55:03.465  INFO 13128 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:55:04.398  INFO 13128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:55:04.404  INFO 13128 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:55:04.404  INFO 13128 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:55:04.461  INFO 13128 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:55:04.461  INFO 13128 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 972 ms
+2022-01-03 17:55:05.211  INFO 13128 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:55:05.369  INFO 13128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:55:05.527  INFO 13128 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.31 seconds (JVM running for 2.574)
+2022-01-03 17:55:16.852  INFO 13128 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 17:55:16.852  INFO 13128 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 17:55:16.853  INFO 13128 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 17:57:49.843  INFO 16368 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 16368 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 17:57:49.845 DEBUG 16368 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 17:57:49.845  INFO 16368 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 17:57:50.779  INFO 16368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 17:57:50.785  INFO 16368 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 17:57:50.785  INFO 16368 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 17:57:50.844  INFO 16368 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 17:57:50.844  INFO 16368 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 974 ms
+2022-01-03 17:57:51.571  INFO 16368 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 17:57:51.721  INFO 16368 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 17:57:51.877  INFO 16368 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.28 seconds (JVM running for 2.538)
+2022-01-03 17:57:57.559  INFO 16368 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 17:57:57.560  INFO 16368 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 17:57:57.561  INFO 16368 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:00:37.154  INFO 17584 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17584 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:00:37.156 DEBUG 17584 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:00:37.156  INFO 17584 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:00:38.082  INFO 17584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:00:38.088  INFO 17584 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:00:38.088  INFO 17584 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:00:38.145  INFO 17584 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:00:38.145  INFO 17584 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 964 ms
+2022-01-03 18:00:38.883  INFO 17584 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:00:39.033  INFO 17584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:00:39.187  INFO 17584 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.277 seconds (JVM running for 2.54)
+2022-01-03 18:00:57.452  INFO 17584 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:00:57.452  INFO 17584 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:00:57.453  INFO 17584 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:01:37.843  INFO 2696 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 2696 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:01:37.844 DEBUG 2696 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:01:37.845  INFO 2696 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:01:38.786  INFO 2696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:01:38.792  INFO 2696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:01:38.792  INFO 2696 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:01:38.848  INFO 2696 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:01:38.848  INFO 2696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 977 ms
+2022-01-03 18:01:39.585  INFO 2696 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:01:39.736  INFO 2696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:01:39.891  INFO 2696 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.305 seconds (JVM running for 2.574)
+2022-01-03 18:01:56.892  INFO 2696 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:01:56.892  INFO 2696 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:01:56.893  INFO 2696 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:05:00.224  INFO 14040 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 14040 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:05:00.226 DEBUG 14040 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:05:00.226  INFO 14040 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:05:01.163  INFO 14040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:05:01.168  INFO 14040 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:05:01.169  INFO 14040 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:05:01.225  INFO 14040 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:05:01.225  INFO 14040 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 975 ms
+2022-01-03 18:05:01.963  INFO 14040 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:05:02.113  INFO 14040 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:05:02.267  INFO 14040 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.29 seconds (JVM running for 2.558)
+2022-01-03 18:05:13.814  INFO 14040 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:05:13.815  INFO 14040 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:05:13.816  INFO 14040 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:08:43.862  INFO 18012 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18012 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:08:43.863 DEBUG 18012 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:08:43.863  INFO 18012 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:08:44.785  INFO 18012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:08:44.791  INFO 18012 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:08:44.791  INFO 18012 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:08:44.848  INFO 18012 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:08:44.848  INFO 18012 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 959 ms
+2022-01-03 18:08:45.589  INFO 18012 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:08:45.740  INFO 18012 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:08:45.895  INFO 18012 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.279 seconds (JVM running for 2.545)
+2022-01-03 18:08:55.685  INFO 18012 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:08:55.685  INFO 18012 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:08:55.686  INFO 18012 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:10:19.264  INFO 17624 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17624 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:10:19.265 DEBUG 17624 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:10:19.265  INFO 17624 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:10:20.207  INFO 17624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:10:20.212  INFO 17624 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:10:20.213  INFO 17624 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:10:20.268  INFO 17624 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:10:20.269  INFO 17624 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 979 ms
+2022-01-03 18:10:21.011  INFO 17624 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:10:21.161  INFO 17624 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:10:21.313  INFO 17624 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.297 seconds (JVM running for 2.568)
+2022-01-03 18:10:24.589  INFO 17624 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:10:24.590  INFO 17624 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:10:24.591  INFO 17624 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:30:54.955  INFO 17488 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17488 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:30:54.956 DEBUG 17488 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:30:54.956  INFO 17488 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:30:55.893  INFO 17488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:30:55.899  INFO 17488 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:30:55.900  INFO 17488 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:30:55.960  INFO 17488 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:30:55.960  INFO 17488 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 979 ms
+2022-01-03 18:30:56.737  INFO 17488 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:30:56.897  INFO 17488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:30:57.063  INFO 17488 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.361 seconds (JVM running for 2.637)
+2022-01-03 18:31:28.125  INFO 17488 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:31:28.126  INFO 17488 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:31:28.127  INFO 17488 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:32:23.503  INFO 16044 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 16044 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:32:23.504 DEBUG 16044 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:32:23.505  INFO 16044 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:32:24.440  INFO 16044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:32:24.447  INFO 16044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:32:24.447  INFO 16044 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:32:24.505  INFO 16044 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:32:24.505  INFO 16044 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 975 ms
+2022-01-03 18:32:25.253  INFO 16044 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:32:25.424  INFO 16044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:32:25.588  INFO 16044 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.33 seconds (JVM running for 2.601)
+2022-01-03 18:32:31.791  INFO 16044 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:32:31.791  INFO 16044 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:32:31.792  INFO 16044 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:56:43.082  INFO 14772 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 14772 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:56:43.083 DEBUG 14772 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:56:43.083  INFO 14772 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:56:44.012  INFO 14772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:56:44.018  INFO 14772 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:56:44.018  INFO 14772 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:56:44.076  INFO 14772 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:56:44.076  INFO 14772 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 969 ms
+2022-01-03 18:56:44.829  INFO 14772 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:56:44.977  INFO 14772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:56:45.132  INFO 14772 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.297 seconds (JVM running for 2.56)
+2022-01-03 18:56:55.445  INFO 14772 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:56:55.445  INFO 14772 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:56:55.446  INFO 14772 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:57:16.289  INFO 16216 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 16216 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:57:16.290 DEBUG 16216 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:57:16.291  INFO 16216 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:57:17.225  INFO 16216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:57:17.231  INFO 16216 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:57:17.231  INFO 16216 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:57:17.285  INFO 16216 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:57:17.285  INFO 16216 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 969 ms
+2022-01-03 18:57:18.022  INFO 16216 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:57:18.173  INFO 16216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:57:18.331  INFO 16216 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.285 seconds (JVM running for 2.555)
+2022-01-03 18:57:42.431  INFO 16216 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 18:57:42.431  INFO 16216 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 18:57:42.432  INFO 16216 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 18:59:33.734  INFO 17652 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17652 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 18:59:33.735 DEBUG 17652 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 18:59:33.736  INFO 17652 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 18:59:34.662  INFO 17652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 18:59:34.668  INFO 17652 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 18:59:34.668  INFO 17652 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 18:59:34.724  INFO 17652 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 18:59:34.724  INFO 17652 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 963 ms
+2022-01-03 18:59:35.464  INFO 17652 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 18:59:35.614  INFO 17652 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 18:59:35.774  INFO 17652 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.285 seconds (JVM running for 2.554)
+2022-01-03 19:00:59.882  INFO 17652 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:00:59.882  INFO 17652 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:00:59.884  INFO 17652 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-03 19:04:49.430  INFO 11868 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 11868 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:04:49.431 DEBUG 11868 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:04:49.431  INFO 11868 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:04:50.370  INFO 11868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:04:50.376  INFO 11868 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:04:50.376  INFO 11868 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:04:50.434  INFO 11868 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:04:50.434  INFO 11868 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 978 ms
+2022-01-03 19:04:51.192  INFO 11868 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:04:51.343  INFO 11868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:04:51.513  INFO 11868 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.329 seconds (JVM running for 2.601)
+2022-01-03 19:06:24.841  INFO 17672 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17672 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:06:24.843 DEBUG 17672 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:06:24.843  INFO 17672 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:06:25.775  INFO 17672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:06:25.781  INFO 17672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:06:25.781  INFO 17672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:06:25.838  INFO 17672 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:06:25.838  INFO 17672 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 970 ms
+2022-01-03 19:06:26.582  INFO 17672 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:06:26.737  INFO 17672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:06:26.892  INFO 17672 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.306 seconds (JVM running for 2.587)
+2022-01-03 19:07:01.624  INFO 17672 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:07:01.624  INFO 17672 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:07:01.625  INFO 17672 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 19:10:43.061  INFO 17344 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17344 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:10:43.062 DEBUG 17344 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:10:43.062  INFO 17344 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:10:44.021  INFO 17344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:10:44.027  INFO 17344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:10:44.027  INFO 17344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:10:44.083  INFO 17344 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:10:44.083  INFO 17344 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 996 ms
+2022-01-03 19:10:44.855  INFO 17344 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:10:45.019  INFO 17344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:10:45.182  INFO 17344 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.369 seconds (JVM running for 2.642)
+2022-01-03 19:11:14.147  INFO 17056 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17056 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:11:14.148 DEBUG 17056 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:11:14.148  INFO 17056 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:11:15.097  INFO 17056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:11:15.103  INFO 17056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:11:15.103  INFO 17056 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:11:15.159  INFO 17056 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:11:15.159  INFO 17056 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 986 ms
+2022-01-03 19:11:15.890  INFO 17056 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:11:16.044  INFO 17056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:11:16.199  INFO 17056 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.296 seconds (JVM running for 2.565)
+2022-01-03 19:11:47.880  INFO 17056 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:11:47.880  INFO 17056 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:11:47.881  INFO 17056 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 19:16:37.226  INFO 12184 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 12184 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:16:37.228 DEBUG 12184 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:16:37.228  INFO 12184 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:16:38.181  INFO 12184 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:16:38.189  INFO 12184 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:16:38.189  INFO 12184 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:16:38.251  INFO 12184 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:16:38.252  INFO 12184 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 997 ms
+2022-01-03 19:16:39.049  INFO 12184 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:16:39.200  INFO 12184 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:16:39.355  INFO 12184 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.395 seconds (JVM running for 2.667)
+2022-01-03 19:16:46.286  INFO 12184 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:16:46.286  INFO 12184 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:16:46.287  INFO 12184 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-01-03 19:18:11.300  INFO 14772 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 14772 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:18:11.302 DEBUG 14772 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:18:11.302  INFO 14772 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:18:12.260  INFO 14772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:18:12.268  INFO 14772 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:18:12.268  INFO 14772 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:18:12.329  INFO 14772 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:18:12.329  INFO 14772 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1002 ms
+2022-01-03 19:18:13.151  INFO 14772 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:18:13.316  INFO 14772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:18:13.476  INFO 14772 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.42 seconds (JVM running for 2.688)
+2022-01-03 19:18:28.828  INFO 17908 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17908 (started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:18:28.828 DEBUG 17908 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:18:28.828  INFO 17908 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: dev
+2022-01-03 19:18:31.172  INFO 17908 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:18:31.895  INFO 17908 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 3.299 seconds (JVM running for 3.993)
+2022-01-03 19:18:37.716  INFO 19068 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 19068 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:18:37.717 DEBUG 19068 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:18:37.717  INFO 19068 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:18:38.663  INFO 19068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:18:38.670  INFO 19068 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:18:38.670  INFO 19068 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:18:38.728  INFO 19068 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:18:38.729  INFO 19068 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 988 ms
+2022-01-03 19:18:39.476  INFO 19068 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:18:39.631  INFO 19068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:18:39.795  INFO 19068 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.328 seconds (JVM running for 2.606)
+2022-01-03 19:18:56.652  INFO 19068 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:18:56.652  INFO 19068 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:18:56.653  INFO 19068 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 19:23:47.469  INFO 18620 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18620 (started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:23:47.470 DEBUG 18620 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:23:47.470  INFO 18620 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: dev
+2022-01-03 19:23:50.102  INFO 18620 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:23:50.794  INFO 18620 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 3.535 seconds (JVM running for 4.243)
+2022-01-03 19:23:55.961  INFO 18380 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18380 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:23:55.962 DEBUG 18380 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:23:55.962  INFO 18380 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:23:56.947  INFO 18380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:23:56.954  INFO 18380 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:23:56.954  INFO 18380 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:23:57.013  INFO 18380 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:23:57.014  INFO 18380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1028 ms
+2022-01-03 19:23:57.774  INFO 18380 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:23:57.933  INFO 18380 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:23:58.085  INFO 18380 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.372 seconds (JVM running for 2.646)
+2022-01-03 19:40:19.782  INFO 18848 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18848 (started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:40:19.783 DEBUG 18848 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:40:19.783  INFO 18848 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: dev
+2022-01-03 19:40:23.071  INFO 18848 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:40:23.967  INFO 18848 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 4.42 seconds (JVM running for 5.1)
+2022-01-03 19:40:29.672  INFO 19264 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 19264 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:40:29.673 DEBUG 19264 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:40:29.674  INFO 19264 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:40:30.660  INFO 19264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:40:30.666  INFO 19264 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:40:30.666  INFO 19264 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:40:30.723  INFO 19264 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:40:30.723  INFO 19264 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1026 ms
+2022-01-03 19:40:31.501  INFO 19264 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:40:31.671  INFO 19264 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:40:31.824  INFO 19264 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.417 seconds (JVM running for 2.687)
+2022-01-03 19:40:57.634  INFO 19264 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:40:57.635  INFO 19264 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:40:57.636  INFO 19264 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 19:45:04.906  INFO 18796 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18796 (started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:45:04.907 DEBUG 18796 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:45:04.907  INFO 18796 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: dev
+2022-01-03 19:45:09.530  INFO 18796 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:45:10.722  INFO 18796 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 6.064 seconds (JVM running for 6.852)
+2022-01-03 19:45:17.811  INFO 14676 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 14676 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:45:17.814 DEBUG 14676 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:45:17.814  INFO 14676 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:45:18.935  INFO 14676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:45:18.943  INFO 14676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:45:18.944  INFO 14676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:45:19.012  INFO 14676 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:45:19.012  INFO 14676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1127 ms
+2022-01-03 19:45:20.358  INFO 14676 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:45:20.546  INFO 14676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:45:20.735  INFO 14676 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.282 seconds (JVM running for 3.624)
+2022-01-03 19:45:44.538  INFO 17988 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17988 (started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:45:44.539 DEBUG 17988 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:45:44.539  INFO 17988 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: dev
+2022-01-03 19:45:48.105  INFO 17988 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:45:49.530  INFO 17988 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 5.229 seconds (JVM running for 6.118)
+2022-01-03 19:45:55.765  INFO 18168 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18168 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:45:55.766 DEBUG 18168 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:45:55.767  INFO 18168 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:45:56.838  INFO 18168 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:45:56.847  INFO 18168 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:45:56.848  INFO 18168 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:45:56.915  INFO 18168 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:45:56.915  INFO 18168 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1118 ms
+2022-01-03 19:45:57.778  INFO 18168 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:45:57.965  INFO 18168 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:45:58.141  INFO 18168 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.64 seconds (JVM running for 2.942)
+2022-01-03 19:46:10.155  INFO 18168 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:46:10.156  INFO 18168 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:46:10.157  INFO 18168 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 19:46:10.209 ERROR 18168 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:235) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedInvoker$0(MapperProxy.java:108) ~[mybatis-3.5.7.jar:3.5.7]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_291]
+	at org.apache.ibatis.util.MapUtil.computeIfAbsent(MapUtil.java:36) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.cachedInvoker(MapperProxy.java:95) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy86.userLoginToUser(Unknown Source) ~[na:na]
+	at com.example.controller.UserController.userLogin(UserController.java:101) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2022-01-03 19:52:18.652  INFO 11868 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 11868 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:52:18.653 DEBUG 11868 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:52:18.653  INFO 11868 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:52:19.724  INFO 11868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:52:19.731  INFO 11868 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:52:19.731  INFO 11868 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:52:19.799  INFO 11868 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:52:19.799  INFO 11868 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1116 ms
+2022-01-03 19:52:20.658  INFO 11868 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:52:20.854  INFO 11868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:52:21.027  INFO 11868 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.655 seconds (JVM running for 2.942)
+2022-01-03 19:52:26.579  INFO 11868 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:52:26.579  INFO 11868 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:52:26.581  INFO 11868 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-03 19:52:26.638 ERROR 11868 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:235) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedInvoker$0(MapperProxy.java:108) ~[mybatis-3.5.7.jar:3.5.7]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_291]
+	at org.apache.ibatis.util.MapUtil.computeIfAbsent(MapUtil.java:36) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.cachedInvoker(MapperProxy.java:95) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy86.userLoginToUser(Unknown Source) ~[na:na]
+	at com.example.controller.UserController.userLogin(UserController.java:101) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2022-01-03 19:56:14.664  INFO 16376 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 16376 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:56:14.666 DEBUG 16376 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:56:14.666  INFO 16376 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:56:15.825  INFO 16376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:56:15.835  INFO 16376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:56:15.835  INFO 16376 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:56:15.905  INFO 16376 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:56:15.905  INFO 16376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1207 ms
+2022-01-03 19:56:16.907  INFO 16376 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:56:17.194  INFO 16376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:56:17.400  INFO 16376 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.071 seconds (JVM running for 3.37)
+2022-01-03 19:56:26.192  INFO 16376 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:56:26.192  INFO 16376 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:56:26.193  INFO 16376 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 19:56:26.241 ERROR 16376 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:235) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedInvoker$0(MapperProxy.java:108) ~[mybatis-3.5.7.jar:3.5.7]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_291]
+	at org.apache.ibatis.util.MapUtil.computeIfAbsent(MapUtil.java:36) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.cachedInvoker(MapperProxy.java:95) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy86.userLoginToUser(Unknown Source) ~[na:na]
+	at com.example.controller.UserController.userLogin(UserController.java:101) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2022-01-03 19:58:24.491  INFO 13028 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 13028 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 19:58:24.492 DEBUG 13028 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 19:58:24.492  INFO 13028 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 19:58:25.514  INFO 13028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 19:58:25.522  INFO 13028 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 19:58:25.523  INFO 13028 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 19:58:25.589  INFO 13028 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 19:58:25.589  INFO 13028 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1066 ms
+2022-01-03 19:58:26.487  INFO 13028 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 19:58:26.681  INFO 13028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 19:58:26.859  INFO 13028 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.648 seconds (JVM running for 2.942)
+2022-01-03 19:58:35.646  INFO 13028 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 19:58:35.646  INFO 13028 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 19:58:35.648  INFO 13028 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-03 19:58:35.695 ERROR 13028 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:235) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedInvoker$0(MapperProxy.java:108) ~[mybatis-3.5.7.jar:3.5.7]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_291]
+	at org.apache.ibatis.util.MapUtil.computeIfAbsent(MapUtil.java:36) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.cachedInvoker(MapperProxy.java:95) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy86.userLoginToUser(Unknown Source) ~[na:na]
+	at com.example.controller.UserController.userLogin(UserController.java:104) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2022-01-03 20:04:11.813  INFO 18448 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18448 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 20:04:11.815 DEBUG 18448 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 20:04:11.815  INFO 18448 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 20:04:12.924  INFO 18448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 20:04:12.931  INFO 18448 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 20:04:12.932  INFO 18448 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 20:04:12.996  INFO 18448 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 20:04:12.996  INFO 18448 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1148 ms
+2022-01-03 20:04:13.846  INFO 18448 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 20:04:14.027  INFO 18448 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 20:04:14.209  INFO 18448 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.686 seconds (JVM running for 2.986)
+2022-01-03 20:10:27.736  INFO 18400 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 18400 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 20:10:27.739 DEBUG 18400 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 20:10:27.739  INFO 18400 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 20:10:28.847  INFO 18400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 20:10:28.853  INFO 18400 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 20:10:28.853  INFO 18400 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 20:10:28.916  INFO 18400 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 20:10:28.916  INFO 18400 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1143 ms
+2022-01-03 20:10:29.784  INFO 18400 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 20:10:29.972  INFO 18400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 20:10:30.153  INFO 18400 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.721 seconds (JVM running for 3.036)
+2022-01-03 20:10:37.155  INFO 18400 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 20:10:37.156  INFO 18400 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 20:10:37.157  INFO 18400 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 20:10:37.206 ERROR 18400 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:235) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedInvoker$0(MapperProxy.java:108) ~[mybatis-3.5.7.jar:3.5.7]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_291]
+	at org.apache.ibatis.util.MapUtil.computeIfAbsent(MapUtil.java:36) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.cachedInvoker(MapperProxy.java:95) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy86.userLoginToUser(Unknown Source) ~[na:na]
+	at com.example.controller.UserController.userLogin(UserController.java:104) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2022-01-03 20:16:21.661  INFO 17152 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 17152 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 20:16:21.662 DEBUG 17152 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 20:16:21.662  INFO 17152 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 20:16:22.825  INFO 17152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 20:16:22.833  INFO 17152 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 20:16:22.833  INFO 17152 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 20:16:22.901  INFO 17152 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 20:16:22.901  INFO 17152 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1211 ms
+2022-01-03 20:16:23.783  INFO 17152 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 20:16:23.969  INFO 17152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 20:16:24.151  INFO 17152 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.742 seconds (JVM running for 3.039)
+2022-01-03 20:16:31.551  INFO 17152 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 20:16:31.551  INFO 17152 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 20:16:31.552  INFO 17152 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 20:16:31.601 ERROR 17152 --- [http-nio-8888-exec-1] com.example.config.RestExceptionHandler  : 500异常: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:235) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedInvoker$0(MapperProxy.java:108) ~[mybatis-3.5.7.jar:3.5.7]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_291]
+	at org.apache.ibatis.util.MapUtil.computeIfAbsent(MapUtil.java:36) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.cachedInvoker(MapperProxy.java:95) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy86.userLoginToUser(Unknown Source) ~[na:na]
+	at com.example.controller.UserController.userLogin(UserController.java:104) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2022-01-03 20:22:16.459  INFO 20028 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 20028 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 20:22:16.460 DEBUG 20028 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 20:22:16.461  INFO 20028 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 20:22:17.633  INFO 20028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 20:22:17.642  INFO 20028 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 20:22:17.643  INFO 20028 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 20:22:17.715  INFO 20028 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 20:22:17.715  INFO 20028 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1225 ms
+2022-01-03 20:22:18.667  INFO 20028 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 20:22:18.863  INFO 20028 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 20:22:19.056  INFO 20028 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 2.89 seconds (JVM running for 3.243)
+2022-01-03 20:26:41.008  INFO 20028 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 20:26:41.009  INFO 20028 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 20:26:41.010  INFO 20028 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 20:26:41.071 ERROR 20028 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.voToPo.UserVoToPo.userLoginToUser
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:235) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedInvoker$0(MapperProxy.java:108) ~[mybatis-3.5.7.jar:3.5.7]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) ~[na:1.8.0_291]
+	at org.apache.ibatis.util.MapUtil.computeIfAbsent(MapUtil.java:36) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.cachedInvoker(MapperProxy.java:95) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy86.userLoginToUser(Unknown Source) ~[na:na]
+	at com.example.controller.UserController.userLogin(UserController.java:104) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_291]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_291]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_291]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_291]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
+
+2022-01-03 21:35:46.720  INFO 21292 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 21292 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 21:35:46.723 DEBUG 21292 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 21:35:46.723  INFO 21292 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 21:35:48.322  INFO 21292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 21:35:48.336  INFO 21292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 21:35:48.337  INFO 21292 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 21:35:48.409  INFO 21292 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 21:35:48.409  INFO 21292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1651 ms
+2022-01-03 21:35:49.750  INFO 21292 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 21:35:50.133  INFO 21292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 21:35:50.450  INFO 21292 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 4.069 seconds (JVM running for 15.745)
+2022-01-03 21:36:04.342  INFO 21292 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 21:36:04.343  INFO 21292 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 21:36:04.347  INFO 21292 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-01-03 21:36:04.507  INFO 21292 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-03 21:36:04.857  INFO 21292 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-03 21:36:04.868 DEBUG 21292 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : ==>  Preparing: select * from ex_user where username=?
+2022-01-03 21:36:04.899 DEBUG 21292 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : ==> Parameters: user(String)
+2022-01-03 21:36:04.941 DEBUG 21292 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : <==      Total: 1
+2022-01-03 21:36:04.951 DEBUG 21292 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-03 21:36:04.952 DEBUG 21292 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 40(Integer)
+2022-01-03 21:36:04.974 DEBUG 21292 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-03 21:36:37.270  INFO 21292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-03 21:36:37.279  INFO 21292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-03 21:36:45.755  INFO 8096 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 8096 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 21:36:45.757 DEBUG 8096 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 21:36:45.757  INFO 8096 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 21:36:47.305  INFO 8096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 21:36:47.318  INFO 8096 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 21:36:47.319  INFO 8096 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 21:36:47.384  INFO 8096 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 21:36:47.384  INFO 8096 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1596 ms
+2022-01-03 21:36:48.680  INFO 8096 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 21:36:49.052  INFO 8096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 21:36:49.368  INFO 8096 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.952 seconds (JVM running for 11.816)
+2022-01-03 21:36:54.221  INFO 8096 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 21:36:54.221  INFO 8096 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 21:36:54.223  INFO 8096 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-03 21:36:54.337  INFO 8096 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-03 21:36:54.708  INFO 8096 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-03 21:36:54.718 DEBUG 8096 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : ==>  Preparing: select * from ex_user where username=?
+2022-01-03 21:36:54.755 DEBUG 8096 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : ==> Parameters: user(String)
+2022-01-03 21:36:54.788 DEBUG 8096 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : <==      Total: 1
+2022-01-03 21:36:54.795 DEBUG 8096 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-03 21:36:54.796 DEBUG 8096 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 40(Integer)
+2022-01-03 21:36:54.808 DEBUG 8096 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-03 21:36:59.973  INFO 8096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-03 21:36:59.983  INFO 8096 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-03 21:37:08.498  INFO 19584 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 19584 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 21:37:08.500 DEBUG 19584 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 21:37:08.501  INFO 19584 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 21:37:10.058  INFO 19584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 21:37:10.069  INFO 19584 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 21:37:10.070  INFO 19584 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 21:37:10.135  INFO 19584 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 21:37:10.135  INFO 19584 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1604 ms
+2022-01-03 21:37:11.759  INFO 19584 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 21:37:12.137  INFO 19584 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 21:37:12.466  INFO 19584 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 4.303 seconds (JVM running for 12.209)
+2022-01-03 21:37:15.775  INFO 19584 --- [http-nio-8888-exec-2] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 21:37:15.776  INFO 19584 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 21:37:15.777  INFO 19584 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 21:37:15.908  INFO 19584 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-03 21:37:16.319  INFO 19584 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-03 21:37:16.329 DEBUG 19584 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : ==>  Preparing: select * from ex_user where username=?
+2022-01-03 21:37:16.367 DEBUG 19584 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : ==> Parameters: user(String)
+2022-01-03 21:37:16.406 DEBUG 19584 --- [http-nio-8888-exec-2] c.e.m.UserMapper.selectUserByUsername    : <==      Total: 1
+2022-01-03 21:37:16.416 DEBUG 19584 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-03 21:37:16.418 DEBUG 19584 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 40(Integer)
+2022-01-03 21:37:16.428 DEBUG 19584 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-03 21:38:13.911 DEBUG 19584 --- [http-nio-8888-exec-8] c.e.m.UserMapper.selectUserByUsername    : ==>  Preparing: select * from ex_user where username=?
+2022-01-03 21:38:13.912 DEBUG 19584 --- [http-nio-8888-exec-8] c.e.m.UserMapper.selectUserByUsername    : ==> Parameters: user(String)
+2022-01-03 21:38:13.921 DEBUG 19584 --- [http-nio-8888-exec-8] c.e.m.UserMapper.selectUserByUsername    : <==      Total: 1
+2022-01-03 21:38:13.921 DEBUG 19584 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-03 21:38:13.921 DEBUG 19584 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 40(Integer)
+2022-01-03 21:38:13.931 DEBUG 19584 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-03 22:03:35.815  INFO 19584 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-03 22:03:35.823  INFO 19584 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-03 22:03:43.443  INFO 21740 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 21740 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-03 22:03:43.446 DEBUG 21740 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 22:03:43.446  INFO 21740 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-03 22:03:44.744  INFO 21740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-03 22:03:44.756  INFO 21740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-03 22:03:44.757  INFO 21740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-03 22:03:44.813  INFO 21740 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-03 22:03:44.814  INFO 21740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1342 ms
+2022-01-03 22:03:45.897  INFO 21740 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 22:03:46.223  INFO 21740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-03 22:03:46.500  INFO 21740 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.336 seconds (JVM running for 10.42)
+2022-01-03 22:04:03.648  INFO 21740 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-03 22:04:03.648  INFO 21740 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-03 22:04:03.649  INFO 21740 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-03 22:06:22.995  INFO 23484 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 23484 (started by 32397 in D:\programs\springboot-example)
+2022-01-03 22:06:22.996 DEBUG 23484 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 22:06:22.996  INFO 23484 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: test
+2022-01-03 22:06:25.635  INFO 23484 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 22:06:26.333  INFO 23484 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 3.577 seconds (JVM running for 4.264)
+2022-01-03 22:07:45.356  INFO 19576 --- [main] c.e.SpringbootExampleApplicationTests    : Starting SpringbootExampleApplicationTests using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 19576 (started by 32397 in D:\programs\springboot-example)
+2022-01-03 22:07:45.357 DEBUG 19576 --- [main] c.e.SpringbootExampleApplicationTests    : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-03 22:07:45.357  INFO 19576 --- [main] c.e.SpringbootExampleApplicationTests    : The following profiles are active: test
+2022-01-03 22:07:47.750  INFO 19576 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-03 22:07:48.479  INFO 19576 --- [main] c.e.SpringbootExampleApplicationTests    : Started SpringbootExampleApplicationTests in 3.35 seconds (JVM running for 4.039)

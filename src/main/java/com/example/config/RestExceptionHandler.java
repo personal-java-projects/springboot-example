@@ -25,6 +25,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResponseResult handleException(Exception e){
+        logger.error("500异常: ", e);
         return ResponseResult.error().code(ResultCodeEnum.INTERNAL_SERVER_ERROR.getCode()).message(ResultCodeEnum.INTERNAL_SERVER_ERROR.getMessage() + e.getMessage());
     }
 
@@ -36,6 +37,7 @@ public class RestExceptionHandler {
     @ExceptionHandler
     @ResponseBody
     public ResponseResult handleUnAuthorizationException(UnAuthorizationException e) {
+        logger.error("token异常: ", e);
         return new ResponseResult().code(e.getCode()).message(e.getMessage());
     }
 
@@ -47,7 +49,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(value =NullPointerException.class)
     @ResponseBody
     public ResponseResult exceptionHandler(NullPointerException e){
-        logger.error("发生空指针异常！原因是:",e);
+        logger.error("发生空指针异常！原因是:", e);
         return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR);
     }
 }
