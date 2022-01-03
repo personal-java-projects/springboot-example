@@ -38,19 +38,10 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
-knife4j:
-  enable: true
-  production: true
-  basic:
-    enable: true
-    username: admin
-    password: admin
-  setting:
-    language: zh-CN
-    enableSwaggerModels: true
-    swaggerModelName: 实体类列表
-    enableDocumentManage: true
-    enableReloadCacheParameter: true
-    enableVersion: true
-  documents:
-    locations: classpath:markdowns/*
+# swagger配置
+swagger:
+  enable: false # 生产环境不能访问swagger
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}

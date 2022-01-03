@@ -123,10 +123,9 @@ public class UserController {
     }
 
     @ApiOperation("删除用户")
-    @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "Long", dataTypeClass = Long.class)
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseResult deleteUser(@PathVariable("id") int id) {
+    public ResponseResult deleteUser(@ApiParam(value = "用户id", required = true) @PathVariable("id") int id) {
         System.out.println("删除用户：" + id);
         User user = userService.getUserById(id);
 
@@ -151,12 +150,8 @@ public class UserController {
     @ApiOperation("重置密码")
     @RequestMapping(value = "/resetPassword", method = RequestMethod.PATCH)
     @ResponseBody
-    public ResponseResult resetPassword(@RequestBody Map<String, Object> userInfo) {
-        // 封装User数据
-        User user = new User();
-        String username = (String) userInfo.get("username");
-        String newPassword = (String) userInfo.get("newPassword");
-        user.setUsername(username);
+    public ResponseResult resetPassword(@RequestBody User user) {
+        String newPassword = user.getPassword();
 
         // 判断用户是否存在
         User currentUser = userService.getUser(user);

@@ -5,6 +5,8 @@ server:
 spring:
   profiles:
     active: @activatedProperties@ # 这里引用的是pom.xml中配置的key，@activatedProperties@ 中内如必须与 profile=>properties=> activatedProperties节点一致
+  application:
+    name: springfox-swagger
   jackson:
     # 统一转换日期格式
     date-format: yyyy-MM-dd HH:mm:ss
@@ -40,19 +42,10 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
-knife4j:
-  enable: false
-  production: true
-  basic:
-    enable: true
-    username: admin
-    password: admin
-  setting:
-    language: zh-CN
-    enableSwaggerModels: true
-    swaggerModelName: 实体类列表
-    enableDocumentManage: true
-    enableReloadCacheParameter: true
-    enableVersion: true
-  documents:
-    locations: classpath:markdowns/*
+  # ===== 自定义swagger配置 ===== #
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}

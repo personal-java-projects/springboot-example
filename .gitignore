@@ -1,6 +1,10 @@
 HELP.md
 target/
+<<<<<<< HEAD
 /log/
+=======
+log/
+>>>>>>> 209ce88141763976673900a120b264d067de33f1
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
