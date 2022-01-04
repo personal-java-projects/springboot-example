@@ -7,14 +7,23 @@ import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Map;
 
 /**
  * 请求第三方接口的工具类
  */
 public class HttpClientComponent {
+
+    private static Logger logger = LoggerFactory.getLogger(HttpClientComponent.class);
+    public static final String UTF8_ENCODING = "UTF-8";
+    private static final String HEADER_COOKIE = "Cookie";
+    private static final int TIMEOUT = 5000;
+    private static final int CONNECTION_TIMEOUT = 5000;
+    private static final int READ_TIMEOUT = 5000;
 
     /**
      * httpClient的get请求方式
@@ -29,7 +38,7 @@ public class HttpClientComponent {
      * @param charset
      * @return
      */
-    public static String doGet(String url, String charset, Map<String, Object> headers){
+    public static StringBuffer doGet(String url, String charset, Map<String, Object> headers) throws Exception {
         /**
          * 1.生成HttpClient对象并设置参数
          */
@@ -53,48 +62,49 @@ public class HttpClientComponent {
         //设置请求重试处理，用的是默认的重试处理：请求三次
         getMethod.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, new DefaultHttpMethodRetryHandler());
 
-        String response = "";
-
         /**
          * 3.执行HTTP GET 请求
          */
-        try {
-            int statusCode = httpClient.executeMethod(getMethod);
+        int statusCode = httpClient.executeMethod(getMethod);
 
-            /**
-             * 4.判断访问的状态码
-             */
-            if (statusCode != HttpStatus.SC_OK){
-                System.err.println("请求出错：" + getMethod.getStatusLine());
-            }
-
-            /**
-             * 5.处理HTTP响应内容
-             */
-            //HTTP响应头部信息，这里简单打印
-//            Header[] headers = getMethod.getResponseHeaders();
-//            for (Header h: headers){
-//                System.out.println(h.getName() + "---------------" + h.getValue());
-//            }
-            //读取HTTP响应内容，这里简单打印网页内容
-            //读取为字节数组
-            byte[] responseBody = getMethod.getResponseBody();
-            response = new String(responseBody, charset);
-//            System.out.println("-----------response:" + response);
-            //读取为InputStream，在网页内容数据量大时候推荐使用
-            //InputStream response = getMethod.getResponseBodyAsStream();
-
-        } catch (IOException e) {
-            //发生致命的异常，可能是协议不对或者返回的内容有问题
-            System.out.println("请检查输入的URL!");
-            e.printStackTrace();
-        } finally {
-            /**
-             * 6.释放连接
-             */
-            getMethod.releaseConnection();
+        if (statusCode != HttpStatus.SC_OK) {
+            throw new Exception("网络请求出错： " + getMethod.getStatusLine());
         }
-        return response;
+
+        /**
+         * 5.处理HTTP响应内容
+         */
+        //HTTP响应头部信息，这里简单打印
+//      Header[] headers = getMethod.getResponseHeaders();
+//      for (Header h: headers){
+//          System.out.println(h.getName() + "---------------" + h.getValue());
+//      }
+
+        //读取HTTP响应内容，这里简单打印网页内容
+        //读取为字节数组
+//        byte[] responseBody = getMethod.getResponseBody();
+//        String response = "";
+//        response = new String(responseBody, charset);
+//      System.out.println("-----------response:" + response);
+
+        //读取为InputStream，在网页内容数据量大时候推荐使用
+        InputStream response = getMethod.getResponseBodyAsStream();
+        BufferedReader br = new BufferedReader(new InputStreamReader(response));
+        StringBuffer stringBuffer = new StringBuffer();
+        String str = "";
+
+        while ((str = br.readLine()) != null) {
+            stringBuffer.append(str);
+        }
+
+        System.out.println("stringBuffer: " + stringBuffer);
+
+        /**
+         * 6.释放连接
+         */
+        getMethod.releaseConnection();
+
+        return stringBuffer;
     }
 
     /**

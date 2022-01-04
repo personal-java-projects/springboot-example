@@ -3,15 +3,19 @@ package com.example.controller;
 import com.alibaba.fastjson.JSON;
 import com.example.pojo.Role;
 import com.example.pojo.User;
+import com.example.vo.ResetPassword;
+import com.example.vo.UserRegister;
+import com.example.vo.UserLogin;
+import com.example.voToPo.UserVoToPo;
 import com.example.service.UserService;
 import com.example.util.*;
+
 import io.swagger.annotations.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
+import javax.validation.Valid;
 import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,6 +29,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserVoToPo userVoToPo;
 
     @GetMapping("/index")
     public ResponseResult index() throws IOException {
@@ -47,14 +54,17 @@ public class UserController {
     }
     /**
      * 用户注册
-     * @param user
+     * @param userRegister
      * @return
      */
     // 前端请求默认是application/json格式，所以这里需要写@RequestBody，用来接收json格式的传参
     @ApiOperation(value = "用户注册", consumes = "application/json")
     @RequestMapping(value = "/userRegister", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult userRegister(@RequestBody User user) {
+    public ResponseResult userRegister(@RequestBody UserRegister userRegister) {
+        User user = userVoToPo.userRegisterToUser(userRegister);
+        System.out.println("user: " + user);
+
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("username", user.getUsername());
         userInfo.put("password", user.getPassword());
@@ -74,19 +84,29 @@ public class UserController {
 
     /**
      * 用户登录
-     * @param user
+     * @param userLogin
      * @return
      */
     @ApiOperation(value = "用户登录", consumes ="application/json", response = ResponseResult.class)
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult userLogin(@RequestBody User user) {
+    public ResponseResult userLogin(@Valid @RequestBody UserLogin userLogin) {
         int userId = 0;
         String username = "";
         int identity = 0;
 
         Map<String, Object> result = new HashMap<>();
         Map<String, Object> userMap = new HashMap<>();
+
+
+        System.out.println("XXX: " + userVoToPo.toString());
+
+        System.out.println("userVoToPo: " + userVoToPo.userLoginToUser(userLogin));
+
+        // MapStruct自动将VO转换成了Po
+        User user = userVoToPo.userLoginToUser(userLogin);
+
+        System.out.println("user: " + user);
 
         // 用户是否存在
         User currentUser = userService.getUser(user);
@@ -150,8 +170,9 @@ public class UserController {
     @ApiOperation("重置密码")
     @RequestMapping(value = "/resetPassword", method = RequestMethod.PATCH)
     @ResponseBody
-    public ResponseResult resetPassword(@RequestBody User user) {
-        String newPassword = user.getPassword();
+    public ResponseResult resetPassword(@RequestBody ResetPassword resetPasswordUser) {
+        User user = userVoToPo.resetPasswordToUser(resetPasswordUser);
+        String newPassword = resetPasswordUser.getNewPassword();
 
         // 判断用户是否存在
         User currentUser = userService.getUser(user);
