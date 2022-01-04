@@ -109,34 +109,6 @@ public class MinioUtil {
         return fullPath;
     }
 
-//    /**
-//     * 文件上传
-//     * @param file 文件
-//     * @return Boolean
-//     */
-//    public String upload(MultipartFile file) {
-//        // 修饰过的文件名 非源文件名
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM/dd");
-//        String dirName = dateFormat.format(new Date()) + "/";
-//
-//        String fullPath = dirName + file.getOriginalFilename();
-//
-//        System.out.println("contentType: " + file.getContentType());
-//
-//        try {
-//            PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(bucketName).object(fullPath)
-//                    .stream(file.getInputStream(),file.getSize(),-1).contentType(file.getContentType()).build();
-//
-//            //文件名称相同会覆盖
-//            minioClient.putObject(objectArgs);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return "";
-//        }
-//
-//        return fullPath;
-//    }
-
     /**
      * 预览图片
      * @param fileName 是上传图片的fullPath=>eg:2021-12/27/typora-setup-x64.exe
