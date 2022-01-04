@@ -1,3 +1,10 @@
 spring:
   profiles:
     active: @activatedProperties@ # 这里引用的是pom.xml中配置的key，@activatedProperties@ 中内如必须与 profile=>properties=> activatedProperties节点一致
+  jackson:
+    # 统一转换日期格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+mybatis:
+  type-aliases-package: com.example.pojo
+  mapper-locations: classpath*:mappers/*.xml
