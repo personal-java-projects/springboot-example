@@ -5,10 +5,6 @@ server:
 spring:
   application:
     name: springfox-swagger
-  jackson:
-    # 统一转换日期格式
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
   servlet:
     multipart:
       enabled: true
@@ -23,9 +19,6 @@ spring:
     url: jdbc:mysql://101.35.44.70:3306/example?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
     username: root
     password: root
-mybatis:
-  config-location: classpath:sqlMapConfig.xml
-  mapper-locations: classpath:mappers/*.xml
 #logging:
 logging:
   level:
