@@ -16,6 +16,9 @@ public interface UserVoToPo {
     })
     User userLoginToUser(UserLogin userLogin);
 
+    @Mappings({
+            @Mapping(source = "identity", target = "role.id")
+    })
     User userRegisterToUser(UserRegister userRegister);
 
     User resetPasswordToUser(ResetPassword resetPassword);
