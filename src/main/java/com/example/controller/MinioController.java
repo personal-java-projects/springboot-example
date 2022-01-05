@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.net.InetAddress;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -82,25 +83,30 @@ public class MinioController {
     /**
      * consumes： 指定处理请求的提交内容类型（Content-Type），例如application/json, text/html, multipart/form-data;
      * produces: 指定返回的内容类型，仅当request请求头中的(Accept)类型中包含该指定类型才返回；
-     * @param file
+     * @param files
      * @return
      */
     @ApiOperation(value = "文件上传")
     @PostMapping(value = "/upload", consumes = { "multipart/form-data" })
     @ResponseBody
-    public ResponseResult upload(MultipartFile file) {
-        String fullPath = minioUtil.upload(file);
-        String fileUrl = "";
+    public ResponseResult upload(MultipartFile[] files) {
         Map<String, Object> resultMap = new HashMap<>();
+        List<String> fileUrls = new ArrayList<>();
 
-        if (fullPath == "") {
-            System.out.println("上传失败：" + fullPath);
-            return ResponseResult.error().message("上传失败");
+        for (MultipartFile file: files) {
+            System.out.println("file: " + file);
+            String fullPath = minioUtil.upload(file);
+            String fileUrl = "";
+
+            if (fullPath == "") {
+                return ResponseResult.error().message("上传失败");
+            }
+
+            fileUrl = minioUtil.preview(fullPath);
+            fileUrls.add(fileUrl);
         }
 
-        fileUrl = "http://101.35.44.70:9001/" + fullPath;
-        resultMap.put("fileUrl", fileUrl);
-
+        resultMap.put("fileUrls", fileUrls);
         return ResponseResult.ok().data(resultMap).message("上传成功");
     }
 

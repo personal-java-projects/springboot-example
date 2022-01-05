@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.pojo.Role;
 import com.example.pojo.User;
 import com.example.vo.ResetPassword;
@@ -14,6 +15,7 @@ import io.swagger.annotations.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 import java.io.*;
@@ -98,15 +100,8 @@ public class UserController {
         Map<String, Object> result = new HashMap<>();
         Map<String, Object> userMap = new HashMap<>();
 
-
-        System.out.println("XXX: " + userVoToPo.toString());
-
-        System.out.println("userVoToPo: " + userVoToPo.userLoginToUser(userLogin));
-
         // MapStruct自动将VO转换成了Po
         User user = userVoToPo.userLoginToUser(userLogin);
-
-        System.out.println("user: " + user);
 
         // 用户是否存在
         User currentUser = userService.getUser(user);
@@ -127,19 +122,40 @@ public class UserController {
             identity = currentUser.getRole().getId();
             String token = TokenUtil.sign(userId, username, identity);
 
-            // 封装userInfo
-            userMap.put("userId", userId);
-            userMap.put("username", username);
-            userMap.put("identity", identity);
-
             // 封装结果集
             result.put("token", token);
-            result.put("userInfo", userMap);
 
             return new ResponseResult().ok().data(result);
         }
 
         return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("用户不存在");
+    }
+
+    @ApiOperation(value = "获取用户信息")
+    @GetMapping("/getUserInfo")
+    public ResponseResult getUserInfo(@ApiIgnore @RequestHeader("Authorization") String token) {
+        DecodedJWT jwt = TokenUtil.parseToken(token);
+        int id = jwt.getClaim("id").asInt();
+        Map<String, Object> resultMap = new HashMap<>();
+        Map<String, Object> userInfo = new HashMap<>();
+
+        User user = userService.getUserById(id);
+        if (user == null) {
+            return ResponseResult.ok().message("用户不存在");
+        }
+
+        // 获取用户角色
+        // 获取用户角色
+        Role userRole = userService.getUserRole(user);
+        user.setRole(userRole);
+
+        // 封装userInfo
+        userInfo.put("id", user.getId());
+        userInfo.put("username", user.getUsername());
+        userInfo.put("identity", user.getRole().getId());
+
+        resultMap.put("userInfo", userInfo);
+        return ResponseResult.ok().data(resultMap);
     }
 
     @ApiOperation("删除用户")

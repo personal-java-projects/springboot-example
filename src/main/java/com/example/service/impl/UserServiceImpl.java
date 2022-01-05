@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
         }
 
         user.setUsername(username);
+        user.setPlainPassword(password);
         user.setPassword(Md5.MD5(password));
 
         System.out.println("user: " + user);

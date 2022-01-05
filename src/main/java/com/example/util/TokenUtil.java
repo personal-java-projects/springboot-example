@@ -53,10 +53,10 @@ public class TokenUtil {
      * @return
      */
     public static String updateToken(String token) {
-        Map<String, Object> parsedToken = parseToken(token);
-        int id = (int) parsedToken.get("id");
-        String username = (String) parsedToken.get("username");
-        int identity = (int) parsedToken.get("identity");
+        DecodedJWT parsedToken = parseToken(token);
+        int id = parsedToken.getClaim("id").asInt();
+        String username = parsedToken.getClaim("username").asString();
+        int identity = parsedToken.getClaim("identity").asInt();
 
         return sign(id, username, identity);
     }
@@ -80,13 +80,13 @@ public class TokenUtil {
         }
     }
 
-    public static Map<String, Object> parseToken(String token) {
+    public static DecodedJWT parseToken(String token) {
         try {
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256((TOKEN_SECRET)))
                     .withIssuer("auth0").build();
             DecodedJWT jwt = verifier.verify(token);
 
-            return (Map<String, Object>) jwt;
+            return jwt;
         } catch (Exception e){
             return null;
         }

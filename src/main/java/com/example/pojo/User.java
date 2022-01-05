@@ -1,10 +1,5 @@
 package com.example.pojo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.constraints.NotNull;
-
 public class User {
     // 用户id
     private int id;
@@ -12,8 +7,11 @@ public class User {
     // 用户姓名
     private String username;
 
-    // 用户密码
+    // 用户密码加密
     private String password;
+
+    // 用户密码不加密
+    private String plainPassword;
 
     // 用户角色
     private Role role;
@@ -40,6 +38,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPlainPassword() {
+        return plainPassword;
+    }
+
+    public void setPlainPassword(String plainPassword) {
+        this.plainPassword = plainPassword;
     }
 
     public Role getRole() {
