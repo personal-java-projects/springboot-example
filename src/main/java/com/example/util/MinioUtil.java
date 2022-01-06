@@ -17,7 +17,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -25,8 +24,8 @@ import java.util.stream.Collectors;
 /**
  * 文件服务器工具类
  */
-@Component
 @Data
+@Component
 public class MinioUtil {
 
     /**
@@ -47,15 +46,15 @@ public class MinioUtil {
     /**
      * 排序
      */
-    public final static boolean SORT = true;
+    public final boolean SORT = true;
     /**
      * 不排序
      */
-    public final static boolean NOT_SORT = false;
+    public final boolean NOT_SORT = false;
     /**
      * 默认过期时间(分钟)
      */
-    private final static Integer DEFAULT_EXPIRY = 60;
+    private final Integer DEFAULT_EXPIRY = 60;
 
     @PostConstruct
     public void init() {
