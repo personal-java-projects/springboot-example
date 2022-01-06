@@ -8,8 +8,9 @@ spring:
   servlet:
     multipart:
       enabled: true
-      max-file-size: 1024MB #将之前的6M改成了100M
-      max-request-size: 1024MB #将之前的6M改成了100M
+      max-file-size: 200MB #将之前的6M改成了200M
+      max-request-size: 1GB #将之前的6M改成了100M
+      file-size-threshold: 1GB
   mvc:
     pathmatch:
       # Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher。
@@ -46,6 +47,13 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
+
+  # 默认存储桶
+  bucket:
+    # 文件存储桶
+    bucketName: file
+    # 分片存储桶
+    chunk: chunk
 swagger:
   enable: true
   application-name: ${spring.application.name}

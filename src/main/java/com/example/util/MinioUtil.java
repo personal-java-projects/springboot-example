@@ -6,9 +6,13 @@ import io.minio.messages.Bucket;
 import io.minio.messages.DeleteError;
 import io.minio.messages.DeleteObject;
 import io.minio.messages.Item;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -23,11 +27,34 @@ import java.util.stream.Collectors;
  * 文件服务器工具类
  */
 @Component
+@Data
 public class MinioUtil {
-    private String bucketName = "files";
+
+    /**
+     * 合并后存储的桶名称
+     */
+    @Value("${minio.bucket.bucketName}")
+    private String bucketName;
+
+    /**
+     * 分片存储的桶名称
+     */
+    @Value("${minio.bucket.chunk}")
+    private String chunkBucKet;
 
     @Resource
     private MinioClient minioClient;
+
+    @PostConstruct
+    public void init() {
+        //方便管理分片文件，则单独创建一个分片文件的存储桶
+        if (!bucketExists(chunkBucKet)) {
+            makeBucket(chunkBucKet);
+        }
+        if (!bucketExists(bucketName)) {
+            makeBucket(bucketName);
+        }
+    }
 
     /**
      * 查看存储bucket是否存在
