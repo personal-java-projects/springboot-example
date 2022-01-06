@@ -7,6 +7,7 @@ import io.minio.messages.DeleteError;
 import io.minio.messages.DeleteObject;
 import io.minio.messages.Item;
 import lombok.Data;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.FastByteArrayOutputStream;
@@ -18,9 +19,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -44,6 +43,19 @@ public class MinioUtil {
 
     @Resource
     private MinioClient minioClient;
+
+    /**
+     * 排序
+     */
+    public final static boolean SORT = true;
+    /**
+     * 不排序
+     */
+    public final static boolean NOT_SORT = false;
+    /**
+     * 默认过期时间(分钟)
+     */
+    private final static Integer DEFAULT_EXPIRY = 60;
 
     @PostConstruct
     public void init() {
@@ -87,6 +99,7 @@ public class MinioUtil {
         }
         return true;
     }
+
     /**
      * 删除存储bucket
      * @return Boolean
@@ -102,6 +115,7 @@ public class MinioUtil {
         }
         return true;
     }
+
     /**
      * 获取全部bucket
      */
@@ -227,4 +241,237 @@ public class MinioUtil {
         return results;
     }
 
+    /**
+     * 获取访问对象的外链地址
+     *
+     * @param bucketName 存储桶名称
+     * @param objectName 对象名称
+     * @param expiry     过期时间(分钟) 最大为7天 超过7天则默认最大值
+     * @return viewUrl
+     */
+    @SneakyThrows
+    public String getObjectUrl(String bucketName, String objectName, Integer expiry) {
+        expiry = expiryHandle(expiry);
+        return minioClient.getPresignedObjectUrl(
+                GetPresignedObjectUrlArgs.builder()
+                        .method(Method.GET)
+                        .bucket(bucketName)
+                        .object(objectName)
+                        .expiry(expiry)
+                        .build()
+        );
+    }
+
+    /**
+     * 创建上传文件对象的外链
+     *
+     * @param bucketName 存储桶名称
+     * @param objectName 欲上传文件对象的名称
+     * @param expiry     过期时间(分钟) 最大为7天 超过7天则默认最大值
+     * @return uploadUrl
+     */
+    @SneakyThrows
+    public String createUploadUrl(String bucketName, String objectName, Integer expiry) {
+        expiry = expiryHandle(expiry);
+        return minioClient.getPresignedObjectUrl(
+                GetPresignedObjectUrlArgs.builder()
+                        .method(Method.PUT)
+                        .bucket(bucketName)
+                        .object(objectName)
+                        .expiry(expiry)
+                        .build()
+        );
+    }
+
+    /**
+     * 创建上传文件对象的外链
+     *
+     * @param bucketName 存储桶名称
+     * @param objectName 欲上传文件对象的名称
+     * @return uploadUrl
+     */
+    public String createUploadUrl(String bucketName, String objectName) {
+        return createUploadUrl(bucketName, objectName, DEFAULT_EXPIRY);
+    }
+
+    /**
+     * 批量创建分片上传外链
+     *
+     * @param bucketName 存储桶名称
+     * @param objectMD5  欲上传分片文件主文件的MD5
+     * @param chunkCount 分片数量
+     * @return uploadChunkUrls
+     */
+    public List<String> createUploadChunkUrlList(String bucketName, String objectMD5, Integer chunkCount) {
+        if (null == objectMD5) {
+            return null;
+        }
+        objectMD5 += "/";
+        if (null == chunkCount || 0 == chunkCount) {
+            return null;
+        }
+        List<String> urlList = new ArrayList<>(chunkCount);
+        for (int i = 1; i <= chunkCount; i++) {
+            String objectName = objectMD5 + i + ".chunk";
+            urlList.add(createUploadUrl(bucketName, objectName, DEFAULT_EXPIRY));
+        }
+        return urlList;
+    }
+
+    /**
+     * 创建指定序号的分片文件上传外链
+     *
+     * @param bucketName 存储桶名称
+     * @param objectMD5  欲上传分片文件主文件的MD5
+     * @param partNumber 分片序号
+     * @return uploadChunkUrl
+     */
+    public String createUploadChunkUrl(String bucketName, String objectMD5, Integer partNumber) {
+        if (null == objectMD5) {
+            return null;
+        }
+        objectMD5 += "/" + partNumber + ".chunk";
+        return createUploadUrl(bucketName, objectMD5, DEFAULT_EXPIRY);
+    }
+
+    /**
+     * 获取对象文件名称列表
+     *
+     * @param bucketName 存储桶名称
+     * @param prefix     对象名称前缀
+     * @param sort       是否排序(升序)
+     * @return objectNames
+     */
+    @SneakyThrows
+    public List<String> listObjectNames(String bucketName, String prefix, Boolean sort) {
+        ListObjectsArgs listObjectsArgs;
+        if (null == prefix) {
+            listObjectsArgs = ListObjectsArgs.builder()
+                    .bucket(bucketName)
+                    .recursive(true)
+                    .build();
+        } else {
+            listObjectsArgs = ListObjectsArgs.builder()
+                    .bucket(bucketName)
+                    .prefix(prefix)
+                    .recursive(true)
+                    .build();
+        }
+        Iterable<Result<Item>> chunks = minioClient.listObjects(listObjectsArgs);
+        List<String> chunkPaths = new ArrayList<>();
+        for (Result<Item> item : chunks) {
+            chunkPaths.add(item.get().objectName());
+        }
+        if (sort) {
+            return chunkPaths.stream().distinct().collect(Collectors.toList());
+        }
+        return chunkPaths;
+    }
+
+    /**
+     * 获取对象文件名称列表
+     *
+     * @param bucketName 存储桶名称
+     * @param prefix     对象名称前缀
+     * @return objectNames
+     */
+    public List<String> listObjectNames(String bucketName, String prefix) {
+        return listObjectNames(bucketName, prefix, NOT_SORT);
+    }
+
+    /**
+     * 获取分片文件名称列表
+     *
+     * @param bucketName 存储桶名称
+     * @param objectMd5  对象Md5
+     * @return objectChunkNames
+     */
+    public List<String> listChunkObjectNames(String bucketName, String objectMd5) {
+        if (null == objectMd5) {
+            return null;
+        }
+        return listObjectNames(bucketName, objectMd5, SORT);
+    }
+
+    /**
+     * 获取分片名称地址HashMap key=分片序号 value=分片文件地址
+     *
+     * @param chunkBucKet 存储桶名称
+     * @param objectMd5   对象Md5
+     * @return objectChunkNameMap
+     */
+    public Map<Integer, String> mapChunkObjectNames(String chunkBucKet, String objectMd5) {
+        if (null == objectMd5) {
+            return null;
+        }
+        List<String> chunkPaths = listObjectNames(chunkBucKet, objectMd5);
+        if (null == chunkPaths || chunkPaths.size() == 0) {
+            return null;
+        }
+        Map<Integer, String> chunkMap = new HashMap<>(chunkPaths.size());
+        for (String chunkName : chunkPaths) {
+            Integer partNumber = Integer.parseInt(chunkName.substring(chunkName.indexOf("/") + 1, chunkName.lastIndexOf(".")));
+            chunkMap.put(partNumber, chunkName);
+        }
+        return chunkMap;
+    }
+
+    /**
+     * 合并分片文件成对象文件
+     *
+     * @param chunkBucKetName   分片文件所在存储桶名称
+     * @param composeBucketName 合并后的对象文件存储的存储桶名称
+     * @param chunkNames        分片文件名称集合
+     * @param objectName        合并后的对象文件名称
+     * @return true/false
+     */
+    @SneakyThrows
+    public boolean composeObject(String chunkBucKetName, String composeBucketName, List<String> chunkNames, String objectName) {
+        //合并文件
+        List<ComposeSource> sourceObjectList = new ArrayList<>(chunkNames.size());
+        chunkNames.forEach(chunk -> {
+            sourceObjectList.add(
+                    ComposeSource.builder()
+                            .bucket(chunkBucKetName)
+                            .object(chunk)
+                            .build()
+            );
+        });
+
+        minioClient.composeObject(
+                ComposeObjectArgs.builder()
+                        .bucket(composeBucketName)
+                        .object(objectName)
+                        .sources(sourceObjectList)
+                        .build()
+        );
+        //删除分片
+        List<DeleteObject> objects = new LinkedList<>();
+        chunkNames.forEach(i -> {
+            objects.add(new DeleteObject(i));
+        });
+        RemoveObjectsArgs args = RemoveObjectsArgs.builder().bucket(chunkBucKetName)
+                .objects(objects)
+                .build();
+        Iterable<io.minio.Result<io.minio.messages.DeleteError>> iterable = minioClient.removeObjects(args);
+        //必须迭代 不然无法删除
+        iterable.forEach(j -> {
+
+        });
+        return true;
+    }
+
+    /**
+     * 将分钟数转换为秒数
+     *
+     * @param expiry 过期时间(分钟数)
+     * @return expiry
+     */
+    private static int expiryHandle(Integer expiry) {
+        expiry = expiry * 60;
+        if (expiry > 604800) {
+            return 604800;
+        }
+        return expiry;
+    }
 }
