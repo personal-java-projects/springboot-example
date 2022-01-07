@@ -24,8 +24,8 @@ import java.util.stream.Collectors;
 /**
  * 文件服务器工具类
  */
-@Component
 @Data
+@Component
 public class MinioUtil {
 
     @Resource

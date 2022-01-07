@@ -17,10 +17,23 @@ spring:
       # Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher。
       matching-strategy: ant_path_matcher
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://101.35.44.70:3306/example?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
-    username: root
-    password: root
+    primary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # jdbc-url:用来重写自定义连接池。不能使用url,会报jdbcUrl is required with driverClassName
+      jdbc-url: jdbc:mysql://101.35.44.70:3306/example?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
+      username: root
+      password: root
+      type: com.zaxxer.hikari.HikariDataSource
+      configuration:
+        map-underscore-to-camel-case: true
+    secondary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/example?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true
+      username: root
+      password: root
+      type: com.zaxxer.hikari.HikariDataSource
+      configuration:
+        map-underscore-to-camel-case: true
 mybatis:
   config-location: classpath:sqlMapConfig.xml
   mapper-locations: classpath:mappers/*.xml
@@ -38,6 +51,10 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
+<<<<<<< HEAD
+=======
+
+>>>>>>> a3cfd959fc2ee0d0c557c914717830e4f3cd1d1f
   # 默认存储桶
   bucket:
     # 文件存储桶

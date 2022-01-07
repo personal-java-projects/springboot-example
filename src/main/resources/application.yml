@@ -5,6 +5,8 @@ spring:
     # 统一转换日期格式
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  jmx:
+    enabled: true
 mybatis:
   type-aliases-package: com.example.pojo
   mapper-locations: classpath*:mappers/*.xml

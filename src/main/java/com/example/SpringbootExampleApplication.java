@@ -11,6 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SpringbootExampleApplication {
 
 	public static void main(String[] args) {
+		System.out.println("启动参数: " + args);
 		SpringApplication.run(SpringbootExampleApplication.class, args);
 	}
 
