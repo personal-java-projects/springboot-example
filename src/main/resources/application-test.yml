@@ -47,6 +47,10 @@ minio:
   # 密码
   secretKey: admin123456
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a3cfd959fc2ee0d0c557c914717830e4f3cd1d1f
 =======
 
 >>>>>>> a3cfd959fc2ee0d0c557c914717830e4f3cd1d1f
