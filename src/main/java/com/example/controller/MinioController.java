@@ -1,6 +1,7 @@
 package com.example.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.example.pojo.FilePO;
+import com.example.service.UploadService;
 import com.example.util.MinioUtil;
 import com.example.util.ResponseResult;
 import com.example.util.ResultCodeEnum;
@@ -8,14 +9,12 @@ import io.minio.messages.Bucket;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.net.InetAddress;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,12 +22,21 @@ import java.util.Map;
 
 @Api(tags = "文件管理模块")
 @RestController
-@RequestMapping("/api/file/v1")
+@RequestMapping("/minio")
 @Slf4j
 public class MinioController {
 
     @Autowired
     private MinioUtil minioUtil;
+
+    @Autowired
+    private UploadService uploadService;
+
+    @Value("${minio.bucket.chunk}")
+    private String chunkBucKet;
+
+    @Value("${minio.bucket.bucketName}")
+    private String bucketName;
 
     @ApiOperation(value = "查看存储bucket是否存在")
     @GetMapping("/bucketExists")
@@ -156,5 +164,58 @@ public class MinioController {
         System.out.println("minioUtil.listObjects()：" + minioUtil.listObjects());
 
         return null;
+    }
+
+    /**
+     * 初始化大文件上传
+     * 未做优化，业务逻辑请根据实际情况修改
+     *
+     * @param uploadDto
+     * @return
+     */
+    @PostMapping("/init-chunk-upload")
+    public ResponseResult initChunkUpload (@RequestBody FilePO uploadDto) {
+        // 校验文件md5，该文件是否上传过
+        boolean exited = uploadService.fileExisted(uploadDto);
+        Map<String, Object> resultMap = new HashMap<>();
+
+        if (exited) {
+            FilePO uploadFile = uploadService.getUploadFile(uploadDto.getFileMd5());
+
+            resultMap.put("uploadStatus", 0);
+            resultMap.put("uploadFile", uploadFile);
+
+            return ResponseResult.ok().message("文件已上传").data(resultMap);
+        }
+
+        List<FilePO> chunkUploadUrls = uploadService.getMultipartFile(chunkBucKet, uploadDto);
+
+        if (chunkUploadUrls.size() == 0) {
+            resultMap.put("uploadStatus", 2);
+            resultMap.put("chunkUploadUrls", chunkUploadUrls);
+            return ResponseResult.ok().message("分片上传成功，仅需合并").data(resultMap);
+        }
+
+        resultMap.put("uploadStatus", 1);
+        resultMap.put("chunkUploadUrls", chunkUploadUrls);
+
+        return ResponseResult.ok().message("分片部分上传").data(chunkUploadUrls);
+    }
+
+    /**
+     * 合并文件并返回文件信息
+     *
+     * @param uploadDto
+     * @return
+     */
+    @PostMapping("/compose-file")
+    public ResponseResult composeFile(@RequestBody FilePO uploadDto) {
+        FilePO currentFile = uploadService.mergeFile(chunkBucKet, bucketName, uploadDto);
+
+        if (currentFile == null) {
+            return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("文件上传失败");
+        }
+
+        return ResponseResult.ok().data(currentFile);
     }
 }

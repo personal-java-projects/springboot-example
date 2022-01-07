@@ -17,7 +17,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,6 +27,9 @@ import java.util.stream.Collectors;
 @Component
 @Data
 public class MinioUtil {
+
+    @Resource
+    private MinioClient minioClient;
 
     /**
      * 合并后存储的桶名称
@@ -41,22 +43,22 @@ public class MinioUtil {
     @Value("${minio.bucket.chunk}")
     private String chunkBucKet;
 
-    @Resource
-    private MinioClient minioClient;
-
     /**
      * 排序
      */
-    public final static boolean SORT = true;
+    public final boolean SORT = true;
     /**
      * 不排序
      */
-    public final static boolean NOT_SORT = false;
+    public final boolean NOT_SORT = false;
     /**
      * 默认过期时间(分钟)
      */
-    private final static Integer DEFAULT_EXPIRY = 60;
+    private final Integer DEFAULT_EXPIRY = 60;
 
+    /**
+     * 不存在存储桶，则新建一个
+     */
     @PostConstruct
     public void init() {
         //方便管理分片文件，则单独创建一个分片文件的存储桶
@@ -119,13 +121,9 @@ public class MinioUtil {
     /**
      * 获取全部bucket
      */
+    @SneakyThrows
     public List<Bucket> getAllBuckets() {
-        try {
-            return minioClient.listBuckets();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+         return minioClient.listBuckets();
     }
 
     /**
@@ -245,7 +243,7 @@ public class MinioUtil {
      * 获取访问对象的外链地址
      *
      * @param bucketName 存储桶名称
-     * @param objectName 对象名称
+     * @param objectName 对象名称(除桶路径之外全路径)
      * @param expiry     过期时间(分钟) 最大为7天 超过7天则默认最大值
      * @return viewUrl
      */

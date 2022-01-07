@@ -38,6 +38,12 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
+  # 默认存储桶
+  bucket:
+    # 文件存储桶
+    bucketName: file
+    # 分片存储桶
+    chunk: chunk
 # swagger配置
 swagger:
   enable: false # 生产环境不能访问swagger
