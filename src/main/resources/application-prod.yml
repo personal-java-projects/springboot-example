@@ -51,7 +51,6 @@ minio:
   accessKey: admin
   # 密码
   secretKey: admin123456
-
   # 默认存储桶
   bucket:
     # 文件存储桶

@@ -12,6 +12,16 @@ public class FilePO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 文件id
+     */
+    private int id;
+
+    /**
+     * 上传文件的用户的id
+     */
+    private int userId;
+
+    /**
      * 分片数量
      */
     private Integer chunkCount;
@@ -32,19 +42,9 @@ public class FilePO implements Serializable {
     private String fileName;
 
     /**
-     * 文件地址
-     */
-    private String filePath;
-
-    /**
      * 上传状态 0.上传完成而且合并成功   1.已上传部分  2 分片全部上传完成仅需合并
      */
     private Integer uploadStatus;
-
-    /**
-     * 分片序号
-     */
-    private Integer partNumber;
 
     /**
      * 上传地址

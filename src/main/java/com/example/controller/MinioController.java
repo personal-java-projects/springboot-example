@@ -1,10 +1,12 @@
 package com.example.controller;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.pojo.FilePO;
 import com.example.service.UploadService;
 import com.example.util.MinioUtil;
 import com.example.util.ResponseResult;
 import com.example.util.ResultCodeEnum;
+import com.example.util.TokenUtil;
 import io.minio.messages.Bucket;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -188,7 +190,7 @@ public class MinioController {
             return ResponseResult.ok().message("文件已上传").data(resultMap);
         }
 
-        List<FilePO> chunkUploadUrls = uploadService.getMultipartFile(chunkBucKet, uploadDto);
+        List<Map<String, Object>> chunkUploadUrls = uploadService.getMultipartFile(chunkBucKet, uploadDto);
 
         if (chunkUploadUrls.size() == 0) {
             resultMap.put("uploadStatus", 2);
@@ -199,7 +201,7 @@ public class MinioController {
         resultMap.put("uploadStatus", 1);
         resultMap.put("chunkUploadUrls", chunkUploadUrls);
 
-        return ResponseResult.ok().message("分片部分上传").data(chunkUploadUrls);
+        return ResponseResult.ok().message("分片部分上传").data(resultMap);
     }
 
     /**
@@ -209,8 +211,11 @@ public class MinioController {
      * @return
      */
     @PostMapping("/compose-file")
-    public ResponseResult composeFile(@RequestBody FilePO uploadDto) {
-        FilePO currentFile = uploadService.mergeFile(chunkBucKet, bucketName, uploadDto);
+    public ResponseResult composeFile(@RequestBody FilePO uploadDto, @RequestHeader("Authorization") String token) {
+        DecodedJWT jwt = TokenUtil.parseToken(token);
+        int userId = jwt.getClaim("id").asInt();
+
+        FilePO currentFile = uploadService.mergeFile(chunkBucKet, bucketName, uploadDto, userId);
 
         if (currentFile == null) {
             return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("文件上传失败");

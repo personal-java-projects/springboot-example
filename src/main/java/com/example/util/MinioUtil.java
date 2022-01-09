@@ -337,6 +337,17 @@ public class MinioUtil {
      *
      * @param bucketName 存储桶名称
      * @param prefix     对象名称前缀
+     * @return objectNames
+     */
+    public List<String> listObjectNames(String bucketName, String prefix) {
+        return listObjectNames(bucketName, prefix, NOT_SORT);
+    }
+
+    /**
+     * 获取对象文件名称列表
+     *
+     * @param bucketName 存储桶名称
+     * @param prefix     对象名称前缀
      * @param sort       是否排序(升序)
      * @return objectNames
      */
@@ -361,20 +372,24 @@ public class MinioUtil {
             chunkPaths.add(item.get().objectName());
         }
         if (sort) {
-            return chunkPaths.stream().distinct().collect(Collectors.toList());
+            List<String> collect = chunkPaths.stream().distinct().collect(Collectors.toList());
+
+            // 对分片根据序号进行排序
+            // 分片上传必须对分片根据分片序号进行从小到大排序，不然合并后的文件也是无法使用的。因为已经和源文件不是一个文件了
+            Collections.sort(collect, new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    if (Integer.parseInt(o1.split("/")[1].split("\\.")[0]) < Integer.parseInt(o2.split("/")[1].split("\\.")[0])) {
+                        return -1;
+                    }
+
+                    return 1;
+                }
+            });
+
+            return collect;
         }
         return chunkPaths;
-    }
-
-    /**
-     * 获取对象文件名称列表
-     *
-     * @param bucketName 存储桶名称
-     * @param prefix     对象名称前缀
-     * @return objectNames
-     */
-    public List<String> listObjectNames(String bucketName, String prefix) {
-        return listObjectNames(bucketName, prefix, NOT_SORT);
     }
 
     /**
@@ -427,7 +442,11 @@ public class MinioUtil {
     public boolean composeObject(String chunkBucKetName, String composeBucketName, List<String> chunkNames, String objectName) {
         //合并文件
         List<ComposeSource> sourceObjectList = new ArrayList<>(chunkNames.size());
+
         chunkNames.forEach(chunk -> {
+            System.out.println("chunk: " + chunk);
+
+
             sourceObjectList.add(
                     ComposeSource.builder()
                             .bucket(chunkBucKetName)
@@ -443,6 +462,7 @@ public class MinioUtil {
                         .sources(sourceObjectList)
                         .build()
         );
+
         //删除分片
         List<DeleteObject> objects = new LinkedList<>();
         chunkNames.forEach(i -> {
@@ -456,6 +476,7 @@ public class MinioUtil {
         iterable.forEach(j -> {
 
         });
+
         return true;
     }
 

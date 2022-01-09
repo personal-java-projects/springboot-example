@@ -11,6 +11,7 @@ import org.springframework.util.CollectionUtils;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,34 +49,35 @@ public class UploadServiceImpl implements UploadService {
     }
 
     @Override
-    public List<FilePO> getMultipartFile(String chunkBucKet, FilePO uploadDto) {
-        //未上传 或者是已上传部分分片
+    public List<Map<String, Object>> getMultipartFile(String chunkBucKet, FilePO uploadDto) {
         //获取到该文件已上传分片
         Map<Integer, String> okChunkMap = minioUtil.mapChunkObjectNames(chunkBucKet, uploadDto.getFileMd5());
-        List<FilePO> chunkUploadUrls = new ArrayList<>();
+        List<Map<String, Object>> chunkUploadUrls = new ArrayList<>();
 
+        // 已上传部分分片
         if (!CollectionUtils.isEmpty(okChunkMap)) {
             for (int i=1; i<= uploadDto.getChunkCount(); i++) {
                 // 判断当前分片是否已经上传过
                 if (!okChunkMap.containsKey(i)) {
+                    Map<String, Object> chunkMap = new HashMap<>();
                     // 生成分片上传url
-                    FilePO multipartUrl = new FilePO();
-                    multipartUrl.setPartNumber(i);
-                    multipartUrl.setUploadUrl(minioUtil.createUploadChunkUrl(chunkBucKet, uploadDto.getFileMd5(), i));
-                    chunkUploadUrls.add(multipartUrl);
+                    chunkMap.put("partNumber", i);
+                    chunkMap.put("uploadUrl", minioUtil.createUploadChunkUrl(chunkBucKet, uploadDto.getFileMd5(), i));
+                    chunkUploadUrls.add(chunkMap);
                 }
             }
 
             return chunkUploadUrls;
         }
 
+        // 未上传过分片
         if (CollectionUtils.isEmpty(okChunkMap)) {
             List<String> uploadUrls = minioUtil.createUploadChunkUrlList(chunkBucKet, uploadDto.getFileMd5(), uploadDto.getChunkCount());
             for (int i = 1; i <= uploadUrls.size(); i++) {
-                FilePO mulitpartUrl = new FilePO();
-                mulitpartUrl.setPartNumber(i);
-                mulitpartUrl.setUploadUrl(minioUtil.createUploadChunkUrl(chunkBucKet, uploadDto.getFileMd5(), i));
-                chunkUploadUrls.add(mulitpartUrl);
+                Map<String, Object> chunkMap = new HashMap<>();
+                chunkMap.put("partNumber", i);
+                chunkMap.put("uploadUrl", minioUtil.createUploadChunkUrl(chunkBucKet, uploadDto.getFileMd5(), i));
+                chunkUploadUrls.add(chunkMap);
             }
 
             return chunkUploadUrls;
@@ -85,15 +87,13 @@ public class UploadServiceImpl implements UploadService {
     }
 
     @Override
-    public FilePO mergeFile(String chunkBucKet, String targetBucket, FilePO uploadDto) {
+    public FilePO mergeFile(String chunkBucKet, String targetBucket, FilePO uploadDto, int userId) {
         //根据md5获取所有分片文件名称(minio的文件名称 = 文件path)
-        List<String> chunks = minioUtil.listObjectNames(chunkBucKet, uploadDto.getFileMd5());
+        List<String> chunks = minioUtil.listChunkObjectNames(chunkBucKet, uploadDto.getFileMd5());
 
         //自定义文件名称
         String fileName = uploadDto.getFileName();
         String suffix = fileName.substring(fileName.lastIndexOf("."));
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-        fileName = df.format(LocalDateTime.now()) + suffix;
 
         //合并文件
         if (minioUtil.composeObject(chunkBucKet, targetBucket, chunks, fileName)) {
@@ -102,11 +102,14 @@ public class UploadServiceImpl implements UploadService {
             FilePO currentFile = new FilePO();
             currentFile.setUploadStatus(UPLOAD_SUCCESS_STATUS);
             currentFile.setFileName(fileName);
-            currentFile.setFilePath(url);
+            currentFile.setUploadUrl(url);
             currentFile.setSuffix(suffix);
             currentFile.setFileMd5(uploadDto.getFileMd5());
+            currentFile.setChunkCount(uploadDto.getChunkCount());
+            currentFile.setUserId(userId);
+
             //保存到数据库中
-            fileMapper.insertFile(currentFile);
+//            fileMapper.insertFile(currentFile);
 
             return currentFile;
         }

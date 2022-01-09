@@ -3,6 +3,7 @@ package com.example.service;
 import com.example.pojo.FilePO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UploadService {
     /**
@@ -25,7 +26,7 @@ public interface UploadService {
      * @param uploadDto 要上传的文件
      * @return
      */
-    List<FilePO> getMultipartFile(String chunkBucKet, FilePO uploadDto);
+    List<Map<String, Object>> getMultipartFile(String chunkBucKet, FilePO uploadDto);
 
 
     /**
@@ -33,5 +34,5 @@ public interface UploadService {
      * @param uploadDto
      * @return
      */
-    FilePO mergeFile(String chunkBucKet, String targetBucket, FilePO uploadDto);
+    FilePO mergeFile(String chunkBucKet, String targetBucket, FilePO uploadDto, int userId);
 }
