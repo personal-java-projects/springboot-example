@@ -109,7 +109,7 @@ public class UploadServiceImpl implements UploadService {
             currentFile.setUserId(userId);
 
             //保存到数据库中
-//            fileMapper.insertFile(currentFile);
+            fileMapper.insertFile(currentFile);
 
             return currentFile;
         }

@@ -5087,3 +5087,19 @@ java.lang.IndexOutOfBoundsException: Index: 21, Size: 21
 2022-01-09 15:35:18.450 DEBUG 28600 --- [http-nio-8888-exec-1] c.e.mapper.FileMapper.selectFileByMD5    : ==>  Preparing: select * from ex_file where fileMd5=?
 2022-01-09 15:35:18.473 DEBUG 28600 --- [http-nio-8888-exec-1] c.e.mapper.FileMapper.selectFileByMD5    : ==> Parameters: 26926bc4085e475d3266c357ee05c140(String)
 2022-01-09 15:35:18.496 DEBUG 28600 --- [http-nio-8888-exec-1] c.e.mapper.FileMapper.selectFileByMD5    : <==      Total: 0
+2022-01-09 15:57:48.341  INFO 25984 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 25984 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-09 15:57:48.343 DEBUG 25984 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-09 15:57:48.343  INFO 25984 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-09 15:57:49.101  WARN 25984 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-09 15:57:49.101  WARN 25984 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-09 15:57:49.101  WARN 25984 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-09 15:57:49.102  WARN 25984 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-09 15:57:49.696  INFO 25984 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-09 15:57:49.710  INFO 25984 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-09 15:57:49.710  INFO 25984 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-09 15:57:49.769  INFO 25984 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-09 15:57:49.769  INFO 25984 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1399 ms
+2022-01-09 15:57:51.045  INFO 25984 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-09 15:57:51.060  WARN 25984 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-09 15:57:51.374  INFO 25984 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-09 15:57:51.630  INFO 25984 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 3.569 seconds (JVM running for 10.754)
