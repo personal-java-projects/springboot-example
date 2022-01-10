@@ -7,9 +7,13 @@ import com.example.util.MinioUtil;
 import com.example.util.ResponseResult;
 import com.example.util.ResultCodeEnum;
 import com.example.util.TokenUtil;
+import com.example.vo.ComposeFile;
+import com.example.vo.MultipartUpload;
+import com.example.voToPo.FileVoToPo;
 import io.minio.messages.Bucket;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,12 +21,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Api(tags = "文件管理模块")
+@Api(tags = "minio文件服务器")
 @RestController
 @RequestMapping("/minio")
 @Slf4j
@@ -30,6 +35,9 @@ public class MinioController {
 
     @Autowired
     private MinioUtil minioUtil;
+
+    @Autowired
+    private FileVoToPo fileVoToPo;
 
     @Autowired
     private UploadService uploadService;
@@ -58,7 +66,6 @@ public class MinioController {
         boolean created = minioUtil.makeBucket(bucketName);
         System.out.println("minioUtil.makeBucket(bucketName): " + minioUtil.makeBucket(bucketName));
         if (!created) {
-//            throw new Exception("存储空间已存在");
             return ResponseResult.ok().success(false).message("存储空间已存在");
         }
 
@@ -172,17 +179,19 @@ public class MinioController {
      * 初始化大文件上传
      * 未做优化，业务逻辑请根据实际情况修改
      *
-     * @param uploadDto
+     * @param MultipartUpload
      * @return
      */
+    @ApiOperation("文件分片上传")
     @PostMapping("/init-chunk-upload")
-    public ResponseResult initChunkUpload (@RequestBody FilePO uploadDto) {
+    public ResponseResult initChunkUpload (@Valid @RequestBody MultipartUpload MultipartUpload) {
         // 校验文件md5，该文件是否上传过
-        boolean exited = uploadService.fileExisted(uploadDto);
+        FilePO filePO = fileVoToPo.multipart(MultipartUpload);
+        boolean exited = uploadService.fileExisted(filePO);
         Map<String, Object> resultMap = new HashMap<>();
 
         if (exited) {
-            FilePO uploadFile = uploadService.getUploadFile(uploadDto.getFileMd5());
+            FilePO uploadFile = uploadService.getUploadFile(filePO.getFileMd5());
 
             resultMap.put("uploadStatus", 0);
             resultMap.put("uploadFile", uploadFile);
@@ -190,7 +199,7 @@ public class MinioController {
             return ResponseResult.ok().message("文件已上传").data(resultMap);
         }
 
-        List<Map<String, Object>> chunkUploadUrls = uploadService.getMultipartFile(chunkBucKet, uploadDto);
+        List<Map<String, Object>> chunkUploadUrls = uploadService.getMultipartFile(chunkBucKet, filePO);
 
         if (chunkUploadUrls.size() == 0) {
             resultMap.put("uploadStatus", 2);
@@ -207,15 +216,18 @@ public class MinioController {
     /**
      * 合并文件并返回文件信息
      *
-     * @param uploadDto
+     * @param composeFile
      * @return
      */
+    @ApiOperation("上传完成之后，合并所有分片")
     @PostMapping("/compose-file")
-    public ResponseResult composeFile(@RequestBody FilePO uploadDto, @RequestHeader("Authorization") String token) {
+    public ResponseResult composeFile(@RequestBody ComposeFile composeFile, @ApiParam(hidden = true) @RequestHeader("Authorization") String token) {
         DecodedJWT jwt = TokenUtil.parseToken(token);
         int userId = jwt.getClaim("id").asInt();
 
-        FilePO currentFile = uploadService.mergeFile(chunkBucKet, bucketName, uploadDto, userId);
+        FilePO filePO = fileVoToPo.composeFile(composeFile);
+
+        FilePO currentFile = uploadService.mergeFile(chunkBucKet, bucketName, filePO, userId);
 
         if (currentFile == null) {
             return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("文件上传失败");
