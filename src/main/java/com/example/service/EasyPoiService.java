@@ -1,12 +1,9 @@
 package com.example.service;
 
-import cn.afterturn.easypoi.excel.entity.ExportParams;
 import com.example.pojo.Member;
-import com.example.pojo.Order;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 
 public interface EasyPoiService {

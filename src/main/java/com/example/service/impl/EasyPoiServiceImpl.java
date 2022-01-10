@@ -10,6 +10,7 @@ import com.example.pojo.Order;
 import com.example.pojo.Product;
 import com.example.service.EasyPoiService;
 import com.example.util.LocalJsonUtil;
+import com.example.util.MemberExcelDataHandler;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,13 +19,18 @@ import java.util.List;
 
 @Service("easyPoiService")
 public class EasyPoiServiceImpl implements EasyPoiService {
+
     @Override
     public ModelMap exportMemberExcel(ModelMap modelMap) {
         List<Member> memberList = LocalJsonUtil.getListFromJson("json/members.json", Member.class);
-        ExportParams exportParams = new ExportParams("会员列表", "会员列表", ExcelType.XSSF);
+        ExportParams params = new ExportParams("会员列表", "会员列表", ExcelType.XSSF);
+        //对导出结果进行自定义处理
+        MemberExcelDataHandler handler = new MemberExcelDataHandler();
+        handler.setNeedHandlerFields(new String[]{"昵称"});
+        params.setDataHandler(handler);
         modelMap.put(NormalExcelConstants.DATA_LIST, memberList);
         modelMap.put(NormalExcelConstants.CLASS, Member.class);
-        modelMap.put(NormalExcelConstants.PARAMS, exportParams);
+        modelMap.put(NormalExcelConstants.PARAMS, params);
         modelMap.put(NormalExcelConstants.FILE_NAME, "memberList");
 
         return modelMap;

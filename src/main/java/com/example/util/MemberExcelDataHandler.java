@@ -1,16 +1,13 @@
-package com.example.advice;
+package com.example.util;
 
 import cn.afterturn.easypoi.handler.impl.ExcelDataHandlerDefaultImpl;
 import cn.hutool.core.util.StrUtil;
 import com.example.pojo.Member;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 
 /**
  * 自定义字段处理
  * Created by macro on 2021/10/13.
  */
-@EnableAspectJAutoProxy
 public class MemberExcelDataHandler extends ExcelDataHandlerDefaultImpl<Member> {
 
     @Override
@@ -20,7 +17,7 @@ public class MemberExcelDataHandler extends ExcelDataHandlerDefaultImpl<Member> 
             if(value==null){
                 return super.exportHandler(obj,name,emptyValue);
             }
-            if(value instanceof String&& StrUtil.isBlank((String) value)){
+            if(value instanceof String && StrUtil.isBlank((String) value)){
                 return super.exportHandler(obj,name,emptyValue);
             }
         }

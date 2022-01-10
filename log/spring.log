@@ -5653,3 +5653,27 @@ cn.hutool.core.io.resource.NoResourceException: Resource of path [json/orders.js
 2022-01-10 11:19:12.428  INFO 17292 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-01-10 11:19:12.429  INFO 17292 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-01-10 11:19:12.431  INFO 17292 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-10 11:28:25.781  INFO 33680 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 33680 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-10 11:28:25.784 DEBUG 33680 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-10 11:28:25.784  INFO 33680 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-10 11:28:26.738  WARN 33680 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-10 11:28:26.738  WARN 33680 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-10 11:28:26.739  WARN 33680 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-10 11:28:26.739  WARN 33680 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-10 11:28:27.455  INFO 33680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-10 11:28:27.469  INFO 33680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-10 11:28:27.469  INFO 33680 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-10 11:28:27.471  WARN 33680 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-10 11:28:27.472  INFO 33680 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-10 11:28:27.472  INFO 33680 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-10 11:28:27.472  INFO 33680 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-10 11:28:27.475  INFO 33680 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-10 11:28:27.542  INFO 33680 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-10 11:28:27.543  INFO 33680 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1721 ms
+2022-01-10 11:28:29.310  INFO 33680 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-10 11:28:29.331  WARN 33680 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-10 11:28:29.750  INFO 33680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-10 11:28:30.128  INFO 33680 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 4.747 seconds (JVM running for 13.817)
+2022-01-10 11:29:14.962  INFO 33680 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-10 11:29:14.963  INFO 33680 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-10 11:29:14.965  INFO 33680 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms

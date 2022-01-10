@@ -45,6 +45,7 @@ public class EasyPoiController {
                                  HttpServletRequest request,
                                  HttpServletResponse response) {
         modelMap = easyPoiService.exportMemberExcel(modelMap);
+
         PoiBaseView.render(modelMap, request, response, NormalExcelConstants.EASYPOI_EXCEL_VIEW);
     }
 
