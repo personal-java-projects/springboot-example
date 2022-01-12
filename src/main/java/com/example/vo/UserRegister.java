@@ -18,6 +18,9 @@ public class UserRegister {
     @ApiModelProperty(value = "用户角色", example = "1", required = false)
     private int identity;
 
+    @ApiModelProperty(value = "用户头像", required = false)
+    private String avatarUrl;
+
     public String getUsername() {
         return username;
     }
@@ -40,5 +43,13 @@ public class UserRegister {
 
     public void setIdentity(int identity) {
         this.identity = identity;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 }

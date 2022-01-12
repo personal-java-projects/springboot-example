@@ -29,17 +29,13 @@ public class UserServiceImpl implements UserService {
         // 角色id默认为1，为普通用户
         int roleId = 1;
 
-        if (userInfo.get("identity") != null) {
+        if (Integer.parseInt(userInfo.get("identity").toString()) != 0) {
             roleId = (int) userInfo.get("identity");
         }
 
         user.setUsername(username);
         user.setPlainPassword(password);
         user.setPassword(Md5.MD5(password));
-
-        System.out.println("user: " + user);
-        System.out.println("roleId: " + roleId);
-
 
         userMapper.insertUser(user);
 

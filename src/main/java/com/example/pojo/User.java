@@ -1,5 +1,6 @@
 package com.example.pojo;
 
+
 public class User {
     // 用户id
     private int id;
@@ -12,6 +13,9 @@ public class User {
 
     // 用户密码不加密
     private String plainPassword;
+
+    // 用户头像
+    private String avatarUrl;
 
     // 用户角色
     private Role role;
@@ -48,6 +52,14 @@ public class User {
         this.plainPassword = plainPassword;
     }
 
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
     public Role getRole() {
         return role;
     }
@@ -62,6 +74,8 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", plainPassword='" + plainPassword + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
                 ", role=" + role +
                 '}';
     }
