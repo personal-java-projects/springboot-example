@@ -18,7 +18,7 @@ public interface UserMapper {
     public int insertRoleIdAndUserId(@Param("userId") int userId, @Param("roleId") int roleId);
 
     // 查询所有用户
-    public List<User> selectUsers();
+    public List<User> selectUsers(String username);
 
     // 根据用户名查询某个用户
     public User selectUserByUsername(User user);

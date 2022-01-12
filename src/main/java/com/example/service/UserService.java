@@ -14,7 +14,7 @@ public interface UserService {
     public User getUser(User user);
 
     // 获取所有用户
-    public List<User> getUsers();
+    public List<User> getUsers(String username);
 
     // 根据userId查询某个用户
     public User getUserById(int userId);

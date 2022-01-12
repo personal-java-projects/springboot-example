@@ -8,7 +8,12 @@ import java.io.Serializable;
 
 @Data
 @ApiModel(value = "通用API接口返回")
-public class ResponseResult implements Serializable {
+public class ResponseResult<T> implements Serializable {
+    /**
+     * 按创建时间倒序排序
+     */
+    public static final String ORDER_BY_CREATE_TIME_DESC = "create_time desc";
+
     @ApiModelProperty(value = "通用成功状态", required = true)
     private Boolean success;
 
@@ -22,38 +27,6 @@ public class ResponseResult implements Serializable {
     private Object data;
 
     public ResponseResult(){}
-
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
 
     // 通用返回成功
     public static ResponseResult ok() {

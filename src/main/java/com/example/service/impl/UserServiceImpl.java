@@ -21,28 +21,38 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RoleMapper roleMapper;
 
+    // 默认头像
+    private String avatarUrl = "http://101.35.44.70:9000/file/2022-01/12/avatar.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20220112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220112T144042Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e6efec16cc952cec35826304598eac50b22b888b81ac24212c75a7e0fd7519bb";
+
     @Override
     public int userRegister(Map<String, Object> userInfo) {
         User user = new User();
         String username = (String) userInfo.get("username");
         String password = (String) userInfo.get("password");
-        // 角色id默认为1，为普通用户
-        int roleId = 1;
+        int identity = (int) userInfo.get("identity");
+        String avatar = (String) userInfo.get("avatar");
 
-        if (Integer.parseInt(userInfo.get("identity").toString()) != 0) {
-            roleId = (int) userInfo.get("identity");
+        // 默认用户身份为1，即游客
+        if (identity == 0) {
+            identity = 1;
+        }
+
+        // 默认用户头像为avatarUrl
+        if (avatar == null) {
+            avatar = avatarUrl;
         }
 
         user.setUsername(username);
         user.setPlainPassword(password);
         user.setPassword(Md5.MD5(password));
+        user.setAvatarUrl(avatar);
 
         userMapper.insertUser(user);
 
         // 由于没有采用User对象自动映射的方式插入数据，所以mybatis返回值一直不是插入记录的真正id。
         // 所以这里使用getId()获取插入记录的id
         int userId = user.getId();
-        int row = userMapper.insertRoleIdAndUserId(userId, roleId);
+        int row = userMapper.insertRoleIdAndUserId(userId, identity);
         return userId;
     }
 
@@ -90,8 +100,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsers() {
-        List<User> userList = userMapper.selectUsers();
+    public List<User> getUsers(String username) {
+        List<User> userList = userMapper.selectUsers(username);
 
         return userList;
     }

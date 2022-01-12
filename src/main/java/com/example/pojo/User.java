@@ -1,6 +1,8 @@
 package com.example.pojo;
 
 
+import java.sql.Date;
+
 public class User {
     // 用户id
     private int id;
@@ -16,6 +18,12 @@ public class User {
 
     // 用户头像
     private String avatarUrl;
+
+    // 是否封号
+    private int disabled;
+
+    // 用户创建时间
+    private Date createTime;
 
     // 用户角色
     private Role role;
@@ -68,6 +76,22 @@ public class User {
         this.role = role;
     }
 
+    public int getDisabled() {
+        return disabled;
+    }
+
+    public void setDisabled(int disabled) {
+        this.disabled = disabled;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -76,6 +100,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", plainPassword='" + plainPassword + '\'' +
                 ", avatarUrl='" + avatarUrl + '\'' +
+                ", disabled=" + disabled +
+                ", createTime=" + createTime +
                 ", role=" + role +
                 '}';
     }

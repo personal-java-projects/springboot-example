@@ -8,7 +8,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into ex_user values (#{id}, #{username}, #{password}, #{plainPassword})
+        insert into ex_user values (#{id}, #{username}, #{password}, #{plainPassword}, #{avatarUrl})
     </insert>
 
     <insert id="insertRoleIdAndUserId">
@@ -20,11 +20,16 @@
     </select>
 
     <select id="selectUserById" parameterType="int" resultType="User">
-        select id, username, password, plain_password as plainPassword from ex_user where id=#{userId}
+        select id, username, password, plain_password as plainPassword, avatarUrl from ex_user where id=#{userId}
     </select>
 
-    <select id="selectUsers" resultType="User">
+    <select id="selectUsers" resultType="User" parameterType="String">
         select * from ex_user
+        <where>
+            <if test="username != null">
+                username=#{username}
+            </if>
+        </where>
     </select>
 
     <update id="updateUser" parameterType="User">

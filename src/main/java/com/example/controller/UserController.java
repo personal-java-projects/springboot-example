@@ -2,15 +2,19 @@ package com.example.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.example.dto.PageDto;
 import com.example.pojo.Role;
 import com.example.pojo.User;
+import com.example.vo.Page;
 import com.example.vo.ResetPassword;
 import com.example.vo.UserRegister;
 import com.example.vo.UserLogin;
+import com.example.voToPo.PageToVo;
 import com.example.voToPo.UserVoToPo;
 import com.example.service.UserService;
 import com.example.util.*;
 
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,7 @@ import javax.validation.Valid;
 import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Log4j2
@@ -34,6 +39,15 @@ public class UserController {
 
     @Autowired
     private UserVoToPo userVoToPo;
+
+    @Autowired
+    private PageToVo pageToVo;
+
+    // 结果集
+    private Map<String, Object> resultMap = new HashMap<>();
+
+    // 分页dto
+    private PageDto pageDto;
 
     @GetMapping("/index")
     public ResponseResult index() throws IOException {
@@ -71,6 +85,7 @@ public class UserController {
         userInfo.put("username", user.getUsername());
         userInfo.put("password", user.getPassword());
         userInfo.put("identity", user.getRole().getId());
+        userInfo.put("avatar", user.getAvatarUrl());
 
         System.out.println("userInfo: " + userInfo);
 
@@ -98,7 +113,6 @@ public class UserController {
         int identity = 0;
 
         Map<String, Object> result = new HashMap<>();
-        Map<String, Object> userMap = new HashMap<>();
 
         // MapStruct自动将VO转换成了Po
         User user = userVoToPo.userLoginToUser(userLogin);
@@ -110,6 +124,11 @@ public class UserController {
             // java中比较字符串是否相等须用equals()
             if (!currentUser.getPassword().equals(Md5.MD5(user.getPassword()))) {
                 return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("用户名或密码错误");
+            }
+
+            // 用户被封号
+            if (currentUser.getDisabled() == 1) {
+                return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("该账号已被封");
             }
 
             // 获取用户角色
@@ -131,6 +150,22 @@ public class UserController {
         return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("用户不存在");
     }
 
+    @ApiOperation(value = "获取所有用户")
+    @GetMapping("/getUsers")
+    public ResponseResult getUsers (@RequestParam(required = false) String username, @RequestParam(required = false) Page page) {
+        List<User> users = userService.getUsers(username);
+        PageDto pageDto = null;
+
+        if (page == null) {
+            page = new Page();
+            pageDto = pageToVo.pageDto(page);
+        }
+
+        PageDto pageInfo = pageDto.pageList(users);
+
+        return ResponseResult.ok().data(pageInfo);
+    }
+
     @ApiOperation(value = "获取用户信息")
     @GetMapping("/getUserInfo")
     public ResponseResult getUserInfo(@ApiIgnore @RequestHeader("Authorization") String token) {
@@ -145,7 +180,6 @@ public class UserController {
         }
 
         // 获取用户角色
-        // 获取用户角色
         Role userRole = userService.getUserRole(user);
         user.setRole(userRole);
 
@@ -153,6 +187,7 @@ public class UserController {
         userInfo.put("id", user.getId());
         userInfo.put("username", user.getUsername());
         userInfo.put("identity", user.getRole().getId());
+        userInfo.put("avatarUrl", user.getAvatarUrl());
 
         resultMap.put("userInfo", userInfo);
         return ResponseResult.ok().data(resultMap);

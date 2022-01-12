@@ -52,12 +52,27 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- 分页助手 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+
+		<!-- 参数校验 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.17.Final</version>
+		</dependency>
+
 		<!-- easypoi -->
 		<dependency>
 			<groupId>cn.afterturn</groupId>
 			<artifactId>easypoi-spring-boot-starter</artifactId>
 			<version>4.4.0</version>
 		</dependency>
+
 		<!-- 阿里的json格式化工具 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -65,12 +80,6 @@
 			<version>1.2.41</version>
 		</dependency>
 
-		<!-- 分页助手 -->
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>3.7.5</version>
-		</dependency>
 		<dependency>
 			<groupId>com.github.jsqlparser</groupId>
 			<artifactId>jsqlparser</artifactId>
