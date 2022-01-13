@@ -103,6 +103,13 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsers(String username) {
         List<User> userList = userMapper.selectUsers(username);
 
+        // 查询用户身份
+        for (User user:userList) {
+            int id = user.getId();
+            Role role = roleMapper.selectRoleByUserId(id);
+            user.setRole(role);
+        }
+
         return userList;
     }
 

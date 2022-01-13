@@ -8,25 +8,38 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into ex_user values (#{id}, #{username}, #{password}, #{plainPassword}, #{avatarUrl})
+        insert into ex_user values (#{id}, #{username}, #{password}, #{plainPassword}, #{avatarUrl}, #{disabled}, #{disabledTime}, #{createTime})
     </insert>
 
     <insert id="insertRoleIdAndUserId">
         insert into ex_role_user values (#{userId}, #{roleId})
     </insert>
 
+    <sql id="selectUsers">
+        select id, username, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime from ex_user
+    </sql>
     <select id="selectUserByUsername" parameterType="User" resultType="User">
-        select * from ex_user where username=#{username}
+        <include refid="selectUsers"></include>
+        <where>
+            <if test="username != null">
+                username=#{username}
+            </if>
+        </where>
     </select>
 
     <select id="selectUserById" parameterType="int" resultType="User">
-        select id, username, password, plain_password as plainPassword, avatarUrl from ex_user where id=#{userId}
+        <include refid="selectUsers"></include>
+        <where>
+            <if test="userId != null">
+                id=#{userId}
+            </if>
+        </where>
     </select>
 
     <select id="selectUsers" resultType="User" parameterType="String">
-        select * from ex_user
+        <include refid="selectUsers"></include>
         <where>
-            <if test="username != null">
+            <if test="username != ''">
                 username=#{username}
             </if>
         </where>

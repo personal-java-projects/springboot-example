@@ -11,7 +11,7 @@
  Target Server Version : 50736
  File Encoding         : 65001
 
- Date: 12/01/2022 17:40:03
+ Date: 13/01/2022 14:29:59
 */
 
 SET NAMES utf8mb4;
@@ -68,8 +68,8 @@ CREATE TABLE `ex_role_user`  (
 -- ----------------------------
 -- Records of ex_role_user
 -- ----------------------------
-INSERT INTO `ex_role_user` VALUES (1, 1);
-INSERT INTO `ex_role_user` VALUES (2, 4);
+INSERT INTO `ex_role_user` VALUES (4, 1);
+INSERT INTO `ex_role_user` VALUES (5, 4);
 
 -- ----------------------------
 -- Table structure for ex_user
@@ -80,13 +80,18 @@ CREATE TABLE `ex_user`  (
   `username` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户加密后的密码',
   `plain_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户未加密的密码',
+  `avatarUrl` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '用户头像',
+  `disabled` int(2) NULL DEFAULT 0 COMMENT '账号是否封禁，0：解禁，1：封号',
+  `disabledTime` bigint(12) NULL DEFAULT 0 COMMENT '账号封禁时长',
+  `permanent_disabled` int(2) NULL DEFAULT 0 COMMENT '账号是否永久封禁，0：不封禁，1：永久封禁',
+  `createTime` datetime NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '用户创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of ex_user
 -- ----------------------------
-INSERT INTO `ex_user` VALUES (1, 'user', 'e10adc3949ba59abbe56e057f20f883e', '123456');
-INSERT INTO `ex_user` VALUES (2, 'developer', '3d5d1299d63de6d215c684caf0a352f3', 'developer:123');
+INSERT INTO `ex_user` VALUES (4, 'user', 'e10adc3949ba59abbe56e057f20f883e', '123456', 'http://101.35.44.70:9000/file/2022-01/12/avatar.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20220112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220112T144042Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e6efec16cc952cec35826304598eac50b22b888b81ac24212c75a7e0fd7519bb', 0, 0, 0, '2022-01-13 10:07:51');
+INSERT INTO `ex_user` VALUES (5, 'developer', '3d5d1299d63de6d215c684caf0a352f3', 'developer:123', 'http://101.35.44.70:9000/file/2022-01/12/avatar.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20220112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220112T144042Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e6efec16cc952cec35826304598eac50b22b888b81ac24212c75a7e0fd7519bb', 0, 0, 0, '2022-01-13 10:08:38');
 
 SET FOREIGN_KEY_CHECKS = 1;

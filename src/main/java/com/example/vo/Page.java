@@ -15,10 +15,6 @@ public class Page {
     @Range(min = 1, max = Integer.MAX_VALUE)
     private int pageSize = 10;
 
-    @ApiModelProperty(value = "排序方式", example = "create_time desc,update_time desc")
-    @Range(min = 1, max = Integer.MAX_VALUE)
-    private String orderBy = "createTime desc";
-
     public int getPageIndex() {
         return pageIndex;
     }
@@ -33,13 +29,5 @@ public class Page {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
-    }
-
-    public String getOrderBy() {
-        return orderBy;
-    }
-
-    public void setOrderBy(String orderBy) {
-        this.orderBy = orderBy;
     }
 }

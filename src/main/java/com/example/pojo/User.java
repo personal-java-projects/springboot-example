@@ -1,7 +1,7 @@
 package com.example.pojo;
 
-
-import java.sql.Date;
+import java.util.Date;
+import java.sql.Timestamp;
 
 public class User {
     // 用户id
@@ -22,8 +22,11 @@ public class User {
     // 是否封号
     private int disabled;
 
+    // 封号时长
+    private Long disabledTime = 0L;
+
     // 用户创建时间
-    private Date createTime;
+    private Date createTime = new Date();
 
     // 用户角色
     private Role role;
@@ -92,6 +95,14 @@ public class User {
         this.createTime = createTime;
     }
 
+    public Long getDisabledTime() {
+        return disabledTime;
+    }
+
+    public void setDisabledTime(Long disabledTime) {
+        this.disabledTime = disabledTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -101,6 +112,7 @@ public class User {
                 ", plainPassword='" + plainPassword + '\'' +
                 ", avatarUrl='" + avatarUrl + '\'' +
                 ", disabled=" + disabled +
+                ", disabledTime=" + disabledTime +
                 ", createTime=" + createTime +
                 ", role=" + role +
                 '}';

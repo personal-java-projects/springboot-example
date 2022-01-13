@@ -6,7 +6,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Range;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @ApiModel("分页信息")
 public class PageDto {
@@ -24,23 +26,35 @@ public class PageDto {
     @ApiModelProperty(value = "总记录数", example = "100")
     private int totalSize;
 
-    @ApiModelProperty(value = "排序", notes = "例：create_time desc,update_time desc")
-    private String orderBy;
-
     @ApiModelProperty(value = "分页数据")
     private List<?> list;
 
-    public PageDto pageList(List<?> list) {
+    @ApiModelProperty(value = "分页信息")
+    private Map<String, Object> pagesInfo = new HashMap<>();
+
+    @ApiModelProperty(value = "分页结果集")
+    private Map<String, Object> resultMap = new HashMap<>();
+
+    public PageDto pageList(List<?> list, String targetListName) {
         PageHelper.startPage(this.getPageIndex(), this.getPageSize());
 
         PageInfo pageInfo = new PageInfo<>(list);
 
-        // 封装分页返回信息
+        // 定义分页数据
         this.setPageIndex(pageInfo.getPageNum());
         this.setPageSize(this.getPageSize());
         this.setTotalSize(pageInfo.getSize());
         this.setTotalPages(pageInfo.getPages());
         this.setList(pageInfo.getList());
+
+        // 封装结果集
+        pagesInfo.put("pageIndex", pageIndex);
+        pagesInfo.put("pageSize", pageSize);
+        pagesInfo.put("totalSize", totalSize);
+        pagesInfo.put("totalPages", totalPages);
+
+        resultMap.put(targetListName, list);
+        resultMap.put("pageInfo", pagesInfo);
 
         return this;
     }
@@ -78,19 +92,27 @@ public class PageDto {
         this.totalSize = totalSize;
     }
 
-    public String getOrderBy() {
-        return orderBy;
-    }
-
-    public void setOrderBy(String orderBy) {
-        this.orderBy = orderBy;
-    }
-
     public List<?> getList() {
         return list;
     }
 
     public void setList(List<?> list) {
         this.list = list;
+    }
+
+    public Map<String, Object> getPagesInfo() {
+        return pagesInfo;
+    }
+
+    public void setPagesInfo(Map<String, Object> pagesInfo) {
+        this.pagesInfo = pagesInfo;
+    }
+
+    public Map<String, Object> getResultMap() {
+        return resultMap;
+    }
+
+    public void setResultMap(Map<String, Object> resultMap) {
+        this.resultMap = resultMap;
     }
 }

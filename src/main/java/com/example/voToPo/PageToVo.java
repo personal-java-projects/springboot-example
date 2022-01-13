@@ -10,8 +10,7 @@ import org.mapstruct.Mappings;
 public interface PageToVo {
     @Mappings({
             @Mapping(source = "pageIndex", target = "pageIndex"),
-            @Mapping(source = "pageSize", target = "pageSize"),
-            @Mapping(source = "orderBy", target = "orderBy")
+            @Mapping(source = "pageSize", target = "pageSize")
     })
     PageDto pageDto(Page page);
 }

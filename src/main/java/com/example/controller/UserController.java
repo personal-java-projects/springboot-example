@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
@@ -158,12 +159,13 @@ public class UserController {
 
         if (page == null) {
             page = new Page();
-            pageDto = pageToVo.pageDto(page);
         }
 
-        PageDto pageInfo = pageDto.pageList(users);
+        pageDto = pageToVo.pageDto(page);
 
-        return ResponseResult.ok().data(pageInfo);
+        PageDto pageInfo = pageDto.pageList(users, "userList");
+
+        return ResponseResult.ok().data(pageInfo.getResultMap());
     }
 
     @ApiOperation(value = "获取用户信息")
