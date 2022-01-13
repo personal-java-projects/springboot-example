@@ -82,6 +82,11 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    @Override
+    public void banUser(User user) {
+        int row = userMapper.updateUser(user);
+    }
+
     /**
      * 查找用户
      * @param user
@@ -101,6 +106,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUsers(String username) {
+        // 当username为""时，将其定义成null
+        username = username == "" ? null : username;
         List<User> userList = userMapper.selectUsers(username);
 
         // 查询用户身份

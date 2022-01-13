@@ -27,4 +27,7 @@ public interface UserService {
 
     // 删除用户
     public Boolean deleteUser(int userId);
+
+    // 封禁用户
+    public void banUser(User user);
 }

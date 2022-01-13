@@ -151,9 +151,15 @@ public class UserController {
         return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("用户不存在");
     }
 
+    /**
+     * get方法不支持既接收param同时接受json
+     * @param username
+     * @param page
+     * @return
+     */
     @ApiOperation(value = "获取所有用户")
-    @GetMapping("/getUsers")
-    public ResponseResult getUsers (@RequestParam(required = false) String username, @RequestParam(required = false) Page page) {
+    @PostMapping ("/getUsers")
+    public ResponseResult getUsers(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
         List<User> users = userService.getUsers(username);
         PageDto pageDto = null;
 
@@ -166,6 +172,21 @@ public class UserController {
         PageDto pageInfo = pageDto.pageList(users, "userList");
 
         return ResponseResult.ok().data(pageInfo.getResultMap());
+    }
+
+    @ApiOperation(value = "解封号")
+    @PatchMapping("/banUser")
+    public ResponseResult banUser(@RequestParam int userId, @RequestParam int disabled) {
+        User user = userService.getUserById(userId);
+
+        if (user == null) {
+            return ResponseResult.ok().success(false).message("用户不存在");
+        }
+
+        user.setDisabled(disabled);
+        userService.banUser(user);
+
+        return ResponseResult.ok();
     }
 
     @ApiOperation(value = "获取用户信息")

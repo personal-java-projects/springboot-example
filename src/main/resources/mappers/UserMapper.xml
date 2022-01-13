@@ -39,14 +39,17 @@
     <select id="selectUsers" resultType="User" parameterType="String">
         <include refid="selectUsers"></include>
         <where>
-            <if test="username != ''">
+            <if test="username != null">
                 username=#{username}
             </if>
         </where>
     </select>
 
+    <sql id="updateUser">
+        update ex_user set username=#{username},password=#{password},plain_password=#{plainPassword},avatarUrl=#{avatarUrl},disabled=#{disabled},disabledTime=#{disabledTime}
+    </sql>
     <update id="updateUser" parameterType="User">
-        update ex_user set username=#{username},password=#{password}
+        <include refid="updateUser"></include>
         <where>
             <if test="id != 0">
                 id=#{id} and
