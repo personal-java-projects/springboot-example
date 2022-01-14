@@ -24,6 +24,7 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping("/getRoles")
+    @ResponseBody
     public ResponseResult getRoles(@RequestParam(value = "userId", required = false) String userId) {
         System.out.println("userId: " + userId);
         List<Role> roleList = roleService.getRoles(userId);

@@ -47,6 +47,13 @@ public class UserServiceImpl implements UserService {
         user.setPassword(Md5.MD5(password));
         user.setAvatarUrl(avatar);
 
+        User exitedUser = userMapper.selectUserByUsername(user);
+
+        // 用户已存在
+        if (exitedUser != null) {
+            return 0;
+        }
+
         userMapper.insertUser(user);
 
         // 由于没有采用User对象自动映射的方式插入数据，所以mybatis返回值一直不是插入记录的真正id。

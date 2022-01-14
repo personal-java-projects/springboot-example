@@ -93,11 +93,11 @@ public class UserController {
 
         int userId = userService.userRegister(userInfo);
 
-        if (userId != 0) {
-            return new ResponseResult().ok();
+        if (userId == 0) {
+            return ResponseResult.error().code(400).message("用户已注册");
         }
 
-        return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).code(400).message("请求失败");
+        return ResponseResult.ok();
     }
 
     /**
@@ -189,7 +189,7 @@ public class UserController {
         return ResponseResult.ok();
     }
 
-    @ApiOperation(value = "获取用户信息")
+    @ApiOperation(value = "获取登录用户的信息")
     @GetMapping("/getUserInfo")
     public ResponseResult getUserInfo(@ApiIgnore @RequestHeader("Authorization") String token) {
         DecodedJWT jwt = TokenUtil.parseToken(token);
@@ -213,6 +213,24 @@ public class UserController {
         userInfo.put("avatarUrl", user.getAvatarUrl());
 
         resultMap.put("userInfo", userInfo);
+        return ResponseResult.ok().data(resultMap);
+    }
+
+    @ApiOperation(value = "根据id获取用户")
+    @GetMapping("/getUser")
+    public ResponseResult getUser(@RequestParam int userId) {
+        System.out.println("userId: " + userId);
+        User user = userService.getUserById(userId);
+
+        if (user == null) {
+            return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR);
+        }
+
+        Role role = userService.getUserRole(user);
+        user.setRole(role);
+
+        resultMap.put("user", user);
+
         return ResponseResult.ok().data(resultMap);
     }
 

@@ -28,6 +28,9 @@ public class User {
     // 用户创建时间
     private Date createTime = new Date();
 
+    // 用户更新时间
+    private Date updateTime = new Date();
+
     // 用户角色
     private Role role;
 
@@ -103,6 +106,14 @@ public class User {
         this.disabledTime = disabledTime;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -114,6 +125,7 @@ public class User {
                 ", disabled=" + disabled +
                 ", disabledTime=" + disabledTime +
                 ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
                 ", role=" + role +
                 '}';
     }

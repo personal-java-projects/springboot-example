@@ -8,7 +8,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into ex_user values (#{id}, #{username}, #{password}, #{plainPassword}, #{avatarUrl}, #{disabled}, #{disabledTime}, #{createTime})
+        insert into ex_user values (#{id}, #{username}, #{password}, #{plainPassword}, #{avatarUrl}, #{disabled}, #{disabledTime}, #{createTime}, #{updateTime})
     </insert>
 
     <insert id="insertRoleIdAndUserId">
@@ -16,7 +16,7 @@
     </insert>
 
     <sql id="selectUsers">
-        select id, username, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime from ex_user
+        select id, username, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
     </sql>
     <select id="selectUserByUsername" parameterType="User" resultType="User">
         <include refid="selectUsers"></include>
@@ -46,7 +46,7 @@
     </select>
 
     <sql id="updateUser">
-        update ex_user set username=#{username},password=#{password},plain_password=#{plainPassword},avatarUrl=#{avatarUrl},disabled=#{disabled},disabledTime=#{disabledTime}
+        update ex_user set username=#{username},password=#{password},plain_password=#{plainPassword},avatarUrl=#{avatarUrl},disabled=#{disabled},disabledTime=#{disabledTime},updateTime=#{updateTime}
     </sql>
     <update id="updateUser" parameterType="User">
         <include refid="updateUser"></include>
