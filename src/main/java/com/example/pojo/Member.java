@@ -27,7 +27,7 @@ public class Member {
     @Excel(name = "出生日期", width = 20, format = "yyyy-MM-dd")
     private Date birthday;
 
-    @Excel(name = "手机号", width = 20, needMerge = true, desensitizationRule = "3_4")
+    @Excel(name = "手机号", width = 20, needMerge = true)
     private String phone;
 
     private String icon;

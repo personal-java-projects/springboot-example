@@ -1,5 +1,6 @@
 package com.example.pojo;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -8,6 +9,7 @@ public class Role {
     private int id;
 
     // 角色名称
+    @Excel(name = "角色名", width = 15, needMerge = true)
     private String roleName;
 
     public int getId() {

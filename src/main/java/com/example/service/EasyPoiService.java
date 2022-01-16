@@ -1,6 +1,8 @@
 package com.example.service;
 
+import cn.afterturn.easypoi.excel.entity.ExportParams;
 import com.example.pojo.Member;
+import com.example.pojo.User;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,4 +30,12 @@ public interface EasyPoiService {
      * @return
      */
     ModelMap exportOrderExcel(ModelMap modelMap);
+
+    /**
+     * 导出用户excel
+     * @param modelMap
+     * @param ids
+     * @return
+     */
+    ModelMap exportUserExcel(ModelMap modelMap, List<Integer> ids);
 }

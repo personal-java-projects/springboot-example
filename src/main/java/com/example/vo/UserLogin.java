@@ -7,11 +7,11 @@ import javax.validation.constraints.NotNull;
 
 @ApiModel("用户登录")
 public class UserLogin {
-    @ApiModelProperty(value = "用户名", required = true)
+    @ApiModelProperty(value = "用户名", required = true, position = 1, example = "developer")
     @NotNull(message = "用户名不能为空")
     private String username;
 
-    @ApiModelProperty(value = "密码", required = true)
+    @ApiModelProperty(value = "密码", required = true, position = 0, example = "developer:123")
     @NotNull(message = "密码不能为空")
     private String password;
 

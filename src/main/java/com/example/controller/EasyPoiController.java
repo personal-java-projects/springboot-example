@@ -1,36 +1,37 @@
 package com.example.controller;
 
 import cn.afterturn.easypoi.entity.vo.NormalExcelConstants;
-import cn.afterturn.easypoi.excel.ExcelImportUtil;
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
-import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
 import cn.afterturn.easypoi.view.PoiBaseView;
 import com.example.pojo.Member;
-import com.example.pojo.Order;
-import com.example.pojo.Product;
+import com.example.pojo.User;
 import com.example.service.EasyPoiService;
-import com.example.util.LocalJsonUtil;
 import com.example.util.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.log4j.Log4j2;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * EasyPoi导入导出测试Controller
  * Created by macro on 2021/10/12.
  */
+@Log4j2
 @Controller
 @Api(tags = "EasyPoiController", description = "EasyPoi导入导出测试")
 @RequestMapping("/easyPoi")
@@ -71,5 +72,49 @@ public class EasyPoiController {
                                 HttpServletResponse response) {
         modelMap = easyPoiService.exportOrderExcel(modelMap);
         PoiBaseView.render(modelMap, request, response, NormalExcelConstants.EASYPOI_EXCEL_VIEW);
+    }
+
+    @ApiOperation(value = "导出用户列表Excel")
+    @GetMapping("/exportUserExcel")
+    public void exportUserList(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) String ids) {
+        String[] stringIds = null;
+        if (ids != null) {
+            stringIds = ids.split(",");
+        }
+
+        List<Integer> userIds = null;
+        if (stringIds != null) {
+            for (String userId:stringIds) {
+                userIds.add(Integer.parseInt(userId));
+            }
+        }
+
+        modelMap = easyPoiService.exportUserExcel(modelMap, userIds);
+
+        PoiBaseView.render(modelMap, request, response, NormalExcelConstants.EASYPOI_EXCEL_VIEW);
+
+//        ExportParams exportParams = new ExportParams("用户列表", "用户列表", ExcelType.XSSF);
+//        List<User> userList = easyPoiService.exportUserExcel(modelMap, userIds);
+//        Workbook workbook = ExcelExportUtil.exportExcel(exportParams, User.class, userList);
+//        ServletOutputStream outputStream = null;
+//
+//        try {
+//            outputStream = response.getOutputStream();
+//            response.setCharacterEncoding("UTF-8");
+//            response.setHeader("content-Type", "application/vnd.ms-excel");
+//            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("userList", "UTF-8"));
+//            workbook.write(outputStream);
+//        } catch (IOException e) {
+//            log.error("导出图片失败");
+//            throw new RuntimeException(e);
+//        } finally {
+//            if (outputStream != null) {
+//                try {
+//                    outputStream.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
     }
 }
