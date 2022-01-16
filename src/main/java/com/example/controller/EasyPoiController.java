@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -78,43 +79,40 @@ public class EasyPoiController {
     @GetMapping("/exportUserExcel")
     public void exportUserList(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) String ids) {
         String[] stringIds = null;
-        if (ids != null) {
+        if (ids != "") {
             stringIds = ids.split(",");
         }
 
-        List<Integer> userIds = null;
+        List<Integer> userIds = new ArrayList<>();
         if (stringIds != null) {
             for (String userId:stringIds) {
                 userIds.add(Integer.parseInt(userId));
             }
         }
 
-        modelMap = easyPoiService.exportUserExcel(modelMap, userIds);
 
-        PoiBaseView.render(modelMap, request, response, NormalExcelConstants.EASYPOI_EXCEL_VIEW);
+        ExportParams exportParams = new ExportParams("用户列表", "用户列表", ExcelType.XSSF);
+        List<User> userList = easyPoiService.exportUserExcel(modelMap, userIds);
+        Workbook workbook = ExcelExportUtil.exportExcel(exportParams, User.class, userList);
+        ServletOutputStream outputStream = null;
 
-//        ExportParams exportParams = new ExportParams("用户列表", "用户列表", ExcelType.XSSF);
-//        List<User> userList = easyPoiService.exportUserExcel(modelMap, userIds);
-//        Workbook workbook = ExcelExportUtil.exportExcel(exportParams, User.class, userList);
-//        ServletOutputStream outputStream = null;
-//
-//        try {
-//            outputStream = response.getOutputStream();
-//            response.setCharacterEncoding("UTF-8");
-//            response.setHeader("content-Type", "application/vnd.ms-excel");
-//            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("userList", "UTF-8"));
-//            workbook.write(outputStream);
-//        } catch (IOException e) {
-//            log.error("导出图片失败");
-//            throw new RuntimeException(e);
-//        } finally {
-//            if (outputStream != null) {
-//                try {
-//                    outputStream.close();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
+        try {
+            outputStream = response.getOutputStream();
+            response.setCharacterEncoding("UTF-8");
+            response.setHeader("content-Type", "application/vnd.ms-excel");
+            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode("userList", "UTF-8"));
+            workbook.write(outputStream);
+        } catch (IOException e) {
+            log.error("导出图片失败");
+            throw new RuntimeException(e);
+        } finally {
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

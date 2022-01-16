@@ -37,5 +37,5 @@ public interface EasyPoiService {
      * @param ids
      * @return
      */
-    ModelMap exportUserExcel(ModelMap modelMap, List<Integer> ids);
+    List<User> exportUserExcel(ModelMap modelMap, List<Integer> ids);
 }

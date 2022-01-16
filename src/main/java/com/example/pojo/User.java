@@ -24,7 +24,7 @@ public class User {
 //    @Excel(name = "头像", type = 1, width = 40 , imageType = 1)
     private String avatarUrl;
 
-    @Excel(name = "头像图片", type = 2, width = 40 , height = 20, imageType = 2)
+    @Excel(name = "头像图片", type = 2, width = 40 , height = 50, imageType = 2)
     private byte[] avatarImg;
 
     // 是否封号

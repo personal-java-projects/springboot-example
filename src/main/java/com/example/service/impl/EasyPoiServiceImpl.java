@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
@@ -74,10 +75,10 @@ public class EasyPoiServiceImpl implements EasyPoiService {
     }
 
     @Override
-    public ModelMap exportUserExcel(ModelMap modelMap, List<Integer> ids) {
-        List<User> userList = null;
+    public List<User> exportUserExcel(ModelMap modelMap, List<Integer> ids) {
+        List<User> userList = new ArrayList<>();
 
-        if (ids == null) {
+        if (ids.size() == 0) {
             userList = userMapper.selectUsers(null);
         }
 
@@ -95,14 +96,8 @@ public class EasyPoiServiceImpl implements EasyPoiService {
             user.setRole(role);
         }
 
-        ExportParams exportParams = new ExportParams("用户列表", "用户列表", ExcelType.XSSF);
 
-        modelMap.put(NormalExcelConstants.DATA_LIST, userList);
-        modelMap.put(NormalExcelConstants.CLASS, User.class);
-        modelMap.put(NormalExcelConstants.PARAMS, exportParams);
-        modelMap.put(NormalExcelConstants.FILE_NAME, "userList");
-
-        return modelMap;
+        return userList;
     }
 
     private List<Order> getOrderList() {
