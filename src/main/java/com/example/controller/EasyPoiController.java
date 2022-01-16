@@ -10,7 +10,9 @@ import com.example.pojo.User;
 import com.example.service.EasyPoiService;
 import com.example.util.ResponseResult;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.log4j.Log4j2;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -77,7 +80,8 @@ public class EasyPoiController {
 
     @ApiOperation(value = "导出用户列表Excel")
     @GetMapping("/exportUserExcel")
-    public void exportUserList(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) String ids) {
+    // allowEmptyValue 允许swagger传空值，默认不允许，会传null
+    public void exportUserList(@ApiIgnore ModelMap modelMap, HttpServletResponse response,@ApiParam(value = "一组用户id", allowEmptyValue = true) @RequestParam(required = false) String ids) {
         String[] stringIds = null;
         if (ids != "") {
             stringIds = ids.split(",");
