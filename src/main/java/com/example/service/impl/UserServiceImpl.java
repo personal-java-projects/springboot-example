@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
     public int userRegister(Map<String, Object> userInfo) {
         User user = new User();
         String username = (String) userInfo.get("username");
+        String nickname = (String) userInfo.get("nickname");
         String password = (String) userInfo.get("password");
         int identity = (int) userInfo.get("identity");
         String avatar = (String) userInfo.get("avatar");
@@ -43,6 +44,7 @@ public class UserServiceImpl implements UserService {
         }
 
         user.setUsername(username);
+        user.setNickname(nickname);
         user.setPlainPassword(password);
         user.setPassword(Md5.MD5(password));
         user.setAvatarUrl(avatar);

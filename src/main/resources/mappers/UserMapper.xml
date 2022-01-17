@@ -8,7 +8,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into ex_user values (#{id}, #{username}, #{password}, #{plainPassword}, #{avatarUrl}, #{disabled}, #{disabledTime}, #{createTime}, #{updateTime})
+        insert into ex_user values (#{id}, #{username}, #{nickname}, #{password}, #{plainPassword}, #{avatarUrl}, #{disabled}, #{disabledTime}, #{createTime}, #{updateTime})
     </insert>
 
     <insert id="insertRoleIdAndUserId">
@@ -16,7 +16,7 @@
     </insert>
 
     <sql id="selectUsers">
-        select id, username, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+        select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
     </sql>
     <select id="selectUserByUsername" parameterType="User" resultType="User">
         <include refid="selectUsers"></include>

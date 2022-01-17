@@ -84,6 +84,7 @@ public class UserController {
 
         Map<String, Object> userInfo = new HashMap<>();
         userInfo.put("username", user.getUsername());
+        userInfo.put("nickname", user.getNickname());
         userInfo.put("password", user.getPassword());
         userInfo.put("identity", user.getRole().getId());
         userInfo.put("avatar", user.getAvatarUrl());
