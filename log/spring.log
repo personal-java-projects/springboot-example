@@ -834,3 +834,47 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'nickname' 
 2022-01-17 09:31:09.275 DEBUG 20280 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
 2022-01-17 09:31:39.517  INFO 20280 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-01-17 09:31:39.528  INFO 20280 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-17 09:31:49.434  INFO 21436 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 21436 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-17 09:31:49.437 DEBUG 21436 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-17 09:31:49.437  INFO 21436 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-17 09:31:50.642  WARN 21436 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 09:31:50.643  WARN 21436 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 09:31:50.643  WARN 21436 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 09:31:50.643  WARN 21436 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-17 09:31:51.152  INFO 21436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-17 09:31:51.166  INFO 21436 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-17 09:31:51.167  INFO 21436 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-17 09:31:51.168  WARN 21436 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-17 09:31:51.169  INFO 21436 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-17 09:31:51.169  INFO 21436 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-17 09:31:51.169  INFO 21436 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-17 09:31:51.172  INFO 21436 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-17 09:31:51.240  INFO 21436 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-17 09:31:51.240  INFO 21436 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1741 ms
+2022-01-17 09:31:52.799  INFO 21436 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-17 09:31:52.817  WARN 21436 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-17 09:31:53.221  INFO 21436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-17 09:31:53.657  INFO 21436 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 4.605 seconds (JVM running for 13.44)
+2022-01-17 09:31:57.426  INFO 21436 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-17 09:31:57.427  INFO 21436 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-17 09:31:57.429  INFO 21436 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-17 09:31:57.586  INFO 21436 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-17 09:31:57.877  INFO 21436 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-17 09:31:57.884 DEBUG 21436 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-17 09:31:57.914 DEBUG 21436 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 8(Integer)
+2022-01-17 09:31:57.947 DEBUG 21436 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-17 09:31:58.185 DEBUG 21436 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-17 09:31:58.186 DEBUG 21436 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-17 09:31:58.196 DEBUG 21436 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-17 09:32:06.818 DEBUG 21436 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-17 09:32:06.819 DEBUG 21436 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 8(Integer)
+2022-01-17 09:32:06.831 DEBUG 21436 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-17 09:32:06.832 DEBUG 21436 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.updateUser   : ==>  Preparing: update ex_user set username=?,password=?,plain_password=?,avatarUrl=?,disabled=?,disabledTime=?,updateTime=? WHERE id=? and username=?
+2022-01-17 09:32:06.836 DEBUG 21436 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.updateUser   : ==> Parameters: admin(String), 5d4565b02217e1761d3b981c1f1c6878(String), admin:123(String), http://101.35.44.70:9000/file/2022-01/17/dog-5793625_1920.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20220117%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220117T012344Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=06b4ab28a841f669b093d0d8433b1c2e97e782d03881403c4c97581aa5e14f18(String), 0(Integer), 0(Long), 2022-01-17 09:29:18.0(Timestamp), 8(Integer), admin(String)
+2022-01-17 09:32:06.861 DEBUG 21436 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.updateUser   : <==    Updates: 1
+2022-01-17 09:32:08.200 DEBUG 21436 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-17 09:32:08.201 DEBUG 21436 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 8(Integer)
+2022-01-17 09:32:08.212 DEBUG 21436 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-17 09:32:08.349 DEBUG 21436 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-17 09:32:08.349 DEBUG 21436 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-17 09:32:08.362 DEBUG 21436 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
