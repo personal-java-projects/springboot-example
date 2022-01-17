@@ -3,6 +3,7 @@ package com.example.pojo;
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.afterturn.easypoi.excel.annotation.ExcelEntity;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class User {
@@ -13,6 +14,9 @@ public class User {
     // 用户姓名
     @Excel(name = "用户名", width = 15)
     private String username;
+
+    @Excel(name = "昵称", width = 15)
+    private String nickname;
 
     // 用户密码加密
     private String password;
@@ -28,7 +32,7 @@ public class User {
     private byte[] avatarImg;
 
     // 是否封号
-    @Excel(name = "是否封号", width = 10, replace = {"封号_1", "未封号_0"})
+    @Excel(name = "是否封号", width = 10, replace = {"未封号_0", "已封号_1"})
     private int disabled;
 
     // 封号时长
@@ -60,6 +64,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPassword() {
@@ -139,9 +151,11 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", nickname='" + nickname + '\'' +
                 ", password='" + password + '\'' +
                 ", plainPassword='" + plainPassword + '\'' +
                 ", avatarUrl='" + avatarUrl + '\'' +
+                ", avatarImg=" + Arrays.toString(avatarImg) +
                 ", disabled=" + disabled +
                 ", disabledTime=" + disabledTime +
                 ", createTime=" + createTime +
