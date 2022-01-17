@@ -3951,3 +3951,33 @@ com.example.exception.UnAuthorizationException: token缺失
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
 	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
 
+2022-01-17 00:25:04.419  INFO 27968 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 27968 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-17 00:25:04.422 DEBUG 27968 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-17 00:25:04.422  INFO 27968 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-17 00:25:05.499  WARN 27968 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 00:25:05.500  WARN 27968 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 00:25:05.500  WARN 27968 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 00:25:05.500  WARN 27968 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-17 00:25:06.083  INFO 27968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-17 00:25:06.097  INFO 27968 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-17 00:25:06.098  INFO 27968 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-17 00:25:06.184  INFO 27968 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-17 00:25:06.184  INFO 27968 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1729 ms
+2022-01-17 00:25:07.834  INFO 27968 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-17 00:25:07.851  WARN 27968 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-17 00:25:08.321  INFO 27968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-17 00:25:08.668  INFO 27968 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 4.581 seconds (JVM running for 12.866)
+2022-01-17 00:25:27.956  INFO 27968 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-17 00:25:27.957  INFO 27968 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-17 00:25:27.958  INFO 27968 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-17 00:25:42.841  INFO 27968 --- [http-nio-8888-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-17 00:25:43.225  INFO 27968 --- [http-nio-8888-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-17 00:25:43.232 DEBUG 27968 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-17 00:25:43.265 DEBUG 27968 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-17 00:25:43.301 DEBUG 27968 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : <==      Total: 2
+2022-01-17 00:25:43.413 DEBUG 27968 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-17 00:25:43.413 DEBUG 27968 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 4(Integer)
+2022-01-17 00:25:43.425 DEBUG 27968 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-17 00:25:43.437 DEBUG 27968 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-17 00:25:43.438 DEBUG 27968 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 6(Integer)
+2022-01-17 00:25:43.449 DEBUG 27968 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
