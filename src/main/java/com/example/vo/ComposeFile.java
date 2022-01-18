@@ -6,7 +6,6 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 
-@Data
 @ApiModel("文件合并")
 public class ComposeFile {
 
@@ -25,4 +24,36 @@ public class ComposeFile {
     @ApiModelProperty(value = "要存储到哪个存储空间（存储桶）", required = true)
     @NotNull(message = "存储空间名不能为空")
     private String bucketName;
+
+    public String getFileMd5() {
+        return fileMd5;
+    }
+
+    public void setFileMd5(String fileMd5) {
+        this.fileMd5 = fileMd5;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public int getChunkCount() {
+        return chunkCount;
+    }
+
+    public void setChunkCount(int chunkCount) {
+        this.chunkCount = chunkCount;
+    }
+
+    public String getBucketName() {
+        return bucketName;
+    }
+
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
 }

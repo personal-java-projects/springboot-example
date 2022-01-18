@@ -6,7 +6,6 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 
-@Data
 @ApiModel("分片上传")
 public class MultipartUpload {
 
@@ -17,4 +16,20 @@ public class MultipartUpload {
     @ApiModelProperty(value = "文件的MD5", required = true)
     @NotNull(message = "MD5不能为空")
     private String fileMd5;
+
+    public int getChunkCount() {
+        return chunkCount;
+    }
+
+    public void setChunkCount(int chunkCount) {
+        this.chunkCount = chunkCount;
+    }
+
+    public String getFileMd5() {
+        return fileMd5;
+    }
+
+    public void setFileMd5(String fileMd5) {
+        this.fileMd5 = fileMd5;
+    }
 }

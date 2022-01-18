@@ -16,6 +16,15 @@ spring:
       # Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher。
       matching-strategy: ant_path_matcher
   datasource:
+    hikari:
+      connection-timeout: 10000
+      validation-timeout: 3000
+      idle-timeout: 60000
+      login-timeout: 5
+      max-lifetime: 60000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      read-only: false
     primary:
       driver-class-name: com.mysql.cj.jdbc.Driver
       # jdbc-url:用来重写自定义连接池。不能使用url,会报jdbcUrl is required with driverClassName
