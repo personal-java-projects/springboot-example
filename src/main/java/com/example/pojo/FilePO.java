@@ -5,8 +5,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-@Data
-@JsonIgnoreProperties
 public class FilePO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,4 +48,82 @@ public class FilePO implements Serializable {
      * 上传地址
      */
     private String uploadUrl;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public Integer getChunkCount() {
+        return chunkCount;
+    }
+
+    public void setChunkCount(Integer chunkCount) {
+        this.chunkCount = chunkCount;
+    }
+
+    public String getFileMd5() {
+        return fileMd5;
+    }
+
+    public void setFileMd5(String fileMd5) {
+        this.fileMd5 = fileMd5;
+    }
+
+    public String getSuffix() {
+        return suffix;
+    }
+
+    public void setSuffix(String suffix) {
+        this.suffix = suffix;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Integer getUploadStatus() {
+        return uploadStatus;
+    }
+
+    public void setUploadStatus(Integer uploadStatus) {
+        this.uploadStatus = uploadStatus;
+    }
+
+    public String getUploadUrl() {
+        return uploadUrl;
+    }
+
+    public void setUploadUrl(String uploadUrl) {
+        this.uploadUrl = uploadUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "FilePO{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", chunkCount=" + chunkCount +
+                ", fileMd5='" + fileMd5 + '\'' +
+                ", suffix='" + suffix + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", uploadStatus=" + uploadStatus +
+                ", uploadUrl='" + uploadUrl + '\'' +
+                '}';
+    }
 }
