@@ -772,3 +772,19 @@ com.example.exception.UnAuthorizationException: token缺失
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
 	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_291]
 
+2022-01-17 21:02:23.633  INFO 3100 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 3100 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-17 21:02:23.636 DEBUG 3100 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-17 21:02:23.636  INFO 3100 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-17 21:02:24.907  WARN 3100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 21:02:24.908  WARN 3100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 21:02:24.908  WARN 3100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-17 21:02:24.908  WARN 3100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-17 21:02:25.389  INFO 3100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-17 21:02:25.402  INFO 3100 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-17 21:02:25.403  INFO 3100 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-17 21:02:25.489  INFO 3100 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-17 21:02:25.489  INFO 3100 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1818 ms
+2022-01-17 21:12:27.174  INFO 3100 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-17 21:12:27.196  WARN 3100 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-17 21:12:27.696  INFO 3100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-17 21:12:28.015  INFO 3100 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 604.824 seconds (JVM running for 614.673)
