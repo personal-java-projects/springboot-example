@@ -42,11 +42,16 @@ public class MinioController {
     @Autowired
     private UploadService uploadService;
 
+    @Value("${minio.endpoint}")
+    private String fileServerAddr;
+
     @Value("${minio.bucket.chunk}")
     private String chunkBucKet;
 
     @Value("${minio.bucket.bucketName}")
     private String bucketName;
+
+    private Map<String, Object> resultMap = new HashMap<>();
 
     @ApiOperation(value = "查看存储bucket是否存在")
     @GetMapping("/bucketExists")
@@ -119,7 +124,10 @@ public class MinioController {
                 return ResponseResult.error().message("上传失败");
             }
 
-            fileUrl = minioUtil.preview(fullPath);
+            System.out.println("fullpath: " + fullPath);
+
+//            fileUrl = minioUtil.preview(fullPath);
+            fileUrl = fileServerAddr + "/" + bucketName + "/" + fullPath;
             fileUrls.add(fileUrl);
         }
 
@@ -233,6 +241,9 @@ public class MinioController {
             return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("文件上传失败");
         }
 
-        return ResponseResult.ok().data(currentFile);
+        resultMap.put("uploadStatus", 0);
+        resultMap.put("uploadFile", currentFile);
+
+        return ResponseResult.ok().data(resultMap);
     }
 }

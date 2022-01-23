@@ -153,7 +153,7 @@ public class MinioUtil {
      * @param fileName 是上传图片的fullPath=>eg:2021-12/27/typora-setup-x64.exe
      * @return
      */
-    public String preview(String fileName){
+    public String preview(String fileName) {
         try {
             minioClient.statObject(StatObjectArgs.builder().bucket(bucketName).object(fileName).build());
 
