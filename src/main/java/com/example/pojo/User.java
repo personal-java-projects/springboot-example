@@ -3,8 +3,9 @@ package com.example.pojo;
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.afterturn.easypoi.excel.annotation.ExcelEntity;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
-import java.util.Date;
+import java.sql.Date;
 
 public class User {
     // 用户id
@@ -40,11 +41,11 @@ public class User {
 
     // 用户创建时间
     @Excel(name = "创建时间", width = 20, format = "yyyy-MM-dd HH:mm:ss")
-    private Date createTime = new Date();
+    private Timestamp createTime;
 
     // 用户更新时间
     @Excel(name = "更新时间", width = 20, format = "yyyy-MM-dd HH:mm:ss")
-    private Date updateTime = new Date();
+    private Timestamp updateTime;
 
     // 用户角色
     @ExcelEntity(name = "角色")
@@ -122,11 +123,11 @@ public class User {
         this.disabled = disabled;
     }
 
-    public Date getCreateTime() {
+    public Timestamp getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
     }
 
@@ -138,11 +139,11 @@ public class User {
         this.disabledTime = disabledTime;
     }
 
-    public Date getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 

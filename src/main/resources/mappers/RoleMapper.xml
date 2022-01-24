@@ -13,4 +13,8 @@
     <select id="selectRoleByUserId" parameterType="int" resultType="Role">
         select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = #{userId}
     </select>
+
+    <select id="selectRoleById" parameterType="int" resultType="Role">
+        select * from ex_role where id=#{id}
+    </select>
 </mapper>

@@ -69,6 +69,7 @@ public class UserController {
 
         return new ResponseResult().ok().data(123);
     }
+
     /**
      * 用户注册
      * @param userRegister
@@ -233,6 +234,16 @@ public class UserController {
         resultMap.put("user", user);
 
         return ResponseResult.ok().data(resultMap);
+    }
+
+    @PostMapping(value = "/editUser")
+    @ResponseBody
+    public ResponseResult editUser(@RequestBody UserRegister editUser) {
+        User user = userVoToPo.userRegisterToUser(editUser);
+
+        userService.editUser(user);
+
+        return ResponseResult.ok();
     }
 
     @ApiOperation("删除用户")

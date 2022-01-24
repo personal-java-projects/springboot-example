@@ -60,6 +60,15 @@
         </where>
     </update>
 
+    <update id="updateRoleByUserId" parameterType="User">
+        update ex_role_user ur set ur.roleId=#{role.id}
+        <where>
+            <if test="id != null">
+                ur.userId = #{id}
+            </if>
+        </where>
+    </update>
+
     <delete id="deleteUser" parameterType="int">
         delete from ex_user where id=#{userId}
     </delete>
