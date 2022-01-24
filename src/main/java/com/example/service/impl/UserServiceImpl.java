@@ -9,6 +9,8 @@ import com.example.util.Md5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +23,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RoleMapper roleMapper;
 
+    private java.util.Date currentDate;
+
     // 默认头像
     private String avatarUrl = "http://101.35.44.70:9000/file/2022-01/12/avatar.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20220112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220112T144042Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e6efec16cc952cec35826304598eac50b22b888b81ac24212c75a7e0fd7519bb";
 
@@ -32,6 +36,8 @@ public class UserServiceImpl implements UserService {
         String password = (String) userInfo.get("password");
         int identity = (int) userInfo.get("identity");
         String avatar = (String) userInfo.get("avatar");
+
+        currentDate  = new java.util.Date();
 
         // 默认用户身份为1，即游客
         if (identity == 0) {
@@ -48,6 +54,8 @@ public class UserServiceImpl implements UserService {
         user.setPlainPassword(password);
         user.setPassword(Md5.MD5(password));
         user.setAvatarUrl(avatar);
+        user.setCreateTime(new Timestamp(currentDate.getTime()));
+        user.setUpdateTime(new Timestamp(currentDate.getTime()));
 
         User exitedUser = userMapper.selectUserByUsername(user);
 
@@ -63,6 +71,30 @@ public class UserServiceImpl implements UserService {
         int userId = user.getId();
         int row = userMapper.insertRoleIdAndUserId(userId, identity);
         return userId;
+    }
+
+    @Override
+    public int editUser(User user) {
+        int id = user.getId();
+
+        currentDate  = new java.util.Date();
+
+        User currentUser = getUserById(id);
+        Role currentRole = roleMapper.selectRoleById(user.getRole().getId());
+
+        currentUser.setUsername(user.getUsername());
+        currentUser.setNickname(user.getNickname());
+        currentUser.setPassword(Md5.MD5(user.getPassword()));
+        currentUser.setPlainPassword(user.getPassword());
+        currentUser.setUpdateTime(new Timestamp(currentDate.getTime()));
+        currentUser.setAvatarUrl(user.getAvatarUrl());
+
+        currentUser.setRole(currentRole);
+
+        userMapper.updateUser(currentUser);
+        int row = userMapper.updateRoleByUserId(currentUser);
+
+        return row;
     }
 
     @Override

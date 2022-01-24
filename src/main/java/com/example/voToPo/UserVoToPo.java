@@ -17,6 +17,7 @@ public interface UserVoToPo {
     User userLoginToUser(UserLogin userLogin);
 
     @Mappings({
+            @Mapping(source = "userId", target = "id"),
             @Mapping(source = "identity", target = "role.id")
     })
     User userRegisterToUser(UserRegister userRegister);

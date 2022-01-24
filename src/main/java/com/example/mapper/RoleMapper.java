@@ -17,4 +17,7 @@ public interface RoleMapper {
 
     // 查询当前用户的角色
     public Role selectRoleByUserId(int userId);
+
+    // 根据id查角色
+    Role selectRoleById(int id);
 }

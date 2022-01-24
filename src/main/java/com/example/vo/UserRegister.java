@@ -7,6 +7,11 @@ import javax.validation.constraints.NotNull;
 
 @ApiModel("用户注册")
 public class UserRegister {
+
+    @ApiModelProperty(value = "用户id", example = "1", required = true)
+    @NotNull(message = "用户id不能为空")
+    private int userId;
+
     @ApiModelProperty(value = "用户名", example = "user", required = true)
     @NotNull(message = "用户名不能为空")
     private String username;
@@ -24,6 +29,14 @@ public class UserRegister {
 
     @ApiModelProperty(value = "用户头像", required = false)
     private String avatarUrl;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;

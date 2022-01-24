@@ -10,6 +10,9 @@ public interface UserService {
     // 用户注册
     public int userRegister(Map<String, Object> userInfo);
 
+    // 编辑用户
+    int editUser(User user);
+
     // 根据用户名查询用户
     public User getUser(User user);
 

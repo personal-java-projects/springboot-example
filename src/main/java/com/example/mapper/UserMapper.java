@@ -29,6 +29,9 @@ public interface UserMapper {
     // 更新某个用户
     public int updateUser(User user);
 
+    // 更新用户角色
+    int updateRoleByUserId(User user);
+
     // 删除用户
     public int deleteUser(int userId);
 
