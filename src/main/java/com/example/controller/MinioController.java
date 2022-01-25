@@ -112,6 +112,7 @@ public class MinioController {
     @PostMapping(value = "/upload", consumes = { "multipart/form-data" })
     @ResponseBody
     public ResponseResult upload(MultipartFile[] files) {
+        Map<String, Object> resultMap = new HashMap<>();
         List<String> fileUrls = new ArrayList<>();
 
         for (MultipartFile file: files) {
@@ -122,6 +123,8 @@ public class MinioController {
             if (fullPath == "") {
                 return ResponseResult.error().message("上传失败");
             }
+
+            System.out.println("fullpath: " + fullPath);
 
 //            fileUrl = minioUtil.preview(fullPath);
             fileUrl = fileServerAddr + "/" + bucketName + "/" + fullPath;
@@ -238,6 +241,9 @@ public class MinioController {
             return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("文件上传失败");
         }
 
-        return ResponseResult.ok().data(currentFile);
+        resultMap.put("uploadStatus", 0);
+        resultMap.put("uploadFile", currentFile);
+
+        return ResponseResult.ok().data(resultMap);
     }
 }
