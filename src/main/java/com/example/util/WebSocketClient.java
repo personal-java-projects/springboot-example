@@ -1,3 +1,5 @@
+package com.example.util;
+
 import javax.websocket.Session;
 
 public class WebSocketClient {

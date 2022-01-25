@@ -241,7 +241,11 @@ public class UserController {
     public ResponseResult editUser(@RequestBody UserRegister editUser) {
         User user = userVoToPo.userRegisterToUser(editUser);
 
-        userService.editUser(user);
+        int row = userService.editUser(user);
+
+        if (row == 0) {
+            return ResponseResult.error().code(400).message("更新失败");
+        }
 
         return ResponseResult.ok();
     }
