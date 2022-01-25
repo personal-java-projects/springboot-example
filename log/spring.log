@@ -2527,3 +2527,22 @@ com.example.exception.UnAuthorizationException: token缺失
 2022-01-24 14:20:45.646 DEBUG 15552 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
 2022-01-24 14:20:45.654 DEBUG 15552 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
 >>>>>>> f8fc03e35e4f46ae24b4ca2e753baf7af7b83802
+2022-01-24 22:18:20.355  INFO 21432 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_291 on DESKTOP-6ALVELR with PID 21432 (D:\programs\springboot-example\target\classes started by 32397 in D:\programs\springboot-example)
+2022-01-24 22:18:20.365 DEBUG 21432 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-24 22:18:20.365  INFO 21432 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-24 22:18:21.810  INFO 21432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-24 22:18:21.812  INFO 21432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-24 22:18:21.847  INFO 21432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-01-24 22:18:22.001  WARN 21432 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-24 22:18:22.002  WARN 21432 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-24 22:18:22.002  WARN 21432 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-24 22:18:22.002  WARN 21432 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-24 22:18:22.683  INFO 21432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-24 22:18:22.694  INFO 21432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-24 22:18:22.694  INFO 21432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-24 22:18:22.776  INFO 21432 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-24 22:18:22.777  INFO 21432 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2372 ms
+2022-01-24 22:18:24.261  INFO 21432 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-24 22:18:24.276  WARN 21432 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-24 22:18:25.799  INFO 21432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-24 22:18:26.129  INFO 21432 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 6.167 seconds (JVM running for 20.273)
