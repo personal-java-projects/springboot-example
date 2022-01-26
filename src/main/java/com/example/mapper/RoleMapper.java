@@ -9,8 +9,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface RoleMapper {
-    // 查询所有角色, 是否根据某个用户
-    public List<Role> selectAllRoles();
+    // 查询所有角色
+    public List<Role> selectAllRoles(String roleName);
 
     // 添加角色
     public void insertRole(Role role);

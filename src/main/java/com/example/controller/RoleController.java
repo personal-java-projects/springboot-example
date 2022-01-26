@@ -1,15 +1,17 @@
 package com.example.controller;
 
+import com.example.dto.PageDto;
 import com.example.pojo.Role;
 import com.example.service.RoleService;
 import com.example.util.ResponseResult;
+import com.example.vo.AddRole;
+import com.example.vo.Page;
+import com.example.voToPo.PageToVo;
+import com.example.voToPo.Role2PO;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,16 +25,38 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
-    @GetMapping("/getRoles")
+    @Autowired
+    private PageToVo pageToVo;
+
+    @Autowired
+    private Role2PO role2PO;
+
+    private Map<String, Object> resultMap = new HashMap<>();
+
+    @PostMapping("/getRoles")
     @ResponseBody
-    public ResponseResult getRoles(@RequestParam(value = "userId", required = false) String userId) {
+    public ResponseResult getRoles(@RequestParam(value = "userId", required = false) String userId, @RequestParam(value = "roleName", required = false) String roleName, @RequestBody(required = false) Page page) {
         System.out.println("userId: " + userId);
-        List<Role> roleList = roleService.getRoles(userId);
-        System.out.println("roleList: " + roleList);
-        Map<String, List<Role>> roles = new HashMap<>();
+        roleName = roleName == "" ? null : roleName;
 
-        roles.put("roleList", roleList);
+        if (page == null) {
+            page = new Page();
+        }
 
-        return new ResponseResult().ok().data(roles);
+        PageDto pageDto = pageToVo.pageDto(page);
+        List<Role> roleList = roleService.getRoles(userId, roleName);
+
+        PageDto pageInfo = pageDto.pageList(roleList, "roleList");
+
+        return new ResponseResult().ok().data(pageInfo.getResultMap());
+    }
+
+    @PostMapping("/addRole")
+    @ResponseBody
+    public ResponseResult addRole(AddRole addRole) {
+        Role role = role2PO.addRole2PO(addRole);
+
+
+        return null;
     }
 }

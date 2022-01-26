@@ -15,19 +15,19 @@ public class RoleServiceImpl implements RoleService {
     private RoleMapper roleMapper;
 
     @Override
-    public List<Role> getRoles(String userId) {
+    public List<Role> getRoles(String userId, String roleName) {
         // 允许前端传空字符串
         if (userId == "") {
             userId = null;
         }
 
-        List<Role> roleList = roleMapper.selectAllRoles();
+        List<Role> roleList = roleMapper.selectAllRoles(roleName);
 
         return roleList;
     }
 
     @Override
     public void addRole(Role role) {
-
+        roleMapper.insertRole(role);
     }
 }

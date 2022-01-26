@@ -178,8 +178,14 @@ public class UserController {
 
     @ApiOperation(value = "解封号")
     @PatchMapping("/banUser")
-    public ResponseResult banUser(@RequestParam int userId, @RequestParam int disabled) {
+    public ResponseResult banUser(@ApiIgnore @RequestHeader("Authorization") String token, @RequestParam int userId, @RequestParam int disabled) {
         User user = userService.getUserById(userId);
+        DecodedJWT jwt = TokenUtil.parseToken(token);
+        int id = jwt.getClaim("id").asInt();
+
+        if (id == userId) {
+            return ResponseResult.error().code(400).message("不能封禁自己");
+        }
 
         if (user == null) {
             return ResponseResult.ok().success(false).message("用户不存在");
@@ -253,9 +259,16 @@ public class UserController {
     @ApiOperation("删除用户")
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseResult deleteUser(@ApiParam(value = "用户id", required = true) @PathVariable("id") int id) {
+    public ResponseResult deleteUser(@RequestHeader("Authorization") String token, @ApiParam(value = "用户id", required = true) @PathVariable("id") int id) {
         System.out.println("删除用户：" + id);
         User user = userService.getUserById(id);
+
+        DecodedJWT jwt = TokenUtil.parseToken(token);
+        int userId = jwt.getClaim("id").asInt();
+
+        if (userId == id) {
+            return ResponseResult.error().code(400).message("不能删除自己");
+        }
 
         // 存在该用户
         if (user != null) {
