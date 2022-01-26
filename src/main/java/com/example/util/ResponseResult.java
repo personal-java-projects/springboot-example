@@ -35,8 +35,6 @@ public class ResponseResult<T> implements Serializable {
         r.setCode(ResultCodeEnum.SUCCESS.getCode());
         r.setMsg(ResultCodeEnum.SUCCESS.getMessage());
 
-        System.out.println("r: " + r);
-
         return r;
     }
 

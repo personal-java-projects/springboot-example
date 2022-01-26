@@ -10,4 +10,9 @@ public interface RoleService {
 
     // 添加角色
     public void addRole(Role role);
+
+    // 根据id获取role
+    Role getRoleById(int id);
+
+    void deleteRole(int id);
 }

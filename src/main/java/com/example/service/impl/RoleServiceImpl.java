@@ -30,4 +30,20 @@ public class RoleServiceImpl implements RoleService {
     public void addRole(Role role) {
         roleMapper.insertRole(role);
     }
+
+    @Override
+    public Role getRoleById(int id) {
+        Role role = roleMapper.selectRoleById(id);
+
+        if (role == null) {
+            return null;
+        }
+
+        return role;
+    }
+
+    @Override
+    public void deleteRole(int id) {
+        roleMapper.deleteRoleById(id);
+    }
 }

@@ -53,10 +53,25 @@ public class RoleController {
 
     @PostMapping("/addRole")
     @ResponseBody
-    public ResponseResult addRole(AddRole addRole) {
+    public ResponseResult addRole(@RequestBody AddRole addRole) {
         Role role = role2PO.addRole2PO(addRole);
 
+        roleService.addRole(role);
 
-        return null;
+        return ResponseResult.ok();
+    }
+
+    @DeleteMapping("/deleteRole/{id}")
+    @ResponseBody
+    public ResponseResult delRole(@PathVariable("id") int id) {
+        Role role = roleService.getRoleById(id);
+
+        if (role == null) {
+            return ResponseResult.error().code(400).message("用户已删除");
+        }
+
+        roleService.deleteRole(id);
+
+        return ResponseResult.ok().message("删除成功");
     }
 }

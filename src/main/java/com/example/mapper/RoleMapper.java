@@ -20,4 +20,7 @@ public interface RoleMapper {
 
     // 根据id查角色
     Role selectRoleById(int id);
+
+    // 根据id删除角色
+    void deleteRoleById(int id);
 }

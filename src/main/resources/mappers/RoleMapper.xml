@@ -22,4 +22,13 @@
     <select id="selectRoleById" parameterType="int" resultType="Role">
         select * from ex_role where id=#{id}
     </select>
+
+    <delete id="deleteRoleById" parameterType="int">
+        delete from ex_role
+        <where>
+            <if test="id != 0">
+                id = #{id}
+            </if>
+        </where>
+    </delete>
 </mapper>
