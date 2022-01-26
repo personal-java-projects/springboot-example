@@ -253,9 +253,16 @@ public class UserController {
     @ApiOperation("删除用户")
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseResult deleteUser(@ApiParam(value = "用户id", required = true) @PathVariable("id") int id) {
+    public ResponseResult deleteUser(@RequestHeader("Authorization") String token, @ApiParam(value = "用户id", required = true) @PathVariable("id") int id) {
         System.out.println("删除用户：" + id);
         User user = userService.getUserById(id);
+
+        DecodedJWT jwt = TokenUtil.parseToken(token);
+        int userId = jwt.getClaim("id").asInt();
+
+        if (userId == id) {
+            return ResponseResult.error().code(400).message("不能删除自己");
+        }
 
         // 存在该用户
         if (user != null) {

@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     private java.util.Date currentDate;
 
     // 默认头像
-    private String avatarUrl = "http://101.35.44.70:9000/file/2022-01/12/avatar.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20220112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220112T144042Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=e6efec16cc952cec35826304598eac50b22b888b81ac24212c75a7e0fd7519bb";
+    private String avatarUrl = "http://101.35.44.70:9000/file/2022-01/21/avatar.jpg";
 
     @Override
     public int userRegister(Map<String, Object> userInfo) {
