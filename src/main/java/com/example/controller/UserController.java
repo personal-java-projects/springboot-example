@@ -178,8 +178,14 @@ public class UserController {
 
     @ApiOperation(value = "解封号")
     @PatchMapping("/banUser")
-    public ResponseResult banUser(@RequestParam int userId, @RequestParam int disabled) {
+    public ResponseResult banUser(@ApiIgnore @RequestHeader("Authorization") String token, @RequestParam int userId, @RequestParam int disabled) {
         User user = userService.getUserById(userId);
+        DecodedJWT jwt = TokenUtil.parseToken(token);
+        int id = jwt.getClaim("id").asInt();
+
+        if (id == userId) {
+            return ResponseResult.error().code(400).message("不能封禁自己");
+        }
 
         if (user == null) {
             return ResponseResult.ok().success(false).message("用户不存在");

@@ -8,6 +8,11 @@
     </insert>
     <select id="selectAllRoles" parameterType="java.lang.String" resultType="Role">
         select * from ex_role
+        <where>
+            <if test="roleName != null">
+                roleName = #{roleName}
+            </if>
+        </where>
     </select>
 
     <select id="selectRoleByUserId" parameterType="int" resultType="Role">

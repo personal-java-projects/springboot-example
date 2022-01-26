@@ -486,3 +486,1315 @@ com.example.exception.UnAuthorizationException: token缺失
 2022-01-26 15:58:14.193 DEBUG 19380 --- [http-nio-8888-exec-5] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
 2022-01-26 15:58:25.492  INFO 19380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-01-26 15:58:25.498  INFO 19380 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 16:04:26.364  INFO 2780 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 2780 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 16:04:26.367 DEBUG 2780 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 16:04:26.367  INFO 2780 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 16:04:27.681  INFO 2780 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 16:04:27.684  INFO 2780 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 16:04:27.716  INFO 2780 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-01-26 16:04:27.869  WARN 2780 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:04:27.869  WARN 2780 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:04:27.869  WARN 2780 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:04:27.870  WARN 2780 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 16:04:28.596  INFO 2780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 16:04:28.610  INFO 2780 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 16:04:28.610  INFO 2780 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 16:04:28.612  WARN 2780 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 16:04:28.613  INFO 2780 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 16:04:28.613  INFO 2780 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 16:04:28.614  INFO 2780 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 16:04:28.617  INFO 2780 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 16:04:28.705  INFO 2780 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 16:04:28.705  INFO 2780 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2295 ms
+2022-01-26 16:04:30.498  INFO 2780 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 16:04:30.521  WARN 2780 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 16:04:31.547  INFO 2780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 16:04:31.967  INFO 2780 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 6.003 seconds (JVM running for 16.709)
+2022-01-26 16:04:47.027  INFO 2780 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 16:04:47.028  INFO 2780 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 16:04:47.029  INFO 2780 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-26 16:04:47.257  WARN 2780 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 16:04:47.259  INFO 2780 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 16:04:47.522  INFO 2780 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 16:04:47.529 DEBUG 2780 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:04:47.556 DEBUG 2780 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:04:47.584 DEBUG 2780 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:04:47.590 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:04:47.590 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:04:47.598 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:04:47.600 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:04:47.600 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:04:47.612 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:04:47.612 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:04:47.612 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:04:47.621 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:05:52.715 DEBUG 2780 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:05:52.716 DEBUG 2780 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:05:52.726 DEBUG 2780 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:05:52.727 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:05:52.728 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:05:52.737 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:05:52.738 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:05:52.739 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:05:52.747 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:05:52.748 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:05:52.749 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:05:52.758 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:06:57.288 DEBUG 2780 --- [http-nio-8888-exec-3] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:06:57.289 DEBUG 2780 --- [http-nio-8888-exec-3] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:06:57.298 DEBUG 2780 --- [http-nio-8888-exec-3] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:06:57.299 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:06:57.299 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:06:57.308 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:06:57.308 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:06:57.309 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:06:57.317 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:06:57.318 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:06:57.319 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:06:57.329 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:08:33.820 DEBUG 2780 --- [http-nio-8888-exec-4] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:08:33.820 DEBUG 2780 --- [http-nio-8888-exec-4] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:08:33.831 DEBUG 2780 --- [http-nio-8888-exec-4] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:08:33.831 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:08:33.832 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:08:33.841 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:08:33.842 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:08:33.843 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:08:33.853 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:08:33.854 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:08:33.855 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:08:33.865 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:08:37.733 DEBUG 2780 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:08:37.734 DEBUG 2780 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:08:37.745 DEBUG 2780 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:08:37.746 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:08:37.746 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:08:37.756 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:08:37.757 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:08:37.757 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:08:37.766 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:08:37.767 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:08:37.768 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:08:37.778 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:12:30.458 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 16:12:30.459 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 16:12:30.468 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 16:12:33.766 DEBUG 2780 --- [http-nio-8888-exec-7] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:12:33.767 DEBUG 2780 --- [http-nio-8888-exec-7] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:12:33.779 DEBUG 2780 --- [http-nio-8888-exec-7] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:12:33.780 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:12:33.781 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:12:33.788 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:12:33.789 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:12:33.789 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:12:33.797 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:12:33.798 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:12:33.798 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:12:33.807 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:12:39.198 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 16:12:39.199 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 16:12:39.214 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:12:39.214 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 8(Integer)
+2022-01-26 16:12:39.223 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 16:12:39.224 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:12:39.225 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:12:39.225 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:12:39.374 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:12:42.149 DEBUG 2780 --- [http-nio-8888-exec-10] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:12:42.150 DEBUG 2780 --- [http-nio-8888-exec-10] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:12:42.161 DEBUG 2780 --- [http-nio-8888-exec-10] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:12:42.161 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:12:42.162 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:12:42.392 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:12:42.393 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:12:42.393 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:12:42.404 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:12:42.405 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:12:42.405 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:12:42.417 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:15:01.982 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUsers_COUNT  : ==>  Preparing: SELECT count(0) FROM ex_user
+2022-01-26 16:15:01.983 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUsers_COUNT  : ==> Parameters: 
+2022-01-26 16:15:01.995 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUsers_COUNT  : <==      Total: 1
+2022-01-26 16:15:01.997 DEBUG 2780 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user LIMIT ?
+2022-01-26 16:15:01.998 DEBUG 2780 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 10(Integer)
+2022-01-26 16:15:02.010 DEBUG 2780 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:15:02.011 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:15:02.011 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:15:02.027 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:15:02.028 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:15:02.028 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:15:02.042 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:15:02.042 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:15:02.043 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:15:02.057 DEBUG 2780 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:15:03.415 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUsers_COUNT  : ==>  Preparing: SELECT count(0) FROM ex_user
+2022-01-26 16:15:03.415 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUsers_COUNT  : ==> Parameters: 
+2022-01-26 16:15:03.435 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUsers_COUNT  : <==      Total: 1
+2022-01-26 16:15:03.436 DEBUG 2780 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user LIMIT ?
+2022-01-26 16:15:03.436 DEBUG 2780 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 10(Integer)
+2022-01-26 16:15:03.452 DEBUG 2780 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:15:03.453 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:15:03.453 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:15:03.468 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:15:03.469 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:15:03.469 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:15:03.484 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:15:03.485 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:15:03.485 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:15:03.495 DEBUG 2780 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:40.731 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUsers_COUNT  : ==>  Preparing: SELECT count(0) FROM ex_user
+2022-01-26 16:17:40.731 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUsers_COUNT  : ==> Parameters: 
+2022-01-26 16:17:40.740 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUsers_COUNT  : <==      Total: 1
+2022-01-26 16:17:40.741 DEBUG 2780 --- [http-nio-8888-exec-3] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user LIMIT ?
+2022-01-26 16:17:40.741 DEBUG 2780 --- [http-nio-8888-exec-3] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 10(Integer)
+2022-01-26 16:17:40.751 DEBUG 2780 --- [http-nio-8888-exec-3] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:17:40.752 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:40.752 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:17:40.761 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:40.761 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:40.762 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:17:40.770 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:40.771 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:40.772 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:17:40.779 DEBUG 2780 --- [http-nio-8888-exec-3] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:46.034 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.mapper.UserMapper.selectUsers_COUNT  : ==>  Preparing: SELECT count(0) FROM ex_user
+2022-01-26 16:17:46.034 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.mapper.UserMapper.selectUsers_COUNT  : ==> Parameters: 
+2022-01-26 16:17:46.041 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.mapper.UserMapper.selectUsers_COUNT  : <==      Total: 1
+2022-01-26 16:17:46.042 DEBUG 2780 --- [http-nio-8888-exec-4] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user LIMIT ?
+2022-01-26 16:17:46.042 DEBUG 2780 --- [http-nio-8888-exec-4] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 10(Integer)
+2022-01-26 16:17:46.051 DEBUG 2780 --- [http-nio-8888-exec-4] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:17:46.051 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:46.051 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:17:46.061 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:46.062 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:46.062 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:17:46.070 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:46.071 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:46.072 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:17:46.080 DEBUG 2780 --- [http-nio-8888-exec-4] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:49.312 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.mapper.UserMapper.selectUsers_COUNT  : ==>  Preparing: SELECT count(0) FROM ex_user
+2022-01-26 16:17:49.312 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.mapper.UserMapper.selectUsers_COUNT  : ==> Parameters: 
+2022-01-26 16:17:49.320 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.mapper.UserMapper.selectUsers_COUNT  : <==      Total: 1
+2022-01-26 16:17:49.321 DEBUG 2780 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user LIMIT ?
+2022-01-26 16:17:49.321 DEBUG 2780 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 10(Integer)
+2022-01-26 16:17:49.338 DEBUG 2780 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:17:49.338 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:49.339 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:17:49.346 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:49.347 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:49.347 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:17:49.356 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:49.357 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:49.357 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:17:49.364 DEBUG 2780 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:52.512 DEBUG 2780 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:17:52.513 DEBUG 2780 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:17:52.521 DEBUG 2780 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:17:52.521 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:52.522 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:17:52.530 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:52.530 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:52.530 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:17:52.538 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:52.538 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:52.539 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:17:52.547 DEBUG 2780 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:55.965 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.mapper.UserMapper.selectUsers_COUNT  : ==>  Preparing: SELECT count(0) FROM ex_user
+2022-01-26 16:17:55.966 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.mapper.UserMapper.selectUsers_COUNT  : ==> Parameters: 
+2022-01-26 16:17:55.974 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.mapper.UserMapper.selectUsers_COUNT  : <==      Total: 1
+2022-01-26 16:17:55.975 DEBUG 2780 --- [http-nio-8888-exec-7] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user LIMIT ?
+2022-01-26 16:17:55.975 DEBUG 2780 --- [http-nio-8888-exec-7] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 10(Integer)
+2022-01-26 16:17:55.983 DEBUG 2780 --- [http-nio-8888-exec-7] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:17:55.983 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:55.983 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:17:55.992 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:55.993 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:55.993 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:17:56.001 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:17:56.001 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:17:56.002 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:17:56.011 DEBUG 2780 --- [http-nio-8888-exec-7] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:18:56.917 DEBUG 2780 --- [http-nio-8888-exec-9] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:18:56.918 DEBUG 2780 --- [http-nio-8888-exec-9] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:18:56.927 DEBUG 2780 --- [http-nio-8888-exec-9] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:18:56.928 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:18:56.928 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:18:56.936 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:18:56.936 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:18:56.936 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:18:56.944 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:18:56.945 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:18:56.945 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:18:56.954 DEBUG 2780 --- [http-nio-8888-exec-9] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:19:39.383 DEBUG 2780 --- [http-nio-8888-exec-8] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:19:39.384 DEBUG 2780 --- [http-nio-8888-exec-8] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:19:39.393 DEBUG 2780 --- [http-nio-8888-exec-8] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:19:39.394 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:19:39.394 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:19:39.404 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:19:39.404 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:19:39.404 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:19:39.424 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:19:39.424 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:19:39.424 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:19:39.436 DEBUG 2780 --- [http-nio-8888-exec-8] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:21:00.852 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.mapper.UserMapper.selectUsers_COUNT  : ==>  Preparing: SELECT count(0) FROM ex_user
+2022-01-26 16:21:00.852 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.mapper.UserMapper.selectUsers_COUNT  : ==> Parameters: 
+2022-01-26 16:21:00.862 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.mapper.UserMapper.selectUsers_COUNT  : <==      Total: 1
+2022-01-26 16:21:00.863 DEBUG 2780 --- [http-nio-8888-exec-10] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user LIMIT ?
+2022-01-26 16:21:00.863 DEBUG 2780 --- [http-nio-8888-exec-10] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 10(Integer)
+2022-01-26 16:21:00.873 DEBUG 2780 --- [http-nio-8888-exec-10] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:21:00.874 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:21:00.874 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:21:00.883 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:21:00.884 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:21:00.884 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:21:00.894 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:21:00.894 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:21:00.894 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:21:00.903 DEBUG 2780 --- [http-nio-8888-exec-10] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:22:53.695  INFO 7116 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 7116 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 16:22:53.696 DEBUG 7116 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 16:22:53.697  INFO 7116 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 16:22:54.856  INFO 7116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 16:22:54.859  INFO 7116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 16:22:54.886  INFO 7116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2022-01-26 16:22:55.018  WARN 7116 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:22:55.018  WARN 7116 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:22:55.019  WARN 7116 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:22:55.019  WARN 7116 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 16:22:55.686  INFO 7116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 16:22:55.701  INFO 7116 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 16:22:55.701  INFO 7116 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 16:22:55.703  WARN 7116 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 16:22:55.703  INFO 7116 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 16:22:55.704  INFO 7116 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 16:22:55.704  INFO 7116 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 16:22:55.707  INFO 7116 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 16:22:55.783  INFO 7116 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 16:22:55.783  INFO 7116 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2049 ms
+2022-01-26 16:22:57.319  INFO 7116 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 16:22:57.338  WARN 7116 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 16:22:58.217  INFO 7116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 16:22:58.602  INFO 7116 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.285 seconds (JVM running for 14.827)
+2022-01-26 16:32:51.266  INFO 7116 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 16:32:51.267  INFO 7116 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 16:32:51.269  INFO 7116 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-26 16:32:51.418  WARN 7116 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 16:32:51.419  INFO 7116 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 16:32:51.690  INFO 7116 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 16:32:51.696 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:32:51.722 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 8(Integer)
+2022-01-26 16:32:51.750 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:32:51.756 DEBUG 7116 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.updateUser   : ==>  Preparing: update ex_user set username=?,password=?,plain_password=?,avatarUrl=?,disabled=?,disabledTime=?,updateTime=? WHERE id=? and username=?
+2022-01-26 16:32:51.759 DEBUG 7116 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.updateUser   : ==> Parameters: admin(String), 5d4565b02217e1761d3b981c1f1c6878(String), admin:123(String), http://101.35.44.70:9000/file/2022-01/21/avatar.jpg(String), 1(Integer), 0(Long), 2022-01-21 15:20:00.0(Timestamp), 8(Integer), admin(String)
+2022-01-26 16:32:51.780 DEBUG 7116 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.updateUser   : <==    Updates: 1
+2022-01-26 16:32:52.945 DEBUG 7116 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:32:52.946 DEBUG 7116 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 8(Integer)
+2022-01-26 16:32:52.958 DEBUG 7116 --- [http-nio-8888-exec-2] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:32:52.959 DEBUG 7116 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.updateUser   : ==>  Preparing: update ex_user set username=?,password=?,plain_password=?,avatarUrl=?,disabled=?,disabledTime=?,updateTime=? WHERE id=? and username=?
+2022-01-26 16:32:52.960 DEBUG 7116 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.updateUser   : ==> Parameters: admin(String), 5d4565b02217e1761d3b981c1f1c6878(String), admin:123(String), http://101.35.44.70:9000/file/2022-01/21/avatar.jpg(String), 0(Integer), 0(Long), 2022-01-21 15:20:00.0(Timestamp), 8(Integer), admin(String)
+2022-01-26 16:32:52.986 DEBUG 7116 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.updateUser   : <==    Updates: 1
+2022-01-26 16:32:58.957 DEBUG 7116 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:32:58.958 DEBUG 7116 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 14(Integer)
+2022-01-26 16:32:58.992 DEBUG 7116 --- [http-nio-8888-exec-3] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:33:03.861 DEBUG 7116 --- [http-nio-8888-exec-4] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:33:03.863 DEBUG 7116 --- [http-nio-8888-exec-4] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 14(Integer)
+2022-01-26 16:33:03.873 DEBUG 7116 --- [http-nio-8888-exec-4] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:33:39.919 DEBUG 7116 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:33:39.920 DEBUG 7116 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:33:39.929 DEBUG 7116 --- [http-nio-8888-exec-5] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:33:39.930 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:33:39.930 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:33:39.942 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:33:39.943 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:33:39.943 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:33:39.952 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:33:39.954 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:33:39.954 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:33:39.963 DEBUG 7116 --- [http-nio-8888-exec-5] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:34:28.915 DEBUG 7116 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:34:28.915 DEBUG 7116 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:34:28.926 DEBUG 7116 --- [http-nio-8888-exec-6] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:34:28.927 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:34:28.927 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:34:28.936 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:34:28.936 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:34:28.937 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:34:28.944 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:34:28.946 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:34:28.946 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:34:28.954 DEBUG 7116 --- [http-nio-8888-exec-6] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:34:31.925 DEBUG 7116 --- [http-nio-8888-exec-7] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:34:31.926 DEBUG 7116 --- [http-nio-8888-exec-7] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 14(Integer)
+2022-01-26 16:34:31.934 DEBUG 7116 --- [http-nio-8888-exec-7] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:34:33.737 DEBUG 7116 --- [http-nio-8888-exec-8] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:34:33.739 DEBUG 7116 --- [http-nio-8888-exec-8] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 14(Integer)
+2022-01-26 16:34:33.746 DEBUG 7116 --- [http-nio-8888-exec-8] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:34:38.569 DEBUG 7116 --- [http-nio-8888-exec-9] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:34:38.570 DEBUG 7116 --- [http-nio-8888-exec-9] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 14(Integer)
+2022-01-26 16:34:38.586 DEBUG 7116 --- [http-nio-8888-exec-9] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:35:50.057 DEBUG 7116 --- [http-nio-8888-exec-10] c.e.mapper.UserMapper.selectUserById     : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user WHERE id=?
+2022-01-26 16:35:50.058 DEBUG 7116 --- [http-nio-8888-exec-10] c.e.mapper.UserMapper.selectUserById     : ==> Parameters: 14(Integer)
+2022-01-26 16:35:50.069 DEBUG 7116 --- [http-nio-8888-exec-10] c.e.mapper.UserMapper.selectUserById     : <==      Total: 1
+2022-01-26 16:37:47.284 DEBUG 7116 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 16:37:47.285 DEBUG 7116 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 16:37:47.306 DEBUG 7116 --- [http-nio-8888-exec-1] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 16:37:47.307 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:37:47.307 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 16:37:47.316 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:37:47.317 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:37:47.318 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 16:37:47.326 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:37:47.326 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 16:37:47.327 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 16:37:47.335 DEBUG 7116 --- [http-nio-8888-exec-1] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 16:49:51.657  INFO 7116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 16:49:51.661  INFO 7116 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 16:50:03.517  INFO 15740 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 15740 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 16:50:03.520 DEBUG 15740 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 16:50:03.520  INFO 15740 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 16:50:04.674  INFO 15740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 16:50:04.677  INFO 15740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 16:50:04.706  INFO 15740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-01-26 16:50:04.857  WARN 15740 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:50:04.857  WARN 15740 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:50:04.857  WARN 15740 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:50:04.858  WARN 15740 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 16:50:05.519  INFO 15740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 16:50:05.531  INFO 15740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 16:50:05.531  INFO 15740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 16:50:05.533  WARN 15740 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 16:50:05.533  INFO 15740 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 16:50:05.533  INFO 15740 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 16:50:05.534  INFO 15740 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 16:50:05.537  INFO 15740 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 16:50:05.622  INFO 15740 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 16:50:05.623  INFO 15740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2063 ms
+2022-01-26 16:50:07.262  INFO 15740 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 16:50:07.282  WARN 15740 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 16:50:08.271  INFO 15740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 16:50:08.651  INFO 15740 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.555 seconds (JVM running for 16.275)
+2022-01-26 16:52:29.206  INFO 16888 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 16888 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 16:52:29.209 DEBUG 16888 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 16:52:29.209  INFO 16888 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 16:52:30.624  INFO 16888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 16:52:30.629  INFO 16888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 16:52:30.664  INFO 16888 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2022-01-26 16:52:30.858  WARN 16888 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:52:30.858  WARN 16888 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:52:30.858  WARN 16888 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 16:52:30.859  WARN 16888 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 16:52:31.803  INFO 16888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 16:52:31.821  INFO 16888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 16:52:31.822  INFO 16888 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 16:52:31.824  WARN 16888 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 16:52:31.824  INFO 16888 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 16:52:31.824  INFO 16888 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 16:52:31.825  INFO 16888 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 16:52:31.829  INFO 16888 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 16:52:31.942  INFO 16888 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 16:52:31.943  INFO 16888 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2689 ms
+2022-01-26 16:52:33.959  INFO 16888 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 16:52:33.987  WARN 16888 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 16:52:35.265  INFO 16888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 16:52:35.809  INFO 16888 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 7.11 seconds (JVM running for 19.737)
+2022-01-26 17:09:28.053  INFO 16888 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:09:28.054  INFO 16888 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:09:28.056  INFO 16888 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-26 17:09:28.223  WARN 16888 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:09:28.226  INFO 16888 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:09:28.568  INFO 16888 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:09:28.581 DEBUG 16888 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:09:28.617 DEBUG 16888 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:09:28.652 DEBUG 16888 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:26:46.759  INFO 16888 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:26:46.763  INFO 16888 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:26:59.363  INFO 10640 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 10640 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:26:59.366 DEBUG 10640 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:26:59.367  INFO 10640 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:27:00.824  INFO 10640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:27:00.828  INFO 10640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:27:00.864  INFO 10640 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:27:01.046  WARN 10640 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:27:01.046  WARN 10640 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:27:01.046  WARN 10640 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:27:01.047  WARN 10640 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:27:01.931  INFO 10640 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:27:01.947  INFO 10640 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:27:01.948  INFO 10640 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:27:01.950  WARN 10640 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:27:01.951  INFO 10640 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:27:01.951  INFO 10640 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:27:01.951  INFO 10640 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:27:01.955  INFO 10640 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:27:02.056  INFO 10640 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:27:02.056  INFO 10640 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2629 ms
+2022-01-26 17:27:04.132  INFO 10640 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:27:04.155  WARN 10640 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:27:05.312  INFO 10640 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:27:05.810  INFO 10640 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 6.956 seconds (JVM running for 18.707)
+2022-01-26 17:27:39.890  INFO 10640 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:27:39.891  INFO 10640 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:27:39.893  INFO 10640 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-26 17:27:48.970  WARN 10640 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:27:48.975  INFO 10640 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:27:49.608  INFO 10640 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:27:49.656 DEBUG 10640 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:27:49.875 DEBUG 10640 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:27:50.051 DEBUG 10640 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:29:29.333 ERROR 10640 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: 
+
+org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:253) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:442) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:383) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:125) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:67) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:498) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1261) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1043) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_261]
+
+2022-01-26 17:29:35.902  INFO 10640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:29:35.906  INFO 10640 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:29:47.940  INFO 9712 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 9712 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:29:47.943 DEBUG 9712 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:29:47.944  INFO 9712 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:29:49.300  INFO 9712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:29:49.304  INFO 9712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:29:49.338  INFO 9712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:29:49.514  WARN 9712 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:29:49.514  WARN 9712 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:29:49.515  WARN 9712 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:29:49.516  WARN 9712 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:29:50.411  INFO 9712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:29:50.426  INFO 9712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:29:50.426  INFO 9712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:29:50.428  WARN 9712 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:29:50.429  INFO 9712 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:29:50.429  INFO 9712 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:29:50.429  INFO 9712 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:29:50.432  INFO 9712 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:29:50.526  INFO 9712 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:29:50.527  INFO 9712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2537 ms
+2022-01-26 17:29:52.558  INFO 9712 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:29:52.579  WARN 9712 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:29:53.777  INFO 9712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:29:54.263  INFO 9712 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 6.801 seconds (JVM running for 18.079)
+2022-01-26 17:31:47.755  INFO 9712 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:31:47.756  INFO 9712 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:31:47.759  INFO 9712 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-26 17:31:51.864  WARN 9712 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:31:51.869  INFO 9712 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:31:52.535  INFO 9712 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:31:52.582 DEBUG 9712 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:31:52.816 DEBUG 9712 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:31:52.993 DEBUG 9712 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:40:10.011  WARN 9712 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m47s257ms897µs400ns).
+2022-01-26 17:40:10.100 DEBUG 9712 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role WHERE roleName = ?
+2022-01-26 17:40:10.102 DEBUG 9712 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: (String)
+2022-01-26 17:40:10.111 DEBUG 9712 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 0
+2022-01-26 17:40:10.296  INFO 9712 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:40:10.374  INFO 9712 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:40:24.490  INFO 1268 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 1268 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:40:24.494 DEBUG 1268 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:40:24.494  INFO 1268 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:40:26.128  INFO 1268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:40:26.132  INFO 1268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:40:26.168  INFO 1268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:40:26.383  WARN 1268 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:40:26.383  WARN 1268 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:40:26.384  WARN 1268 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:40:26.385  WARN 1268 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:40:27.384  INFO 1268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:40:27.403  INFO 1268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:40:27.404  INFO 1268 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:40:27.407  WARN 1268 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:40:27.408  INFO 1268 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:40:27.408  INFO 1268 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:40:27.408  INFO 1268 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:40:27.413  INFO 1268 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:40:27.534  INFO 1268 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:40:27.534  INFO 1268 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2987 ms
+2022-01-26 17:40:29.799  INFO 1268 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:40:29.828  WARN 1268 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:40:31.185  INFO 1268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:40:31.824  INFO 1268 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 7.86 seconds (JVM running for 21.145)
+2022-01-26 17:40:41.187  INFO 1268 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:40:41.188  INFO 1268 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:40:41.191  INFO 1268 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-01-26 17:40:49.625  WARN 1268 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:40:49.626  INFO 1268 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:40:49.939  INFO 1268 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:40:49.948 DEBUG 1268 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:40:49.975 DEBUG 1268 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:40:50.007 DEBUG 1268 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:41:29.153 DEBUG 1268 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:41:29.155 DEBUG 1268 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:41:29.166 DEBUG 1268 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:46:20.543  INFO 1268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:46:20.547  INFO 1268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:46:31.051  INFO 7356 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 7356 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:46:31.053 DEBUG 7356 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:46:31.053  INFO 7356 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:46:32.204  INFO 7356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:46:32.208  INFO 7356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:46:32.234  INFO 7356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:46:32.372  WARN 7356 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:46:32.373  WARN 7356 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:46:32.373  WARN 7356 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:46:32.373  WARN 7356 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:46:33.004  INFO 7356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:46:33.018  INFO 7356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:46:33.018  INFO 7356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:46:33.020  WARN 7356 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:46:33.021  INFO 7356 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:46:33.021  INFO 7356 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:46:33.021  INFO 7356 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:46:33.025  INFO 7356 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:46:33.105  INFO 7356 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:46:33.105  INFO 7356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2013 ms
+2022-01-26 17:46:34.664  INFO 7356 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:46:34.681  WARN 7356 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:46:35.553  INFO 7356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:46:35.960  INFO 7356 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.306 seconds (JVM running for 15.186)
+2022-01-26 17:51:08.399  INFO 4956 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 4956 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:51:08.402 DEBUG 4956 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:51:08.402  INFO 4956 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:51:09.567  INFO 4956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:51:09.570  INFO 4956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:51:09.598  INFO 4956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:51:09.745  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:51:09.745  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:51:09.745  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:51:09.746  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:51:10.364  INFO 4956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:51:10.378  INFO 4956 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:51:10.378  INFO 4956 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:51:10.380  WARN 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:51:10.380  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:51:10.380  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:51:10.380  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:51:10.383  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:51:10.456  INFO 4956 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:51:10.456  INFO 4956 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2017 ms
+2022-01-26 17:51:12.041  INFO 4956 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:51:12.079  WARN 4956 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:51:13.007  INFO 4956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:51:13.381  INFO 4956 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.387 seconds (JVM running for 14.975)
+2022-01-26 17:51:18.882  INFO 4956 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:51:18.883  INFO 4956 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:51:18.885  INFO 4956 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-26 17:51:19.097  WARN 4956 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:51:19.099  INFO 4956 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:51:19.352  INFO 4956 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:51:19.360 DEBUG 4956 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:51:19.385 DEBUG 4956 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:51:19.417 DEBUG 4956 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:52:45.299 DEBUG 4956 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:52:45.300 DEBUG 4956 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:52:45.309 DEBUG 4956 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:53:27.009  INFO 4956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:53:27.012  INFO 4956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:53:38.401  INFO 11696 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 11696 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:53:38.404 DEBUG 11696 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:53:38.404  INFO 11696 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:53:39.581  INFO 11696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:53:39.584  INFO 11696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:53:39.612  INFO 11696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:53:39.747  WARN 11696 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:53:39.748  WARN 11696 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:53:39.748  WARN 11696 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:53:39.748  WARN 11696 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:53:40.376  INFO 11696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:53:40.388  INFO 11696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:53:40.389  INFO 11696 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:53:40.390  WARN 11696 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:53:40.391  INFO 11696 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:53:40.391  INFO 11696 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:53:40.391  INFO 11696 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:53:40.394  INFO 11696 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:53:40.472  INFO 11696 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:53:40.473  INFO 11696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2032 ms
+2022-01-26 17:53:42.189  INFO 11696 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:53:42.208  WARN 11696 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:53:43.158  INFO 11696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:53:43.534  INFO 11696 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.535 seconds (JVM running for 15.824)
+2022-01-26 17:53:58.156  INFO 11696 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:53:58.157  INFO 11696 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:53:58.159  INFO 11696 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-26 17:53:58.449  WARN 11696 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:53:58.453  INFO 11696 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:53:58.816  INFO 11696 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:53:58.825 DEBUG 11696 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:53:58.854 DEBUG 11696 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:53:58.887 DEBUG 11696 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:54:33.053  INFO 11696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:54:33.064  INFO 11696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:54:43.523  INFO 8580 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 8580 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:54:43.526 DEBUG 8580 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:54:43.526  INFO 8580 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:54:44.733  INFO 8580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:54:44.736  INFO 8580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:54:44.763  INFO 8580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:54:44.900  WARN 8580 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:54:44.901  WARN 8580 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:54:44.901  WARN 8580 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:54:44.901  WARN 8580 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:54:45.555  INFO 8580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:54:45.568  INFO 8580 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:54:45.569  INFO 8580 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:54:45.570  WARN 8580 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:54:45.571  INFO 8580 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:54:45.571  INFO 8580 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:54:45.571  INFO 8580 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:54:45.574  INFO 8580 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:54:45.640  INFO 8580 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:54:45.641  INFO 8580 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2078 ms
+2022-01-26 17:54:47.288  INFO 8580 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:54:47.309  WARN 8580 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:54:48.243  INFO 8580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:54:48.640  INFO 8580 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.518 seconds (JVM running for 14.879)
+2022-01-26 17:55:15.797  INFO 8580 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:55:15.798  INFO 8580 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:55:15.800  INFO 8580 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-26 17:55:16.019  WARN 8580 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:55:16.025  INFO 8580 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:55:16.384  INFO 8580 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:55:16.391 DEBUG 8580 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:55:16.416 DEBUG 8580 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:55:16.448 DEBUG 8580 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:56:31.859 DEBUG 8580 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : ==>  Preparing: select id, username, nickname, password, plain_password as plainPassword, avatarUrl, disabled, disabledTime, createTime, updateTime from ex_user
+2022-01-26 17:56:31.859 DEBUG 8580 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : ==> Parameters: 
+2022-01-26 17:56:31.872 DEBUG 8580 --- [http-nio-8888-exec-2] c.example.mapper.UserMapper.selectUsers  : <==      Total: 3
+2022-01-26 17:56:31.873 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 17:56:31.874 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 8(Integer)
+2022-01-26 17:56:31.884 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 17:56:31.885 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 17:56:31.886 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 13(Integer)
+2022-01-26 17:56:31.898 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 17:56:31.899 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==>  Preparing: select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = ?
+2022-01-26 17:56:31.900 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : ==> Parameters: 14(Integer)
+2022-01-26 17:56:31.909 DEBUG 8580 --- [http-nio-8888-exec-2] c.e.m.RoleMapper.selectRoleByUserId      : <==      Total: 1
+2022-01-26 17:57:55.750  INFO 8580 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:57:55.754  INFO 8580 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:58:08.278  INFO 10964 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 10964 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:58:08.281 DEBUG 10964 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:58:08.282  INFO 10964 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:58:09.669  INFO 10964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:58:09.673  INFO 10964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:58:09.705  INFO 10964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:58:09.889  WARN 10964 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:58:09.890  WARN 10964 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:58:09.890  WARN 10964 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:58:09.890  WARN 10964 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:58:10.759  INFO 10964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:58:10.775  INFO 10964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:58:10.775  INFO 10964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:58:10.777  WARN 10964 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:58:10.778  INFO 10964 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:58:10.778  INFO 10964 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:58:10.779  INFO 10964 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:58:10.783  INFO 10964 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:58:10.885  INFO 10964 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:58:10.885  INFO 10964 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2554 ms
+2022-01-26 17:58:12.861  INFO 10964 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:58:12.883  WARN 10964 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:58:14.132  INFO 10964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:58:14.586  INFO 10964 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 6.805 seconds (JVM running for 18.049)
+2022-01-26 17:58:23.723  INFO 10964 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:58:23.725  INFO 10964 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:58:23.726  INFO 10964 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-26 17:58:46.765  WARN 10964 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 17:58:46.770  INFO 10964 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 17:58:47.391  INFO 10964 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 17:58:47.440 DEBUG 10964 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 17:58:47.669 DEBUG 10964 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 17:58:47.865 DEBUG 10964 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 17:59:35.183  WARN 10964 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47s678ms541µs800ns).
+2022-01-26 17:59:35.559  INFO 10964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 17:59:35.569  INFO 10964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 17:59:47.550  INFO 10272 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 10272 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 17:59:47.553 DEBUG 10272 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 17:59:47.553  INFO 10272 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 17:59:48.935  INFO 10272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 17:59:48.939  INFO 10272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 17:59:48.972  INFO 10272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2022-01-26 17:59:49.159  WARN 10272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:59:49.159  WARN 10272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:59:49.159  WARN 10272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 17:59:49.159  WARN 10272 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 17:59:50.014  INFO 10272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 17:59:50.031  INFO 10272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 17:59:50.032  INFO 10272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 17:59:50.034  WARN 10272 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 17:59:50.035  INFO 10272 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 17:59:50.035  INFO 10272 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 17:59:50.035  INFO 10272 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 17:59:50.038  INFO 10272 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 17:59:50.141  INFO 10272 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 17:59:50.142  INFO 10272 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2543 ms
+2022-01-26 17:59:52.231  INFO 10272 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 17:59:52.257  WARN 10272 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 17:59:53.676  INFO 10272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 17:59:54.230  INFO 10272 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 7.18 seconds (JVM running for 18.34)
+2022-01-26 17:59:58.285  INFO 10272 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 17:59:58.286  INFO 10272 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 17:59:58.288  INFO 10272 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-26 18:00:05.294  WARN 10272 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 18:00:05.299  INFO 10272 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 18:00:05.912  INFO 10272 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 18:00:05.961 DEBUG 10272 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 18:00:06.186 DEBUG 10272 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 18:00:06.363 DEBUG 10272 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 18:00:19.040  INFO 10272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 18:00:19.051  INFO 10272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 18:00:29.338  INFO 12924 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 12924 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 18:00:29.341 DEBUG 12924 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 18:00:29.341  INFO 12924 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 18:00:30.522  INFO 12924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 18:00:30.525  INFO 12924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 18:00:30.551  INFO 12924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2022-01-26 18:00:30.697  WARN 12924 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:00:30.697  WARN 12924 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:00:30.697  WARN 12924 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:00:30.698  WARN 12924 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 18:00:31.311  INFO 12924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 18:00:31.323  INFO 12924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 18:00:31.323  INFO 12924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 18:00:31.324  WARN 12924 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 18:00:31.325  INFO 12924 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 18:00:31.325  INFO 12924 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 18:00:31.325  INFO 12924 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 18:00:31.328  INFO 12924 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 18:00:31.395  INFO 12924 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 18:00:31.396  INFO 12924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2019 ms
+2022-01-26 18:00:33.023  INFO 12924 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 18:00:33.043  WARN 12924 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 18:00:34.025  INFO 12924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 18:00:34.410  INFO 12924 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.476 seconds (JVM running for 15.133)
+2022-01-26 18:00:43.187  INFO 12924 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 18:00:43.188  INFO 12924 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 18:00:43.190  INFO 12924 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-26 18:00:43.373  WARN 12924 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 18:00:43.377  INFO 12924 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 18:00:43.783  INFO 12924 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 18:00:43.792 DEBUG 12924 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 18:00:43.826 DEBUG 12924 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 18:00:43.853 DEBUG 12924 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 18:03:56.990 DEBUG 12924 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 18:03:56.990 DEBUG 12924 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 18:03:57.000 DEBUG 12924 --- [http-nio-8888-exec-2] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 18:04:08.541  INFO 12924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 18:04:08.545  INFO 12924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 18:04:21.319  INFO 17940 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 17940 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 18:04:21.322 DEBUG 17940 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 18:04:21.322  INFO 17940 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 18:04:22.739  INFO 17940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 18:04:22.745  INFO 17940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 18:04:22.793  INFO 17940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2022-01-26 18:04:22.986  WARN 17940 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:04:22.987  WARN 17940 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:04:22.987  WARN 17940 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:04:22.988  WARN 17940 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 18:04:23.934  INFO 17940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 18:04:23.951  INFO 17940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 18:04:23.952  INFO 17940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 18:04:23.954  WARN 17940 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 18:04:23.954  INFO 17940 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 18:04:23.954  INFO 17940 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 18:04:23.955  INFO 17940 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 18:04:23.958  INFO 17940 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 18:04:24.057  INFO 17940 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 18:04:24.057  INFO 17940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2689 ms
+2022-01-26 18:04:26.108  INFO 17940 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 18:04:26.132  WARN 17940 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 18:04:27.352  INFO 17940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 18:04:27.855  INFO 17940 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 7.045 seconds (JVM running for 18.568)
+2022-01-26 18:04:40.681  INFO 17940 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 18:04:40.683  INFO 17940 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 18:04:40.684  INFO 17940 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-26 18:04:57.388  WARN 17940 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 18:04:57.394  INFO 17940 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 18:04:58.752  INFO 17940 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 18:04:58.802 DEBUG 17940 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 18:04:59.024 DEBUG 17940 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 18:04:59.396 DEBUG 17940 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 18:05:16.302  INFO 17940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 18:05:16.312  INFO 17940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 18:05:26.561  INFO 4956 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 4956 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 18:05:26.564 DEBUG 4956 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 18:05:26.564  INFO 4956 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 18:05:27.770  INFO 4956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 18:05:27.773  INFO 4956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 18:05:27.802  INFO 4956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2022-01-26 18:05:27.940  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:05:27.940  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:05:27.940  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:05:27.941  WARN 4956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 18:05:28.566  INFO 4956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 18:05:28.578  INFO 4956 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 18:05:28.579  INFO 4956 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 18:05:28.581  WARN 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 18:05:28.581  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 18:05:28.581  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 18:05:28.581  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 18:05:28.584  INFO 4956 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 18:05:28.650  INFO 4956 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 18:05:28.650  INFO 4956 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2049 ms
+2022-01-26 18:05:30.266  INFO 4956 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 18:05:30.303  WARN 4956 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 18:05:31.258  INFO 4956 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 18:05:31.668  INFO 4956 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 5.512 seconds (JVM running for 15.123)
+2022-01-26 18:05:51.374  INFO 4956 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 18:05:51.375  INFO 4956 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 18:05:51.377  INFO 4956 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-26 18:05:51.669  WARN 4956 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 18:05:51.671  INFO 4956 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 18:05:51.967  INFO 4956 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 18:05:51.980 DEBUG 4956 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 18:05:52.023 DEBUG 4956 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 18:05:52.062 DEBUG 4956 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 18:09:10.270 ERROR 4956 --- [http-nio-8888-exec-2] com.example.config.RestExceptionHandler  : 500异常: 
+
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10013ms.
+### The error may exist in file [D:\programs\springboot-example\target\classes\mappers\RoleMapper.xml]
+### The error may involve com.example.mapper.RoleMapper.selectAllRoles
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10013ms.
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:96) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy123.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy126.selectAllRoles(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.sun.proxy.$Proxy127.selectAllRoles(Unknown Source) ~[na:na]
+	at com.example.service.impl.RoleServiceImpl.getRoles(RoleServiceImpl.java:24) ~[classes/:na]
+	at com.example.controller.RoleController.getRoles(RoleController.java:47) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_261]
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10013ms.
+### The error may exist in file [D:\programs\springboot-example\target\classes\mappers\RoleMapper.xml]
+### The error may involve com.example.mapper.RoleMapper.selectAllRoles
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10013ms.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.7.jar:3.5.7]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	... 70 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10013ms.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:83) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:132) ~[pagehelper-5.3.0.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy182.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.7.jar:3.5.7]
+	... 77 common frames omitted
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10013ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:197) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:162) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128) ~[HikariCP-4.0.3.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	... 89 common frames omitted
+Caused by: java.sql.SQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:898) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:823) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-4.0.3.jar:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_261]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_261]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_261]
+	... 1 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_261]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_261]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:842) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	... 15 common frames omitted
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_261]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:81) ~[na:1.8.0_261]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476) ~[na:1.8.0_261]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218) ~[na:1.8.0_261]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200) ~[na:1.8.0_261]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:162) ~[na:1.8.0_261]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:394) ~[na:1.8.0_261]
+	at java.net.Socket.connect(Socket.java:606) ~[na:1.8.0_261]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:156) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	... 17 common frames omitted
+
+2022-01-26 18:09:23.996 ERROR 4956 --- [http-nio-8888-exec-3] com.example.config.RestExceptionHandler  : 500异常: 
+
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10003ms.
+### The error may exist in file [D:\programs\springboot-example\target\classes\mappers\RoleMapper.xml]
+### The error may involve com.example.mapper.RoleMapper.selectAllRoles
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10003ms.
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:96) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy123.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy126.selectAllRoles(Unknown Source) ~[na:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.14.jar:5.3.14]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.14.jar:5.3.14]
+	at com.sun.proxy.$Proxy127.selectAllRoles(Unknown Source) ~[na:na]
+	at com.example.service.impl.RoleServiceImpl.getRoles(RoleServiceImpl.java:24) ~[classes/:na]
+	at com.example.controller.RoleController.getRoles(RoleController.java:47) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.14.jar:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.14.jar:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.14.jar:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.14.jar:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar:9.0.56]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_261]
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10003ms.
+### The error may exist in file [D:\programs\springboot-example\target\classes\mappers\RoleMapper.xml]
+### The error may involve com.example.mapper.RoleMapper.selectAllRoles
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10003ms.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:153) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:145) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.7.jar:3.5.7]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_261]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_261]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	... 70 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10003ms.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:83) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:132) ~[pagehelper-5.3.0.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:62) ~[mybatis-3.5.7.jar:3.5.7]
+	at com.sun.proxy.$Proxy182.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:151) ~[mybatis-3.5.7.jar:3.5.7]
+	... 77 common frames omitted
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 10003ms.
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:197) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:162) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128) ~[HikariCP-4.0.3.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80) ~[spring-jdbc-5.3.14.jar:5.3.14]
+	... 89 common frames omitted
+Caused by: java.sql.SQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:898) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:823) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.access$100(HikariPool.java:71) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:726) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712) ~[HikariCP-4.0.3.jar:na]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[na:1.8.0_261]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[na:1.8.0_261]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[na:1.8.0_261]
+	... 1 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_261]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_261]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_261]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_261]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:842) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	... 15 common frames omitted
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_261]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:81) ~[na:1.8.0_261]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476) ~[na:1.8.0_261]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218) ~[na:1.8.0_261]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200) ~[na:1.8.0_261]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:162) ~[na:1.8.0_261]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:394) ~[na:1.8.0_261]
+	at java.net.Socket.connect(Socket.java:606) ~[na:1.8.0_261]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:156) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-java-8.0.27.jar:8.0.27]
+	... 17 common frames omitted
+
+2022-01-26 18:10:23.798 DEBUG 4956 --- [http-nio-8888-exec-4] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 18:10:23.798 DEBUG 4956 --- [http-nio-8888-exec-4] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 18:10:23.808 DEBUG 4956 --- [http-nio-8888-exec-4] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 18:10:40.648  INFO 4956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 18:10:40.651  INFO 4956 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 18:10:54.356  INFO 6100 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 6100 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 18:10:54.360 DEBUG 6100 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 18:10:54.360  INFO 6100 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 18:10:55.739  INFO 6100 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 18:10:55.743  INFO 6100 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 18:10:55.778  INFO 6100 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2022-01-26 18:10:55.960  WARN 6100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:10:55.960  WARN 6100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:10:55.960  WARN 6100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:10:55.961  WARN 6100 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 18:10:56.847  INFO 6100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 18:10:56.863  INFO 6100 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 18:10:56.863  INFO 6100 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 18:10:56.865  WARN 6100 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 18:10:56.865  INFO 6100 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 18:10:56.866  INFO 6100 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 18:10:56.866  INFO 6100 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 18:10:56.871  INFO 6100 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 18:10:56.978  INFO 6100 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 18:10:56.978  INFO 6100 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2572 ms
+2022-01-26 18:10:58.991  INFO 6100 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 18:10:59.017  WARN 6100 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 18:11:00.316  INFO 6100 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 18:11:00.879  INFO 6100 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 7.004 seconds (JVM running for 19.502)
+2022-01-26 18:11:05.038  INFO 6100 --- [http-nio-8888-exec-1] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-26 18:11:05.039  INFO 6100 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-26 18:11:05.040  INFO 6100 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-26 18:11:18.878  WARN 6100 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2022-01-26 18:11:18.883  INFO 6100 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-26 18:11:19.528  INFO 6100 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-26 18:11:19.577 DEBUG 6100 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==>  Preparing: select * from ex_role
+2022-01-26 18:11:19.802 DEBUG 6100 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : ==> Parameters: 
+2022-01-26 18:11:20.144 DEBUG 6100 --- [http-nio-8888-exec-1] c.e.mapper.RoleMapper.selectAllRoles     : <==      Total: 4
+2022-01-26 18:12:11.091  INFO 6100 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-01-26 18:12:11.100  INFO 6100 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-01-26 18:12:23.705  INFO 9980 --- [main] c.example.SpringbootExampleApplication   : Starting SpringbootExampleApplication using Java 1.8.0_261 on A-MB-000380 with PID 9980 (D:\programs\springboot-example\target\classes started by 2948 in D:\programs\springboot-example)
+2022-01-26 18:12:23.708 DEBUG 9980 --- [main] c.example.SpringbootExampleApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-26 18:12:23.708  INFO 9980 --- [main] c.example.SpringbootExampleApplication   : The following profiles are active: dev
+2022-01-26 18:12:25.131  INFO 9980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-01-26 18:12:25.134  INFO 9980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-01-26 18:12:25.166  INFO 9980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2022-01-26 18:12:25.325  WARN 9980 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'fileMapper' and 'com.example.mapper.FileMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:12:25.326  WARN 9980 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'roleMapper' and 'com.example.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:12:25.326  WARN 9980 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'com.example.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2022-01-26 18:12:25.326  WARN 9980 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.mapper]' package. Please check your configuration.
+2022-01-26 18:12:26.162  INFO 9980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-01-26 18:12:26.179  INFO 9980 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-26 18:12:26.180  INFO 9980 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-26 18:12:26.183  WARN 9980 --- [main] o.a.catalina.core.AprLifecycleListener   : This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2022-01-26 18:12:26.183  INFO 9980 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-01-26 18:12:26.184  INFO 9980 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-01-26 18:12:26.184  INFO 9980 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-01-26 18:12:26.187  INFO 9980 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-01-26 18:12:26.282  INFO 9980 --- [main] o.a.c.c.C.[.[.[/springboot-service]      : Initializing Spring embedded WebApplicationContext
+2022-01-26 18:12:26.282  INFO 9980 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2530 ms
+2022-01-26 18:12:28.225  INFO 9980 --- [main] com.example.config.ExecutorConfig        : start asyncServiceExecutor
+2022-01-26 18:12:28.249  WARN 9980 --- [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was specified but matching resources are not found.
+2022-01-26 18:12:29.408  INFO 9980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/springboot-service'
+2022-01-26 18:12:29.836  INFO 9980 --- [main] c.example.SpringbootExampleApplication   : Started SpringbootExampleApplication in 6.588 seconds (JVM running for 18.479)
