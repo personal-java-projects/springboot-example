@@ -1,6 +1,5 @@
 package com.example.service;
 
-import cn.afterturn.easypoi.excel.entity.ExportParams;
 import com.example.pojo.Member;
 import com.example.pojo.User;
 import org.springframework.ui.ModelMap;
