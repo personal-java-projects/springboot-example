@@ -79,7 +79,7 @@ public class EasyPoiServiceImpl implements EasyPoiService {
         List<User> userList = new ArrayList<>();
 
         if (ids.size() == 0) {
-            userList = userMapper.selectUsers(null);
+            userList = userMapper.selectUsersByUsername(null);
         }
 
         if (ids != null) {

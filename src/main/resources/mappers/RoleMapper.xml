@@ -10,7 +10,8 @@
         select * from ex_role
         <where>
             <if test="roleName != null">
-                roleName = #{roleName}
+--              不区分大小写
+                upper(roleName) like upper (concat('%', #{roleName}, '%'))
             </if>
         </where>
     </select>

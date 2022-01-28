@@ -160,7 +160,7 @@ public class UserController {
      * @return
      */
     @ApiOperation(value = "根据用户名获取所有用户")
-    @PostMapping ("/getUsers")
+    @PostMapping ("/getUsersByUsername")
     public ResponseResult getUsersByUsername(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
         List<User> users = userService.getUsersByUsername(username);
         PageDto pageDto = null;
@@ -177,7 +177,7 @@ public class UserController {
     }
 
     @ApiOperation(value = "根据用户昵称获取所有用户")
-    @PostMapping ("/getUsers")
+    @PostMapping ("/getUsersByNickname")
     public ResponseResult getUsersByNickname(@RequestParam(required = false) String nickname, @RequestBody(required = false) Page page) {
         List<User> users = userService.getUsersByNickname(nickname);
         PageDto pageDto = null;
