@@ -36,11 +36,22 @@
         </where>
     </select>
 
-    <select id="selectUsers" resultType="User" parameterType="String">
+    <select id="selectUsersByUsername" resultType="User" parameterType="String">
         <include refid="selectUsers"></include>
         <where>
             <if test="username != null">
-                username=#{username}
+--                 不区分大小写进行查询
+                upper (username) like upper (concat('%', #{username, jdbcType=VARCHAR}, '%'))
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUsersByNickname" resultType="User" parameterType="String">
+        <include refid="selectUsers"></include>
+        <where>
+            <if test="nickname != null">
+                --                 不区分大小写进行查询
+                upper (nickname) like upper (concat('%', #{nickname, jdbcType=VARCHAR}, '%'))
             </if>
         </where>
     </select>

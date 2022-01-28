@@ -24,7 +24,7 @@ public class PublishArticle {
 
     @ApiModelProperty(value = "发布时间", example = "2021-12-01")
     @NotNull(message = "发布时间不能为空")
-    private Timestamp publishTime;
+    private String publishTime;
 
     @ApiModelProperty(value = "重要程度", example = "0")
     @Range(min = 0, max = 3, message = "必须在0-3")
@@ -61,11 +61,11 @@ public class PublishArticle {
         this.authorId = authorId;
     }
 
-    public Timestamp getPublishTime() {
+    public String getPublishTime() {
         return publishTime;
     }
 
-    public void setPublishTime(Timestamp publishTime) {
+    public void setPublishTime(String publishTime) {
         this.publishTime = publishTime;
     }
 

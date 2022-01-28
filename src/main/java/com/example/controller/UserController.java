@@ -159,10 +159,27 @@ public class UserController {
      * @param page
      * @return
      */
-    @ApiOperation(value = "获取所有用户")
+    @ApiOperation(value = "根据用户名获取所有用户")
     @PostMapping ("/getUsers")
-    public ResponseResult getUsers(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
-        List<User> users = userService.getUsers(username);
+    public ResponseResult getUsersByUsername(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
+        List<User> users = userService.getUsersByUsername(username);
+        PageDto pageDto = null;
+
+        if (page == null) {
+            page = new Page();
+        }
+
+        pageDto = pageToVo.pageDto(page);
+
+        PageDto pageInfo = pageDto.pageList(users, "userList");
+
+        return ResponseResult.ok().data(pageInfo.getResultMap());
+    }
+
+    @ApiOperation(value = "根据用户昵称获取所有用户")
+    @PostMapping ("/getUsers")
+    public ResponseResult getUsersByNickname(@RequestParam(required = false) String nickname, @RequestBody(required = false) Page page) {
+        List<User> users = userService.getUsersByNickname(nickname);
         PageDto pageDto = null;
 
         if (page == null) {

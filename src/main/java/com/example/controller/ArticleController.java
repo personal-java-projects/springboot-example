@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
@@ -21,12 +24,16 @@ public class ArticleController {
     @Autowired
     private Article2PO article2PO;
 
+    private Map<String, Object> resultMap = new HashMap<>();
+
     @PostMapping("/publishArticle")
     public ResponseResult publishArticle (@RequestBody PublishArticle publishArticle) {
         Article article = article2PO.publishArticle2PO(publishArticle);
 
-        articleService.publishArticle(article);
+        int articleId = articleService.publishArticle(article);
 
-        return null;
+        resultMap.put("articleId", articleId);
+
+        return ResponseResult.ok().data(resultMap);
     }
 }

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.ArticleMapper">
-    <insert id="insertArticle" parameterType="Article">
+    <insert id="insertArticle" parameterType="Article" useGeneratedKeys="true" keyProperty="id">
         insert into ex_article values (#{id}, #{title}, #{author}, #{authorId}, #{publishTime}, #{importance}, #{summary}, #{richText}, #{updateTime})
     </insert>
 </mapper>

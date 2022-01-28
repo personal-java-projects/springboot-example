@@ -8,5 +8,8 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring")
 public interface Article2PO {
+    @Mappings({
+            @Mapping(target = "publishTime", expression = "java(com.example.util.DateFormatUtil.parse(publishArticle.getPublishTime(), \"yyyy-MM-dd HH:mm:ss\"))")
+    })
     Article publishArticle2PO(PublishArticle publishArticle);
 }

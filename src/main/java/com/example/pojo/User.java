@@ -5,7 +5,6 @@ import cn.afterturn.easypoi.excel.annotation.ExcelEntity;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
-import java.sql.Date;
 
 public class User {
     // 用户id

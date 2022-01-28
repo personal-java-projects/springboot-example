@@ -146,10 +146,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsers(String username) {
+    public List<User> getUsersByUsername(String username) {
         // 当username为""时，将其定义成null
         username = username == "" ? null : username;
-        List<User> userList = userMapper.selectUsers(username);
+        List<User> userList = userMapper.selectUsersByUsername(username);
 
         // 查询用户身份
         for (User user:userList) {
@@ -158,6 +158,15 @@ public class UserServiceImpl implements UserService {
             user.setRole(role);
         }
 
+        return userList;
+    }
+
+    @Override
+    public List<User> getUsersByNickname(String nickname) {
+        // 当username为""时，将其定义成null
+        nickname = nickname == "" ? null : nickname;
+        List<User> userList = userMapper.selectUsersByNickname(nickname);
+        
         return userList;
     }
 

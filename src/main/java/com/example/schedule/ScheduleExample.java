@@ -87,7 +87,7 @@ public class ScheduleExample {
     @Async
     public void excTask1() throws Exception {
         System.out.println("定时任务执行，执行时间是："+new Date());
-        List<User> users = userService.getUsers(null);
+        List<User> users = userService.getUsersByUsername(null);
         System.out.println("查询数据库user表的全部值是:"+users);
 
         Map<String, Object> map = new HashMap<>();
