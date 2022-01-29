@@ -1,5 +1,6 @@
 package com.example.dto;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiModel;
@@ -24,7 +25,7 @@ public class PageDto {
     private int totalPages;
 
     @ApiModelProperty(value = "总记录数", example = "100")
-    private int totalSize;
+    private long totalSize;
 
     @ApiModelProperty(value = "分页数据")
     private List<?> list;
@@ -35,15 +36,27 @@ public class PageDto {
     @ApiModelProperty(value = "分页结果集")
     private Map<String, Object> resultMap = new HashMap<>();
 
-    public PageDto pageList(List<?> list, String targetListName) {
-        PageHelper.startPage(this.getPageIndex(), this.getPageSize());
+    @ApiModelProperty(hidden = true)
+    private static Page page;
 
+    /**
+     * 初始化pageHelper
+     * 因为PageHelper.startPage()需要在查询操作之前，否则分页不生效
+     * @param pageIndex
+     * @param pageSize
+     */
+    public static void initPageHelper (int pageIndex, int pageSize) {
+        page = PageHelper.startPage(pageIndex, pageSize);
+    }
+
+
+    public PageDto pageList(List<?> list, String targetListName) {
         PageInfo pageInfo = new PageInfo<>(list);
 
         // 定义分页数据
         this.setPageIndex(pageInfo.getPageNum());
         this.setPageSize(this.getPageSize());
-        this.setTotalSize(pageInfo.getSize());
+        this.setTotalSize(page.getTotal());
         this.setTotalPages(pageInfo.getPages());
         this.setList(pageInfo.getList());
 
@@ -84,11 +97,11 @@ public class PageDto {
         this.totalPages = totalPages;
     }
 
-    public int getTotalSize() {
+    public long getTotalSize() {
         return totalSize;
     }
 
-    public void setTotalSize(int totalSize) {
+    public void setTotalSize(long totalSize) {
         this.totalSize = totalSize;
     }
 

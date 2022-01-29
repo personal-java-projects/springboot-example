@@ -44,6 +44,9 @@ public class RoleController {
         }
 
         PageDto pageDto = pageToVo.pageDto(page);
+
+        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
+
         List<Role> roleList = roleService.getRoles(userId, roleName);
 
         PageDto pageInfo = pageDto.pageList(roleList, "roleList");

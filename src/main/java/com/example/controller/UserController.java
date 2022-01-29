@@ -14,6 +14,7 @@ import com.example.voToPo.UserVoToPo;
 import com.example.service.UserService;
 import com.example.util.*;
 
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
 import lombok.extern.log4j.Log4j2;
@@ -162,7 +163,6 @@ public class UserController {
     @ApiOperation(value = "根据用户名获取所有用户")
     @PostMapping ("/getUsersByUsername")
     public ResponseResult getUsersByUsername(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
-        List<User> users = userService.getUsersByUsername(username);
         PageDto pageDto = null;
 
         if (page == null) {
@@ -170,6 +170,10 @@ public class UserController {
         }
 
         pageDto = pageToVo.pageDto(page);
+
+        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
+
+        List<User> users = userService.getUsersByUsername(username);
 
         PageDto pageInfo = pageDto.pageList(users, "userList");
 
@@ -187,6 +191,8 @@ public class UserController {
         }
 
         pageDto = pageToVo.pageDto(page);
+
+        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
 
         PageDto pageInfo = pageDto.pageList(users, "userList");
 
