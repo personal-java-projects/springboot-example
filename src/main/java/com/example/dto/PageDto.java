@@ -31,10 +31,10 @@ public class PageDto {
     private List<?> list;
 
     @ApiModelProperty(value = "分页信息")
-    private Map<String, Object> pagesInfo = new HashMap<>();
+    private static Map<String, Object> pagesInfo = new HashMap<>();
 
     @ApiModelProperty(value = "分页结果集")
-    private Map<String, Object> resultMap = new HashMap<>();
+    private static Map<String, Object> resultMap = new HashMap<>();
 
     @ApiModelProperty(hidden = true)
     private static Page page;
@@ -50,28 +50,31 @@ public class PageDto {
     }
 
 
-    public PageDto pageList(List<?> list, String targetListName) {
+    public static PageDto pageList(List<?> list, String targetListName) {
         PageInfo pageInfo = new PageInfo<>(list);
+        PageDto pageDto = new PageDto();
 
         // 定义分页数据
-        this.setPageIndex(pageInfo.getPageNum());
-        this.setPageSize(this.getPageSize());
-        this.setTotalSize(page.getTotal());
-        this.setTotalPages(pageInfo.getPages());
-        this.setList(pageInfo.getList());
+        pageDto.setPageIndex(pageInfo.getPageNum());
+        pageDto.setPageSize(pageDto.getPageSize());
+        if (page != null) { // 进行分页，需要通过page获取总记录数
+            pageDto.setTotalSize(page.getTotal());
+        }
+        pageDto.setTotalSize(pageInfo.getTotal());
+        pageDto.setTotalPages(pageInfo.getPages());
+        pageDto.setList(pageInfo.getList());
 
         // 封装结果集
-        pagesInfo.put("pageIndex", pageIndex);
-        pagesInfo.put("pageSize", pageSize);
-        pagesInfo.put("totalSize", totalSize);
-        pagesInfo.put("totalPages", totalPages);
+        pagesInfo.put("pageIndex", pageDto.getPageIndex());
+        pagesInfo.put("pageSize", pageDto.getPageSize());
+        pagesInfo.put("totalSize", pageDto.getTotalSize());
+        pagesInfo.put("totalPages", pageDto.getTotalPages());
 
         resultMap.put(targetListName, list);
         resultMap.put("pageInfo", pagesInfo);
 
-        return this;
+        return pageDto;
     }
-
 
     public int getPageIndex() {
         return pageIndex;

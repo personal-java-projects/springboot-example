@@ -26,9 +26,6 @@ public class RoleController {
     private RoleService roleService;
 
     @Autowired
-    private PageToVo pageToVo;
-
-    @Autowired
     private Role2PO role2PO;
 
     private Map<String, Object> resultMap = new HashMap<>();
@@ -36,20 +33,15 @@ public class RoleController {
     @PostMapping("/getRoles")
     @ResponseBody
     public ResponseResult getRoles(@RequestParam(value = "userId", required = false) String userId, @RequestParam(value = "roleName", required = false) String roleName, @RequestBody(required = false) Page page) {
-        System.out.println("userId: " + userId);
         roleName = roleName == "" ? null : roleName;
 
-        if (page == null) {
-            page = new Page();
+        if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
         }
-
-        PageDto pageDto = pageToVo.pageDto(page);
-
-        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
 
         List<Role> roleList = roleService.getRoles(userId, roleName);
 
-        PageDto pageInfo = pageDto.pageList(roleList, "roleList");
+        PageDto pageInfo = PageDto.pageList(roleList, "roleList");
 
         return new ResponseResult().ok().data(pageInfo.getResultMap());
     }

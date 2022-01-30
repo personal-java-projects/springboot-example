@@ -48,9 +48,6 @@ public class UserController {
     // 结果集
     private Map<String, Object> resultMap = new HashMap<>();
 
-    // 分页dto
-    private PageDto pageDto;
-
     @GetMapping("/index")
     public ResponseResult index() throws IOException {
 //         ResponseEntity.ok("fucke");
@@ -163,19 +160,13 @@ public class UserController {
     @ApiOperation(value = "根据用户名获取所有用户")
     @PostMapping ("/getUsersByUsername")
     public ResponseResult getUsersByUsername(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
-        PageDto pageDto = null;
-
-        if (page == null) {
-            page = new Page();
+        if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
         }
-
-        pageDto = pageToVo.pageDto(page);
-
-        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
 
         List<User> users = userService.getUsersByUsername(username);
 
-        PageDto pageInfo = pageDto.pageList(users, "userList");
+        PageDto pageInfo = PageDto.pageList(users, "userList");
 
         return ResponseResult.ok().data(pageInfo.getResultMap());
     }
@@ -183,20 +174,15 @@ public class UserController {
     @ApiOperation(value = "根据用户昵称获取所有用户")
     @PostMapping ("/getUsersByNickname")
     public ResponseResult getUsersByNickname(@RequestParam(required = false) String nickname, @RequestBody(required = false) Page page) {
-        List<User> users = userService.getUsersByNickname(nickname);
-        PageDto pageDto = null;
-
-        if (page == null) {
-            page = new Page();
+        if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
         }
 
-        pageDto = pageToVo.pageDto(page);
+        List<User> users = userService.getUsersByNickname(nickname);
 
-        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
+        PageDto pagesInfo = PageDto.pageList(users, "userList");
 
-        PageDto pageInfo = pageDto.pageList(users, "userList");
-
-        return ResponseResult.ok().data(pageInfo.getResultMap());
+        return ResponseResult.ok().data(pagesInfo.getResultMap());
     }
 
     @ApiOperation(value = "解封号")
