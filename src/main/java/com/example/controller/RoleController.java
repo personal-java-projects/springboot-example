@@ -9,6 +9,8 @@ import com.example.vo.Page;
 import com.example.voToPo.PageToVo;
 import com.example.voToPo.Role2PO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -30,9 +32,10 @@ public class RoleController {
 
     private Map<String, Object> resultMap = new HashMap<>();
 
+    @ApiOperation(value = "根据用户id获取角色")
     @PostMapping("/getRoles")
     @ResponseBody
-    public ResponseResult getRoles(@RequestParam(value = "userId", required = false) String userId, @RequestParam(value = "roleName", required = false) String roleName, @RequestBody(required = false) Page page) {
+    public ResponseResult getRoles(@ApiParam @RequestParam(value = "userId", required = false) String userId, @ApiParam @RequestParam(value = "roleName", required = false) String roleName, @ApiParam @RequestBody(required = false) Page page) {
         roleName = roleName == "" ? null : roleName;
 
         if (page != null) {
@@ -46,9 +49,10 @@ public class RoleController {
         return new ResponseResult().ok().data(pageInfo.getResultMap());
     }
 
+    @ApiOperation(value = "新增角色")
     @PostMapping("/addRole")
     @ResponseBody
-    public ResponseResult addRole(@RequestBody AddRole addRole) {
+    public ResponseResult addRole(@ApiParam(required = true) @RequestBody AddRole addRole) {
         Role role = role2PO.addRole2PO(addRole);
 
         roleService.addRole(role);
@@ -56,9 +60,10 @@ public class RoleController {
         return ResponseResult.ok();
     }
 
+    @ApiOperation(value = "根据角色id删除角色")
     @DeleteMapping("/deleteRole/{id}")
     @ResponseBody
-    public ResponseResult delRole(@PathVariable("id") int id) {
+    public ResponseResult delRole(@ApiParam(required = true) @PathVariable("id") int id) {
         Role role = roleService.getRoleById(id);
 
         if (role == null) {
