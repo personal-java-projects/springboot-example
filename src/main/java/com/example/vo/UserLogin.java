@@ -15,6 +15,10 @@ public class UserLogin {
     @NotNull(message = "密码不能为空")
     private String password;
 
+    @ApiModelProperty(value = "验证码", required = true, position = 0, example = "1234")
+    @NotNull(message = "验证码不能为空")
+    private String checkCode;
+
     public String getUsername() {
         return username;
     }
@@ -29,5 +33,13 @@ public class UserLogin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCheckCode() {
+        return checkCode;
+    }
+
+    public void setCheckCode(String checkCode) {
+        this.checkCode = checkCode;
     }
 }

@@ -14,16 +14,18 @@ import com.example.voToPo.UserVoToPo;
 import com.example.service.UserService;
 import com.example.util.*;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
@@ -48,9 +50,6 @@ public class UserController {
     // 结果集
     private Map<String, Object> resultMap = new HashMap<>();
 
-    // 分页dto
-    private PageDto pageDto;
-
     @GetMapping("/index")
     public ResponseResult index() throws IOException {
 //         ResponseEntity.ok("fucke");
@@ -71,6 +70,23 @@ public class UserController {
         return new ResponseResult().ok().data(123);
     }
 
+    @GetMapping("/getCode")
+    public void getCaptchaImg(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        try {
+            response.setContentType("image/png");
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Expire", "0");
+            response.setHeader("Pragma", "no-cache");
+            ValidateCodeUtil validateCode = new ValidateCodeUtil();
+            // getRandomCodeImage方法会直接将生成的验证码图片写入response
+            validateCode.getRandomCodeImage(request, response);
+            System.out.println("session里面存储的验证码为：" + session.getId() + "\n" + session.getAttribute("JCCODE"));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 用户注册
      * @param userRegister
@@ -79,7 +95,6 @@ public class UserController {
     // 前端请求默认是application/json格式，所以这里需要写@RequestBody，用来接收json格式的传参
     @ApiOperation(value = "用户注册", consumes = "application/json")
     @RequestMapping(value = "/userRegister", method = RequestMethod.POST)
-    @ResponseBody
     public ResponseResult userRegister(@RequestBody UserRegister userRegister) {
         User user = userVoToPo.userRegisterToUser(userRegister);
         System.out.println("user: " + user);
@@ -110,13 +125,19 @@ public class UserController {
      */
     @ApiOperation(value = "用户登录", consumes ="application/json", response = ResponseResult.class)
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-    @ResponseBody
-    public ResponseResult userLogin(@Valid @RequestBody UserLogin userLogin) {
+    public ResponseResult userLogin(@Valid @RequestBody UserLogin userLogin, HttpSession session) {
         int userId = 0;
-        String username = "";
         int identity = 0;
+        String username = "";
+        String checkCode = userLogin.getCheckCode();
 
-        Map<String, Object> result = new HashMap<>();
+        String sessionCode = String.valueOf(session.getAttribute("JCCODE")).toLowerCase();
+
+        System.out.println("session里的验证码："+sessionCode + "\n" + session.getId());
+
+        if (!session.getAttribute("imageCode").toString().equalsIgnoreCase(checkCode)) {
+            return ResponseResult.ok().code(ResultCodeEnum.PARAM_ERROR.getCode()).message("验证码错误");
+        }
 
         // MapStruct自动将VO转换成了Po
         User user = userVoToPo.userLoginToUser(userLogin);
@@ -146,9 +167,9 @@ public class UserController {
             String token = TokenUtil.sign(userId, username, identity);
 
             // 封装结果集
-            result.put("token", token);
+            resultMap.put("token", token);
 
-            return new ResponseResult().ok().data(result);
+            return new ResponseResult().ok().data(resultMap);
         }
 
         return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("用户不存在");
@@ -163,19 +184,13 @@ public class UserController {
     @ApiOperation(value = "根据用户名获取所有用户")
     @PostMapping ("/getUsersByUsername")
     public ResponseResult getUsersByUsername(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
-        PageDto pageDto = null;
-
-        if (page == null) {
-            page = new Page();
+        if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
         }
-
-        pageDto = pageToVo.pageDto(page);
-
-        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
 
         List<User> users = userService.getUsersByUsername(username);
 
-        PageDto pageInfo = pageDto.pageList(users, "userList");
+        PageDto pageInfo = PageDto.pageList(users, "userList");
 
         return ResponseResult.ok().data(pageInfo.getResultMap());
     }
@@ -183,20 +198,15 @@ public class UserController {
     @ApiOperation(value = "根据用户昵称获取所有用户")
     @PostMapping ("/getUsersByNickname")
     public ResponseResult getUsersByNickname(@RequestParam(required = false) String nickname, @RequestBody(required = false) Page page) {
-        List<User> users = userService.getUsersByNickname(nickname);
-        PageDto pageDto = null;
-
-        if (page == null) {
-            page = new Page();
+        if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
         }
 
-        pageDto = pageToVo.pageDto(page);
+        List<User> users = userService.getUsersByNickname(nickname);
 
-        PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
+        PageDto pagesInfo = PageDto.pageList(users, "userList");
 
-        PageDto pageInfo = pageDto.pageList(users, "userList");
-
-        return ResponseResult.ok().data(pageInfo.getResultMap());
+        return ResponseResult.ok().data(pagesInfo.getResultMap());
     }
 
     @ApiOperation(value = "解封号")
@@ -266,7 +276,6 @@ public class UserController {
     }
 
     @PostMapping(value = "/editUser")
-    @ResponseBody
     public ResponseResult editUser(@RequestBody UserRegister editUser) {
         User user = userVoToPo.userRegisterToUser(editUser);
 
@@ -281,7 +290,6 @@ public class UserController {
 
     @ApiOperation("删除用户")
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
     public ResponseResult deleteUser(@RequestHeader("Authorization") String token, @ApiParam(value = "用户id", required = true) @PathVariable("id") int id) {
         System.out.println("删除用户：" + id);
         User user = userService.getUserById(id);
@@ -313,7 +321,6 @@ public class UserController {
      */
     @ApiOperation("重置密码")
     @RequestMapping(value = "/resetPassword", method = RequestMethod.PATCH)
-    @ResponseBody
     public ResponseResult resetPassword(@RequestBody ResetPassword resetPasswordUser) {
         User user = userVoToPo.resetPasswordToUser(resetPasswordUser);
         String newPassword = resetPasswordUser.getNewPassword();

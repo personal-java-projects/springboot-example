@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
 //                .allowedOrigins("*")
                 .allowedOriginPatterns("*")
                 .allowCredentials(true)
-                .allowedMethods("GET", "POST", "DELETE", "PUT", "OPTIONS")
+                .allowedMethods("GET", "POST", "DELETE", "PUT", "OPTIONS", "PATCH")
                 .maxAge(3600 * 24);
     }
 
@@ -32,7 +32,11 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new TokenInterceptor()).addPathPatterns("/**").excludePathPatterns("/user/userLogin").excludePathPatterns("/user/userRegister")
+        registry.addInterceptor(new TokenInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/user/userLogin")
+                .excludePathPatterns("/user/userRegister")
+                .excludePathPatterns("/user/getCode")
                 // 通用拦截器排除swagger设置，所有拦截器都会自动加swagger相关的资源排除信息
                 .excludePathPatterns("/swagger**/**")
                 .excludePathPatterns("/webjars/**")

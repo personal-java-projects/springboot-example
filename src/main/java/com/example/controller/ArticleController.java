@@ -5,6 +5,8 @@ import com.example.service.ArticleService;
 import com.example.util.ResponseResult;
 import com.example.vo.PublishArticle;
 import com.example.voToPo.Article2PO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+@Api(tags = "文章")
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
@@ -26,6 +29,7 @@ public class ArticleController {
 
     private Map<String, Object> resultMap = new HashMap<>();
 
+    @ApiOperation(value = "发布文章")
     @PostMapping("/publishArticle")
     public ResponseResult publishArticle (@RequestBody PublishArticle publishArticle) {
         Article article = article2PO.publishArticle2PO(publishArticle);
