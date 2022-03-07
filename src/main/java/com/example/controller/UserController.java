@@ -133,7 +133,9 @@ public class UserController {
 
         String authCode = redisService.get(RedisUtil.REDIS_UMS_PREFIX);
 
-        System.out.println("session里的验证码：" + authCode + "\n");
+        if (authCode == null) {
+            return ResponseResult.ok().code(ResultCodeEnum.PARAM_ERROR.getCode()).message("验证码已过期");
+        }
 
         if (!authCode.equalsIgnoreCase(checkCode)) {
             return ResponseResult.ok().code(ResultCodeEnum.PARAM_ERROR.getCode()).message("验证码错误");
@@ -168,6 +170,8 @@ public class UserController {
 
             // 封装结果集
             resultMap.put("token", token);
+
+            redisService.remove(RedisUtil.REDIS_UMS_PREFIX);
 
             return new ResponseResult().ok().data(resultMap);
         }

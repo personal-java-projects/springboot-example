@@ -86,6 +86,11 @@ public class JedisRedisConfig {
         return RedisCacheManager.create(connectionFactory);
     }
 
+    /**
+     * 序列化器
+     * @param connectionFactory
+     * @return
+     */
     @Bean
     public RedisTemplate<String, Serializable> redisTemplate(JedisConnectionFactory connectionFactory) {
         RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();

@@ -1,9 +1,7 @@
 package com.example.util;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -25,7 +23,6 @@ public class ValidateCodeUtil {
     private int randomStrNum = 4; //验证码字符个数
 
     private String randomString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWSYZ";
-    private final String sessionKey = "JCCODE";
 
     //字体的设置
     private Font getFont() {
@@ -34,7 +31,6 @@ public class ValidateCodeUtil {
 
     //颜色的设置
     private static Color getRandomColor(int fc, int bc) {
-
         fc = Math.min(fc, 255);
         bc = Math.min(bc, 255);
 
@@ -55,7 +51,7 @@ public class ValidateCodeUtil {
     }
 
     //随机字符的获取
-    private  String getRandomString(int num){
+    private String getRandomString(int num){
         num = num > 0 ? num : randomString.length();
         return String.valueOf(randomString.charAt(random.nextInt(num)));
     }
@@ -93,10 +89,7 @@ public class ValidateCodeUtil {
         }
         System.out.println("随机字符："+randomStr);
         g.dispose();
-//        //移除之前的session中的验证码信息
-//        session.removeAttribute(sessionKey);
-//        //重新将验证码放入session
-//        session.setAttribute(sessionKey, randomStr);
+
         try {
             //  将图片以png格式返回,返回的是图片
             ImageIO.write(image, "PNG", response.getOutputStream());
@@ -131,12 +124,8 @@ public class ValidateCodeUtil {
         }
         System.out.println("随机字符："+randomStr);
         g.dispose();
-//        session.removeAttribute(sessionKey);
-//        session.setAttribute(sessionKey, randomStr);
         String base64String = "";
         try {
-            //  直接返回图片
-            //  ImageIO.write(image, "PNG", response.getOutputStream());
             //返回 base64
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             ImageIO.write(image, "PNG", bos);
