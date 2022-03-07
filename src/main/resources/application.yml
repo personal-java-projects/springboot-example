@@ -15,6 +15,27 @@ spring:
       maximum-pool-size: 10
       minimum-idle: 5
       read-only: false
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host: 101.35.44.70
+    # Redis服务器连接端口号
+    port: 6060
+    # 如果未单独配置默认为空即可
+    password: root
+    # 连接超时时间
+    timeout: 1000
+    jedis:
+      pool:
+        # 连接池中最大连接数（使用负值则表示没有限制）
+        max-active: 8
+        # 连接池中最大阻塞等待时间（使用负值则表示没有限制）
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 0
 mybatis:
   type-aliases-package: com.example.pojo
   mapper-locations: classpath*:mappers/*.xml

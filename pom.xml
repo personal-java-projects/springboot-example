@@ -39,10 +39,23 @@
 			<version>2.2.0</version>
 		</dependency>
 
+		<!--集成redis-->
 		<dependency>
-			<groupId>com.taobao.arthas</groupId>
-			<artifactId>arthas-spring-boot-starter</artifactId>
-			<version>3.5.5</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>2.6.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.lettuce</groupId>
+					<artifactId>lettuce-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!--如果使用lettuce连接池的话就不用导入jedis-->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
 		</dependency>
 
 		<!-- 引入Swagger3依赖 -->

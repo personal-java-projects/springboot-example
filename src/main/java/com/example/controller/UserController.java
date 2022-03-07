@@ -5,11 +5,11 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.dto.PageDto;
 import com.example.pojo.Role;
 import com.example.pojo.User;
+import com.example.service.RedisService;
 import com.example.vo.Page;
 import com.example.vo.ResetPassword;
 import com.example.vo.UserRegister;
 import com.example.vo.UserLogin;
-import com.example.voToPo.PageToVo;
 import com.example.voToPo.UserVoToPo;
 import com.example.service.UserService;
 import com.example.util.*;
@@ -20,12 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,7 +42,7 @@ public class UserController {
     private UserVoToPo userVoToPo;
 
     @Autowired
-    private PageToVo pageToVo;
+    private RedisService redisService;
 
     // 结果集
     private Map<String, Object> resultMap = new HashMap<>();
@@ -71,17 +68,20 @@ public class UserController {
     }
 
     @GetMapping("/getCode")
-    public void getCaptchaImg(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+    public void getCaptchaImg(HttpServletResponse response) {
         try {
             response.setContentType("image/png");
             response.setHeader("Cache-Control", "no-cache");
             response.setHeader("Expire", "0");
             response.setHeader("Pragma", "no-cache");
             ValidateCodeUtil validateCode = new ValidateCodeUtil();
-            // getRandomCodeImage方法会直接将生成的验证码图片写入response
-            validateCode.getRandomCodeImage(request, response);
-            System.out.println("session里面存储的验证码为：" + session.getId() + "\n" + session.getAttribute("JCCODE"));
 
+            // 验证码存储到redis中
+            redisService.set(RedisUtil.REDIS_UMS_PREFIX, validateCode.getRandomCodeImage(response));
+            redisService.expire(RedisUtil.REDIS_UMS_PREFIX, RedisUtil.REDIS_UMS_EXPIRE);
+
+            // getRandomCodeImage方法会直接将生成的验证码图片写入response
+            validateCode.getRandomCodeImage(response);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -125,17 +125,17 @@ public class UserController {
      */
     @ApiOperation(value = "用户登录", consumes ="application/json", response = ResponseResult.class)
     @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-    public ResponseResult userLogin(@Valid @RequestBody UserLogin userLogin, HttpSession session) {
+    public ResponseResult userLogin(@Valid @RequestBody UserLogin userLogin) {
         int userId = 0;
         int identity = 0;
         String username = "";
         String checkCode = userLogin.getCheckCode();
 
-        String sessionCode = String.valueOf(session.getAttribute("JCCODE")).toLowerCase();
+        String authCode = redisService.get(RedisUtil.REDIS_UMS_PREFIX);
 
-        System.out.println("session里的验证码："+sessionCode + "\n" + session.getId());
+        System.out.println("session里的验证码：" + authCode + "\n");
 
-        if (!session.getAttribute("imageCode").toString().equalsIgnoreCase(checkCode)) {
+        if (!authCode.equalsIgnoreCase(checkCode)) {
             return ResponseResult.ok().code(ResultCodeEnum.PARAM_ERROR.getCode()).message("验证码错误");
         }
 

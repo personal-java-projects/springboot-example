@@ -10,9 +10,11 @@ import java.io.ByteArrayOutputStream;
 import java.util.Base64;
 import java.util.Random;
 
+import com.example.util.RedisUtil;
+
 /**
- * @Author : JCccc
- * @CreateTime : 2019/9/25
+ * @Author :
+ * @CreateTime :
  * @Description :
  **/
 public class ValidateCodeUtil {
@@ -50,7 +52,6 @@ public class ValidateCodeUtil {
         int xl = random.nextInt(20);
         int yl = random.nextInt(10);
         g.drawLine(x, y, x + xl, y + yl);
-
     }
 
     //随机字符的获取
@@ -68,13 +69,13 @@ public class ValidateCodeUtil {
         randomStr += rand;
         g.translate(random.nextInt(3), random.nextInt(6));
         g.drawString(rand, 40 * i + 10, 25);
+
         return randomStr;
     }
 
 
     //生成随机图片
-    public void getRandomCodeImage(HttpServletRequest request, HttpServletResponse response){
-        HttpSession session = request.getSession();
+    public String getRandomCodeImage(HttpServletResponse response){
         // BufferedImage类是具有缓冲区的Image类,Image类是用于描述图像信息的类
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
         Graphics g = image.getGraphics();
@@ -92,10 +93,10 @@ public class ValidateCodeUtil {
         }
         System.out.println("随机字符："+randomStr);
         g.dispose();
-        //移除之前的session中的验证码信息
-        session.removeAttribute(sessionKey);
-        //重新将验证码放入session
-        session.setAttribute(sessionKey, randomStr);
+//        //移除之前的session中的验证码信息
+//        session.removeAttribute(sessionKey);
+//        //重新将验证码放入session
+//        session.setAttribute(sessionKey, randomStr);
         try {
             //  将图片以png格式返回,返回的是图片
             ImageIO.write(image, "PNG", response.getOutputStream());
@@ -103,15 +104,15 @@ public class ValidateCodeUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return randomStr;
     }
 
 
 
 
     //生成随机图片的base64编码字符串
-
-    public String getRandomCodeBase64(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession();
+    public String getRandomCodeBase64() {
         // BufferedImage类是具有缓冲区的Image类,Image类是用于描述图像信息的类
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
         Graphics g = image.getGraphics();
@@ -130,8 +131,8 @@ public class ValidateCodeUtil {
         }
         System.out.println("随机字符："+randomStr);
         g.dispose();
-        session.removeAttribute(sessionKey);
-        session.setAttribute(sessionKey, randomStr);
+//        session.removeAttribute(sessionKey);
+//        session.setAttribute(sessionKey, randomStr);
         String base64String = "";
         try {
             //  直接返回图片
