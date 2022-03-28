@@ -1,7 +1,11 @@
 package com.example.service;
 
 import com.example.pojo.FilePO;
+import io.minio.errors.*;
 
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +32,14 @@ public interface UploadService {
      */
     List<Map<String, Object>> getMultipartFile(String chunkBucKet, FilePO uploadDto);
 
+    /**
+     * 结合vue-simple-uploader的接口，获取分片url和uploadId
+     * @param bucketName
+     * @param filename
+     * @param chunkSize
+     * @return
+     */
+    Map<String, Object> getMultipartFile(String bucketName, String filename, Integer chunkSize) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
 
     /**
      * 合并分片文件并上传到存储文件的桶中
@@ -35,4 +47,12 @@ public interface UploadService {
      * @return
      */
     FilePO mergeFile(String chunkBucKet, String targetBucket, FilePO uploadDto, int userId);
+
+    /**
+     * 结合vue-simple-uploader的合并分片
+     * @param bucketName
+     * @param objectName
+     * @param uploadId
+     */
+    void mergeFile(String bucketName, String objectName, String uploadId) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
 }

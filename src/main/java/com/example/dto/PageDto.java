@@ -53,6 +53,7 @@ public class PageDto {
     public static PageDto pageList(List<?> list, String targetListName) {
         PageInfo pageInfo = new PageInfo<>(list);
         PageDto pageDto = new PageDto();
+        resultMap = new HashMap<>();
 
         // 定义分页数据
         pageDto.setPageIndex(pageInfo.getPageNum());

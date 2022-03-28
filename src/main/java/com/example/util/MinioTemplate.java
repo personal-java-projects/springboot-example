@@ -1,11 +1,12 @@
 package com.example.util;
 
+import com.example.config.OssProperties;
+import com.google.common.collect.Multimap;
 import io.minio.*;
+import io.minio.errors.*;
 import io.minio.http.Method;
-import io.minio.messages.Bucket;
-import io.minio.messages.DeleteError;
-import io.minio.messages.DeleteObject;
-import io.minio.messages.Item;
+import io.minio.messages.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +18,9 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -24,37 +28,29 @@ import java.util.stream.Collectors;
 /**
  * 文件服务器工具类
  */
-@Data
 @Component
-public class MinioUtil {
+public class MinioTemplate {
 
     @Resource
-    private MinioClient minioClient;
+    private CustomMinioClient customMinioClient;
 
-    /**
-     * 合并后存储的桶名称
-     */
-    @Value("${minio.bucket.bucketName}")
-    private String bucketName;
-
-    /**
-     * 分片存储的桶名称
-     */
-    @Value("${minio.bucket.chunk}")
-    private String chunkBucKet;
+    @Resource
+    private OssProperties ossProperties;
 
     /**
      * 排序
      */
     public final boolean SORT = true;
+
     /**
      * 不排序
      */
     public final boolean NOT_SORT = false;
+
     /**
-     * 默认过期时间(分钟)
+     * 默认过期时间(分钟),为一天
      */
-    private final Integer DEFAULT_EXPIRY = 60;
+    private final Integer DEFAULT_EXPIRY = 60 * 24;
 
     /**
      * 不存在存储桶，则新建一个
@@ -62,11 +58,12 @@ public class MinioUtil {
     @PostConstruct
     public void init() {
         //方便管理分片文件，则单独创建一个分片文件的存储桶
-        if (!bucketExists(chunkBucKet)) {
-            makeBucket(chunkBucKet);
+        if (!bucketExists(ossProperties.getChunkBucket())) {
+            makeBucket(ossProperties.getChunkBucket());
         }
-        if (!bucketExists(bucketName)) {
-            makeBucket(bucketName);
+
+        if (!bucketExists(ossProperties.getDefaultBucket())) {
+            makeBucket(ossProperties.getDefaultBucket());
         }
     }
 
@@ -78,11 +75,12 @@ public class MinioUtil {
         Boolean found;
 
         try {
-            found = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+            found = customMinioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
         } catch (Exception e) {
             //e.printStackTrace();
             return false;
         }
+
         return found;
     }
 
@@ -92,13 +90,14 @@ public class MinioUtil {
      */
     public Boolean makeBucket(String bucketName) {
         try {
-            minioClient.makeBucket(MakeBucketArgs.builder()
+            customMinioClient.makeBucket(MakeBucketArgs.builder()
                     .bucket(bucketName)
                     .build());
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+
         return true;
     }
 
@@ -108,13 +107,14 @@ public class MinioUtil {
      */
     public Boolean removeBucket(String bucketName) {
         try {
-            minioClient.removeBucket(RemoveBucketArgs.builder()
+            customMinioClient.removeBucket(RemoveBucketArgs.builder()
                     .bucket(bucketName)
                     .build());
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+
         return true;
     }
 
@@ -123,7 +123,14 @@ public class MinioUtil {
      */
     @SneakyThrows
     public List<Bucket> getAllBuckets() {
-         return minioClient.listBuckets();
+         return customMinioClient.listBuckets();
+    }
+
+    /**
+     *  上传分片上传请求，返回uploadId
+     */
+    public CreateMultipartUploadResponse uploadId(String bucketName, String region, String objectName, Multimap<String, String> headers, Multimap<String, String> extraQueryParams) throws NoSuchAlgorithmException, InsufficientDataException, IOException, InvalidKeyException, ServerException, XmlParserException, ErrorResponseException, InternalException, InvalidResponseException {
+        return customMinioClient.createMultipartUpload(bucketName, region, objectName, headers, extraQueryParams);
     }
 
     /**
@@ -136,11 +143,13 @@ public class MinioUtil {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM/dd");
         String dirName = dateFormat.format(new Date()) + "/";
         String fullPath = dirName + file.getOriginalFilename();
+
         try {
-            PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(bucketName).object(fullPath)
+            PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(fullPath)
                     .stream(file.getInputStream(),file.getSize(),-1).contentType(file.getContentType()).build();
+
             //文件名称相同会覆盖
-            minioClient.putObject(objectArgs);
+            customMinioClient.putObject(objectArgs);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -155,9 +164,9 @@ public class MinioUtil {
      */
     public String preview(String fileName) {
         try {
-            minioClient.statObject(StatObjectArgs.builder().bucket(bucketName).object(fileName).build());
+            customMinioClient.statObject(StatObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(fileName).build());
 
-            return minioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().method(Method.GET).bucket(bucketName).object(fileName).build());
+            return customMinioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().method(Method.GET).bucket(ossProperties.getDefaultBucket()).object(fileName).build());
         } catch (Exception e) {
             return "";
         }
@@ -170,9 +179,10 @@ public class MinioUtil {
      * @return Boolean
      */
     public void download(String fileName, HttpServletResponse res) {
-        GetObjectArgs objectArgs = GetObjectArgs.builder().bucket(bucketName)
+        GetObjectArgs objectArgs = GetObjectArgs.builder().bucket(ossProperties.getDefaultBucket())
                 .object(fileName).build();
-        try (GetObjectResponse response = minioClient.getObject(objectArgs)){
+
+        try (GetObjectResponse response = customMinioClient.getObject(objectArgs)){
             byte[] buf = new byte[1024];
             int len;
             try (FastByteArrayOutputStream os = new FastByteArrayOutputStream()){
@@ -200,8 +210,8 @@ public class MinioUtil {
      * @return 存储bucket内文件对象信息
      */
     public List<Item> listObjects() {
-        Iterable<Result<Item>> results = minioClient.listObjects(
-                ListObjectsArgs.builder().bucket(bucketName).build());
+        Iterable<Result<Item>> results = customMinioClient.listObjects(
+                ListObjectsArgs.builder().bucket(ossProperties.getDefaultBucket()).build());
         List<Item> items = new ArrayList<>();
         try {
             for (Result<Item> result : results) {
@@ -222,7 +232,7 @@ public class MinioUtil {
      */
     public boolean remove(String fileName){
         try {
-            minioClient.removeObject(RemoveObjectArgs.builder().bucket(bucketName).object(fileName).build());
+            customMinioClient.removeObject(RemoveObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(fileName).build());
         }catch (Exception e){
             return false;
         }
@@ -235,7 +245,8 @@ public class MinioUtil {
      */
     public Iterable<Result<DeleteError>> removeObjects(List<String> objects) {
         List<DeleteObject> dos = objects.stream().map(e -> new DeleteObject(e)).collect(Collectors.toList());
-        Iterable<Result<DeleteError>> results = minioClient.removeObjects(RemoveObjectsArgs.builder().bucket(bucketName).objects(dos).build());
+        Iterable<Result<DeleteError>> results = customMinioClient.removeObjects(RemoveObjectsArgs.builder().bucket(ossProperties.getDefaultBucket()).objects(dos).build());
+
         return results;
     }
 
@@ -250,7 +261,7 @@ public class MinioUtil {
     @SneakyThrows
     public String getObjectUrl(String bucketName, String objectName, Integer expiry) {
         expiry = expiryHandle(expiry);
-        return minioClient.getPresignedObjectUrl(
+        return customMinioClient.getPresignedObjectUrl(
                 GetPresignedObjectUrlArgs.builder()
                         .method(Method.GET)
                         .bucket(bucketName)
@@ -261,7 +272,27 @@ public class MinioUtil {
     }
 
     /**
-     * 创建上传文件对象的外链
+     * 返回临时带签名、过期时间为expiry、Get请求方式的访问URL
+     *
+     * @param bucketName 存储桶名称
+     * @param objectName 欲上传文件对象的名称
+     * @return uploadUrl
+     */
+    @SneakyThrows
+    public String createUploadUrl(String bucketName, String objectName, Map<String, String> queryParams) {
+        return customMinioClient.getPresignedObjectUrl(
+                GetPresignedObjectUrlArgs.builder()
+                        .method(Method.PUT)
+                        .bucket(bucketName)
+                        .object(objectName)
+                        .expiry(expiryHandle(DEFAULT_EXPIRY))
+                        .extraQueryParams(queryParams)
+                        .build()
+        );
+    }
+
+    /**
+     * 返回临时带签名、过期时间为expiry、Get请求方式的访问URL
      *
      * @param bucketName 存储桶名称
      * @param objectName 欲上传文件对象的名称
@@ -269,27 +300,21 @@ public class MinioUtil {
      * @return uploadUrl
      */
     @SneakyThrows
-    public String createUploadUrl(String bucketName, String objectName, Integer expiry) {
-        expiry = expiryHandle(expiry);
-        return minioClient.getPresignedObjectUrl(
+    public String createUploadUrl(String bucketName, String objectName, Map<String, String> queryParams, Integer expiry) {
+
+        if (expiry == 0) {
+           expiry = expiryHandle(DEFAULT_EXPIRY);
+        }
+
+        return customMinioClient.getPresignedObjectUrl(
                 GetPresignedObjectUrlArgs.builder()
                         .method(Method.PUT)
                         .bucket(bucketName)
                         .object(objectName)
                         .expiry(expiry)
+                        .extraQueryParams(queryParams)
                         .build()
         );
-    }
-
-    /**
-     * 创建上传文件对象的外链
-     *
-     * @param bucketName 存储桶名称
-     * @param objectName 欲上传文件对象的名称
-     * @return uploadUrl
-     */
-    public String createUploadUrl(String bucketName, String objectName) {
-        return createUploadUrl(bucketName, objectName, DEFAULT_EXPIRY);
     }
 
     /**
@@ -304,15 +329,20 @@ public class MinioUtil {
         if (null == objectMD5) {
             return null;
         }
+
         objectMD5 += "/";
+
         if (null == chunkCount || 0 == chunkCount) {
             return null;
         }
+
         List<String> urlList = new ArrayList<>(chunkCount);
+
         for (int i = 1; i <= chunkCount; i++) {
             String objectName = objectMD5 + i + ".chunk";
-            urlList.add(createUploadUrl(bucketName, objectName, DEFAULT_EXPIRY));
+            urlList.add(createUploadUrl(bucketName, objectName, null, DEFAULT_EXPIRY));
         }
+
         return urlList;
     }
 
@@ -328,8 +358,39 @@ public class MinioUtil {
         if (null == objectMD5) {
             return null;
         }
+
         objectMD5 += "/" + partNumber + ".chunk";
-        return createUploadUrl(bucketName, objectMD5, DEFAULT_EXPIRY);
+
+        return createUploadUrl(bucketName, objectMD5, null, DEFAULT_EXPIRY);
+    }
+
+    /**
+     * 查询分片数据
+     *
+     * @param bucketName       存储桶
+     * @param region           区域
+     * @param objectName       对象名
+     * @param uploadId         上传ID
+     * @param extraHeaders     额外消息头
+     * @param extraQueryParams 额外查询参数
+     */
+    public ListPartsResponse listMultipart(String bucketName, String region, String objectName, Integer maxParts, Integer partNumberMarker, String uploadId, Multimap<String, String> extraHeaders, Multimap<String, String> extraQueryParams) throws NoSuchAlgorithmException, InsufficientDataException, IOException, InvalidKeyException, ServerException, XmlParserException, ErrorResponseException, InternalException, InvalidResponseException {
+        return customMinioClient.listMultipart(bucketName, region, objectName, maxParts, partNumberMarker, uploadId, extraHeaders, extraQueryParams);
+    }
+
+    /**
+     * 完成分片上传，执行合并文件
+     *
+     * @param bucketName       存储桶
+     * @param region           区域
+     * @param objectName       对象名
+     * @param uploadId         上传ID
+     * @param parts            分片
+     * @param extraHeaders     额外消息头
+     * @param extraQueryParams 额外查询参数
+     */
+    public ObjectWriteResponse completeMultipartUpload(String bucketName, String region, String objectName, String uploadId, Part[] parts, Multimap<String, String> extraHeaders, Multimap<String, String> extraQueryParams) throws NoSuchAlgorithmException, InsufficientDataException, IOException, InvalidKeyException, ServerException, XmlParserException, ErrorResponseException, InternalException, InvalidResponseException {
+        return customMinioClient.completeMultipartUpload(bucketName, region, objectName, uploadId, parts, extraHeaders, extraQueryParams);
     }
 
     /**
@@ -354,6 +415,7 @@ public class MinioUtil {
     @SneakyThrows
     public List<String> listObjectNames(String bucketName, String prefix, Boolean sort) {
         ListObjectsArgs listObjectsArgs;
+
         if (null == prefix) {
             listObjectsArgs = ListObjectsArgs.builder()
                     .bucket(bucketName)
@@ -366,11 +428,14 @@ public class MinioUtil {
                     .recursive(true)
                     .build();
         }
-        Iterable<Result<Item>> chunks = minioClient.listObjects(listObjectsArgs);
+
+        Iterable<Result<Item>> chunks = customMinioClient.listObjects(listObjectsArgs);
         List<String> chunkPaths = new ArrayList<>();
+
         for (Result<Item> item : chunks) {
             chunkPaths.add(item.get().objectName());
         }
+
         if (sort) {
             List<String> collect = chunkPaths.stream().distinct().collect(Collectors.toList());
 
@@ -389,6 +454,7 @@ public class MinioUtil {
 
             return collect;
         }
+
         return chunkPaths;
     }
 
@@ -403,6 +469,7 @@ public class MinioUtil {
         if (null == objectMd5) {
             return null;
         }
+
         return listObjectNames(bucketName, objectMd5, SORT);
     }
 
@@ -417,15 +484,20 @@ public class MinioUtil {
         if (null == objectMd5) {
             return null;
         }
+
         List<String> chunkPaths = listObjectNames(chunkBucKet, objectMd5);
+
         if (null == chunkPaths || chunkPaths.size() == 0) {
             return null;
         }
+
         Map<Integer, String> chunkMap = new HashMap<>(chunkPaths.size());
+
         for (String chunkName : chunkPaths) {
             Integer partNumber = Integer.parseInt(chunkName.substring(chunkName.indexOf("/") + 1, chunkName.lastIndexOf(".")));
             chunkMap.put(partNumber, chunkName);
         }
+
         return chunkMap;
     }
 
@@ -455,7 +527,7 @@ public class MinioUtil {
             );
         });
 
-        minioClient.composeObject(
+        customMinioClient.composeObject(
                 ComposeObjectArgs.builder()
                         .bucket(composeBucketName)
                         .object(objectName)
@@ -471,7 +543,7 @@ public class MinioUtil {
         RemoveObjectsArgs args = RemoveObjectsArgs.builder().bucket(chunkBucKetName)
                 .objects(objects)
                 .build();
-        Iterable<io.minio.Result<io.minio.messages.DeleteError>> iterable = minioClient.removeObjects(args);
+        Iterable<io.minio.Result<io.minio.messages.DeleteError>> iterable = customMinioClient.removeObjects(args);
         //必须迭代 不然无法删除
         iterable.forEach(j -> {
 
@@ -488,9 +560,11 @@ public class MinioUtil {
      */
     private static int expiryHandle(Integer expiry) {
         expiry = expiry * 60;
+
         if (expiry > 604800) {
             return 604800;
         }
+
         return expiry;
     }
 }
