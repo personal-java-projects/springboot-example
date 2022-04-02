@@ -16,6 +16,7 @@ import com.example.voToPo.FileVoToPo;
 import com.google.common.collect.HashMultimap;
 import io.minio.CreateMultipartUploadResponse;
 import io.minio.ListPartsResponse;
+import io.minio.ObjectWriteResponse;
 import io.minio.errors.*;
 import io.minio.messages.Bucket;
 import io.minio.messages.Part;
@@ -69,9 +70,10 @@ public class MinioController {
     public ResponseResult upload(MultipartFile file) {
         Map<String, Object> resultMap = new HashMap<>();
 
-        System.out.println("file: " + file);
         String fullPath = minioTemplate.upload(file);
         String fileUrl = "";
+
+        System.out.println("file: " + file);
 
         if (fullPath == "") {
             return ResponseResult.error().message("上传失败");
@@ -86,111 +88,10 @@ public class MinioController {
         return ResponseResult.ok().data(resultMap).message("上传成功");
     }
 
-    @ApiOperation(value = "图片预览")
-    @GetMapping("/preview")
-    public ResponseResult preview(String fileName) {
-        Map<String, Object> resultMap = new HashMap<>();
-        String previewUrl = minioTemplate.preview(fileName);
-
-        System.out.println("preview: " + previewUrl);
-
-        if (previewUrl == "") {
-            return ResponseResult.error().message("图片不存在");
-        }
-
-        resultMap.put("previewUrl:", previewUrl);
-
-        return ResponseResult.ok().data(resultMap);
-    }
-
-    @ApiOperation(value = "文件下载")
-    @GetMapping("/download")
-    public ResponseResult download(String fileName, HttpServletResponse res) {
-        minioTemplate.download(fileName, res);
-
-        return null;
-    }
-
-    /**
-     * 初始化大文件上传
-     * 未做优化，业务逻辑请根据实际情况修改
-     *
-     * @param MultipartUpload
-     * @return
-     */
-    @ApiOperation("文件分片上传")
-    @PostMapping("/init-chunk-upload")
-    public ResponseResult initChunkUpload (@Valid @RequestBody MultipartUpload MultipartUpload) {
-        // 校验文件md5，该文件是否上传过
-        FilePO filePO = fileVoToPo.multipart(MultipartUpload);
-        boolean exited = uploadService.fileExisted(filePO);
-        Map<String, Object> resultMap = new HashMap<>();
-
-        if (exited) {
-            FilePO uploadFile = uploadService.getUploadFile(filePO.getFileMd5());
-
-            resultMap.put("uploadStatus", 0);
-            resultMap.put("uploadFile", uploadFile);
-
-            return ResponseResult.ok().message("文件已上传").data(resultMap);
-        }
-
-        List<Map<String, Object>> chunkUploadUrls = uploadService.getMultipartFile(ossProperties.getChunkBucket(), filePO);
-
-        if (chunkUploadUrls.size() == 0) {
-            resultMap.put("uploadStatus", 2);
-            resultMap.put("chunkUploadUrls", chunkUploadUrls);
-            return ResponseResult.ok().message("分片上传成功，仅需合并").data(resultMap);
-        }
-
-        resultMap.put("uploadStatus", 1);
-        resultMap.put("chunkUploadUrls", chunkUploadUrls);
-
-        return ResponseResult.ok().message("分片部分上传").data(resultMap);
-    }
-
-    /**
-     * 合并文件并返回文件信息
-     *
-     * @param composeFile
-     * @return
-     */
-    @ApiOperation("上传完成之后，合并所有分片")
-    @PostMapping("/compose-file")
-    public ResponseResult composeFile(@RequestBody ComposeFile composeFile, @ApiParam(hidden = true) @RequestHeader("Authorization") String token) {
-        DecodedJWT jwt = TokenUtil.parseToken(token);
-        int userId = jwt.getClaim("id").asInt();
-
-        FilePO filePO = fileVoToPo.composeFile(composeFile);
-
-        FilePO currentFile = uploadService.mergeFile(ossProperties.getChunkBucket(), ossProperties.getDefaultBucket(), filePO, userId);
-
-        if (currentFile == null) {
-            return ResponseResult.setResult(ResultCodeEnum.PARAM_ERROR).message("文件上传失败");
-        }
-
-        Map<String, Object> resultMap = new HashMap<>();
-
-        resultMap.put("uploadStatus", 0);
-        resultMap.put("uploadFile", currentFile);
-
-        return ResponseResult.ok().data(resultMap);
-    }
-
-    /**
-     * 返回分片上传需要的签名数据URL及 uploadId
-     * 前端结合vue-simple-uploader的分片上传接口
-     *
-     * @return
-     */
-    @PostMapping("/createMultipartUpload")
+    @PostMapping("/initMultiPartUpload")
     @SneakyThrows
-    public ResponseResult createMultipartUpload(@Valid @RequestBody MultipartWithUploadId multipartWithUploadId) {
-        Map<String, Object> multipartFile = uploadService.getMultipartFile(multipartWithUploadId.getBucketName(), multipartWithUploadId.getFilename(), multipartWithUploadId.getChunkSize());
-
-        if (multipartFile == null) {
-            return ResponseResult.error().message("文件分片失败");
-        }
+    public ResponseResult initMultiPartUpload (@Valid @RequestBody MultipartWithUploadId multipartWithUploadId) {
+        Map<String, Object> multipartFile = uploadService.getMultipartFile(multipartWithUploadId.getBucketName(), multipartWithUploadId.getFilename(), multipartWithUploadId.getTotalPart());
 
         Map<String, Object> resultMap = new HashMap<>();
 
@@ -199,14 +100,19 @@ public class MinioController {
         return ResponseResult.ok().data(resultMap);
     }
 
-    /**
-     * 分片上传完后合并
-     *
-     * @return
-     */
-    @PostMapping("/completeMultipartUpload")
-    public ResponseResult completeMultipartUpload(@Valid @RequestBody MergeFile mergeFile) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException {
-        uploadService.mergeFile(mergeFile.getBucketName(), mergeFile.getFilename(), mergeFile.getUploadId());
-        return null;
+    @PostMapping("/mergeMultipartUpload")
+    @SneakyThrows
+    public ResponseResult mergeMultipartUpload (@Valid @RequestBody MergeFile mergeFile) {
+        String fileUrl = uploadService.mergeFile(mergeFile.getUserId(), mergeFile.getMd5(), mergeFile.getBucketName(), mergeFile.getFilename(), mergeFile.getUploadId(), mergeFile.getChunkCount());
+
+        Map<String, Object> resultMap = new HashMap<>();
+
+
+
+//        resultMap.put("fileUrl", mergedFile.region());
+
+        resultMap.put("fileUrl", fileUrl);
+
+        return ResponseResult.ok().data(resultMap);
     }
 }

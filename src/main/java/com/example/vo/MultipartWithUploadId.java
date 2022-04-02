@@ -6,6 +6,10 @@ import javax.validation.constraints.NotNull;
 
 public class MultipartWithUploadId {
 
+    @ApiModelProperty(value = "md5", required = true)
+    @NotNull(message = "md5不能为空")
+    private String md5;
+
     @ApiModelProperty(value = "存储桶", required = true)
     @NotNull(message = "存储桶名不能为空")
     private String bucketName;
@@ -14,9 +18,17 @@ public class MultipartWithUploadId {
     @NotNull(message = "文件名不能为空")
     private String filename;
 
-    @ApiModelProperty(value = "分片大小", required = true)
-    @NotNull(message = "分片大小不能为空")
-    private Integer chunkSize;
+    @ApiModelProperty(value = "总分片数", required = true)
+    @NotNull(message = "总分片数不能为空")
+    private int totalPart;
+
+    public String getMd5() {
+        return md5;
+    }
+
+    public void setMd5(String md5) {
+        this.md5 = md5;
+    }
 
     public String getBucketName() {
         return bucketName;
@@ -34,11 +46,11 @@ public class MultipartWithUploadId {
         this.filename = filename;
     }
 
-    public Integer getChunkSize() {
-        return chunkSize;
+    public int getTotalPart() {
+        return totalPart;
     }
 
-    public void setChunkSize(Integer chunkSize) {
-        this.chunkSize = chunkSize;
+    public void setTotalPart(int totalPart) {
+        this.totalPart = totalPart;
     }
 }

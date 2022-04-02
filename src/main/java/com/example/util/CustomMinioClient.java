@@ -23,15 +23,15 @@ public class CustomMinioClient extends MinioClient {
     /**
      * 创建分片上传请求
      *
-     * @param bucketName       存储桶
+     * @param bucket       存储桶
      * @param region           区域
      * @param objectName       对象名
      * @param headers          消息头
      * @param extraQueryParams 额外查询参数
      */
     @Override
-    public CreateMultipartUploadResponse createMultipartUpload(String bucketName, String region, String objectName, Multimap<String, String> headers, Multimap<String, String> extraQueryParams) throws NoSuchAlgorithmException, InsufficientDataException, IOException, InvalidKeyException, ServerException, XmlParserException, ErrorResponseException, InternalException, InvalidResponseException {
-        return super.createMultipartUpload(bucketName, region, objectName, headers, extraQueryParams);
+    public CreateMultipartUploadResponse createMultipartUpload(String bucket, String region, String objectName, Multimap<String, String> headers, Multimap<String, String> extraQueryParams) throws NoSuchAlgorithmException, InsufficientDataException, IOException, InvalidKeyException, ServerException, XmlParserException, ErrorResponseException, InternalException, InvalidResponseException {
+        return super.createMultipartUpload(bucket, region, objectName, headers, extraQueryParams);
     }
 
     /**

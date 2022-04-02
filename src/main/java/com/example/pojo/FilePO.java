@@ -1,9 +1,7 @@
 package com.example.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
-
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class FilePO implements Serializable {
 
@@ -43,6 +41,14 @@ public class FilePO implements Serializable {
      * 上传状态 0.上传完成而且合并成功   1.已上传部分  2 分片全部上传完成仅需合并
      */
     private Integer uploadStatus;
+
+    // 创建时间
+    private Timestamp createTime;
+
+    // 更新时间
+    private Timestamp updateTime;
+
+    private Long expireTime;
 
     /**
      * 上传地址
@@ -113,6 +119,30 @@ public class FilePO implements Serializable {
         this.uploadUrl = uploadUrl;
     }
 
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+
+    public Timestamp getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Timestamp updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Long getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(Long expireTime) {
+        this.expireTime = expireTime;
+    }
+
     @Override
     public String toString() {
         return "FilePO{" +
@@ -123,6 +153,9 @@ public class FilePO implements Serializable {
                 ", suffix='" + suffix + '\'' +
                 ", fileName='" + fileName + '\'' +
                 ", uploadStatus=" + uploadStatus +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", expireTime=" + expireTime +
                 ", uploadUrl='" + uploadUrl + '\'' +
                 '}';
     }
