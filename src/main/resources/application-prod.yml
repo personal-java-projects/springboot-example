@@ -34,16 +34,6 @@ spring:
       type: com.zaxxer.hikari.HikariDataSource
       configuration:
         map-underscore-to-camel-case: true
-mybatis:
-  config-location: classpath:sqlMapConfig.xml
-  mapper-locations: classpath:mappers/*.xml
-#logging:
-logging:
-  level:
-    com.example: DEBUG
-  file:
-    path:  ./log/
-#  config: classpath:logback-spring.xml.bak
 minio:
   # 地址 应该使用api的端口，即使用--address指定的端口
   endpoint: http://101.35.44.70:9000

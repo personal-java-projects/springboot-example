@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.schedule;
 
 import com.example.util.SpringContextUtils;
 import org.slf4j.Logger;
@@ -11,8 +11,6 @@ import java.util.Objects;
 /**
  * @program: simple-demo
  * @description: 定时任务运行类
- * @author: CaoTing
- * @date: 2019/5/23
  **/
 public class SchedulingRunnable implements Runnable {
 

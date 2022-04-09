@@ -1,4 +1,6 @@
 spring:
+  main:
+    banner-mode: "console"
   profiles:
     active: @activatedProperties@ # 这里引用的是pom.xml中配置的key，@activatedProperties@ 中内如必须与 profile=>properties=> activatedProperties节点一致
   jackson:
@@ -36,6 +38,31 @@ spring:
         max-idle: 8
         # 连接池中的最小空闲连接
         min-idle: 0
+  task:
+    scheduling:
+      pool:
+        size: 5
+      shutdown:
+        #关闭应用程序时，是否等待任务执行完毕
+        await-termination: true
+        await-termination-period: 60000
 mybatis:
   type-aliases-package: com.example.pojo
-  mapper-locations: classpath*:mappers/*.xml
+  config-location: classpath:sqlMapConfig.xml
+  mapper-locations: classpath:mappers/*.xml
+#logging:
+logging:
+  level:
+    root: info
+    org.springframework.web: warn
+    com.hnpolice: debug
+  config: classpath:logback.xml
+# 定时器
+schedule:
+  # 配置核心线程数
+  pool-size: 5
+
+  remove-on-cancel-policy: true
+  # 配置线程池中的线程的名称前缀
+  thread-name-prefix: async-service-
+

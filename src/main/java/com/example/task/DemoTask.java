@@ -1,12 +1,9 @@
-package com.example.schedule;
+package com.example.task;
 
 import org.springframework.stereotype.Component;
 
 /**
  * @program: simple-demo
- * @description:
- * @author: CaoTing
- * @date: 2019/5/23
  **/
 @Component("demoTask")
 public class DemoTask {

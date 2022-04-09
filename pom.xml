@@ -153,6 +153,7 @@
 			<scope>provided</scope>
 		</dependency>
 
+
 		<!-- @Data -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -160,8 +161,14 @@
 			<version>1.18.22</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 
-    </dependencies>
+
+	</dependencies>
 
 	<!-- 配置运行环境 -->
 	<profiles>

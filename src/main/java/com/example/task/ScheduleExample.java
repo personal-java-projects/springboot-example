@@ -1,4 +1,4 @@
-package com.example.schedule;
+package com.example.task;
 
 import com.example.pojo.User;
 import com.example.service.UserService;
@@ -22,8 +22,6 @@ public class ScheduleExample {
 
     @Autowired
     private UserService userService;
-
-
 
     @Scheduled(cron = "0 0 22 ? * SUN")  //每周日晚上22点执行
     @Async

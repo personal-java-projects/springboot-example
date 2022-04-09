@@ -1,5 +1,6 @@
-package com.example.config;
+package com.example.schedule;
 
+import com.example.task.ScheduledTask;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.TaskScheduler;
@@ -16,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class CronTaskRegistrar implements DisposableBean {
 
-    private final Map<Runnable, OssProperties.ScheduledTask> scheduledTasks = new ConcurrentHashMap<>(16);
+    private final Map<Runnable, ScheduledTask> scheduledTasks = new ConcurrentHashMap<>(16);
 
     @Autowired
     private TaskScheduler taskScheduler;
@@ -46,13 +47,13 @@ public class CronTaskRegistrar implements DisposableBean {
      * @param task
      */
     public void removeCronTask(Runnable task) {
-        OssProperties.ScheduledTask scheduledTask = this.scheduledTasks.remove(task);
+        ScheduledTask scheduledTask = this.scheduledTasks.remove(task);
         if (scheduledTask != null)
             scheduledTask.cancel();
     }
 
-    public OssProperties.ScheduledTask scheduleCronTask(CronTask cronTask) {
-        OssProperties.ScheduledTask scheduledTask = new OssProperties.ScheduledTask();
+    public ScheduledTask scheduleCronTask(CronTask cronTask) {
+        ScheduledTask scheduledTask = new ScheduledTask();
         scheduledTask.future = this.taskScheduler.schedule(cronTask.getRunnable(), cronTask.getTrigger());
 
         return scheduledTask;
@@ -61,7 +62,7 @@ public class CronTaskRegistrar implements DisposableBean {
 
     @Override
     public void destroy() {
-        for (OssProperties.ScheduledTask task : this.scheduledTasks.values()) {
+        for (ScheduledTask task : this.scheduledTasks.values()) {
             task.cancel();
         }
         this.scheduledTasks.clear();
