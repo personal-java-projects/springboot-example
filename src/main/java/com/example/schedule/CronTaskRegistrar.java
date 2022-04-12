@@ -1,6 +1,5 @@
 package com.example.schedule;
 
-import com.example.task.ScheduledTask;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.TaskScheduler;
@@ -11,7 +10,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @program: simple-demo
  * @description: 添加定时任务注册类，用来增加、删除定时任务。
  **/
 @Component
@@ -48,8 +46,9 @@ public class CronTaskRegistrar implements DisposableBean {
      */
     public void removeCronTask(Runnable task) {
         ScheduledTask scheduledTask = this.scheduledTasks.remove(task);
-        if (scheduledTask != null)
+        if (scheduledTask != null) {
             scheduledTask.cancel();
+        }
     }
 
     public ScheduledTask scheduleCronTask(CronTask cronTask) {

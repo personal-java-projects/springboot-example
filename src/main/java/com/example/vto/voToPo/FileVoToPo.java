@@ -1,8 +1,8 @@
-package com.example.voToPo;
+package com.example.vto.voToPo;
 
 import com.example.pojo.FilePO;
-import com.example.vo.ComposeFile;
-import com.example.vo.MultipartUpload;
+import com.example.vto.vo.ComposeFile;
+import com.example.vto.vo.MultipartUpload;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

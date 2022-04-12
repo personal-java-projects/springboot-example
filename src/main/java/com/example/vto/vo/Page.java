@@ -1,4 +1,4 @@
-package com.example.vo;
+package com.example.vto.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,7 +13,7 @@ public class Page {
 
     @ApiModelProperty(value = "当前页记录数", example = "10")
     @Range(min = 1, max = Integer.MAX_VALUE)
-    private int pageSize = 10;
+    private int pageSize;
 
     public int getPageIndex() {
         return pageIndex;

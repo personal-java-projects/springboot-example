@@ -1,7 +1,7 @@
-package com.example.voToPo;
+package com.example.vto.voToPo;
 
 import com.example.pojo.Role;
-import com.example.vo.AddRole;
+import com.example.vto.vo.AddRole;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

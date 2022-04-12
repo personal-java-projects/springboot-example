@@ -1,4 +1,4 @@
-package com.example.vo;
+package com.example.vto.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 

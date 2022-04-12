@@ -1,13 +1,12 @@
 package com.example.controller;
 
-import com.example.dto.PageDto;
+import com.example.vto.dto.PageDto;
 import com.example.pojo.Role;
 import com.example.service.RoleService;
 import com.example.util.ResponseResult;
-import com.example.vo.AddRole;
-import com.example.vo.Page;
-import com.example.voToPo.PageToVo;
-import com.example.voToPo.Role2PO;
+import com.example.vto.vo.AddRole;
+import com.example.vto.vo.Page;
+import com.example.vto.voToPo.Role2PO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

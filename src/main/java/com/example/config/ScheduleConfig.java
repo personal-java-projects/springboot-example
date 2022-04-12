@@ -28,9 +28,9 @@ public class ScheduleConfig {
     public TaskScheduler taskScheduler() {
         ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
         // 定时任务执行线程池核心线程数
-        taskScheduler.setPoolSize(4);
-        taskScheduler.setThreadGroupName("syncTg");
-        taskScheduler.setRemoveOnCancelPolicy(true);
+        taskScheduler.setPoolSize(scheduleProperties.getPoolSize());
+        taskScheduler.setThreadGroupName(scheduleProperties.getThreadGroupName());
+        taskScheduler.setRemoveOnCancelPolicy(scheduleProperties.getRemoveOnCancelPolicy());
         taskScheduler.setThreadNamePrefix(scheduleProperties.getThreadNamePrefix());
         return taskScheduler;
     }

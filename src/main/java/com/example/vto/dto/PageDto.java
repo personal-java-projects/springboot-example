@@ -1,4 +1,4 @@
-package com.example.dto;
+package com.example.vto.dto;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -57,10 +57,12 @@ public class PageDto {
 
         // 定义分页数据
         pageDto.setPageIndex(pageInfo.getPageNum());
-        pageDto.setPageSize(pageDto.getPageSize());
+
         if (page != null) { // 进行分页，需要通过page获取总记录数
             pageDto.setTotalSize(page.getTotal());
+            pageDto.setPageSize(page.getPageSize());
         }
+
         pageDto.setTotalSize(pageInfo.getTotal());
         pageDto.setTotalPages(pageInfo.getPages());
         pageDto.setList(pageInfo.getList());

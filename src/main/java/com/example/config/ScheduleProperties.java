@@ -12,8 +12,11 @@ public class ScheduleProperties {
     private int poolSize;
 
     @Value("${schedule.remove-on-cancel-policy}")
-    private boolean removeOnCancelPolicy;
+    private Boolean removeOnCancelPolicy;
 
     @Value("${schedule.thread-name-prefix}")
     private String threadNamePrefix;
+
+    @Value("${schedule.thread-group-name}")
+    private String threadGroupName;
 }

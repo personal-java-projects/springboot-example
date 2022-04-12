@@ -9,7 +9,6 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
- * @program: simple-demo
  * @description: 定时任务运行类
  **/
 public class SchedulingRunnable implements Runnable {

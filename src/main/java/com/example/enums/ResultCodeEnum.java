@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.enums;
 
 public enum ResultCodeEnum {
     SUCCESS(true, 200, "成功"),

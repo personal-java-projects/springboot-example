@@ -1,9 +1,9 @@
-package com.example.voToPo;
+package com.example.vto.voToPo;
 
 import com.example.pojo.User;
-import com.example.vo.ResetPassword;
-import com.example.vo.UserLogin;
-import com.example.vo.UserRegister;
+import com.example.vto.vo.ResetPassword;
+import com.example.vto.vo.UserLogin;
+import com.example.vto.vo.UserRegister;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

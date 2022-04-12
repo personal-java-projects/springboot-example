@@ -1,43 +1,22 @@
 package com.example.controller;
 
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.config.OssProperties;
-import com.example.pojo.FilePO;
 import com.example.service.UploadService;
 import com.example.util.MinioTemplate;
 import com.example.util.ResponseResult;
-import com.example.util.ResultCodeEnum;
-import com.example.util.TokenUtil;
-import com.example.vo.ComposeFile;
-import com.example.vo.MergeFile;
-import com.example.vo.MultipartUpload;
-import com.example.vo.MultipartWithUploadId;
-import com.example.voToPo.FileVoToPo;
-import com.google.common.collect.HashMultimap;
-import io.minio.CreateMultipartUploadResponse;
-import io.minio.ListPartsResponse;
-import io.minio.ObjectWriteResponse;
-import io.minio.errors.*;
-import io.minio.messages.Bucket;
-import io.minio.messages.Part;
+import com.example.vto.vo.MergeFile;
+import com.example.vto.vo.MultipartWithUploadId;
+import com.example.vto.voToPo.FileVoToPo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Api(tags = "minio文件服务器")

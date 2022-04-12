@@ -9,12 +9,17 @@ spring:
     time-zone: GMT+8
   datasource:
     hikari:
-      connection-timeout: 300000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
       validation-timeout: 3000
-      idle-timeout: 120000
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 600000
       login-timeout: 5
-      max-lifetime: 60000
+      # 连接池中连接最大的声明周期,默认是 1800000 （30分钟）
+      max-lifetime: 1800000
+      # 连接池最大连接数，默认是10
       maximum-pool-size: 10
+      # 最小空闲连接数量
       minimum-idle: 5
       read-only: false
   redis:
@@ -61,8 +66,8 @@ logging:
 schedule:
   # 配置核心线程数
   pool-size: 5
-
   remove-on-cancel-policy: true
   # 配置线程池中的线程的名称前缀
   thread-name-prefix: async-service-
+  thread-group-name: async-
 

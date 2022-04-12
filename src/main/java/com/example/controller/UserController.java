@@ -2,15 +2,16 @@ package com.example.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.example.dto.PageDto;
+import com.example.vto.dto.PageDto;
+import com.example.enums.ResultCodeEnum;
 import com.example.pojo.Role;
 import com.example.pojo.User;
 import com.example.service.RedisService;
-import com.example.vo.Page;
-import com.example.vo.ResetPassword;
-import com.example.vo.UserRegister;
-import com.example.vo.UserLogin;
-import com.example.voToPo.UserVoToPo;
+import com.example.vto.vo.Page;
+import com.example.vto.vo.ResetPassword;
+import com.example.vto.vo.UserRegister;
+import com.example.vto.vo.UserLogin;
+import com.example.vto.voToPo.UserVoToPo;
 import com.example.service.UserService;
 import com.example.util.*;
 
@@ -21,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.*;
 import java.util.Date;

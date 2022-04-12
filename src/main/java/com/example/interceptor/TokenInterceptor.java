@@ -1,7 +1,7 @@
 package com.example.interceptor;
 
 import com.example.exception.UnAuthorizationException;
-import com.example.util.ResultCodeEnum;
+import com.example.enums.ResultCodeEnum;
 import com.example.util.TokenUtil;
 import org.springframework.web.servlet.HandlerInterceptor;
 

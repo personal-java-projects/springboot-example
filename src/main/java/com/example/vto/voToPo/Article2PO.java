@@ -1,7 +1,7 @@
-package com.example.voToPo;
+package com.example.vto.voToPo;
 
 import com.example.pojo.Article;
-import com.example.vo.PublishArticle;
+import com.example.vto.vo.PublishArticle;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

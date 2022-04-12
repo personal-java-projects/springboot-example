@@ -1,72 +1,91 @@
 package com.example.pojo;
 
-import java.sql.Timestamp;
+import java.io.Serializable;
+import java.util.Date;
 
-public class Schedule {
-
-    private int id;
-
-    private int createId;
-
-    private String method;
-
-    private String params;
-
-    private String cron;
-
-    private int status;
-
+public class Schedule implements Serializable {
+    /**
+     * 任务ID
+     */
+    private Integer id;
+    /**
+     * bean名称
+     */
+    private String beanName;
+    /**
+     * 方法名称
+     */
+    private String methodName;
+    /**
+     * 方法参数
+     */
+    private String methodParams;
+    /**
+     * cron表达式
+     */
+    private String cronExpression;
+    /**
+     * 状态（1正常 0暂停）
+     */
+    private Integer status;
+    /**
+     * 备注
+     */
     private String remark;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
 
-    private Timestamp createTime;
-
-    private Timestamp updateTime;
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getCreateId() {
-        return createId;
+    public String getBeanName() {
+        return beanName;
     }
 
-    public void setCreateId(int createId) {
-        this.createId = createId;
+    public void setBeanName(String beanName) {
+        this.beanName = beanName;
     }
 
-    public String getMethod() {
-        return method;
+    public String getMethodName() {
+        return methodName;
     }
 
-    public void setMethod(String method) {
-        this.method = method;
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
     }
 
-    public String getParams() {
-        return params;
+    public String getMethodParams() {
+        return methodParams;
     }
 
-    public void setParams(String params) {
-        this.params = params;
+    public void setMethodParams(String methodParams) {
+        this.methodParams = methodParams;
     }
 
-    public String getCron() {
-        return cron;
+    public String getCronExpression() {
+        return cronExpression;
     }
 
-    public void setCron(String cron) {
-        this.cron = cron;
+    public void setCronExpression(String cronExpression) {
+        this.cronExpression = cronExpression;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -78,34 +97,20 @@ public class Schedule {
         this.remark = remark;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        return "Schedule{" +
-                "id=" + id +
-                ", createId=" + createId +
-                ", method='" + method + '\'' +
-                ", params='" + params + '\'' +
-                ", cron='" + cron + '\'' +
-                ", status=" + status +
-                ", remark='" + remark + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
-    }
 }

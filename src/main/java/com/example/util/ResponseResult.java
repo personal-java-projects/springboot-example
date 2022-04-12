@@ -1,5 +1,6 @@
 package com.example.util;
 
+import com.example.enums.ResultCodeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

@@ -1,7 +1,7 @@
-package com.example.voToPo;
+package com.example.vto.voToPo;
 
-import com.example.dto.PageDto;
-import com.example.vo.Page;
+import com.example.vto.dto.PageDto;
+import com.example.vto.vo.Page;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

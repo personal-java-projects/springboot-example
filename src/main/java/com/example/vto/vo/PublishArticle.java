@@ -1,11 +1,10 @@
-package com.example.vo;
+package com.example.vto.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
 
 @ApiModel(value = "发布文章")
 public class PublishArticle {
