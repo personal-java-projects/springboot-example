@@ -10,7 +10,7 @@ public interface ScheduleService {
 
     boolean editSchedule(Schedule schedule);
 
-    boolean deleteSchedule(int id);
+    boolean deleteSchedule(List<Integer> ids);
 
     boolean changeScheduleStatus(int id, int status);
 

@@ -6,13 +6,12 @@ import com.example.pojo.Schedule;
 import com.example.schedule.CronTaskRegistrar;
 import com.example.schedule.SchedulingRunnable;
 import com.example.service.ScheduleService;
+import com.example.util.ScheduleUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.regex.Pattern;
 
 @Service("scheduleService")
 public class ScheduleServiceImpl implements ScheduleService {
@@ -23,15 +22,8 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Autowired
     private CronTaskRegistrar cronTaskRegistrar;
 
-    public static boolean isNumeric(String str) {
-        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
-        return pattern.matcher(str).matches();
-    }
-
-    public boolean isDoubleOrFloat(String str) {
-        Pattern patternFloat = Pattern.compile("^[-\\+]?(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$");
-        return patternFloat.matcher(str).matches();
-    }
+    @Autowired
+    private ScheduleUtil scheduleUtil;
 
     @Override
     public boolean addSchedule(Schedule schedule) {
@@ -40,30 +32,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         scheduleMapper.insertSchedule(schedule);
 
         if (schedule.getStatus().equals(ScheduleStatus.NORMAL.ordinal())) {
-            List params = new ArrayList();
-            SchedulingRunnable task = null;
-
-            if (!schedule.getMethodParams().equals("")) {
-                for ( String param : schedule.getMethodParams().split(",")) {
-                    if (isDoubleOrFloat(param)) {
-                        params.add(Double.parseDouble(param));
-                    }
-
-                    if (isNumeric(param)) {
-                        params.add(Integer.parseInt(param));
-                    }
-
-                    if (!isNumeric(param) && !isDoubleOrFloat(param)) {
-                        params.add(param);
-                    }
-                }
-
-                task = new SchedulingRunnable(schedule.getId(), schedule.getBeanName(), schedule.getMethodName(), params.toArray());
-            }
-
-            if (schedule.getMethodParams().equals("")) {
-                task = new SchedulingRunnable(schedule.getId(), schedule.getBeanName(), schedule.getMethodName(), null);
-            }
+            SchedulingRunnable task = scheduleUtil.handleScheduleParams(schedule);
 
             cronTaskRegistrar.addCronTask(task, schedule.getCronExpression());
         }
@@ -75,30 +44,41 @@ public class ScheduleServiceImpl implements ScheduleService {
     public boolean editSchedule(Schedule schedule) {
         Schedule exitedSchedule = scheduleMapper.selectSchedule(schedule.getId());
 
+        exitedSchedule.setBeanName(schedule.getBeanName());
+        exitedSchedule.setMethodName(schedule.getMethodName());
+        exitedSchedule.setMethodParams(schedule.getMethodParams());
+        exitedSchedule.setCronExpression(schedule.getCronExpression());
+        exitedSchedule.setStatus(schedule.getStatus());
+        exitedSchedule.setRemark(schedule.getRemark());
+        exitedSchedule.setUpdateTime(new Date());
+
         //先移除再添加
         if (exitedSchedule.getStatus().equals(ScheduleStatus.NORMAL.ordinal())) {
             cronTaskRegistrar.removeCronTask(exitedSchedule.getId());
         }
 
         if (exitedSchedule.getStatus().equals(ScheduleStatus.NORMAL.ordinal())) {
-            SchedulingRunnable task = new SchedulingRunnable(schedule.getId(), schedule.getBeanName(), schedule.getMethodName(), schedule.getMethodParams());
+            SchedulingRunnable task = scheduleUtil.handleScheduleParams(schedule);
+
             cronTaskRegistrar.addCronTask(task, schedule.getCronExpression());
         }
 
-        scheduleMapper.updateSchedule(schedule);
+        scheduleMapper.updateSchedule(exitedSchedule);
 
         return true;
     }
 
     @Override
-    public boolean deleteSchedule(int id) {
-        Schedule exitedSchedule = scheduleMapper.selectSchedule(id);
+    public boolean deleteSchedule(List<Integer> ids) {
+        List<Schedule> scheduleList = scheduleMapper.selectSchedules(ids);
 
-        if (exitedSchedule.getStatus().equals(ScheduleStatus.NORMAL.ordinal())) {
-            cronTaskRegistrar.removeCronTask(exitedSchedule.getId());
+        for (Schedule schedule:scheduleList) {
+            if (schedule.getStatus().equals(ScheduleStatus.NORMAL.ordinal())) {
+                cronTaskRegistrar.removeCronTask(schedule.getId());
+            }
+
+            scheduleMapper.deleteScheduleById(schedule.getId());
         }
-
-        scheduleMapper.deleteScheduleById(id);
 
         return true;
     }

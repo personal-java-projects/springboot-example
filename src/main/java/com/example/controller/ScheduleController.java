@@ -1,9 +1,7 @@
 package com.example.controller;
 
-import com.example.enums.ScheduleStatus;
 import com.example.pojo.Schedule;
 import com.example.schedule.CronTaskRegistrar;
-import com.example.schedule.SchedulingRunnable;
 import com.example.service.ScheduleService;
 import com.example.util.ResponseResult;
 import com.example.vto.dto.PageDto;
@@ -26,9 +24,6 @@ public class ScheduleController {
     private ScheduleService scheduleService;
 
     @Autowired
-    private CronTaskRegistrar cronTaskRegistrar;
-
-    @Autowired
     private Schedule2PO schedule2PO;
 
     @PostMapping("/addSchedule")
@@ -49,9 +44,9 @@ public class ScheduleController {
         return ResponseResult.ok().message("修改成功");
     }
 
-    @DeleteMapping("/deleteSchedule/{id}")
-    public ResponseResult deleteSchedule(@PathVariable("id") int id) {
-        scheduleService.deleteSchedule(id);
+    @DeleteMapping("/deleteSchedule")
+    public ResponseResult deleteSchedule(@RequestParam("ids[]") List<Integer> ids) {
+        scheduleService.deleteSchedule(ids);
 
         return ResponseResult.ok().message("删除成功");
     }

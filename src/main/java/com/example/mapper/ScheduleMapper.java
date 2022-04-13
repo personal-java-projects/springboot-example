@@ -14,6 +14,8 @@ public interface ScheduleMapper {
 
     Schedule selectSchedule(@Param("id") int id);
 
+    List<Schedule> selectSchedules(List<Integer> ids);
+
     List<Schedule> selectSchedulesByStatus(int status);
 
     void deleteScheduleById(int id);

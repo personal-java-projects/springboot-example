@@ -3,6 +3,7 @@ package com.example.schedule;
 import com.example.enums.ScheduleStatus;
 import com.example.mapper.ScheduleMapper;
 import com.example.pojo.Schedule;
+import com.example.util.ScheduleUtil;
 import lombok.SneakyThrows;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
@@ -24,6 +25,9 @@ public class ScheduleRunner implements CommandLineRunner {
     @Autowired
     private CronTaskRegistrar cronTaskRegistrar;
 
+    @Autowired
+    private ScheduleUtil scheduleUtil;
+
     @Override
     @SneakyThrows
     public void run(String... args) {// 初始加载数据库里状态为正常的定时任务
@@ -31,15 +35,7 @@ public class ScheduleRunner implements CommandLineRunner {
 
         if (CollectionUtils.isNotEmpty(jobList)) {
             for (Schedule job : jobList) {
-                SchedulingRunnable task = null;
-
-                if (job.getMethodParams().equals("")) {
-                    task = new SchedulingRunnable(job.getId(), job.getBeanName(), job.getMethodName(), null);
-                }
-
-                if (!job.getMethodParams().equals("")) {
-                    task = new SchedulingRunnable(job.getId(), job.getBeanName(), job.getMethodName(), job.getMethodParams());
-                }
+                SchedulingRunnable task = scheduleUtil.handleScheduleParams(job);
 
                 cronTaskRegistrar.addCronTask(task, job.getCronExpression());
             }

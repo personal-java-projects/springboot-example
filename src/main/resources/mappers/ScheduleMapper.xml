@@ -22,6 +22,18 @@
         </where>
     </select>
 
+    <select id="selectSchedules" parameterType="List" resultType="Schedule">
+        <include refid="selectAllProperties"></include>
+        <where>
+            <if test="ids.size != 0">
+                id in
+                <foreach collection="ids" open="(" close=")" separator=","  item="item">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
     <select id="selectSchedulesByStatus" parameterType="Schedule" resultType="Schedule">
         <include refid="selectAllProperties"></include>
         <where>
