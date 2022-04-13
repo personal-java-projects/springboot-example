@@ -1,5 +1,6 @@
 package com.example.schedule;
 
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.TaskScheduler;
@@ -15,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class CronTaskRegistrar implements DisposableBean {
 
-    private final Map<Runnable, ScheduledTask> scheduledTasks = new ConcurrentHashMap<>(16);
+    private final Map<Integer, ScheduledTask> scheduledTasks = new ConcurrentHashMap<>(16);
 
     @Autowired
     private TaskScheduler taskScheduler;
@@ -25,27 +26,26 @@ public class CronTaskRegistrar implements DisposableBean {
      * @param task
      * @param cronExpression
      */
-    public void addCronTask(Runnable task, String cronExpression) {
-        addCronTask(new CronTask(task, cronExpression));
+    public void addCronTask(SchedulingRunnable task, String cronExpression) {
+        addCronTask(task.getId(), new CronTask(task, cronExpression));
     }
 
-    public void addCronTask(CronTask cronTask) {
+    public void addCronTask(int id, CronTask cronTask) {
         if (cronTask != null) {
-            Runnable task = cronTask.getRunnable();
-            if (this.scheduledTasks.containsKey(task)) {
-                removeCronTask(task);
+            if (this.scheduledTasks.containsKey(id)) {
+                removeCronTask(id);
             }
 
-            this.scheduledTasks.put(task, scheduleCronTask(cronTask));
+            this.scheduledTasks.put(id, scheduleCronTask(cronTask));
         }
     }
 
     /**
      * 移除定时任务
-     * @param task
+     * @param id
      */
-    public void removeCronTask(Runnable task) {
-        ScheduledTask scheduledTask = this.scheduledTasks.remove(task);
+    public void removeCronTask(int id) {
+        ScheduledTask scheduledTask = this.scheduledTasks.remove(id);
         if (scheduledTask != null) {
             scheduledTask.cancel();
         }

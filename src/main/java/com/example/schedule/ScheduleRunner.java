@@ -31,7 +31,16 @@ public class ScheduleRunner implements CommandLineRunner {
 
         if (CollectionUtils.isNotEmpty(jobList)) {
             for (Schedule job : jobList) {
-                SchedulingRunnable task = new SchedulingRunnable(job.getBeanName(), job.getMethodName(), job.getMethodParams());
+                SchedulingRunnable task = null;
+
+                if (job.getMethodParams().equals("")) {
+                    task = new SchedulingRunnable(job.getId(), job.getBeanName(), job.getMethodName(), null);
+                }
+
+                if (!job.getMethodParams().equals("")) {
+                    task = new SchedulingRunnable(job.getId(), job.getBeanName(), job.getMethodName(), job.getMethodParams());
+                }
+
                 cronTaskRegistrar.addCronTask(task, job.getCronExpression());
             }
 

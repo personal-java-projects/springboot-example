@@ -45,7 +45,7 @@ public class UserController {
     private RedisService redisService;
 
     // 结果集
-    private Map<String, Object> resultMap = new HashMap<>();
+    private Map<String, Object> resultMap;
 
     @GetMapping("/index")
     public ResponseResult index() throws IOException {
@@ -105,8 +105,6 @@ public class UserController {
         userInfo.put("password", user.getPassword());
         userInfo.put("identity", user.getRole().getId());
         userInfo.put("avatar", user.getAvatarUrl());
-
-        System.out.println("userInfo: " + userInfo);
 
 
         int userId = userService.userRegister(userInfo);
@@ -168,6 +166,8 @@ public class UserController {
             identity = currentUser.getRole().getId();
             String token = TokenUtil.sign(userId, username, identity);
 
+            resultMap = new HashMap<>();
+
             // 封装结果集
             resultMap.put("token", token);
 
@@ -188,29 +188,40 @@ public class UserController {
     @ApiOperation(value = "根据用户名获取所有用户")
     @PostMapping ("/getUsersByUsername")
     public ResponseResult getUsersByUsername(@RequestParam(required = false) String username, @RequestBody(required = false) Page page) {
-        if (page != null) {
-            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
-        }
 
         List<User> users = userService.getUsersByUsername(username);
 
-        PageDto pageInfo = PageDto.pageList(users, "userList");
+        if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
 
-        return ResponseResult.ok().data(pageInfo.getResultMap());
+            PageDto pageInfo = PageDto.pageList(users, "userList");
+
+            return ResponseResult.ok().data(pageInfo.getResultMap());
+        }
+
+        resultMap = new HashMap<>();
+        resultMap.put("userList", users);
+
+        return ResponseResult.ok().data(resultMap);
     }
 
     @ApiOperation(value = "根据用户昵称获取所有用户")
     @PostMapping ("/getUsersByNickname")
     public ResponseResult getUsersByNickname(@RequestParam(required = false) String nickname, @RequestBody(required = false) Page page) {
-        if (page != null) {
-            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
-        }
-
         List<User> users = userService.getUsersByNickname(nickname);
 
-        PageDto pagesInfo = PageDto.pageList(users, "userList");
+        if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
 
-        return ResponseResult.ok().data(pagesInfo.getResultMap());
+            PageDto pagesInfo = PageDto.pageList(users, "userList");
+
+            return ResponseResult.ok().data(pagesInfo.getResultMap());
+        }
+
+        resultMap = new HashMap<>();
+        resultMap.put("userList", users);
+
+        return ResponseResult.ok().data(resultMap);
     }
 
     @ApiOperation(value = "解封号")
@@ -239,7 +250,6 @@ public class UserController {
     public ResponseResult getUserInfo(@ApiIgnore @RequestHeader("Authorization") String token) {
         DecodedJWT jwt = TokenUtil.parseToken(token);
         int id = jwt.getClaim("id").asInt();
-        Map<String, Object> resultMap = new HashMap<>();
         Map<String, Object> userInfo = new HashMap<>();
 
         User user = userService.getUserById(id);
@@ -257,7 +267,9 @@ public class UserController {
         userInfo.put("identity", user.getRole().getId());
         userInfo.put("avatarUrl", user.getAvatarUrl());
 
+        resultMap = new HashMap<>();
         resultMap.put("userInfo", userInfo);
+
         return ResponseResult.ok().data(resultMap);
     }
 
@@ -274,6 +286,7 @@ public class UserController {
         Role role = userService.getUserRole(user);
         user.setRole(role);
 
+        resultMap = new HashMap<>();
         resultMap.put("user", user);
 
         return ResponseResult.ok().data(resultMap);

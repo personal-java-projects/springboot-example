@@ -17,7 +17,7 @@ public class SpringbootExampleApplicationTests {
 
 	@Test
 	public void testTask() throws InterruptedException {
-		SchedulingRunnable task = new SchedulingRunnable("demoTask", "taskNoParams", null);
+		SchedulingRunnable task = new SchedulingRunnable(0, "demoTask", "taskNoParams", null);
 		cronTaskRegistrar.addCronTask(task, "0/10 * * * * ?");
 
 		// 便于观察
@@ -26,7 +26,7 @@ public class SpringbootExampleApplicationTests {
 
 	@Test
 	public void testHaveParamsTask() throws InterruptedException {
-		SchedulingRunnable task = new SchedulingRunnable("demoTask", "taskWithParams", "haha", 13);
+		SchedulingRunnable task = new SchedulingRunnable(-1,"demoTask", "taskWithParams", "haha", 13);
 		cronTaskRegistrar.addCronTask(task, "0/10 * * * * ?");
 
 		// 便于观察

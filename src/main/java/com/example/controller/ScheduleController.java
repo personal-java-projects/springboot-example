@@ -57,7 +57,7 @@ public class ScheduleController {
     }
 
     @PatchMapping("/changeScheduleStatus/{id}")
-    public ResponseResult changeScheduleStatus(@PathVariable("id") int id, int status) {
+    public ResponseResult changeScheduleStatus(@PathVariable("id") int id, @RequestParam int status) {
         scheduleService.changeScheduleStatus(id, status);
 
         return ResponseResult.ok().message("启动或停止成功");
@@ -65,13 +65,11 @@ public class ScheduleController {
 
     @PostMapping("/getAllSchedules")
     public ResponseResult getAllSchedules(@RequestParam(required = false) String keyword, @RequestBody(required = false) Page page) {
-        if (page != null) {
-            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
-        }
-
         List<Schedule> scheduleList = scheduleService.getSchedulesByKeyword(keyword);
 
         if (page != null) {
+            PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());
+
             PageDto pagesInfo = PageDto.pageList(scheduleList, "scheduleList");
 
             return ResponseResult.ok().data(pagesInfo.getResultMap());

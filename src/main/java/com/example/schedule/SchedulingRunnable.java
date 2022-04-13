@@ -15,20 +15,27 @@ public class SchedulingRunnable implements Runnable {
 
     private static final Logger logger = LoggerFactory.getLogger(SchedulingRunnable.class);
 
+    private int id;
+
     private String beanName;
 
     private String methodName;
 
     private Object[] params;
 
-    public SchedulingRunnable(String beanName, String methodName) {
-        this(beanName, methodName, null);
+    public SchedulingRunnable(int id, String beanName, String methodName) {
+        this(id, beanName, methodName, null);
     }
 
-    public SchedulingRunnable(String beanName, String methodName, Object...params ) {
+    public SchedulingRunnable(int id, String beanName, String methodName, Object...params ) {
+        this.id = id;
         this.beanName = beanName;
         this.methodName = methodName;
         this.params = params;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override

@@ -13,7 +13,11 @@ public class DemoTask {
     }
 
     public void taskWithParams(String param1, Integer param2) {
-        System.out.println("这是有参示例任务：" + param1 + param2);
+        System.out.println("这是有两个参示例任务：" + param1 + param2);
+    }
+
+    public void taskWithParams(String param1, Double param2) {
+        System.out.println("这是带有双精度参数示例任务：" + param1 + param2);
     }
 
     public void taskNoParams() {
