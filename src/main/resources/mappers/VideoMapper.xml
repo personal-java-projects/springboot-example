@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.VideoMapper">
+    <insert id="insertVideo" parameterType="Video">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into ex_video values (#{id}, #{userId}, #{userNickname}, #{videoName}, #{videoUrl}, #{coverUrl}, #{category}, #{status}, #{audited}, #{remark}, #{views}, #{stars}, #{downloads}, #{publishTime}, #{createTime}, #{updateTime})
+    </insert>
+
+    <sql id="selectAllProperties">
+        select * from ex_video
+    </sql>
+
+    <sql id="updateProperties">
+        update ex_video set videoName=#{videoName}, coverUrl=#{coverUrl}, category=#{category}, status=#{status}, audited=#{audited}, remark=#{remark}, views=#{views}, stars=#{stars}, downloads=#{downloads}, updateTime=#{updateTime}
+    </sql>
+
+    <select id="selectVideoById" parameterType="int" resultType="Video">
+        <include refid="selectAllProperties"></include>
+        <where>
+            <if test="id != null">
+                id=#{id}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectVideoByKeyword" parameterType="String" resultType="Video">
+        <include refid="selectAllProperties"></include>
+        <where>
+            <if test="keyword != null and keyword != ''">
+                upper (concat(videoName, userNickname )) LIKE upper (concat('%',#{keyWord},'%'))
+            </if>
+        </where>
+    </select>
+
+    <update id="updateVideo" parameterType="Video">
+        <include refid="updateProperties"></include>
+        <where>
+            <if test="id != null">
+                id=#{id}
+            </if>
+        </where>
+    </update>
+
+    <delete id="deleteVideos" parameterType="List">
+        delete from ex_video
+        <where>
+            <if test="ids.size != 0">
+                id in
+                <foreach collection="ids" open="(" close=")" separator=","  item="id">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+</mapper>

@@ -22,6 +22,9 @@ public class MultipartWithUploadId {
     @NotNull(message = "总分片数不能为空")
     private int totalPart;
 
+    @ApiModelProperty(value = "文件类型", required = false, example = "video/mp4")
+    private String fileType;
+
     public String getMd5() {
         return md5;
     }
@@ -52,5 +55,13 @@ public class MultipartWithUploadId {
 
     public void setTotalPart(int totalPart) {
         this.totalPart = totalPart;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 }

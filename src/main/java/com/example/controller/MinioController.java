@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.config.OssProperties;
+import com.example.pojo.FilePO;
 import com.example.service.UploadService;
 import com.example.util.MinioTemplate;
 import com.example.util.ResponseResult;
@@ -70,9 +71,18 @@ public class MinioController {
     @PostMapping("/initMultiPartUpload")
     @SneakyThrows
     public ResponseResult initMultiPartUpload (@Valid @RequestBody MultipartWithUploadId multipartWithUploadId) {
-        Map<String, Object> multipartFile = uploadService.getMultipartFile(multipartWithUploadId.getBucketName(), multipartWithUploadId.getFilename(), multipartWithUploadId.getTotalPart());
-
         Map<String, Object> resultMap = new HashMap<>();
+
+        FilePO exitedFile = uploadService.fileExisted(multipartWithUploadId.getMd5());
+
+        if (exitedFile != null) {
+            resultMap.put("chunkUrls", null);
+            resultMap.put("fileUrl", exitedFile.getUploadUrl());
+
+            return ResponseResult.ok().data(resultMap).message("文件已上传");
+        }
+
+        Map<String, Object> multipartFile = uploadService.getMultipartFile(multipartWithUploadId.getBucketName(), multipartWithUploadId.getFilename(), multipartWithUploadId.getTotalPart(), multipartWithUploadId.getFileType());
 
         resultMap.put("chunkUrls", multipartFile);
 
@@ -86,12 +96,16 @@ public class MinioController {
 
         Map<String, Object> resultMap = new HashMap<>();
 
-
-
-//        resultMap.put("fileUrl", mergedFile.region());
-
         resultMap.put("fileUrl", fileUrl);
 
         return ResponseResult.ok().data(resultMap);
+    }
+
+    @GetMapping("/createMultipartDownload")
+    public ResponseResult createMultipartDownload(@RequestParam String filename) {
+
+        uploadService.createMultipartDownload(filename);
+
+        return ResponseResult.ok();
     }
 }

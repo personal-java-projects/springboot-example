@@ -26,10 +26,13 @@ public class ScheduleServiceImpl implements ScheduleService {
     private ScheduleUtil scheduleUtil;
 
     @Override
-    public boolean addSchedule(Schedule schedule) {
+    public int addSchedule(Schedule schedule) {
         schedule.setCreateTime(new Date());
         schedule.setUpdateTime(new Date());
+
         scheduleMapper.insertSchedule(schedule);
+
+        int scheduleId = schedule.getId();
 
         if (schedule.getStatus().equals(ScheduleStatus.NORMAL.ordinal())) {
             SchedulingRunnable task = scheduleUtil.handleScheduleParams(schedule);
@@ -37,7 +40,7 @@ public class ScheduleServiceImpl implements ScheduleService {
             cronTaskRegistrar.addCronTask(task, schedule.getCronExpression());
         }
 
-        return true;
+        return scheduleId;
     }
 
     @Override
@@ -88,11 +91,14 @@ public class ScheduleServiceImpl implements ScheduleService {
         Schedule exitedSchedule = scheduleMapper.selectSchedule(id);
 
         exitedSchedule.setStatus(status);
+        exitedSchedule.setUpdateTime(new Date());
 
         if (exitedSchedule.getStatus().equals(ScheduleStatus.NORMAL.ordinal())) {
             SchedulingRunnable task = new SchedulingRunnable(exitedSchedule.getId(), exitedSchedule.getBeanName(), exitedSchedule.getMethodName(), exitedSchedule.getMethodParams());
             cronTaskRegistrar.addCronTask(task, exitedSchedule.getCronExpression());
-        } else {
+        }
+
+        if (exitedSchedule.getStatus().equals(ScheduleStatus.PAUSE.ordinal())) {
             cronTaskRegistrar.removeCronTask(exitedSchedule.getId());
         }
 

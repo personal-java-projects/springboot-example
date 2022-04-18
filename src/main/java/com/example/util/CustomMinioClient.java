@@ -1,5 +1,6 @@
 package com.example.util;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import io.minio.CreateMultipartUploadResponse;
 import io.minio.ListPartsResponse;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 
 @Component
 public class CustomMinioClient extends MinioClient {

@@ -2,11 +2,14 @@ package com.example.util;
 
 import com.example.config.OssProperties;
 import com.example.config.RestExceptionHandler;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
 import io.minio.*;
 import io.minio.http.Method;
 import io.minio.messages.Part;
 import lombok.SneakyThrows;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -14,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -83,6 +87,16 @@ public class MinioTemplate {
     }
 
     /**
+     * 检查文件是否存在
+     * @param filename
+     * @return
+     */
+    @SneakyThrows
+    public StatObjectResponse fileExited(String filename) {
+        return customMinioClient.statObject(StatObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(filename).build());
+    }
+
+    /**
      *  上传分片上传请求，返回uploadId
      */
     @SneakyThrows
@@ -97,48 +111,58 @@ public class MinioTemplate {
      * @param totalPart 总分片数
      * @return
      */
-    public Map<String, Object> initMultiPartUpload(String bucketName, String objectName, int totalPart) {
+    @SneakyThrows
+    public Map<String, Object> initMultiPartUpload(String bucketName, String objectName, int totalPart, String fileType) {
         Map<String, Object> result = new HashMap<>();
-        try {
-            String uploadId = getUploadId(bucketName, null, objectName, null, null);
 
-            result.put("uploadId", uploadId);
-
-            List<String> partList = new ArrayList<>();
-            Map<String, String> reqParams = new HashMap<>();
-
-            //reqParams.put("response-content-type", "application/json");
-            reqParams.put("uploadId", uploadId);
-
-            for (int i = 1; i <= totalPart; i++) {
-                reqParams.put("partNumber", String.valueOf(i));
-
-                String uploadUrl = customMinioClient.getPresignedObjectUrl(
-                        GetPresignedObjectUrlArgs.builder()
-                                .method(Method.PUT)
-                                .bucket(bucketName)
-                                .object(objectName)
-                                .expiry(1, TimeUnit.DAYS)
-                                .extraQueryParams(reqParams)
-                                .build());
-
-                partList.add(uploadUrl);
-            }
-
-            result.put("uploadUrls", partList);
-        } catch (Exception e) {
-            logger.error("error: {}", e.getMessage(), e);
-            return null;
+        // 设置header可以用来更改文件的content-type，用来避免MP4文件的链接被迅雷自动劫持，导致视频无法播放
+        Multimap<String, String> headers= HashMultimap.create();
+        if (fileType != null) {
+            headers.put("Content-Type", fileType);
         }
+
+        String uploadId = getUploadId(bucketName, null, objectName, headers, null);
+
+        result.put("uploadId", uploadId);
+
+        List<String> partList = new ArrayList<>();
+        Map<String, String> reqParams = new HashMap<>();
+
+//            reqParams.put("response-content-type", "application/json");
+        reqParams.put("uploadId", uploadId);
+
+        for (int i = 1; i <= totalPart; i++) {
+            reqParams.put("partNumber", String.valueOf(i));
+
+            String uploadUrl = customMinioClient.getPresignedObjectUrl(
+                    GetPresignedObjectUrlArgs.builder()
+                            .method(Method.PUT)
+                            .bucket(bucketName)
+                            .object(objectName)
+                            .expiry(1, TimeUnit.DAYS)
+                            .extraQueryParams(reqParams)
+                            .build());
+
+            partList.add(uploadUrl);
+        }
+
+        result.put("uploadUrls", partList);
 
         return result;
     }
 
+    /**
+     * 分片合并
+     * @param bucketName
+     * @param objectName
+     * @param uploadId
+     * @return
+     */
     @SneakyThrows
     public ObjectWriteResponse mergeMultipartUpload(String bucketName, String objectName, String uploadId) {
         Part[] parts = new Part[10000];
         //此方法注意2020.02.04之前的minio服务端有bug
-        ListPartsResponse partResult = customMinioClient.listMultipart(bucketName, null, objectName, 1000, 0, uploadId, null, null);
+        ListPartsResponse partResult = customMinioClient.listMultipart(bucketName, null, objectName, 10000, 0, uploadId, null, null);
         int partNumber = 1;
 
         for (Part part : partResult.result().partList()) {
@@ -182,5 +206,16 @@ public class MinioTemplate {
         customMinioClient.statObject(StatObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(fileName).build());
 
         return customMinioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().method(Method.GET).bucket(ossProperties.getDefaultBucket()).expiry(7, TimeUnit.DAYS).object(fileName).build());
+    }
+
+    @SneakyThrows
+    public void MultipartDownload(String filename) {
+        StatObjectResponse file = fileExited(filename);
+
+        if (file != null) {
+            InputStream stream = customMinioClient.getObject(GetObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(filename).offset(1024L).length(4096L).build());
+
+            System.out.println("input: " + file.size() + "->");
+        }
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.VideoCategoryMapper">
+    <sql id="selectAllProperties">
+        select * from ex_video_category
+    </sql>
+    <select id="selectVideoMapperById" parameterType="int" resultType="VideoCategory">
+        <include refid="selectAllProperties"></include>
+        <where>
+            <if test="id != null">
+                id=#{id}
+            </if>
+        </where>
+    </select>
+</mapper>

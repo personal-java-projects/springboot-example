@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ScheduleService {
 
-    boolean addSchedule(Schedule schedule);
+    int addSchedule(Schedule schedule);
 
     boolean editSchedule(Schedule schedule);
 

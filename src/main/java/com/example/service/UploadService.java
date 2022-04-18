@@ -13,10 +13,10 @@ import java.util.Map;
 public interface UploadService {
     /**
      * 文件是否已上传
-     * @param filePO
+     * @param md5
      * @return
      */
-    boolean fileExisted(FilePO filePO);
+    FilePO fileExisted(String md5);
 
     /**
      * 结合vue-simple-uploader的接口，获取分片url和uploadId
@@ -25,7 +25,7 @@ public interface UploadService {
      * @param totalPart
      * @return
      */
-    Map<String, Object> getMultipartFile(String bucketName, String filename, int totalPart) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
+    Map<String, Object> getMultipartFile(String bucketName, String filename, int totalPart, String fileType) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
 
     /**
      * 结合vue-simple-uploader的合并分片
@@ -34,4 +34,6 @@ public interface UploadService {
      * @param uploadId
      */
     String mergeFile(int userId, String md5, String bucketName, String objectName, String uploadId, int chunkCount) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
+
+    void createMultipartDownload(String filename);
 }

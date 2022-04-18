@@ -32,7 +32,7 @@ public class UploadServiceImpl implements UploadService {
 
     @SneakyThrows
     static Map<String, Object> getParameter(String url) {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         final String charset = "utf-8";
 
         url = URLDecoder.decode(url, charset);
@@ -52,18 +52,16 @@ public class UploadServiceImpl implements UploadService {
 
 
     @Override
-    public boolean fileExisted(FilePO uploadDto) {
-        FilePO uploadedFile = fileMapper.selectFileByMD5(uploadDto.getFileMd5());
-        if (uploadedFile != null) {
-            return true;
-        }
+    public FilePO fileExisted(String md5) {
+        FilePO file = fileMapper.selectFileByMD5(md5);
 
-        return false;
+        return file;
     }
 
     @Override
-    public Map<String, Object> getMultipartFile(String bucketName, String filename, int totalPart) {
-        Map<String, Object> partUpload = minioTemplate.initMultiPartUpload(bucketName, filename, totalPart);
+    public Map<String, Object> getMultipartFile(String bucketName, String filename, int totalPart, String fileType) {
+
+        Map<String, Object> partUpload = minioTemplate.initMultiPartUpload(bucketName, filename, totalPart, fileType);
 
         return partUpload;
     }
@@ -106,5 +104,10 @@ public class UploadServiceImpl implements UploadService {
         fileMapper.insertFile(currentFile);
 
         return fileUrl;
+    }
+
+    @Override
+    public void createMultipartDownload(String filename) {
+        minioTemplate.MultipartDownload(filename);
     }
 }
