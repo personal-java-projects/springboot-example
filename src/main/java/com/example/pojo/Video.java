@@ -30,6 +30,10 @@ public class Video implements Serializable {
 
     private long downloads;
 
+    private long duration;
+
+    private long currentTime;
+
     private Date publishTime;
 
     private Date createTime;
@@ -140,6 +144,22 @@ public class Video implements Serializable {
         this.downloads = downloads;
     }
 
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
+
+    public long getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(long currentTime) {
+        this.currentTime = currentTime;
+    }
+
     public Date getPublishTime() {
         return publishTime;
     }
@@ -169,15 +189,19 @@ public class Video implements Serializable {
         return "Video{" +
                 "id=" + id +
                 ", userId=" + userId +
+                ", userNickname='" + userNickname + '\'' +
                 ", videoName='" + videoName + '\'' +
                 ", videoUrl='" + videoUrl + '\'' +
                 ", coverUrl='" + coverUrl + '\'' +
                 ", category=" + category +
                 ", status=" + status +
+                ", audited=" + audited +
                 ", remark='" + remark + '\'' +
                 ", views=" + views +
                 ", stars=" + stars +
                 ", downloads=" + downloads +
+                ", duration=" + duration +
+                ", currentTime=" + currentTime +
                 ", publishTime=" + publishTime +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +

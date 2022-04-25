@@ -21,6 +21,10 @@ public class PublishVideo {
     @NotNull(message = "视频地址不能为空")
     private String videoUrl;
 
+    @ApiModelProperty(value = "视频时长", example = "https://**")
+    @NotNull(message = "视频时长不能为空")
+    private long duration;
+
     @ApiModelProperty(value = "封面地址", example = "https://**")
     @NotNull(message = "封面地址不能为空")
     private String coverUrl;
@@ -61,6 +65,14 @@ public class PublishVideo {
 
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
+    }
+
+    public long getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
     }
 
     public String getCoverUrl() {

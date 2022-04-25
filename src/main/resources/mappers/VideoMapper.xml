@@ -7,7 +7,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into ex_video values (#{id}, #{userId}, #{userNickname}, #{videoName}, #{videoUrl}, #{coverUrl}, #{category}, #{status}, #{audited}, #{remark}, #{views}, #{stars}, #{downloads}, #{publishTime}, #{createTime}, #{updateTime})
+        insert into ex_video values (#{id}, #{userId}, #{userNickname}, #{videoName}, #{videoUrl}, #{coverUrl}, #{category}, #{status}, #{audited}, #{remark}, #{views}, #{stars}, #{downloads}, #{duration}, #{currentTime}, #{publishTime}, #{createTime}, #{updateTime})
     </insert>
 
     <sql id="selectAllProperties">
@@ -15,7 +15,7 @@
     </sql>
 
     <sql id="updateProperties">
-        update ex_video set videoName=#{videoName}, coverUrl=#{coverUrl}, category=#{category}, status=#{status}, audited=#{audited}, remark=#{remark}, views=#{views}, stars=#{stars}, downloads=#{downloads}, updateTime=#{updateTime}
+        update ex_video set videoName=#{videoName}, coverUrl=#{coverUrl}, category=#{category}, status=#{status}, audited=#{audited}, remark=#{remark}, views=#{views}, stars=#{stars}, downloads=#{downloads}, currentTime=#{currentTime} updateTime=#{updateTime}
     </sql>
 
     <select id="selectVideoById" parameterType="int" resultType="Video">
