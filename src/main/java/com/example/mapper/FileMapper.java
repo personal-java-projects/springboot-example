@@ -9,5 +9,9 @@ import org.springframework.stereotype.Repository;
 public interface FileMapper {
     FilePO selectFileByMD5(String md5);
 
+    FilePO selectFileById(int id);
+
     void insertFile(FilePO filePO);
+
+    void updateFile(FilePO filePO);
 }

@@ -7,7 +7,7 @@
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
             SELECT LAST_INSERT_ID()
         </selectKey>
-        insert into ex_video values (#{id}, #{userId}, #{userNickname}, #{videoName}, #{videoUrl}, #{coverUrl}, #{category}, #{status}, #{audited}, #{remark}, #{views}, #{stars}, #{downloads}, #{duration}, #{currentTime}, #{publishTime}, #{createTime}, #{updateTime})
+        insert into ex_video values (#{id}, #{userId}, #{userNickname}, #{videoName}, #{videoId}, #{coverUrl}, #{category}, #{status}, #{audited}, #{remark}, #{views}, #{stars}, #{downloads}, #{duration}, #{currentTime}, #{publishTime}, #{createTime}, #{updateTime})
     </insert>
 
     <sql id="selectAllProperties">

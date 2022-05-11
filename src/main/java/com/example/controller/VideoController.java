@@ -4,9 +4,10 @@ import com.example.pojo.Video;
 import com.example.service.VideoService;
 import com.example.util.ResponseResult;
 import com.example.vto.dto.PageDto;
+import com.example.vto.dto.VideoDto;
 import com.example.vto.vo.Page;
 import com.example.vto.vo.PublishVideo;
-import com.example.vto.voToPo.Video2PO;
+import com.example.vto.vo2Po.Video2PO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,7 +58,7 @@ public class VideoController {
 
     @PostMapping("/getVideo")
     public ResponseResult getVideo(@RequestParam String keyword, @RequestBody Page page) {
-        List<Video> videosList = videoService.getVideoByKeyword(keyword);
+        List<VideoDto> videosList = videoService.getVideoByKeyword(keyword);
 
         if (page != null) {
             PageDto.initPageHelper(page.getPageIndex(), page.getPageSize());

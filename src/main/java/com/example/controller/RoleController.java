@@ -6,7 +6,7 @@ import com.example.service.RoleService;
 import com.example.util.ResponseResult;
 import com.example.vto.vo.AddRole;
 import com.example.vto.vo.Page;
-import com.example.vto.voToPo.Role2PO;
+import com.example.vto.vo2Po.Role2PO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

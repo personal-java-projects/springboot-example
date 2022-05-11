@@ -1,4 +1,4 @@
-package com.example.vto.voToPo;
+package com.example.vto.vo2Po;
 
 import com.example.vto.dto.PageDto;
 import com.example.vto.vo.Page;

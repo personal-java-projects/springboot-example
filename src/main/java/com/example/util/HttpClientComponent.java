@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.net.URLDecoder;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,6 +26,31 @@ public class HttpClientComponent {
     private static final int TIMEOUT = 5000;
     private static final int CONNECTION_TIMEOUT = 5000;
     private static final int READ_TIMEOUT = 5000;
+
+    /**
+     * 获取url上的参数
+     * @param url
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    public static Map<String, Object> getParameter(String url) throws UnsupportedEncodingException {
+        Map<String, Object> map = new HashMap<>();
+        final String charset = "utf-8";
+
+        url = URLDecoder.decode(url, charset);
+
+        if (url.indexOf('?') != -1) {
+            final String contents = url.substring(url.indexOf('?') + 1);
+            String[] keyValues = contents.split("&");
+            for (int i = 0; i < keyValues.length; i++) {
+                String key = keyValues[i].substring(0, keyValues[i].indexOf("="));
+                String value = keyValues[i].substring(keyValues[i].indexOf("=") + 1);
+                map.put(key, value);
+            }
+        }
+
+        return map;
+    }
 
     /**
      * httpClient的get请求方式

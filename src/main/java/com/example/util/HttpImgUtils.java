@@ -42,7 +42,7 @@ public class HttpImgUtils {
      * @param inStream 输入流
      * @return  图片流
      */
-    private static byte[] readInputStream(InputStream inStream) throws Exception {
+    public static byte[] readInputStream(InputStream inStream) throws Exception {
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         // 设置每次读取缓存区大小
         byte[] buffer = new byte[1024*10];
@@ -53,14 +53,4 @@ public class HttpImgUtils {
         inStream.close();
         return outStream.toByteArray();
     }
-
-    /**
-     * 测试
-     * @param args
-     */
-    public static void main(String[] args) {
-        String url = "https://www.baidu.com/img/flexible/logo/pc/result.png";
-        System.out.println(getNetImgByUrl(url));
-    }
-
 }

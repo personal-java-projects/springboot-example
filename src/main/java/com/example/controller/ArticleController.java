@@ -4,7 +4,7 @@ import com.example.pojo.Article;
 import com.example.service.ArticleService;
 import com.example.util.ResponseResult;
 import com.example.vto.vo.PublishArticle;
-import com.example.vto.voToPo.Article2PO;
+import com.example.vto.vo2Po.Article2PO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

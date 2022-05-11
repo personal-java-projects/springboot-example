@@ -3,6 +3,8 @@ package com.example.util;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -22,4 +24,14 @@ public class DateFormatUtil {
         return null;
     }
 
+    /**
+     * 格式化localDate格式的日期
+     * @param date
+     * @param format
+     * @return
+     */
+    public static String localDateFormat(LocalDate date, String format) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+        return date.format(formatter);
+    }
 }

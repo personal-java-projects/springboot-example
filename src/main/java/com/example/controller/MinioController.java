@@ -7,7 +7,7 @@ import com.example.util.MinioTemplate;
 import com.example.util.ResponseResult;
 import com.example.vto.vo.MergeFile;
 import com.example.vto.vo.MultipartWithUploadId;
-import com.example.vto.voToPo.FileVoToPo;
+import com.example.vto.vo2Po.FileVoToPo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.SneakyThrows;
@@ -25,16 +25,6 @@ import java.util.Map;
 @RequestMapping("/minio")
 @Slf4j
 public class MinioController {
-
-    @Autowired
-    private MinioTemplate minioTemplate;
-
-    @Autowired
-    private OssProperties ossProperties;
-
-    @Autowired
-    private FileVoToPo fileVoToPo;
-
     @Autowired
     private UploadService uploadService;
 
@@ -45,25 +35,12 @@ public class MinioController {
      * @return
      */
     @ApiOperation(value = "文件上传")
-    @PostMapping(value = "/upload", consumes = { "multipart/form-data" })
+    @PostMapping(value = "/upload/{id}", consumes = { "multipart/form-data" })
     @ResponseBody
-    public ResponseResult upload(MultipartFile file) {
+    public ResponseResult upload(@PathVariable("id") int id, MultipartFile file) {
+        String fileUrl = uploadService.uploadSingleFile(file, id);
         Map<String, Object> resultMap = new HashMap<>();
-
-        String fullPath = minioTemplate.upload(file);
-        String fileUrl = "";
-
-        System.out.println("file: " + file);
-
-        if (fullPath == "") {
-            return ResponseResult.error().message("上传失败");
-        }
-
-        System.out.println("fullpath: " + fullPath);
-
-//        fileUrl = ossProperties.getEndpoint() + "/" + ossProperties.getDefaultBucket() + "/" + fullPath;
-        fileUrl = minioTemplate.preview(fullPath);
-
+        
         resultMap.put("fileUrl", fileUrl);
         return ResponseResult.ok().data(resultMap).message("上传成功");
     }
@@ -76,8 +53,11 @@ public class MinioController {
         FilePO exitedFile = uploadService.fileExisted(multipartWithUploadId.getMd5());
 
         if (exitedFile != null) {
+            Map<String, Object> result = new HashMap<>();
             resultMap.put("chunkUrls", null);
-            resultMap.put("fileUrl", exitedFile.getUploadUrl());
+            result.put("id", exitedFile.getId());
+            result.put("fileUrl", exitedFile.getUploadUrl());
+            resultMap.put("file", result);
 
             return ResponseResult.ok().data(resultMap).message("文件已上传");
         }
@@ -92,11 +72,11 @@ public class MinioController {
     @PostMapping("/mergeMultipartUpload")
     @SneakyThrows
     public ResponseResult mergeMultipartUpload (@Valid @RequestBody MergeFile mergeFile) {
-        String fileUrl = uploadService.mergeFile(mergeFile.getUserId(), mergeFile.getMd5(), mergeFile.getBucketName(), mergeFile.getFilename(), mergeFile.getUploadId(), mergeFile.getChunkCount());
+        Map<String, Object> file = uploadService.mergeFile(mergeFile.getUserId(), mergeFile.getMd5(), mergeFile.getBucketName(), mergeFile.getFilename(), mergeFile.getUploadId(), mergeFile.getChunkCount());
 
         Map<String, Object> resultMap = new HashMap<>();
 
-        resultMap.put("fileUrl", fileUrl);
+        resultMap.put("file", file);
 
         return ResponseResult.ok().data(resultMap);
     }

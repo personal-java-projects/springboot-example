@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.vto.dto.PageDto;
 import com.example.enums.ResultCodeEnum;
@@ -11,7 +10,7 @@ import com.example.vto.vo.Page;
 import com.example.vto.vo.ResetPassword;
 import com.example.vto.vo.UserRegister;
 import com.example.vto.vo.UserLogin;
-import com.example.vto.voToPo.UserVoToPo;
+import com.example.vto.vo2Po.UserVoToPo;
 import com.example.service.UserService;
 import com.example.util.*;
 
@@ -23,8 +22,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.*;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,26 +43,6 @@ public class UserController {
 
     // 结果集
     private Map<String, Object> resultMap;
-
-    @GetMapping("/index")
-    public ResponseResult index() throws IOException {
-//         ResponseEntity.ok("fucke");
-
-        Map<String, Object> map = new HashMap<>();
-
-        map.put("name", "zhangsan");
-        map.put("age", 12);
-
-        String location = "./";
-        String filename = "io_json_" + new Date().getTime();
-        String extension = ".json";
-
-        File file = SaveAndExportFile.saveFile(location, filename, extension, JSON.toJSONString(map));
-
-        System.out.println("file: " + file);
-
-        return new ResponseResult().ok().data(123);
-    }
 
     @GetMapping("/getCode")
     public void getCaptchaImg(HttpServletResponse response) {

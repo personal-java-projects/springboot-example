@@ -16,7 +16,6 @@ public class Time2CronUtil {
         //拆分时间字符串 年，月，日，时，分，秒
         String[] split1 = scheduleModel.getStartDate().split(" |-|:");
 
-
         StringBuffer cronExp = new StringBuffer("");
 
         if (null == scheduleModel.getJobType()) {

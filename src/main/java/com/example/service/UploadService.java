@@ -3,8 +3,10 @@ package com.example.service;
 import com.example.pojo.FilePO;
 import io.minio.ObjectWriteResponse;
 import io.minio.errors.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -17,6 +19,8 @@ public interface UploadService {
      * @return
      */
     FilePO fileExisted(String md5);
+
+    String uploadSingleFile(MultipartFile file, int userId);
 
     /**
      * 结合vue-simple-uploader的接口，获取分片url和uploadId
@@ -33,7 +37,9 @@ public interface UploadService {
      * @param objectName
      * @param uploadId
      */
-    String mergeFile(int userId, String md5, String bucketName, String objectName, String uploadId, int chunkCount) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
+    Map<String, Object> mergeFile(int userId, String md5, String bucketName, String objectName, String uploadId, int chunkCount) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
+
+    String getFileUrl(int id);
 
     void createMultipartDownload(String filename);
 }

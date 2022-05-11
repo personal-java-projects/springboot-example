@@ -2,10 +2,7 @@ package com.example.util;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import io.minio.CreateMultipartUploadResponse;
-import io.minio.ListPartsResponse;
-import io.minio.MinioClient;
-import io.minio.ObjectWriteResponse;
+import io.minio.*;
 import io.minio.errors.*;
 import io.minio.messages.Part;
 import org.springframework.stereotype.Component;
@@ -64,5 +61,20 @@ public class CustomMinioClient extends MinioClient {
      */
     public ListPartsResponse listMultipart(String bucketName, String region, String objectName, Integer maxParts, Integer partNumberMarker, String uploadId, Multimap<String, String> extraHeaders, Multimap<String, String> extraQueryParams) throws NoSuchAlgorithmException, InsufficientDataException, IOException, InvalidKeyException, ServerException, XmlParserException, ErrorResponseException, InternalException, InvalidResponseException {
         return super.listParts(bucketName, region, objectName, maxParts, partNumberMarker, uploadId, extraHeaders, extraQueryParams);
+    }
+
+    /**
+     * 获取文件信息
+     *
+     * @param minIoClient MinIO链接
+     * @param bucketName  bucket名称
+     * @param objectName  文件名称
+     * @throws Exception https://docs.minio.io/cn/java-client-api-reference.html#statObject
+     */
+    public static StatObjectResponse getObjectInfo(MinioClient minIoClient, String bucketName, String objectName) throws Exception {
+        return minIoClient.statObject(StatObjectArgs.builder()
+                .bucket(bucketName)
+                .object(objectName)
+                .build());
     }
 }

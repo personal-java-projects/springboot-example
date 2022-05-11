@@ -1,9 +1,8 @@
-package com.example.pojo;
+package com.example.vto.dto;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Video implements Serializable {
+public class VideoDto {
     private int id;
 
     private int userId;
@@ -13,6 +12,8 @@ public class Video implements Serializable {
     private String videoName;
 
     private Integer videoId;
+
+    private String videoUrl;
 
     private String coverUrl;
 
@@ -78,6 +79,14 @@ public class Video implements Serializable {
 
     public void setVideoId(Integer videoId) {
         this.videoId = videoId;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
     }
 
     public String getCoverUrl() {
@@ -182,29 +191,5 @@ public class Video implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "Video{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", userNickname='" + userNickname + '\'' +
-                ", videoName='" + videoName + '\'' +
-                ", videoId=" + videoId +
-                ", coverUrl='" + coverUrl + '\'' +
-                ", category=" + category +
-                ", status=" + status +
-                ", audited=" + audited +
-                ", remark='" + remark + '\'' +
-                ", views=" + views +
-                ", stars=" + stars +
-                ", downloads=" + downloads +
-                ", duration=" + duration +
-                ", currentTime=" + currentTime +
-                ", publishTime=" + publishTime +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
     }
 }

@@ -34,8 +34,6 @@ public class MinioTemplate {
     @Resource
     OssProperties ossProperties;
 
-    private static final Logger logger = LoggerFactory.getLogger(RestExceptionHandler.class);
-
     /**
      * 查看存储bucket是否存在
      * @return boolean
@@ -94,6 +92,29 @@ public class MinioTemplate {
     @SneakyThrows
     public StatObjectResponse fileExited(String filename) {
         return customMinioClient.statObject(StatObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(filename).build());
+    }
+
+    /**
+     * 以流的形式获取一个文件对象
+     *
+     * @param bucketName 存储桶名称
+     * @param objectName 存储桶里的对象名称
+     * @return
+     */
+    @SneakyThrows
+    public InputStream getObject(String bucketName, String objectName) {
+        boolean flag = bucketExists(bucketName);
+        if (flag) {
+            StatObjectResponse statObject = customMinioClient.getObjectInfo(customMinioClient, bucketName, objectName);
+            if (statObject != null && statObject.size() > 0) {
+                return customMinioClient.getObject(GetObjectArgs.builder()
+                        .bucket(bucketName)
+                        .object(objectName)
+                        .build()
+                );
+            }
+        }
+        return null;
     }
 
     /**
