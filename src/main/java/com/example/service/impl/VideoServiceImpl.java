@@ -1,6 +1,5 @@
 package com.example.service.impl;
 
-import com.example.config.TranscodeConfig;
 import com.example.enums.CronType;
 import com.example.enums.ScheduleStatus;
 import com.example.enums.VideoStatus;
@@ -15,7 +14,6 @@ import com.example.schedule.ScheduleModel;
 import com.example.service.ScheduleService;
 import com.example.service.UploadService;
 import com.example.service.VideoService;
-import com.example.util.FFmpegUtil;
 import com.example.util.Time2CronUtil;
 import com.example.vto.dto.VideoDto;
 import com.example.vto.po2Dto.Video2Dto;
@@ -23,11 +21,6 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -148,33 +141,10 @@ public class VideoServiceImpl implements VideoService {
         List<Video> videos = videoMapper.selectVideoByKeyword(keyword);
         List<VideoDto> videoList = new ArrayList<>();
 
-        String videoFolder = "D:\\ffmpegVedio\\";
-
-        Path tempDir = Paths.get(System.getProperty("java.io.tmpdir"));
-
         for( Video video:videos ) {
             VideoDto videoDto = video2Dto.video2VideoDto(video);
             String fileUrl = uploadService.getFileUrl(video.getVideoId());
 
-            // 按照日期生成子目录
-            String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(LocalDate.now());
-
-            // 尝试创建视频目录
-            Path targetFolder = Files.createDirectories(Paths.get(videoFolder, today, videoDto.getVideoName()));
-
-            System.out.println("创建文件夹目录：{} " + targetFolder);
-            Files.createDirectories(targetFolder);
-
-            // 执行转码操作
-            System.out.println("开始转码");
-
-            TranscodeConfig transcodeConfig = new TranscodeConfig();
-            transcodeConfig.setCutEnd("");
-            transcodeConfig.setCutStart("");
-            transcodeConfig.setTsSeconds("15");
-            transcodeConfig.setPoster("00:00:00.001");
-
-            FFmpegUtil.transcodeToM3u8(fileUrl, targetFolder.toString(), transcodeConfig);
             videoDto.setVideoUrl(fileUrl);
 
             videoList.add(videoDto);
