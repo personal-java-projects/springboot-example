@@ -52,3 +52,6 @@ swagger:
   application-version: 1.0
   application-description: springfox swagger 3.0整合Demo
   try-host: http://localhost:${server.port}
+FFmpeg:
+  file-temp-dir: /file/temp
+  file-m3u8-dir: /file/m3u8

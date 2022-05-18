@@ -27,7 +27,7 @@ public class Task {
             scheduleService.changeScheduleStatus(taskId, ScheduleStatus.PAUSE.ordinal());
         }
 
-        if (video != null && video.getStatus().equals(VideoStatus.OF_SHELF.ordinal())) {
+        if (video != null && video.getStatus().equals(VideoStatus.OFF_SHELF.ordinal())) {
             video.setStatus(VideoStatus.ON_SHELF.ordinal());
             video.setUpdateTime(new Date());
 

@@ -8,5 +8,5 @@ public enum VideoStatus {
     /**
      * 下架
      */
-    OF_SHELF
+    OFF_SHELF
 }

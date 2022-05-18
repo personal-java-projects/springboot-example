@@ -75,4 +75,9 @@ schedule:
   # 配置线程池中的线程的名称前缀
   thread-name-prefix: async-service-
   thread-group-name: async-
+FFmpeg:
+  ffmpeg-win-path: /ffmpeg-win/bin/ffmpeg.exe
+  ffmpeg-linux-path: ffmpeg/ffmpeg
+  ffprobe-win-path: /ffmpeg-win/bin/ffprobe.exe
+  ffprobe-linux-path: ffmpeg/ffprobe
 

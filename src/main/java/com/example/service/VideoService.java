@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.ffmpeg.TranscodeConfig;
 import com.example.pojo.Video;
 import com.example.vto.dto.VideoDto;
 
@@ -14,6 +15,8 @@ public interface VideoService {
     boolean changeSelf(int id, int status);
 
     boolean deleteVideos(List<Integer> ids);
+
+    String convertVideo2M3u8(Video video, TranscodeConfig transcodeConfig);
 
     List<VideoDto> getVideoByKeyword(String keyword);
 }

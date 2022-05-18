@@ -3,6 +3,9 @@ package com.example.service.impl;
 import com.example.enums.CronType;
 import com.example.enums.ScheduleStatus;
 import com.example.enums.VideoStatus;
+import com.example.ffmpeg.FFmpegProperties;
+import com.example.ffmpeg.FFmpegUtils;
+import com.example.ffmpeg.TranscodeConfig;
 import com.example.mapper.FileMapper;
 import com.example.mapper.UserMapper;
 import com.example.mapper.VideoMapper;
@@ -18,15 +21,25 @@ import com.example.util.Time2CronUtil;
 import com.example.vto.dto.VideoDto;
 import com.example.vto.po2Dto.Video2Dto;
 import lombok.SneakyThrows;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Service("videoService")
 public class VideoServiceImpl implements VideoService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(VideoServiceImpl.class);
 
     @Autowired
     private Video2Dto video2Dto;
@@ -47,7 +60,10 @@ public class VideoServiceImpl implements VideoService {
     private FileMapper fileMapper;
 
     @Autowired
-    CronTaskRegistrar cronTaskRegistrar;
+    private CronTaskRegistrar cronTaskRegistrar;
+
+    @Autowired
+    private FFmpegProperties ffmpegProperties;
 
     @Override
     @SneakyThrows
@@ -57,24 +73,24 @@ public class VideoServiceImpl implements VideoService {
             video.setPublishTime(new Date());
         }
 
-        if (immediately == 0) {
-            video.setStatus(VideoStatus.ON_SHELF.ordinal());
-        }
-
-        if (immediately == 1) {
-            video.setStatus(VideoStatus.OF_SHELF.ordinal());
-        }
-
         User user = userMapper.selectUserById(video.getUserId());
 
         video.setCreateTime(new Date());
         video.setUpdateTime(new Date());
         video.setUserNickname(user.getNickname());
 
-        videoMapper.insertVideo(video);
+        if (immediately == 0) {
+            video.setStatus(VideoStatus.ON_SHELF.ordinal());
+
+            videoMapper.insertVideo(video);
+        }
 
         // 当属于定时发布
         if (immediately == 1) {
+            video.setStatus(VideoStatus.OFF_SHELF.ordinal());
+
+            videoMapper.insertVideo(video);
+            
             StringBuffer stringBuffer = new StringBuffer();
 
             ScheduleModel scheduleModel = new ScheduleModel();
@@ -90,7 +106,7 @@ public class VideoServiceImpl implements VideoService {
             String cronExpression = Time2CronUtil.createCronExpression(scheduleModel);
             schedule.setCronExpression(cronExpression);
             schedule.setStatus(ScheduleStatus.NORMAL.ordinal());
-            schedule.setRemark("定时发布视频："+video.getVideoName());
+            schedule.setRemark("定时发布视频：" + video.getVideoName() + "，备注：" + video.getRemark());
 
             int scheduleId = scheduleService.addSchedule(schedule);
 
@@ -137,6 +153,36 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     @SneakyThrows
+    public String convertVideo2M3u8(Video video, TranscodeConfig transcodeConfig) {
+        LOGGER.info("转码配置：{}", transcodeConfig);
+
+        // 原始文件名称，也就是视频的标题
+        String title = video.getVideoName();
+
+        // 按照日期生成子目录
+        String today = DateTimeFormatter.ofPattern("yyyyMMdd").format(LocalDate.now());
+
+        // 尝试创建视频目录
+        Path targetFolder = Files.createDirectories(Paths.get(FFmpegUtils.getProjectDir(), ffmpegProperties.getM3u8Dir(), today, title));
+
+        LOGGER.info("创建文件夹目录：{}", targetFolder);
+        Files.createDirectories(targetFolder);
+
+        // 执行转码操作
+        LOGGER.info("开始转码");
+        FFmpegUtils.transcodeToM3u8(uploadService.getFileUrl(video.getVideoId()), targetFolder.toString(), transcodeConfig);
+
+        // 封装结果
+        Map<String, Object> videoInfo = new HashMap<>();
+        videoInfo.put("title", title);
+        videoInfo.put("m3u8", String.join("/", "", today, title, "index.m3u8"));
+        videoInfo.put("poster", String.join("/", "", today, title, "poster.jpg"));
+
+        return null;
+    }
+
+    @Override
+    @SneakyThrows
     public List<VideoDto> getVideoByKeyword(String keyword) {
         List<Video> videos = videoMapper.selectVideoByKeyword(keyword);
         List<VideoDto> videoList = new ArrayList<>();
@@ -146,6 +192,12 @@ public class VideoServiceImpl implements VideoService {
             String fileUrl = uploadService.getFileUrl(video.getVideoId());
 
             videoDto.setVideoUrl(fileUrl);
+
+//            TranscodeConfig transcodeConfig = new TranscodeConfig();
+//            transcodeConfig.setPoster("00:10:00.000");
+//            transcodeConfig.setTsSeconds("1000");
+
+//            convertVideo2M3u8(video, transcodeConfig);
 
             videoList.add(videoDto);
         }
