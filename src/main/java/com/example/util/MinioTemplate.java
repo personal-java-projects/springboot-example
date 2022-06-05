@@ -1,11 +1,13 @@
 package com.example.util;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.config.OssProperties;
 import com.example.config.RestExceptionHandler;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import io.minio.*;
+import io.minio.errors.*;
 import io.minio.http.Method;
 import io.minio.messages.Part;
 import lombok.SneakyThrows;
@@ -17,7 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.io.InputStream;
+import java.io.*;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -29,10 +33,10 @@ import java.util.concurrent.TimeUnit;
 public class MinioTemplate {
 
     @Resource
-    CustomMinioClient customMinioClient;
+    private CustomMinioClient customMinioClient;
 
     @Resource
-    OssProperties ossProperties;
+    private OssProperties ossProperties;
 
     /**
      * 查看存储bucket是否存在
@@ -68,6 +72,15 @@ public class MinioTemplate {
         return true;
     }
 
+    /**
+     * 根据bucketname删除信息
+     *
+     * @param bucketname bucket名称
+     */
+    public void removeBucket(String bucketname)
+            throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
+        customMinioClient.removeBucket(RemoveBucketArgs.builder().bucket(bucketname).build());
+    }
 
     /**
      * 不存在存储桶，则新建一个
@@ -75,8 +88,8 @@ public class MinioTemplate {
     @PostConstruct
     public void init() {
         //方便管理分片文件，则单独创建一个分片文件的存储桶
-        if (!bucketExists(ossProperties.getChunkBucket())) {
-            makeBucket(ossProperties.getChunkBucket());
+        if (!bucketExists(ossProperties.getM3u8())) {
+            makeBucket(ossProperties.getM3u8());
         }
 
         if (!bucketExists(ossProperties.getDefaultBucket())) {
@@ -95,26 +108,16 @@ public class MinioTemplate {
     }
 
     /**
-     * 以流的形式获取一个文件对象
+     * 获取文件流
      *
-     * @param bucketName 存储桶名称
-     * @param objectName 存储桶里的对象名称
-     * @return
+     * @param bucket 存储桶名称
+     * @param objectName 文件名称
+     * @return 二进制流
      */
-    @SneakyThrows
-    public InputStream getObject(String bucketName, String objectName) {
-        boolean flag = bucketExists(bucketName);
-        if (flag) {
-            StatObjectResponse statObject = customMinioClient.getObjectInfo(customMinioClient, bucketName, objectName);
-            if (statObject != null && statObject.size() > 0) {
-                return customMinioClient.getObject(GetObjectArgs.builder()
-                        .bucket(bucketName)
-                        .object(objectName)
-                        .build()
-                );
-            }
-        }
-        return null;
+    public InputStream getObject(String bucket, String objectName)
+            throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
+        return customMinioClient
+                .getObject(GetObjectArgs.builder().bucket(bucket).object(objectName).build());
     }
 
     /**
@@ -197,6 +200,19 @@ public class MinioTemplate {
     }
 
     /**
+     * 获取存储桶策略
+     *
+     * @param bucketname 存储桶名称
+     * @return json
+     */
+    private JSONObject getBucketPolicy(String bucketname)
+            throws IOException, InvalidKeyException, InvalidResponseException, BucketPolicyTooLargeException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, InsufficientDataException, ErrorResponseException {
+        String bucketPolicy = customMinioClient
+                .getBucketPolicy(GetBucketPolicyArgs.builder().bucket(bucketname).build());
+        return JSONObject.parseObject(bucketPolicy);
+    }
+
+    /**
      * 文件上传
      * @param file 文件
      * @return Boolean
@@ -209,7 +225,7 @@ public class MinioTemplate {
         String fullPath = dirName + file.getOriginalFilename();
 
         PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(fullPath)
-                .stream(file.getInputStream(),file.getSize(),-1).contentType(file.getContentType()).build();
+                .stream(file.getInputStream(), file.getSize(),-1).contentType(file.getContentType()).build();
 
         //文件名称相同会覆盖
         customMinioClient.putObject(objectArgs);
@@ -218,25 +234,99 @@ public class MinioTemplate {
     }
 
     /**
+     * 使用putObject上传一个文件到文件分类
+     *
+     * @param fileName ： 文件名
+     * @param stream   ： 文件流
+     * @throws Exception ： 异常
+     */
+    @SneakyThrows
+    public void upload(String fileName, InputStream stream) throws IOException {
+        PutObjectArgs objectArgs = PutObjectArgs.builder().bucket(ossProperties.getM3u8()).object(fileName)
+                .stream(stream, stream.available(), -1).build();
+
+        //文件名称相同会覆盖
+        customMinioClient.putObject(objectArgs);
+    }
+
+    /**
+     * 上传本地文件
+     *
+     * @param bucketname 存储桶
+     * @param objectName 对象名称
+     * @param fileName 本地文件路径
+     */
+    public ObjectWriteResponse putObject(String bucketname, String objectName,
+                                                String fileName)
+            throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
+        return customMinioClient.uploadObject(
+                UploadObjectArgs.builder()
+                        .bucket(bucketname).object(objectName).filename(fileName).build());
+    }
+
+    /**
+     * 创建文件夹或目录
+     *
+     * @param bucketname 存储桶
+     * @param objectName 目录路径
+     */
+    public ObjectWriteResponse putDirObject(String bucketname, String objectName)
+            throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
+        return customMinioClient.putObject(
+                PutObjectArgs.builder().bucket(bucketname).object(objectName).stream(
+                                new ByteArrayInputStream(new byte[]{}), 0, -1)
+                        .build());
+    }
+
+    /**
      * 预览
      * @param fileName 是上传图片的fullPath=>eg:2021-12/27/typora-setup-x64.exe
      * @return
      */
     @SneakyThrows
-    public String preview(String fileName) {
-        customMinioClient.statObject(StatObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(fileName).build());
+    public String preview(String bucket, String fileName) {
+        customMinioClient.statObject(StatObjectArgs.builder().bucket(bucket).object(fileName).build());
 
-        return customMinioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().method(Method.GET).bucket(ossProperties.getDefaultBucket()).expiry(7, TimeUnit.DAYS).object(fileName).build());
+        return customMinioClient.getPresignedObjectUrl(GetPresignedObjectUrlArgs.builder().method(Method.GET).bucket(bucket).expiry(7, TimeUnit.DAYS).object(fileName).build());
     }
 
-    @SneakyThrows
-    public void MultipartDownload(String filename) {
-        StatObjectResponse file = fileExited(filename);
+    /**
+     * 断点下载
+     *
+     * @param bucket bucket名称
+     * @param objectName 文件名称
+     * @param offset 起始字节的位置
+     * @param length 要读取的长度
+     * @return 流
+     */
+    public InputStream getObject(String bucket, String objectName, long offset, long length)
+            throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
+        return customMinioClient.getObject(
+                GetObjectArgs.builder().bucket(bucket).object(objectName).offset(offset).length(length)
+                        .build());
+    }
 
-        if (file != null) {
-            InputStream stream = customMinioClient.getObject(GetObjectArgs.builder().bucket(ossProperties.getDefaultBucket()).object(filename).offset(1024L).length(4096L).build());
+    /**
+     * 获取文件信息, 如果抛出异常则说明文件不存在
+     *
+     * @param bucketname bucket名称
+     * @param objectName 文件名称
+     */
+    public StatObjectResponse statObject(String bucketname, String objectName)
+            throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
+        return customMinioClient
+                .statObject(StatObjectArgs.builder().bucket(bucketname).object(objectName).build());
+    }
 
-            System.out.println("input: " + file.size() + "->");
-        }
+    /**
+     * 删除文件
+     *
+     * @param bucketname bucket名称
+     * @param objectName 文件名称
+     */
+    public void removeObject(String bucketname, String objectName)
+            throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
+        customMinioClient
+                .removeObject(RemoveObjectArgs.builder().bucket(bucketname).object(objectName).build());
     }
 }

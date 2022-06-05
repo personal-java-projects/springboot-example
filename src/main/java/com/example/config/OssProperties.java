@@ -28,8 +28,8 @@ public class OssProperties {
     /**
      * 分片存储桶
      */
-    @Value("${minio.bucket.chunk}")
-    private String chunkBucket;
+    @Value("${minio.bucket.m3u8}")
+    private String m3u8;
 
     /**
      * @program: simple-demo

@@ -39,7 +39,8 @@ public interface UploadService {
      */
     Map<String, Object> mergeFile(int userId, String md5, String bucketName, String objectName, String uploadId, int chunkCount) throws ServerException, InsufficientDataException, ErrorResponseException, NoSuchAlgorithmException, IOException, InvalidKeyException, XmlParserException, InvalidResponseException, InternalException;
 
+    Map<String, Object> insertFileInfo2Database(int userId, String md5, String objectName, int chunkCount, String fileUrl);
     String getFileUrl(int id);
 
-    void createMultipartDownload(String filename);
+    FilePO getFileById(int id);
 }

@@ -132,7 +132,7 @@ public class FFmpegUtils {
 	 * @throws IOException 
 	 * @throws InterruptedException 
 	 */
-	public static void transcodeToM3u8(String source, String destFolder, TranscodeConfig config) throws IOException, InterruptedException {
+	public static void transcodeToM3u8(String filename, String source, String destFolder, TranscodeConfig config) throws IOException, InterruptedException {
 		
 //		// 判断源视频是否存在
 //		if (!Files.exists(Paths.get(source))) {
@@ -145,17 +145,23 @@ public class FFmpegUtils {
 		
 		// 在工作目录生成KeyInfo文件
 		Path keyInfo = genKeyInfo(workDir.toString());
+
+		String m3u8FileName = filename + ".m3u8";
 		
 		// 构建命令
 		List<String> commands = new ArrayList<>();
 		commands.add(getFFmpegPath());
 		commands.add("-i")						;commands.add(source);					// 源文件
+		commands.add("-preset")                 ;commands.add("ultrafast");
+		commands.add("-vsync")					;commands.add("2");
 		commands.add("-c:v")					;commands.add("libx264");				// 视频编码为H264
 		commands.add("-c:a")					;commands.add("copy");					// 音频直接copy
+		commands.add("-tune")					;commands.add("fastdecode");
 		commands.add("-hls_key_info_file")		;commands.add(keyInfo.toString());		// 指定密钥文件路径
-		commands.add("-hls_time")				;commands.add(config.getTsSeconds());	// ts切片大小
+		commands.add("-hls_time")				;commands.add(config.getTsSeconds().toString());	// ts切片大小
 		commands.add("-hls_playlist_type")		;commands.add("vod");					// 点播模式
 		commands.add("-hls_segment_filename")	;commands.add("%06d.ts");				// ts切片文件名称
+		commands.add("-threads")                ;commands.add("12");                     // 多线程转码
 		
 		if (StringUtils.hasText(config.getCutStart())) {
 			commands.add("-ss")					;commands.add(config.getCutStart());	// 开始时间
@@ -163,7 +169,7 @@ public class FFmpegUtils {
 		if (StringUtils.hasText(config.getCutEnd())) {
 			commands.add("-to")					;commands.add(config.getCutEnd());		// 结束时间
 		}
-		commands.add("index.m3u8");														// 生成m3u8文件
+		commands.add(m3u8FileName);														// 生成m3u8文件
 		
 		// 构建进程
 		Process process = new ProcessBuilder()
@@ -201,7 +207,7 @@ public class FFmpegUtils {
 		}
 		
 		// 切出封面
-		if (!screenShots(source, String.join(File.separator, destFolder, "poster.jpg"), config.getPoster())) {
+		if (!screenShots(source, String.join(File.separator, destFolder, "ts/poster.jpg"), config.getPoster())) {
 			throw new RuntimeException("封面截取异常");
 		}
 		
@@ -212,10 +218,12 @@ public class FFmpegUtils {
 		}
 		
 		// 生成index.m3u8文件
-		genIndex(String.join(File.separator, destFolder, "index.m3u8"), "ts/index.m3u8", mediaInfo.getFormat().getBitRate());
+		genIndex(String.join(File.separator, destFolder, m3u8FileName), "ts/" + m3u8FileName, mediaInfo.getFormat().getBitRate());
 		
 		// 删除keyInfo文件
 		Files.delete(keyInfo);
+		// 删除ts外部的m3u8文件
+		Files.delete(Paths.get(destFolder + "/" + m3u8FileName));
 	}
 	
 	/**

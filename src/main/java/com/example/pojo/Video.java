@@ -14,9 +14,13 @@ public class Video implements Serializable {
 
     private Integer videoId;
 
+    private Integer m3u8Id;
+
     private String coverUrl;
 
     private int category;
+
+    private int transcoded;
 
     private Integer status;
 
@@ -80,6 +84,14 @@ public class Video implements Serializable {
         this.videoId = videoId;
     }
 
+    public Integer getM3u8Id() {
+        return m3u8Id;
+    }
+
+    public void setM3u8Id(Integer m3u8Id) {
+        this.m3u8Id = m3u8Id;
+    }
+
     public String getCoverUrl() {
         return coverUrl;
     }
@@ -94,6 +106,14 @@ public class Video implements Serializable {
 
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    public int getTranscoded() {
+        return transcoded;
+    }
+
+    public void setTranscoded(int transcoded) {
+        this.transcoded = transcoded;
     }
 
     public Integer getStatus() {
@@ -192,8 +212,10 @@ public class Video implements Serializable {
                 ", userNickname='" + userNickname + '\'' +
                 ", videoName='" + videoName + '\'' +
                 ", videoId=" + videoId +
+                ", videoUrl='" + m3u8Id + '\'' +
                 ", coverUrl='" + coverUrl + '\'' +
                 ", category=" + category +
+                ", transcoded=" + transcoded +
                 ", status=" + status +
                 ", audited=" + audited +
                 ", remark='" + remark + '\'' +

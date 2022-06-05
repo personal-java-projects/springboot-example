@@ -6,6 +6,7 @@ server:
 spring:
   main:
     banner-mode: "console"
+    allow-bean-definition-overriding: true
   profiles:
     active: @activatedProperties@ # 这里引用的是pom.xml中配置的key，@activatedProperties@ 中内如必须与 profile=>properties=> activatedProperties节点一致
   jackson:

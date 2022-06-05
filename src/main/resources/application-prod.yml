@@ -45,8 +45,8 @@ minio:
   bucket:
     # 文件存储桶
     bucketName: file
-    # 分片存储桶
-    chunk: chunk
+    # 转码文件存储桶
+    m3u8: m3u8
 # swagger配置
 swagger:
   enable: false # 生产环境不能访问swagger

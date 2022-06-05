@@ -53,6 +53,19 @@ public class HttpClientComponent {
     }
 
     /**
+     * 将URLDecoder编码转成UTF8
+     *
+     * @param str
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    public static String getUtf8ByURLDecoder(String str) throws UnsupportedEncodingException {
+        String url = str.replaceAll("%(?![0-9a-fA-F]{2})", "%25");
+
+        return URLDecoder.decode(url, "UTF-8");
+    }
+
+    /**
      * httpClient的get请求方式
      * 使用GetMethod来访问一个URL对应的网页实现步骤：
      * 1.生成一个HttpClient对象并设置相应的参数；

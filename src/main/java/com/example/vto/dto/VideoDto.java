@@ -15,9 +15,13 @@ public class VideoDto {
 
     private String videoUrl;
 
+    private String m3u8Url;
+
     private String coverUrl;
 
     private int category;
+
+    private int transcoded;
 
     private Integer status;
 
@@ -89,6 +93,14 @@ public class VideoDto {
         this.videoUrl = videoUrl;
     }
 
+    public String getM3u8Url() {
+        return m3u8Url;
+    }
+
+    public void setM3u8Url(String m3u8Url) {
+        this.m3u8Url = m3u8Url;
+    }
+
     public String getCoverUrl() {
         return coverUrl;
     }
@@ -103,6 +115,14 @@ public class VideoDto {
 
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    public int getTranscoded() {
+        return transcoded;
+    }
+
+    public void setTranscoded(int transcoded) {
+        this.transcoded = transcoded;
     }
 
     public Integer getStatus() {

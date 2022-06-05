@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import cn.hutool.core.date.DateTime;
 import com.example.config.OssProperties;
+import com.example.enums.UploadStatus;
 import com.example.mapper.FileMapper;
 import com.example.pojo.FilePO;
 import com.example.service.UploadService;
@@ -27,9 +28,6 @@ import java.util.Map;
 
 @Service("uploadService")
 public class UploadServiceImpl implements UploadService {
-
-    // 上传成功
-    private int UPLOAD_SUCCESS_STATUS = 0;
 
     @Autowired
     private FileMapper fileMapper;
@@ -78,25 +76,25 @@ public class UploadServiceImpl implements UploadService {
 
         fileUrl = ossProperties.getEndpoint() + "/" + ossProperties.getDefaultBucket() + "/" + fullPath;
 
-        FilePO currentFile = new FilePO();
-
-        currentFile.setUploadStatus(UPLOAD_SUCCESS_STATUS);
-        currentFile.setFileName(file.getOriginalFilename());
-        currentFile.setUploadUrl(fileUrl);
-        currentFile.setSuffix(suffix);
-        currentFile.setFileMd5(DigestUtils.md5DigestAsHex(file.getInputStream()));
-        currentFile.setChunkCount(1);
-        currentFile.setUserId(userId);
-        currentFile.setExpireTime(0L);
-        currentFile.setCreateTime(new Timestamp(currentDateTime));
-        currentFile.setUpdateTime(new Timestamp(currentDateTime));
+//        FilePO currentFile = new FilePO();
+//
+//        currentFile.setUploadStatus(UploadStatus.UPLOAD_SUCCESS.ordinal());
+//        currentFile.setFileName(file.getOriginalFilename());
+//        currentFile.setUploadUrl(fileUrl);
+//        currentFile.setSuffix(suffix);
+//        currentFile.setFileMd5(DigestUtils.md5DigestAsHex(file.getInputStream()));
+//        currentFile.setChunkCount(1);
+//        currentFile.setUserId(userId);
+//        currentFile.setExpireTime(0L);
+//        currentFile.setCreateTime(new Timestamp(currentDateTime));
+//        currentFile.setUpdateTime(new Timestamp(currentDateTime));
 
         //保存到数据库中
-        fileMapper.insertFile(currentFile);
+//        fileMapper.insertFile(currentFile);
 
-        System.out.println("file: " + file);
+//        System.out.println("file: " + file);
 
-        return fileUrl;
+        return insertFileInfo2Database(userId, DigestUtils.md5DigestAsHex(file.getInputStream()), file.getOriginalFilename(), 0, fileUrl).get("fileUrl").toString();
     }
 
     @Override
@@ -108,40 +106,77 @@ public class UploadServiceImpl implements UploadService {
     }
 
     @Override
-    public Map<String, Object> mergeFile(int userId, String md5, String bucketName, String objectName, String uploadId, int chunkCount) throws UnsupportedEncodingException {
-        ObjectWriteResponse mergedFile = minioTemplate.mergeMultipartUpload(bucketName, objectName, uploadId);
-
-        String fileUrl = minioTemplate.preview(mergedFile.object());
-
-        Long currentDateTime = new Date().getTime();
+    @SneakyThrows
+    public Map<String, Object> insertFileInfo2Database(int userId, String md5, String filename, int chunkCount, String fileUrl) {
 
         //自定义文件名称
-        String suffix = objectName.substring(objectName.lastIndexOf("."));
+        String suffix = filename.substring(filename.lastIndexOf("."));
         FilePO currentFile = new FilePO();
 
         // 将文件信息存储到数据库中
-        currentFile.setUploadStatus(UPLOAD_SUCCESS_STATUS);
-        currentFile.setFileName(objectName);
+        currentFile.setUploadStatus(UploadStatus.UPLOAD_SUCCESS.ordinal());
+        currentFile.setFileName(filename);
         currentFile.setUploadUrl(fileUrl);
         currentFile.setSuffix(suffix);
         currentFile.setFileMd5(md5);
         currentFile.setChunkCount(chunkCount);
         currentFile.setUserId(userId);
-        currentFile.setExpireTime(handleFileExpireTime(fileUrl));
-        currentFile.setCreateTime(new Timestamp(currentDateTime));
-        currentFile.setUpdateTime(new Timestamp(currentDateTime));
+        if (HttpClientComponent.getParameter(fileUrl).get("X-Amz-Expires") != null) {
+            currentFile.setExpireTime(handleFileExpireTime(fileUrl));
+        } else {
+            currentFile.setExpireTime(0L);
+        }
+        currentFile.setCreateTime(new Timestamp(new Date().getTime()));
+        currentFile.setUpdateTime(new Timestamp(new Date().getTime()));
 
         //保存到数据库中
-         fileMapper.insertFile(currentFile);
-
-         int fileId = currentFile.getId();
+        fileMapper.insertFile(currentFile);
 
         Map<String, Object> result = new HashMap<>();
+
+        int fileId = currentFile.getId();
 
         result.put("id", fileId);
         result.put("fileUrl", fileUrl);
 
         return result;
+    }
+
+    @Override
+    public Map<String, Object> mergeFile(int userId, String md5, String bucketName, String objectName, String uploadId, int chunkCount) throws UnsupportedEncodingException {
+        ObjectWriteResponse mergedFile = minioTemplate.mergeMultipartUpload(bucketName, objectName, uploadId);
+
+        String fileUrl = minioTemplate.preview(bucketName, mergedFile.object());
+
+//        Long currentDateTime = new Date().getTime();
+//
+//        //自定义文件名称
+//        String suffix = objectName.substring(objectName.lastIndexOf("."));
+//        FilePO currentFile = new FilePO();
+//
+//        // 将文件信息存储到数据库中
+//        currentFile.setUploadStatus(UploadStatus.UPLOAD_SUCCESS.ordinal());
+//        currentFile.setFileName(objectName);
+//        currentFile.setUploadUrl(fileUrl);
+//        currentFile.setSuffix(suffix);
+//        currentFile.setFileMd5(md5);
+//        currentFile.setChunkCount(chunkCount);
+//        currentFile.setUserId(userId);
+//        currentFile.setExpireTime(handleFileExpireTime(fileUrl));
+//        currentFile.setCreateTime(new Timestamp(currentDateTime));
+//        currentFile.setUpdateTime(new Timestamp(currentDateTime));
+//
+//        //保存到数据库中
+//         fileMapper.insertFile(currentFile);
+//
+//         int fileId = currentFile.getId();
+//
+//        Map<String, Object> result = new HashMap<>();
+//
+//        result.put("id", fileId);
+//        result.put("fileUrl", fileUrl);
+
+        return insertFileInfo2Database(userId, md5, objectName, 0, fileUrl);
     }
 
     @Override
@@ -152,7 +187,7 @@ public class UploadServiceImpl implements UploadService {
 
         // 链接过期,重新生成访问链接，并更新过期时间
         if (exitedFile.getExpireTime() < currentDateTime) {
-            String fileUrl = minioTemplate.preview(exitedFile.getFileName());
+            String fileUrl = minioTemplate.preview(ossProperties.getDefaultBucket(),exitedFile.getFileName());
             exitedFile.setUploadUrl(fileUrl);
             exitedFile.setExpireTime(handleFileExpireTime(fileUrl));
             exitedFile.setUpdateTime(new Timestamp(currentDateTime));
@@ -166,7 +201,7 @@ public class UploadServiceImpl implements UploadService {
     }
 
     @Override
-    public void createMultipartDownload(String filename) {
-        minioTemplate.MultipartDownload(filename);
+    public FilePO getFileById(int id) {
+        return fileMapper.selectFileById(id);
     }
 }

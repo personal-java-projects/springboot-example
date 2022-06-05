@@ -80,12 +80,4 @@ public class MinioController {
 
         return ResponseResult.ok().data(resultMap);
     }
-
-    @GetMapping("/createMultipartDownload")
-    public ResponseResult createMultipartDownload(@RequestParam String filename) {
-
-        uploadService.createMultipartDownload(filename);
-
-        return ResponseResult.ok();
-    }
 }
