@@ -31,7 +31,7 @@
         <include refid="selectAllProperties"></include>
         <where>
             <if test="keyword != null and keyword != ''">
-                upper (concat(videoName, userNickname )) LIKE upper (concat('%',#{keyWord},'%'))
+                upper (concat(videoName, userNickname )) LIKE upper (concat('%',#{keyword},'%'))
             </if>
         </where>
     </select>
